@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BDE
 {
-    public class Class1
+    public class BDE_Admin : BDE_Person
     {
 
     }

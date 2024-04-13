@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BDE
 {
-    public class Class1
+    internal class BDE_Deliveryman : BDE_Employer
     {
-
     }
 }

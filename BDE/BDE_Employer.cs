@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    public class Class1
+    internal class BDE_Employer : BDE_Person
     {
     }
 }
