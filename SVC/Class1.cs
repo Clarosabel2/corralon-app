@@ -1,7 +1,12 @@
-﻿namespace SVC
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SVC
 {
     public class Class1
     {
-
     }
 }

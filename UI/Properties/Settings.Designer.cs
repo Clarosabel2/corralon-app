@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace corralon_app.Properties
+namespace UI.Properties
 {
 
 
