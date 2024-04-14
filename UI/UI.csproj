@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClient.Designer.cs">
+      <DependentUpon>FormClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,12 @@
     </Compile>
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecoverPss.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecoverPss.Designer.cs">
+      <DependentUpon>FormRecoverPss.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUser.cs">
       <SubType>Form</SubType>

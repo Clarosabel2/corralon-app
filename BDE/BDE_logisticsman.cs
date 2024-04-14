@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    internal class BDE_logisticsman:BDE_Employer
+    public class BDE_logisticsman : BDE_Employer
     {
+        public BDE_logisticsman(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+        {
+
+        }
     }
 }

@@ -8,25 +8,26 @@ namespace BDE
 {
     public abstract class BDE_Person
     {
-        private int id;
-        private String name;
-        private String surname;
-        private String email;
-        private String password;
 
-        public BDE_Person() { }
-        public BDE_Person(int id, string name, string surname, String email, string password)
+        private int _dni;
+        private String _name;
+        private String _surname;
+        private String _email;
+        private String _password;
+
+        public BDE_Person(int dni, string name, string surname, String email, string password)
         {
-            this.id = id;
-            this.name = name;
-            this.surname = surname;
-            this.email = email;
-            this.password = password;
+            this._dni = dni;
+            this._name = name;
+            this._surname = surname;
+            this._email = email;
+            this._password = password;
         }
 
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        public int Dni { get => _dni; set => _dni = value; }
+        public string Name { get => _name; set => _name = value; }
+        public string Surname { get => _surname; set => _surname = value; }
+        public string Email { get => _email; set => _email = value; }
+        public string Password { get => _password; set => _password = value; }
     }
 }

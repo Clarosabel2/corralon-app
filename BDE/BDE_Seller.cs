@@ -8,5 +8,8 @@ namespace BDE
 {
     internal class BDE_Seller : BDE_Employer
     {
+        public BDE_Seller(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+        {
+        }
     }
 }

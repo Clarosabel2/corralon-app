@@ -47,8 +47,10 @@
     <Compile Include="BDE_Client.cs" />
     <Compile Include="BDE_Deliveryman.cs" />
     <Compile Include="BDE_Employer.cs" />
+    <Compile Include="BDE_Invoice.cs" />
     <Compile Include="BDE_logisticsman.cs" />
     <Compile Include="BDE_Person.cs" />
+    <Compile Include="BDE_Product.cs" />
     <Compile Include="BDE_Seller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
