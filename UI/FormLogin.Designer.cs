@@ -60,14 +60,15 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(31, 245);
+            this.label2.Location = new System.Drawing.Point(1, 245);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 38);
+            this.label2.Size = new System.Drawing.Size(196, 38);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Corralon";
+            this.label2.Text = "CORRALON";
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.logo_corralon;
             this.pictureBox1.Location = new System.Drawing.Point(30, 74);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 151);
