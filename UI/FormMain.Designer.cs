@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelInterface = new System.Windows.Forms.Panel();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnChangeLenguage = new System.Windows.Forms.Button();
             this.btnData = new System.Windows.Forms.Button();
@@ -41,20 +40,21 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.lblDateTime = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimized = new System.Windows.Forms.PictureBox();
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.btnMaximized = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelBarraTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximized)).BeginInit();
@@ -82,17 +82,6 @@
             this.panelInterface.Name = "panelInterface";
             this.panelInterface.Size = new System.Drawing.Size(795, 622);
             this.panelInterface.TabIndex = 2;
-            // 
-            // pictureBoxLogo
-            // 
-            this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
-            this.pictureBoxLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.InitialImage")));
-            this.pictureBoxLogo.Location = new System.Drawing.Point(273, 165);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(217, 203);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 11;
-            this.pictureBoxLogo.TabStop = false;
             // 
             // panelMenu
             // 
@@ -198,7 +187,7 @@
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblEmail.Location = new System.Drawing.Point(79, 88);
+            this.lblEmail.Location = new System.Drawing.Point(90, 88);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(35, 16);
             this.lblEmail.TabIndex = 11;
@@ -209,7 +198,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblName.Location = new System.Drawing.Point(79, 59);
+            this.lblName.Location = new System.Drawing.Point(90, 57);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(50, 16);
             this.lblName.TabIndex = 10;
@@ -220,19 +209,11 @@
             this.lblPosition.AutoSize = true;
             this.lblPosition.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPosition.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblPosition.Location = new System.Drawing.Point(79, 32);
+            this.lblPosition.Location = new System.Drawing.Point(90, 32);
             this.lblPosition.Name = "lblPosition";
             this.lblPosition.Size = new System.Drawing.Size(43, 16);
             this.lblPosition.TabIndex = 9;
             this.lblPosition.Text = "Puesto";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(61, 72);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
             // 
             // btnLogout
             // 
@@ -276,6 +257,27 @@
             this.lblDateTime.Size = new System.Drawing.Size(58, 16);
             this.lblDateTime.TabIndex = 12;
             this.lblDateTime.Text = "DateTime";
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Image = global::UI.Properties.Resources.logo_corralon;
+            this.pictureBoxLogo.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.InitialImage")));
+            this.pictureBoxLogo.Location = new System.Drawing.Point(326, 188);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(170, 151);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 11;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.alexander_hipp_iEEBWgY_6lA_unsplash;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(72, 72);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
             // 
             // btnMinimized
             // 
@@ -331,12 +333,12 @@
             this.Text = "FormMain";
             this.panelForms.ResumeLayout(false);
             this.panelInterface.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelBarraTitulo.ResumeLayout(false);
             this.panelBarraTitulo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimized)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnReset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximized)).EndInit();

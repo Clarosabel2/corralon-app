@@ -63,6 +63,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alexander_hipp_iEEBWgY_6lA_unsplash {
+            get {
+                object obj = ResourceManager.GetObject("alexander-hipp-iEEBWgY_6lA-unsplash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_corralon {
             get {
                 object obj = ResourceManager.GetObject("logo-corralon", resourceCulture);

@@ -109,7 +109,6 @@
             this.btnSave.TabIndex = 17;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = false;
-           
             // 
             // btnCancel
             // 
@@ -128,7 +127,6 @@
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
-            
             // 
             // lnkEditPassword
             // 
@@ -141,7 +139,6 @@
             this.lnkEditPassword.TabIndex = 15;
             this.lnkEditPassword.TabStop = true;
             this.lnkEditPassword.Text = "Editar";
-            
             // 
             // txtCurrentPassword
             // 
@@ -407,17 +404,18 @@
             this.lnkEditProfile.TabIndex = 12;
             this.lnkEditProfile.TabStop = true;
             this.lnkEditProfile.Text = "Editar Perfil";
-            
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.alexander_hipp_iEEBWgY_6lA_unsplash;
             this.pictureBox1.Location = new System.Drawing.Point(33, 97);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
-            // FormsUserProfile
+            // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -436,9 +434,8 @@
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblTittle);
             this.Controls.Add(this.panel1);
-            this.Name = "FormsUserProfile";
+            this.Name = "FormUserProfile";
             this.Text = "d";
-            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

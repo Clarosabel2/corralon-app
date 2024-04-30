@@ -78,6 +78,9 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUserProfile.resx">
+      <DependentUpon>FormUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -113,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo-corralon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alexander-hipp-iEEBWgY_6lA-unsplash.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
