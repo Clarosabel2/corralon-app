@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    internal class BDE_Invoice
+    internal class BDE_Factura
     {
         private int _id;
         private char _tipo;
@@ -15,7 +15,7 @@ namespace BDE
         private BDE_Producto[] _productos;
         private double _total;
 
-        public BDE_Invoice(int id, char type, BDE_Cliente client, BDE_Producto[] products, double total)
+        public BDE_Factura(int id, char type, BDE_Cliente client, BDE_Producto[] products, double total)
         {
             this._id = id;
             this._tipo = type;

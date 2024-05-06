@@ -63,6 +63,26 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1492790945_39minimize_84242 {
+            get {
+                object obj = ResourceManager.GetObject("1492790945-39minimize_84242", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _4115230_cancel_close_cross_delete_114048 {
+            get {
+                object obj = ResourceManager.GetObject("4115230-cancel-close-cross-delete_114048", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap alexander_hipp_iEEBWgY_6lA_unsplash {
             get {
                 object obj = ResourceManager.GetObject("alexander-hipp-iEEBWgY_6lA-unsplash", resourceCulture);
@@ -73,9 +93,29 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo_bss {
+            get {
+                object obj = ResourceManager.GetObject("logo-bss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_corralon {
             get {
                 object obj = ResourceManager.GetObject("logo-corralon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minus_111123 {
+            get {
+                object obj = ResourceManager.GetObject("minus_111123", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

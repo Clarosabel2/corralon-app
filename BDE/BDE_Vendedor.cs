@@ -10,6 +10,7 @@ namespace BDE
     {
         public BDE_Vendedor(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
         {
+
         }
     }
 }

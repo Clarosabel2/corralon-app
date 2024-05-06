@@ -47,7 +47,7 @@
     <Compile Include="BDE_Cliente.cs" />
     <Compile Include="BDE_Repartidor.cs" />
     <Compile Include="BDE_Empleado.cs" />
-    <Compile Include="BDE_Invoice.cs" />
+    <Compile Include="BDE_Factura.cs" />
     <Compile Include="BDE_OperadorLogistica.cs" />
     <Compile Include="BDE_Persona.cs" />
     <Compile Include="BDE_Producto.cs" />

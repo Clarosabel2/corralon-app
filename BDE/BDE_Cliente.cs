@@ -9,7 +9,7 @@ namespace BDE
     internal class BDE_Cliente : BDE_Persona
     {
         private String _adress;
-        private List<BDE_Invoice> _invoices;
+        private List<BDE_Factura> _invoices;
         public BDE_Cliente(int dni, string name, string surname, string email, string password, string adress) : base(dni, name, surname, email, password)
         {
             this._adress = adress;

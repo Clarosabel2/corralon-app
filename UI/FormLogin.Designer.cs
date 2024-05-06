@@ -68,7 +68,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::UI.Properties.Resources.logo_corralon;
+            this.pictureBox1.Image = global::UI.Properties.Resources.logo_bss;
             this.pictureBox1.Location = new System.Drawing.Point(30, 74);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(151, 151);
