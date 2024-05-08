@@ -16,26 +16,5 @@ namespace UI
         {
             InitializeComponent();
         }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            timerDate.Start();
-        }
-
-        private void timerDate_Tick(object sender, EventArgs e)
-        {
-            lblDateTime.Text = DateTime.Now.ToString();
-
-        }
-
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
     }
 }
