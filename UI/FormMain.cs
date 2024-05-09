@@ -57,6 +57,10 @@ namespace UI
             lnkMyProfile.LinkVisited = true;
             OpenForms<FormUserProfile>();
         }
+        private void btnCrearVenta_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormCrearVenta>();
+        }
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
             Form frm;
@@ -80,6 +84,10 @@ namespace UI
             {
                 lnkMyProfile.LinkVisited = false;
             }
+            if (Application.OpenForms["FormCrearVenta"] == null) {
+                btnCrearVenta.BackColor = Color.FromArgb(4, 41, 68);
+            }
         }
+
     }
 }

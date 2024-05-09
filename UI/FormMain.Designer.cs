@@ -34,7 +34,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.btnChangeLenguage = new System.Windows.Forms.Button();
-            this.btnData = new System.Windows.Forms.Button();
+            this.btnCrearVenta = new System.Windows.Forms.Button();
             this.btnSetting = new System.Windows.Forms.Button();
             this.btnRegister = new System.Windows.Forms.Button();
             this.lnkMyProfile = new System.Windows.Forms.LinkLabel();
@@ -98,7 +98,7 @@
             // 
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.panelMenu.Controls.Add(this.btnChangeLenguage);
-            this.panelMenu.Controls.Add(this.btnData);
+            this.panelMenu.Controls.Add(this.btnCrearVenta);
             this.panelMenu.Controls.Add(this.btnSetting);
             this.panelMenu.Controls.Add(this.btnRegister);
             this.panelMenu.Controls.Add(this.lnkMyProfile);
@@ -130,22 +130,23 @@
             this.btnChangeLenguage.Text = "SP";
             this.btnChangeLenguage.UseVisualStyleBackColor = false;
             // 
-            // btnData
+            // btnCrearVenta
             // 
-            this.btnData.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnData.FlatAppearance.BorderSize = 0;
-            this.btnData.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnData.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnData.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnData.ForeColor = System.Drawing.Color.Silver;
-            this.btnData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnData.Location = new System.Drawing.Point(3, 147);
-            this.btnData.Name = "btnData";
-            this.btnData.Size = new System.Drawing.Size(241, 65);
-            this.btnData.TabIndex = 0;
-            this.btnData.Text = "Crear Venta";
-            this.btnData.UseVisualStyleBackColor = true;
+            this.btnCrearVenta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCrearVenta.FlatAppearance.BorderSize = 0;
+            this.btnCrearVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnCrearVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnCrearVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCrearVenta.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearVenta.ForeColor = System.Drawing.Color.Silver;
+            this.btnCrearVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCrearVenta.Location = new System.Drawing.Point(3, 147);
+            this.btnCrearVenta.Name = "btnCrearVenta";
+            this.btnCrearVenta.Size = new System.Drawing.Size(241, 65);
+            this.btnCrearVenta.TabIndex = 0;
+            this.btnCrearVenta.Text = "Crear Venta";
+            this.btnCrearVenta.UseVisualStyleBackColor = true;
+            this.btnCrearVenta.Click += new System.EventHandler(this.btnCrearVenta_Click);
             // 
             // btnSetting
             // 
@@ -377,7 +378,7 @@
         private System.Windows.Forms.PictureBox btnMinimized;
         private System.Windows.Forms.Button btnSetting;
         private System.Windows.Forms.Button btnRegister;
-        private System.Windows.Forms.Button btnData;
+        private System.Windows.Forms.Button btnCrearVenta;
         private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblName;
