@@ -16,5 +16,15 @@ namespace UI
         {
             InitializeComponent();
         }
+
+        private void lnkEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            panelEditProfile.Visible = true;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            panelEditProfile.Visible=false;
+        }
     }
 }

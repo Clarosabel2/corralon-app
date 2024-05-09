@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelEditProfile = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lnkEditPassword = new System.Windows.Forms.LinkLabel();
@@ -60,37 +60,37 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.lnkEditProfile = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel1.SuspendLayout();
+            this.panelEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // panelEditProfile
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.panel1.Controls.Add(this.btnSave);
-            this.panel1.Controls.Add(this.btnCancel);
-            this.panel1.Controls.Add(this.lnkEditPassword);
-            this.panel1.Controls.Add(this.txtCurrentPassword);
-            this.panel1.Controls.Add(this.txtConfirmPassword);
-            this.panel1.Controls.Add(this.txtPassword);
-            this.panel1.Controls.Add(this.txtEmail);
-            this.panel1.Controls.Add(this.txtLastName);
-            this.panel1.Controls.Add(this.txtFirstName);
-            this.panel1.Controls.Add(this.txtUser);
-            this.panel1.Controls.Add(this.lblCurrentPassword);
-            this.panel1.Controls.Add(this.lblConfirmPassword);
-            this.panel1.Controls.Add(this.lblPassword);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.lblSurname2);
-            this.panel1.Controls.Add(this.lblName2);
-            this.panel1.Controls.Add(this.lblUsername2);
-            this.panel1.Controls.Add(this.lblEditMyData);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(440, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(329, 519);
-            this.panel1.TabIndex = 0;
-            this.panel1.Visible = false;
+            this.panelEditProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.panelEditProfile.Controls.Add(this.btnSave);
+            this.panelEditProfile.Controls.Add(this.btnCancel);
+            this.panelEditProfile.Controls.Add(this.lnkEditPassword);
+            this.panelEditProfile.Controls.Add(this.txtCurrentPassword);
+            this.panelEditProfile.Controls.Add(this.txtConfirmPassword);
+            this.panelEditProfile.Controls.Add(this.txtPassword);
+            this.panelEditProfile.Controls.Add(this.txtEmail);
+            this.panelEditProfile.Controls.Add(this.txtLastName);
+            this.panelEditProfile.Controls.Add(this.txtFirstName);
+            this.panelEditProfile.Controls.Add(this.txtUser);
+            this.panelEditProfile.Controls.Add(this.lblCurrentPassword);
+            this.panelEditProfile.Controls.Add(this.lblConfirmPassword);
+            this.panelEditProfile.Controls.Add(this.lblPassword);
+            this.panelEditProfile.Controls.Add(this.label5);
+            this.panelEditProfile.Controls.Add(this.lblSurname2);
+            this.panelEditProfile.Controls.Add(this.lblName2);
+            this.panelEditProfile.Controls.Add(this.lblUsername2);
+            this.panelEditProfile.Controls.Add(this.lblEditMyData);
+            this.panelEditProfile.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelEditProfile.Location = new System.Drawing.Point(440, 0);
+            this.panelEditProfile.Name = "panelEditProfile";
+            this.panelEditProfile.Size = new System.Drawing.Size(329, 519);
+            this.panelEditProfile.TabIndex = 0;
+            this.panelEditProfile.Visible = false;
             // 
             // btnSave
             // 
@@ -127,6 +127,7 @@
             this.btnCancel.TabIndex = 16;
             this.btnCancel.Text = "Cancelar";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // lnkEditPassword
             // 
@@ -404,6 +405,7 @@
             this.lnkEditProfile.TabIndex = 12;
             this.lnkEditProfile.TabStop = true;
             this.lnkEditProfile.Text = "Editar Perfil";
+            this.lnkEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditProfile_LinkClicked);
             // 
             // pictureBox1
             // 
@@ -433,11 +435,11 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblTittle);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panelEditProfile);
             this.Name = "FormUserProfile";
             this.Text = "d";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.panelEditProfile.ResumeLayout(false);
+            this.panelEditProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -446,7 +448,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelEditProfile;
         private System.Windows.Forms.LinkLabel lnkEditPassword;
         private System.Windows.Forms.TextBox txtCurrentPassword;
         private System.Windows.Forms.TextBox txtConfirmPassword;

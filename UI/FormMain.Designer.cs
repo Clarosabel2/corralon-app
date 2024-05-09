@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelInterface = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -48,6 +49,7 @@
             this.btnReset = new System.Windows.Forms.PictureBox();
             this.btnMaximized = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -142,7 +144,7 @@
             this.btnData.Name = "btnData";
             this.btnData.Size = new System.Drawing.Size(241, 65);
             this.btnData.TabIndex = 0;
-            this.btnData.Text = "Datos";
+            this.btnData.Text = "Crear Venta";
             this.btnData.UseVisualStyleBackColor = true;
             // 
             // btnSetting
@@ -176,7 +178,7 @@
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(241, 65);
             this.btnRegister.TabIndex = 1;
-            this.btnRegister.Text = "Registrar";
+            this.btnRegister.Text = "Clientes";
             this.btnRegister.UseVisualStyleBackColor = true;
             // 
             // lnkMyProfile
@@ -190,6 +192,7 @@
             this.lnkMyProfile.TabIndex = 0;
             this.lnkMyProfile.TabStop = true;
             this.lnkMyProfile.Text = "My Profile";
+            this.lnkMyProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMyProfile_LinkClicked);
             // 
             // lblEmail
             // 
@@ -281,42 +284,58 @@
             // 
             this.btnMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMinimized.Image = global::UI.Properties.Resources.minus_111123;
             this.btnMinimized.Location = new System.Drawing.Point(982, 6);
             this.btnMinimized.Name = "btnMinimized";
             this.btnMinimized.Size = new System.Drawing.Size(16, 16);
+            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMinimized.TabIndex = 3;
             this.btnMinimized.TabStop = false;
+            this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
             // 
             // btnReset
             // 
             this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReset.Image = global::UI.Properties.Resources._1492790945_39minimize_84242;
             this.btnReset.Location = new System.Drawing.Point(1004, 6);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(16, 16);
+            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnReset.TabIndex = 1;
             this.btnReset.TabStop = false;
             this.btnReset.Visible = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnMaximized
             // 
             this.btnMaximized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnMaximized.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMaximized.Image = global::UI.Properties.Resources.ventana;
             this.btnMaximized.Location = new System.Drawing.Point(1004, 6);
             this.btnMaximized.Name = "btnMaximized";
             this.btnMaximized.Size = new System.Drawing.Size(16, 16);
+            this.btnMaximized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnMaximized.TabIndex = 2;
             this.btnMaximized.TabStop = false;
+            this.btnMaximized.Click += new System.EventHandler(this.btnMaximized_Click);
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = global::UI.Properties.Resources._4115230_cancel_close_cross_delete_114048;
             this.btnClose.Location = new System.Drawing.Point(1026, 6);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(16, 16);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnClose.TabIndex = 0;
             this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormMain
             // 
@@ -368,5 +387,6 @@
         private System.Windows.Forms.LinkLabel lnkMyProfile;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnChangeLenguage;
+        private System.Windows.Forms.Timer timer1;
     }
 }

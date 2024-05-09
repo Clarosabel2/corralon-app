@@ -118,22 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="1492790945-39minimize_84242" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\1492790945-39minimize_84242.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logo-corralon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-corralon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="4115230-cancel-close-cross-delete_114048" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\4115230-cancel-close-cross-delete_114048.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="1492790945-39minimize_84242" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\1492790945-39minimize_84242.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo-bss" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo-bss.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="alexander-hipp-iEEBWgY_6lA-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\alexander-hipp-iEEBWgY_6lA-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="4115230-cancel-close-cross-delete_114048" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\4115230-cancel-close-cross-delete_114048.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minus_111123" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minus_111123.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="alexander-hipp-iEEBWgY_6lA-unsplash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\alexander-hipp-iEEBWgY_6lA-unsplash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ventana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
