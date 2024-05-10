@@ -30,18 +30,18 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPsswrd = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lnkForgotten = new System.Windows.Forms.LinkLabel();
             this.lblErrorMessage = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.PictureBox();
             this.lblSignIn = new System.Windows.Forms.Label();
             this.btnChangeLenguage = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,16 +66,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "CORRALON";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UI.Properties.Resources.logo_bss;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 151);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // txtUser
             // 
             this.txtUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -87,6 +77,8 @@
             this.txtUser.Size = new System.Drawing.Size(468, 34);
             this.txtUser.TabIndex = 1;
             this.txtUser.Text = "Username";
+            this.txtUser.Enter += new System.EventHandler(this.txtUser_Enter);
+            this.txtUser.Leave += new System.EventHandler(this.txtUser_Leave);
             // 
             // txtPsswrd
             // 
@@ -99,6 +91,8 @@
             this.txtPsswrd.Size = new System.Drawing.Size(468, 34);
             this.txtPsswrd.TabIndex = 2;
             this.txtPsswrd.Text = "Password";
+            this.txtPsswrd.Enter += new System.EventHandler(this.txtPsswrd_Enter);
+            this.txtPsswrd.Leave += new System.EventHandler(this.txtPsswrd_Leave);
             // 
             // btnLogin
             // 
@@ -144,16 +138,6 @@
             this.lblErrorMessage.Text = "Error Message";
             this.lblErrorMessage.Visible = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.Location = new System.Drawing.Point(745, 12);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(23, 23);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.btnClose.TabIndex = 6;
-            this.btnClose.TabStop = false;
-            // 
             // lblSignIn
             // 
             this.lblSignIn.AutoSize = true;
@@ -182,6 +166,28 @@
             this.btnChangeLenguage.Text = "SP";
             this.btnChangeLenguage.UseVisualStyleBackColor = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.Image = global::UI.Properties.Resources.marca_de_la_cruz;
+            this.btnClose.Location = new System.Drawing.Point(745, 12);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 23);
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnClose.TabIndex = 6;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.logo_bss;
+            this.pictureBox1.Location = new System.Drawing.Point(30, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(151, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,8 +210,8 @@
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

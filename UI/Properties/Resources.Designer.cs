@@ -113,6 +113,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap marca_de_la_cruz {
+            get {
+                object obj = ResourceManager.GetObject("marca-de-la-cruz", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap minus_111123 {
             get {
                 object obj = ResourceManager.GetObject("minus_111123", resourceCulture);

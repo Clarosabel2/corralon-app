@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    public class BDE_OperadorLogistica : BDE_Empleado
+    public class BE_OperadorLogistica : BE_Empleado
     {
-        public BDE_OperadorLogistica(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+        public BE_OperadorLogistica(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
         {
 
         }

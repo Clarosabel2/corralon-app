@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    public abstract class BDE_Persona
+    public abstract class BE_Persona
     {
 
         private int _dni;
@@ -15,7 +15,7 @@ namespace BDE
         private String _email;
         private String _password;
 
-        public BDE_Persona(int dni, string nombre, string apellido, String email, string password)
+        public BE_Persona(int dni, string nombre, string apellido, String email, string password)
         {
             this._dni = dni;
             this._nombre = nombre;

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    internal class BDE_Repartidor : BDE_Empleado
+    internal class BE_Repartidor : BE_Empleado
     {
-        public BDE_Repartidor(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+        public BE_Repartidor(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
         {
+
         }
     }
 }

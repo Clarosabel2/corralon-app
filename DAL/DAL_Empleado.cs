@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BDE
+namespace DAL
 {
-    public class BE_Carrito
+    public class DAL_Empleado : DAL_Conexion
     {
-        private BE_Cliente cliente;
-        private List<BE_Producto> _productos;
+
     }
 }

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    public class BDE_Empleado : BDE_Persona
+    public class BE_Empleado : BE_Persona
     {
         private String _area;
         private double _salary;
 
-        public BDE_Empleado(int dni, string name, string surname, string email, string password,String area, double salary) : base(dni, name, surname, email, password)
+        public BE_Empleado(int dni, string name, string surname, string email, string password,String area, double salary) : base(dni, name, surname, email, password)
         {
             this._area= area;
             this._salary = salary;

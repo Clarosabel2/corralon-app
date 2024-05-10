@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    internal class BDE_Cliente : BDE_Persona
+    internal class BE_Cliente : BE_Persona
     {
         private String _adress;
-        private List<BDE_Factura> _invoices;
-        public BDE_Cliente(int dni, string name, string surname, string email, string password, string adress) : base(dni, name, surname, email, password)
+        private List<BE_Factura> _invoices;
+        public BE_Cliente(int dni, string name, string surname, string email, string password, string adress) : base(dni, name, surname, email, password)
         {
             this._adress = adress;
             this._invoices = null;

@@ -45,9 +45,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BDE\BE.csproj">
+      <Project>{c0a3e35d-5042-431f-a6ee-8980e9e548c8}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{17c0e092-8056-4b66-862a-5de641160524}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SVC\SVC.csproj">
+      <Project>{2e64fe1a-4c24-4e0a-b9c3-066238a4effb}</Project>
+      <Name>SVC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

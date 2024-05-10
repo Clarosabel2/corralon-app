@@ -12,7 +12,7 @@ namespace DAL
         private readonly string connectionString;
         public DAL_Conexion()
         {
-            connectionString = "Server=ABEL_\\SQLEXPRESS;DataBase=corralondb;Integrated Security=true";
+            connectionString = "Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;Encrypt=True;Trust Server Certificate=True";
         }
         protected SqlConnection GetSqlConnection()
         {

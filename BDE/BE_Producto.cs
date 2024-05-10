@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    public class BDE_Producto
+    public class BE_Producto
     {
         private int _id;
         private string _marca;
@@ -14,7 +14,7 @@ namespace BDE
         private double _precio;
         private int _stock;
 
-        public BDE_Producto(int id, string description, string brand, double price, int stock)
+        public BE_Producto(int id, string description, string brand, double price, int stock)
         {
             this._id = id;
             this._descripcion = description;

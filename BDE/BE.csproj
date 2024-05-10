@@ -43,16 +43,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDE_Administrador.cs" />
-    <Compile Include="BDE_Cliente.cs" />
-    <Compile Include="BDE_Repartidor.cs" />
-    <Compile Include="BDE_Empleado.cs" />
-    <Compile Include="BDE_Factura.cs" />
-    <Compile Include="BDE_OperadorLogistica.cs" />
-    <Compile Include="BDE_Persona.cs" />
-    <Compile Include="BDE_Producto.cs" />
-    <Compile Include="BDE_Vendedor.cs" />
+    <Compile Include="BE_Administrador.cs" />
+    <Compile Include="BE_Carrito.cs" />
+    <Compile Include="BE_Cliente.cs" />
+    <Compile Include="BE_Repartidor.cs" />
+    <Compile Include="BE_Empleado.cs" />
+    <Compile Include="BE_Factura.cs" />
+    <Compile Include="BE_OperadorLogistica.cs" />
+    <Compile Include="BE_Persona.cs" />
+    <Compile Include="BE_Producto.cs" />
+    <Compile Include="BE_Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SVC\SVC.csproj">
+      <Project>{2e64fe1a-4c24-4e0a-b9c3-066238a4effb}</Project>
+      <Name>SVC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

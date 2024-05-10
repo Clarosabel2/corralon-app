@@ -133,6 +133,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BDE\BE.csproj">
+      <Project>{c0a3e35d-5042-431f-a6ee-8980e9e548c8}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{05d6a5c1-b8cc-4810-8a08-5d90054e0ffb}</Project>
       <Name>BLL</Name>
@@ -174,6 +178,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ventana.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-de-la-cruz.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
