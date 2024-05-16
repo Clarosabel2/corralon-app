@@ -8,21 +8,31 @@ namespace BDE
 {
     public abstract class BE_Persona
     {
-
+        private int _id;
         private int _dni;
-        private String _nombre;
-        private String _apellido;
-        private String _email;
-        private String _password;
+        private string _nombre;
+        private string _apellido;
+        private string _domicilio;
+        private string _email;
+        private int _telefono;
 
-        public BE_Persona(int dni, string nombre, string apellido, String email, string password)
+        public BE_Persona(int id,int dni, string nombre, string apellido, string domicilio, string email, int telefono)
         {
-            this._dni = dni;
-            this._nombre = nombre;
-            this._apellido = apellido;
-            this._email = email;
-            this._password = password;
+            this.Id=id;
+            this.Dni = dni;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Domicilio = domicilio;
+            this.Email = email;
+            this.Telefono = telefono;
         }
 
+        public int Id { get => _id; set => _id = value; }
+        public int Dni { get => _dni; set => _dni = value; }
+        public string Nombre { get => _nombre; set => _nombre = value; }
+        public string Apellido { get => _apellido; set => _apellido = value; }
+        public string Domicilio { get => _domicilio; set => _domicilio = value; }
+        public string Email { get => _email; set => _email = value; }
+        public int Telefono { get => _telefono; set => _telefono = value; }
     }
 }

@@ -8,11 +8,11 @@ namespace BDE
 {
     public class BE_Producto
     {
-        private int _id;
-        private string _marca;
-        private string _descripcion;
-        private double _precio;
-        private int _stock;
+        private int _id { get; set; }
+        private string _marca { get; set; }
+        private string _descripcion { get; set; }
+        private double _precio { get; set; }
+        private int _stock { get; set; }
 
         public BE_Producto(int id, string description, string brand, double price, int stock)
         {
@@ -23,10 +23,5 @@ namespace BDE
             this._stock = stock;
         }
 
-        public int Id { get => _id; set => _id = value; }
-        public string Description { get => _descripcion; set => _descripcion = value; }
-        public string Brand { get => _marca; set => _marca = value; }
-        public double Price { get => _precio; set => _precio = value; }
-        public int Stock { get => _stock; set => _stock = value; }
     }
 }

@@ -8,8 +8,9 @@ namespace BDE
 {
     public class BE_Vendedor : BE_Empleado
     {
-        
-        public BE_Vendedor(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+
+        public BE_Vendedor(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono, string area, double salario, string username, string password) 
+            : base(id,dni,nombre,apellido,domicilio,email,telefono,area,salario,username,password)
         {
 
         }

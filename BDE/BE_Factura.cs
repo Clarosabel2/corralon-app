@@ -8,12 +8,12 @@ namespace BDE
 {
     internal class BE_Factura
     {
-        private int _id;
-        private char _tipo;
-        private DateTime _fecha;
-        private BE_Cliente _cliente;
-        private BE_Producto[] _productos;
-        private double _total;
+        private int _id { get; set; }
+        private char _tipo { get; set; }
+        private DateTime _fecha { get; set; }
+        private BE_Cliente _cliente { get; set; }
+        private BE_Producto[] _productos { get; set; }
+        private double _total { get; set; }
 
         public BE_Factura(int id, char type, BE_Cliente client, BE_Producto[] products, double total)
         {
@@ -25,10 +25,5 @@ namespace BDE
             this._total = total;
         }
 
-        public int Id { get => _id; set => _id = value; }
-        public char Type { get => _tipo; set => _tipo = value; }
-        public double Total { get => _total; set => _total = value; }
-        public BE_Cliente Client { get => _cliente; set => _cliente = value; }
-        public BE_Producto[] Products { get => _productos; set => _productos = value; }
     }
 }

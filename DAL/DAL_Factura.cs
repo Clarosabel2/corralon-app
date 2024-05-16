@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BDE;
 
 namespace DAL
 {
-    internal class DAL_Factura : DAL_Conexion
+    public class DAL_Factura : DAL_Conexion
     {
+       
     }
 }

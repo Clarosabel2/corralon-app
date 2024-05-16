@@ -8,14 +8,14 @@ namespace BDE
 {
     internal class BE_Cliente : BE_Persona
     {
-        private String _adress;
-        private List<BE_Factura> _invoices;
-        public BE_Cliente(int dni, string name, string surname, string email, string password, string adress) : base(dni, name, surname, email, password)
+        private string _domicilio { get; set; }
+        private List<BE_Factura> _facturas { get; set; }
+        public BE_Cliente(int id, int dni, string nombre, string apellido, string email, string domicilio, int telefono) 
+            : base(id, dni, nombre, apellido, domicilio, email, telefono)
         {
-            this._adress = adress;
-            this._invoices = null;
+            this._domicilio = domicilio;
+            this._facturas = null;
         }
 
-        public string Adress { get => _adress; set => _adress = value; }
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="DAL_Conexion.cs" />
     <Compile Include="DAL_Empleado.cs" />
     <Compile Include="DAL_Factura.cs" />
+    <Compile Include="DAL_Producto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,6 +75,16 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BDE\BE.csproj">
+      <Project>{c0a3e35d-5042-431f-a6ee-8980e9e548c8}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SVC\SVC.csproj">
+      <Project>{2e64fe1a-4c24-4e0a-b9c3-066238a4effb}</Project>
+      <Name>SVC</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

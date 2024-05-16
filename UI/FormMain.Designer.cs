@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelInterface = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -50,6 +51,7 @@
             this.btnMaximized = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.guna2ResizeBox1 = new Guna.UI2.WinForms.Guna2ResizeBox();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -68,30 +70,22 @@
             this.panelForms.Controls.Add(this.panelInterface);
             this.panelForms.Controls.Add(this.panelMenu);
             this.panelForms.Controls.Add(this.panelBarraTitulo);
-            this.panelForms.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForms.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.panelForms, "panelForms");
             this.panelForms.Name = "panelForms";
-            this.panelForms.Size = new System.Drawing.Size(1045, 650);
-            this.panelForms.TabIndex = 0;
             // 
             // panelInterface
             // 
             this.panelInterface.BackColor = System.Drawing.SystemColors.Menu;
+            this.panelInterface.Controls.Add(this.guna2ResizeBox1);
             this.panelInterface.Controls.Add(this.pictureBox2);
-            this.panelInterface.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInterface.Location = new System.Drawing.Point(250, 28);
+            resources.ApplyResources(this.panelInterface, "panelInterface");
             this.panelInterface.Name = "panelInterface";
-            this.panelInterface.Size = new System.Drawing.Size(795, 622);
-            this.panelInterface.TabIndex = 2;
             // 
             // pictureBox2
             // 
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Image = global::UI.Properties.Resources.logo_bss;
-            this.pictureBox2.Location = new System.Drawing.Point(166, 59);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(500, 500);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
             // 
             // panelMenu
@@ -107,11 +101,8 @@
             this.panelMenu.Controls.Add(this.lblPosition);
             this.panelMenu.Controls.Add(this.pictureBox1);
             this.panelMenu.Controls.Add(this.btnLogout);
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMenu.Location = new System.Drawing.Point(0, 28);
+            resources.ApplyResources(this.panelMenu, "panelMenu");
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(250, 622);
-            this.panelMenu.TabIndex = 1;
             // 
             // btnChangeLenguage
             // 
@@ -120,141 +111,90 @@
             this.btnChangeLenguage.FlatAppearance.BorderSize = 0;
             this.btnChangeLenguage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnChangeLenguage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnChangeLenguage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChangeLenguage.Font = new System.Drawing.Font("Century Gothic", 9F);
+            resources.ApplyResources(this.btnChangeLenguage, "btnChangeLenguage");
             this.btnChangeLenguage.ForeColor = System.Drawing.Color.LightGray;
-            this.btnChangeLenguage.Location = new System.Drawing.Point(209, 6);
             this.btnChangeLenguage.Name = "btnChangeLenguage";
-            this.btnChangeLenguage.Size = new System.Drawing.Size(35, 28);
-            this.btnChangeLenguage.TabIndex = 12;
-            this.btnChangeLenguage.Text = "SP";
             this.btnChangeLenguage.UseVisualStyleBackColor = false;
             // 
             // btnCrearVenta
             // 
+            resources.ApplyResources(this.btnCrearVenta, "btnCrearVenta");
             this.btnCrearVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCrearVenta.FlatAppearance.BorderSize = 0;
             this.btnCrearVenta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnCrearVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnCrearVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCrearVenta.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearVenta.ForeColor = System.Drawing.Color.Silver;
-            this.btnCrearVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCrearVenta.Location = new System.Drawing.Point(3, 147);
             this.btnCrearVenta.Name = "btnCrearVenta";
-            this.btnCrearVenta.Size = new System.Drawing.Size(241, 65);
-            this.btnCrearVenta.TabIndex = 0;
-            this.btnCrearVenta.Text = "Crear Venta";
             this.btnCrearVenta.UseVisualStyleBackColor = true;
             this.btnCrearVenta.Click += new System.EventHandler(this.btnCrearVenta_Click);
             // 
             // btnSetting
             // 
+            resources.ApplyResources(this.btnSetting, "btnSetting");
             this.btnSetting.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSetting.FlatAppearance.BorderSize = 0;
             this.btnSetting.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnSetting.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetting.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSetting.ForeColor = System.Drawing.Color.Silver;
-            this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(3, 494);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Size = new System.Drawing.Size(241, 65);
-            this.btnSetting.TabIndex = 2;
-            this.btnSetting.Text = "Configuracion";
             this.btnSetting.UseVisualStyleBackColor = true;
             // 
             // btnRegister
             // 
+            resources.ApplyResources(this.btnRegister, "btnRegister");
             this.btnRegister.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegister.FlatAppearance.BorderSize = 0;
             this.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegister.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegister.ForeColor = System.Drawing.Color.Silver;
-            this.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegister.Location = new System.Drawing.Point(3, 218);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(241, 65);
-            this.btnRegister.TabIndex = 1;
-            this.btnRegister.Text = "Clientes";
             this.btnRegister.UseVisualStyleBackColor = true;
             // 
             // lnkMyProfile
             // 
-            this.lnkMyProfile.AutoSize = true;
+            resources.ApplyResources(this.lnkMyProfile, "lnkMyProfile");
             this.lnkMyProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lnkMyProfile.LinkColor = System.Drawing.Color.SteelBlue;
-            this.lnkMyProfile.Location = new System.Drawing.Point(15, 107);
             this.lnkMyProfile.Name = "lnkMyProfile";
-            this.lnkMyProfile.Size = new System.Drawing.Size(53, 13);
-            this.lnkMyProfile.TabIndex = 0;
             this.lnkMyProfile.TabStop = true;
-            this.lnkMyProfile.Text = "My Profile";
             this.lnkMyProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkMyProfile_LinkClicked);
             // 
             // lblEmail
             // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblEmail, "lblEmail");
             this.lblEmail.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblEmail.Location = new System.Drawing.Point(86, 88);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(35, 16);
-            this.lblEmail.TabIndex = 11;
-            this.lblEmail.Text = "Email";
             // 
             // lblName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblName, "lblName");
             this.lblName.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblName.Location = new System.Drawing.Point(86, 59);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(50, 16);
-            this.lblName.TabIndex = 10;
-            this.lblName.Text = "Nombre";
             // 
             // lblPosition
             // 
-            this.lblPosition.AutoSize = true;
-            this.lblPosition.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblPosition, "lblPosition");
             this.lblPosition.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblPosition.Location = new System.Drawing.Point(86, 32);
             this.lblPosition.Name = "lblPosition";
-            this.lblPosition.Size = new System.Drawing.Size(43, 16);
-            this.lblPosition.TabIndex = 9;
-            this.lblPosition.Text = "Puesto";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::UI.Properties.Resources.alexander_hipp_iEEBWgY_6lA_unsplash;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 32);
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(68, 72);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
             // btnLogout
             // 
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            resources.ApplyResources(this.btnLogout, "btnLogout");
             this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.ForeColor = System.Drawing.Color.Silver;
-            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogout.Location = new System.Drawing.Point(0, 557);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(250, 65);
-            this.btnLogout.TabIndex = 3;
-            this.btnLogout.Text = "Cerrar sesion";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // panelBarraTitulo
             // 
@@ -264,73 +204,49 @@
             this.panelBarraTitulo.Controls.Add(this.btnReset);
             this.panelBarraTitulo.Controls.Add(this.btnMaximized);
             this.panelBarraTitulo.Controls.Add(this.btnClose);
-            this.panelBarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBarraTitulo.Location = new System.Drawing.Point(0, 0);
+            resources.ApplyResources(this.panelBarraTitulo, "panelBarraTitulo");
             this.panelBarraTitulo.Name = "panelBarraTitulo";
-            this.panelBarraTitulo.Size = new System.Drawing.Size(1045, 28);
-            this.panelBarraTitulo.TabIndex = 0;
+            this.panelBarraTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelBarraTitulo_MouseDown);
             // 
             // lblDateTime
             // 
-            this.lblDateTime.AutoSize = true;
-            this.lblDateTime.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            resources.ApplyResources(this.lblDateTime, "lblDateTime");
             this.lblDateTime.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.lblDateTime.Location = new System.Drawing.Point(12, 6);
             this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(58, 16);
-            this.lblDateTime.TabIndex = 12;
-            this.lblDateTime.Text = "DateTime";
             // 
             // btnMinimized
             // 
-            this.btnMinimized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnMinimized, "btnMinimized");
             this.btnMinimized.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMinimized.Image = global::UI.Properties.Resources.minus_111123;
-            this.btnMinimized.Location = new System.Drawing.Point(982, 6);
             this.btnMinimized.Name = "btnMinimized";
-            this.btnMinimized.Size = new System.Drawing.Size(16, 16);
-            this.btnMinimized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimized.TabIndex = 3;
             this.btnMinimized.TabStop = false;
             this.btnMinimized.Click += new System.EventHandler(this.btnMinimized_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnReset, "btnReset");
             this.btnReset.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReset.Image = global::UI.Properties.Resources._1492790945_39minimize_84242;
-            this.btnReset.Location = new System.Drawing.Point(1004, 6);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(16, 16);
-            this.btnReset.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnReset.TabIndex = 1;
             this.btnReset.TabStop = false;
-            this.btnReset.Visible = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnMaximized
             // 
-            this.btnMaximized.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnMaximized, "btnMaximized");
             this.btnMaximized.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMaximized.Image = global::UI.Properties.Resources.ventana;
-            this.btnMaximized.Location = new System.Drawing.Point(1004, 6);
             this.btnMaximized.Name = "btnMaximized";
-            this.btnMaximized.Size = new System.Drawing.Size(16, 16);
-            this.btnMaximized.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMaximized.TabIndex = 2;
             this.btnMaximized.TabStop = false;
             this.btnMaximized.Click += new System.EventHandler(this.btnMaximized_Click);
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            resources.ApplyResources(this.btnClose, "btnClose");
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnClose.Image = global::UI.Properties.Resources._4115230_cancel_close_cross_delete_114048;
-            this.btnClose.Location = new System.Drawing.Point(1026, 6);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(16, 16);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnClose.TabIndex = 0;
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -338,17 +254,21 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // guna2ResizeBox1
+            // 
+            resources.ApplyResources(this.guna2ResizeBox1, "guna2ResizeBox1");
+            this.guna2ResizeBox1.ForeColor = System.Drawing.Color.Black;
+            this.guna2ResizeBox1.Name = "guna2ResizeBox1";
+            this.guna2ResizeBox1.TargetControl = this;
+            // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1045, 650);
             this.Controls.Add(this.panelForms);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(650, 650);
             this.Name = "FormMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormMain";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelForms.ResumeLayout(false);
             this.panelInterface.ResumeLayout(false);
             this.panelInterface.PerformLayout();
@@ -389,5 +309,6 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button btnChangeLenguage;
         private System.Windows.Forms.Timer timer1;
+        private Guna.UI2.WinForms.Guna2ResizeBox guna2ResizeBox1;
     }
 }

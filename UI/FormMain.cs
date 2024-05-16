@@ -1,9 +1,12 @@
-﻿using System;
+﻿using SVC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +19,18 @@ namespace UI
         {
             InitializeComponent();
             timer1.Start();
+        }
+        #region "Funcionalidades Window"
+        
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr one, int two, int three, int four);
+        private void panelBarraTitulo_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -40,16 +55,18 @@ namespace UI
         private void btnReset_Click(object sender, EventArgs e)
         {
             btnMaximized.Visible = true; btnReset.Visible = false;
-            this.WindowState= FormWindowState.Normal;
-            
+            this.WindowState = FormWindowState.Normal;
+
         }
 
         private void btnMaximized_Click(object sender, EventArgs e)
         {
             btnMaximized.Visible = false; btnReset.Visible = true;
-            this.WindowState= FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
 
         }
+        #endregion
+
         #endregion
 
         private void lnkMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -84,10 +101,27 @@ namespace UI
             {
                 lnkMyProfile.LinkVisited = false;
             }
-            if (Application.OpenForms["FormCrearVenta"] == null) {
+            if (Application.OpenForms["FormCrearVenta"] == null)
+            {
                 btnCrearVenta.BackColor = Color.FromArgb(4, 41, 68);
             }
         }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            lblName.Text = SessionManager.GetInstance.usuario.Nombre;
+            lblPosition.Text = SessionManager.GetInstance.usuario.Area;
+            lblEmail.Text = SessionManager.GetInstance.usuario.Email;
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            SessionManager.Logout();
+            FormLogin frmLogin = new FormLogin();
+            frmLogin.Show();
+            this.Close();
+        }
+
 
     }
 }

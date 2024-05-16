@@ -8,7 +8,8 @@ namespace BDE
 {
     public class BE_OperadorLogistica : BE_Empleado
     {
-        public BE_OperadorLogistica(int dni, string name, string surname, string email, string password, string area, double salary) : base(dni, name, surname, email, password, area, salary)
+        public BE_OperadorLogistica(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono, string area, double salario, string username, string password)
+            : base(id, dni, nombre, apellido, domicilio, email, telefono, area, salario, username, password)
         {
 
         }
