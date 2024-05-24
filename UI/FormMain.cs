@@ -21,7 +21,7 @@ namespace UI
             timer1.Start();
         }
         #region "Funcionalidades Window"
-        
+        bool menuExpand = false;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -37,35 +37,29 @@ namespace UI
         {
             lblDateTime.Text = DateTime.Now.ToString();
         }
-        #region "botones ventana"
-        private void btnClose_Click(object sender, EventArgs e)
+        private void menuTransition_Tick(object sender, EventArgs e)
         {
-            var result = MessageBox.Show("Esta seguro de que quiere cerrar la aplicacion?", "", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (result == DialogResult.OK)
+            if (menuExpand == false)
             {
-                Application.Exit();
+                MenuVentas.Height += 10;
+                if (MenuVentas.Height >= 286)
+                {
+                    menuTransition.Stop();
+                    menuExpand = true;
+                }
+            }
+            else
+            {
+                MenuVentas.Height -= 10;
+                if (MenuVentas.Height <= 65)
+                {
+                    menuTransition.Stop();
+                    menuExpand = false;
+                }
             }
         }
 
-        private void btnMinimized_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            btnMaximized.Visible = true; btnReset.Visible = false;
-            this.WindowState = FormWindowState.Normal;
-
-        }
-
-        private void btnMaximized_Click(object sender, EventArgs e)
-        {
-            btnMaximized.Visible = false; btnReset.Visible = true;
-            this.WindowState = FormWindowState.Maximized;
-
-        }
-        #endregion
 
         #endregion
 
@@ -122,6 +116,9 @@ namespace UI
             this.Close();
         }
 
-
+        private void buttonVentas_Click(object sender, EventArgs e)
+        {
+            menuTransition.Start();
+        }
     }
 }

@@ -93,6 +93,36 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cabinet_furniture_home_office_interior_icon_175932 {
+            get {
+                object obj = ResourceManager.GetObject("cabinet_furniture_home_office_interior_icon_175932", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap crecimiento_de_beneficios {
+            get {
+                object obj = ResourceManager.GetObject("crecimiento-de-beneficios", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap employee_person_business_teamwork_businessman_icon_175923 {
+            get {
+                object obj = ResourceManager.GetObject("employee_person_business_teamwork_businessman_icon_175923", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_bss {
             get {
                 object obj = ResourceManager.GetObject("logo-bss", resourceCulture);
@@ -126,6 +156,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap minus_111123 {
             get {
                 object obj = ResourceManager.GetObject("minus_111123", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap shop_store_business_sale_supermarket_icon_175937 {
+            get {
+                object obj = ResourceManager.GetObject("shop_store_business_sale_supermarket_icon_175937", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

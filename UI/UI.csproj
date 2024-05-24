@@ -55,6 +55,10 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.8.0.5\lib\net48\ReaLTaiizor.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -188,6 +192,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\marca-de-la-cruz.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\crecimiento-de-beneficios.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shop_store_business_sale_supermarket_icon_175937.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cabinet_furniture_home_office_interior_icon_175932.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee_person_business_teamwork_businessman_icon_175923.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
