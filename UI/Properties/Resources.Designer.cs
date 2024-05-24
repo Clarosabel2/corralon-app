@@ -63,26 +63,6 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1492790945_39minimize_84242 {
-            get {
-                object obj = ResourceManager.GetObject("1492790945-39minimize_84242", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _4115230_cancel_close_cross_delete_114048 {
-            get {
-                object obj = ResourceManager.GetObject("4115230-cancel-close-cross-delete_114048", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap alexander_hipp_iEEBWgY_6lA_unsplash {
             get {
                 object obj = ResourceManager.GetObject("alexander-hipp-iEEBWgY_6lA-unsplash", resourceCulture);
@@ -96,16 +76,6 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap cabinet_furniture_home_office_interior_icon_175932 {
             get {
                 object obj = ResourceManager.GetObject("cabinet_furniture_home_office_interior_icon_175932", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap crecimiento_de_beneficios {
-            get {
-                object obj = ResourceManager.GetObject("crecimiento-de-beneficios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,29 +103,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap logo_corralon {
-            get {
-                object obj = ResourceManager.GetObject("logo-corralon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap marca_de_la_cruz {
             get {
                 object obj = ResourceManager.GetObject("marca-de-la-cruz", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap minus_111123 {
-            get {
-                object obj = ResourceManager.GetObject("minus_111123", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -169,15 +119,6 @@ namespace UI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ventana {
-            get {
-                object obj = ResourceManager.GetObject("ventana", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
+
     }
 }
