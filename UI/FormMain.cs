@@ -41,8 +41,8 @@ namespace UI
         {
             if (menuExpand == false)
             {
-                MenuVentas.Height += 10;
-                if (MenuVentas.Height >= 286)
+                menuVentas.Height += 10;
+                if (menuVentas.Height >= 178)
                 {
                     menuTransition.Stop();
                     menuExpand = true;
@@ -50,8 +50,8 @@ namespace UI
             }
             else
             {
-                MenuVentas.Height -= 10;
-                if (MenuVentas.Height <= 65)
+                menuVentas.Height -= 10;
+                if (menuVentas.Height <= 65)
                 {
                     menuTransition.Stop();
                     menuExpand = false;

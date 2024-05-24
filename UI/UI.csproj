@@ -158,24 +158,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logo-corralon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alexander-hipp-iEEBWgY_6lA-unsplash.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\logo-bss.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4115230-cancel-close-cross-delete_114048.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1492790945-39minimize_84242.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\minus_111123.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
@@ -188,22 +170,40 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ventana.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\marca-de-la-cruz.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\crecimiento-de-beneficios.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\shop_store_business_sale_supermarket_icon_175937.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\cabinet_furniture_home_office_interior_icon_175932.png" />
+    <None Include="Resources\user-photo-profile.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\employee_person_business_teamwork_businessman_icon_175923.png" />
+    <None Include="Resources\logo-bss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\employee-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager_icon_150030.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-administrator-male-30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-forklift-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-report-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-help-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\marca-de-la-cruz.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

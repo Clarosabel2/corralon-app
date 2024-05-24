@@ -409,7 +409,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::UI.Properties.Resources.alexander_hipp_iEEBWgY_6lA_unsplash;
             this.pictureBox1.Location = new System.Drawing.Point(33, 97);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(105, 103);

@@ -63,9 +63,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap alexander_hipp_iEEBWgY_6lA_unsplash {
+        internal static System.Drawing.Bitmap close_icon {
             get {
-                object obj = ResourceManager.GetObject("alexander-hipp-iEEBWgY_6lA-unsplash", resourceCulture);
+                object obj = ResourceManager.GetObject("close-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap cabinet_furniture_home_office_interior_icon_175932 {
+        internal static System.Drawing.Bitmap employee_icon {
             get {
-                object obj = ResourceManager.GetObject("cabinet_furniture_home_office_interior_icon_175932", resourceCulture);
+                object obj = ResourceManager.GetObject("employee-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,49 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap employee_person_business_teamwork_businessman_icon_175923 {
+        internal static System.Drawing.Bitmap icons8_administrator_male_30 {
             get {
-                object obj = ResourceManager.GetObject("employee_person_business_teamwork_businessman_icon_175923", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-administrator-male-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_forklift_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-forklift-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_help_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-help-48", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_logout_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-logout-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_report_48 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-report-48", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +136,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap logo_bss {
             get {
                 object obj = ResourceManager.GetObject("logo-bss", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap manager_icon_150030 {
+            get {
+                object obj = ResourceManager.GetObject("manager_icon_150030", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -119,6 +169,15 @@ namespace UI.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_photo_profile {
+            get {
+                object obj = ResourceManager.GetObject("user-photo-profile", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

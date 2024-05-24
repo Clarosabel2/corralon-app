@@ -30,7 +30,6 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtUser = new System.Windows.Forms.TextBox();
             this.txtPsswrd = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -38,11 +37,12 @@
             this.lblErrorMessage = new System.Windows.Forms.Label();
             this.lblSignIn = new System.Windows.Forms.Label();
             this.btnChangeLenguage = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.PictureBox();
             this.checkBoxShowPassword = new System.Windows.Forms.CheckBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,16 +66,6 @@
             this.label2.Size = new System.Drawing.Size(196, 38);
             this.label2.TabIndex = 9;
             this.label2.Text = "CORRALON";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UI.Properties.Resources.logo_bss;
-            this.pictureBox1.Location = new System.Drawing.Point(30, 74);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(151, 151);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // txtUser
             // 
@@ -178,6 +168,18 @@
             this.btnChangeLenguage.Text = "SP";
             this.btnChangeLenguage.UseVisualStyleBackColor = false;
             // 
+            // checkBoxShowPassword
+            // 
+            this.checkBoxShowPassword.AutoSize = true;
+            this.checkBoxShowPassword.ForeColor = System.Drawing.SystemColors.Control;
+            this.checkBoxShowPassword.Location = new System.Drawing.Point(648, 183);
+            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
+            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
+            this.checkBoxShowPassword.TabIndex = 10;
+            this.checkBoxShowPassword.Text = "Show Password";
+            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
+            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+            // 
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -190,17 +192,15 @@
             this.btnClose.TabStop = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // checkBoxShowPassword
+            // pictureBox1
             // 
-            this.checkBoxShowPassword.AutoSize = true;
-            this.checkBoxShowPassword.ForeColor = System.Drawing.SystemColors.Control;
-            this.checkBoxShowPassword.Location = new System.Drawing.Point(648, 183);
-            this.checkBoxShowPassword.Name = "checkBoxShowPassword";
-            this.checkBoxShowPassword.Size = new System.Drawing.Size(102, 17);
-            this.checkBoxShowPassword.TabIndex = 10;
-            this.checkBoxShowPassword.Text = "Show Password";
-            this.checkBoxShowPassword.UseVisualStyleBackColor = true;
-            this.checkBoxShowPassword.CheckedChanged += new System.EventHandler(this.checkBoxShowPassword_CheckedChanged);
+            this.pictureBox1.Image = global::UI.Properties.Resources.logo_bss;
+            this.pictureBox1.Location = new System.Drawing.Point(30, 74);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(151, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FormLogin
             // 
@@ -226,8 +226,8 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormLogin_MouseDown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
