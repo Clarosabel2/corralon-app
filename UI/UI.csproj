@@ -205,5 +205,14 @@
   <ItemGroup>
     <None Include="Resources\marca-de-la-cruz.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-add-shopping-cart-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-remove-from-clipboard-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-close-window-20.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,12 +15,11 @@ namespace UI
         public FormCrearVenta()
         {
             InitializeComponent();
-            bringFrontResizeButton();
-        }
-        public void bringFrontResizeButton() { 
-            FormMain f = new FormMain();
-            f.guna2ResizeBox1.BringToFront();
         }
 
+        private void buttonCerrarVenta_Click(object sender, EventArgs e)
+        {
+            panelFinVenta.Visible = true;
+        }
     }
 }

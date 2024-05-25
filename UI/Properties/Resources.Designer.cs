@@ -83,9 +83,29 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_add_shopping_cart_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-add-shopping-cart-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_administrator_male_30 {
             get {
                 object obj = ResourceManager.GetObject("icons8-administrator-male-30", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_close_window_20 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-close-window-20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -116,6 +136,16 @@ namespace UI.Properties {
         internal static System.Drawing.Bitmap icons8_logout_20 {
             get {
                 object obj = ResourceManager.GetObject("icons8-logout-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_remove_from_clipboard_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-remove-from-clipboard-24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

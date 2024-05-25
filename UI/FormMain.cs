@@ -21,7 +21,7 @@ namespace UI
             timer1.Start();
         }
         #region "Funcionalidades Window"
-        bool menuExpand = false;
+
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -37,12 +37,14 @@ namespace UI
         {
             lblDateTime.Text = DateTime.Now.ToString();
         }
+
+
         private void menuTransition_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
             {
-                menuVentas.Height += 10;
-                if (menuVentas.Height >= 178)
+                flp.Height += 10;
+                if (flp.Height >= flp.MaximumSize.Height)
                 {
                     menuTransition.Stop();
                     menuExpand = true;
@@ -50,17 +52,47 @@ namespace UI
             }
             else
             {
-                menuVentas.Height -= 10;
-                if (menuVentas.Height <= 65)
+                flp.Height -= 10;
+                if (flp.Height <= flp.MinimumSize.Height)
                 {
                     menuTransition.Stop();
                     menuExpand = false;
                 }
             }
         }
+        bool menuExpand = false;
+        FlowLayoutPanel flp;
 
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            int btn = ((Button)sender).TabIndex;
+            switch (btn)
+            {
+                case 1:
+                    flp = menuVentas;
+                    break;
+                case 2:
+                    flp = menuOperador;
+                    break;
+                case 3:
+                    flp = menuReportes;
+                    break;
+                case 4:
+                    flp = menuUsuario;
+                    break;
+                case 5:
+                    flp = menuAdmin;
+                    break;
+                case 6:
+                    flp = subMenuProfiles;
+                    break;
+                default:
+                    MessageBox.Show("opcion incorrecta");
+                    break;
+            }
+            menuTransition.Start();
 
-
+        }
         #endregion
 
         private void lnkMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -80,8 +112,6 @@ namespace UI
             {
                 frm = new MyForm();
                 frm.TopLevel = false;
-                frm.FormBorderStyle = FormBorderStyle.None;
-                frm.Dock = DockStyle.Fill;
                 panelInterface.Controls.Add(frm);
                 panelInterface.Tag = frm;
                 frm.Show();
@@ -116,9 +146,6 @@ namespace UI
             this.Close();
         }
 
-        private void buttonVentas_Click(object sender, EventArgs e)
-        {
-            menuTransition.Start();
-        }
+
     }
 }
