@@ -9,7 +9,7 @@ namespace SVC
 {
     public class SessionManager
     {
-        public BE_Empleado usuario { get; set; }
+        public BE_Usuario usuario { get; set; }
         
         private static SessionManager _session = null;
         protected SessionManager() { }
@@ -22,7 +22,7 @@ namespace SVC
 
             }
         }
-        public static void Login(BE_Empleado usuario) {
+        public static void Login(BE_Usuario usuario) {
             if (_session == null)
             {
                 _session = new SessionManager();
@@ -31,5 +31,6 @@ namespace SVC
             else { throw new Exception("Sesion no iniciada"); }
         }
         public static void Logout() { if (_session != null) _session = null; else throw new Exception("Session Iniciada"); }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using DAL;
+using SVC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,6 @@ namespace BLL
 {
     public class BLL_Empleado
     {
-        DAL_Empleado DLEmpleado = new DAL_Empleado();
-        public bool validUser(string username,string password) {
-            return DLEmpleado._validUser(username, password);
-        }
+        
     }
 }

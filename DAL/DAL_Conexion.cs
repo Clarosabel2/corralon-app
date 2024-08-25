@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,25 @@ namespace DAL
 {
     public class DAL_Conexion
     {
-        private readonly string connectionString;
-        public DAL_Conexion()
+        private readonly SqlConnection _connection = new SqlConnection("Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;");
+
+        public SqlConnection Connection => _connection;
+        public SqlConnection OpenConnection()
         {
-            connectionString = "Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;";
+            if (Connection.State == ConnectionState.Closed)
+            {
+                Connection.Open();
+            }
+            return Connection;
         }
-        protected SqlConnection GetSqlConnection()
+
+        public SqlConnection CloseConnection()
         {
-            return new SqlConnection(connectionString);
+            if (Connection.State == ConnectionState.Open)
+            {
+                Connection.Close();
+            }
+            return Connection;
         }
     }
 }

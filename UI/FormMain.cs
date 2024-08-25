@@ -133,9 +133,9 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lblName.Text = SessionManager.GetInstance.usuario.Nombre;
-            lblPosition.Text = SessionManager.GetInstance.usuario.Area;
-            lblEmail.Text = SessionManager.GetInstance.usuario.Email;
+            lblName.Text = SessionManager.GetInstance.usuario.emp.Nombre;
+            lblPosition.Text = SessionManager.GetInstance.usuario.rol;
+            lblEmail.Text = SessionManager.GetInstance.usuario.emp.Email;
         }
 
         private void btnLogout_Click(object sender, EventArgs e)

@@ -10,8 +10,8 @@ namespace BDE
     {
         private string _domicilio { get; set; }
         private List<BE_Factura> _facturas { get; set; }
-        public BE_Cliente(int id, int dni, string nombre, string apellido, string email, string domicilio, int telefono) 
-            : base(id, dni, nombre, apellido, domicilio, email, telefono)
+        public BE_Cliente(int id, int dni, string nombre, string apellido, string email, int telefono, string domicilio) 
+            : base(id, dni, nombre, apellido, email, telefono, domicilio)
         {
             this._domicilio = domicilio;
             this._facturas = null;

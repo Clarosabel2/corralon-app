@@ -53,6 +53,7 @@
     <Compile Include="BE_OperadorLogistica.cs" />
     <Compile Include="BE_Persona.cs" />
     <Compile Include="BE_Producto.cs" />
+    <Compile Include="BE_Usuario.cs" />
     <Compile Include="BE_Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,31 +8,31 @@ namespace BDE
 {
     public abstract class BE_Persona
     {
-        private int _id;
-        private int _dni;
-        private string _nombre;
-        private string _apellido;
-        private string _domicilio;
-        private string _email;
-        private int _telefono;
+        private int id;
+        private int dni;
+        private string nombre;
+        private string apellido;
+        private string email;
+        private int telefono;
+        private string domicilio;
 
-        public BE_Persona(int id,int dni, string nombre, string apellido, string domicilio, string email, int telefono)
+        public BE_Persona(int id, int dni, string nombre, string apellido, string email, int telefono, string domicilio)
         {
-            this.Id=id;
+            this.Id = id;
             this.Dni = dni;
             this.Nombre = nombre;
             this.Apellido = apellido;
-            this.Domicilio = domicilio;
             this.Email = email;
             this.Telefono = telefono;
+            this.Domicilio = domicilio;
         }
 
-        public int Id { get => _id; set => _id = value; }
-        public int Dni { get => _dni; set => _dni = value; }
-        public string Nombre { get => _nombre; set => _nombre = value; }
-        public string Apellido { get => _apellido; set => _apellido = value; }
-        public string Domicilio { get => _domicilio; set => _domicilio = value; }
-        public string Email { get => _email; set => _email = value; }
-        public int Telefono { get => _telefono; set => _telefono = value; }
+        public int Id { get => id; set => id = value; }
+        public int Dni { get => dni; set => dni = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
+        public string Apellido { get => apellido; set => apellido = value; }
+        public string Domicilio { get => domicilio; set => domicilio = value; }
+        public string Email { get => email; set => email = value; }
+        public int Telefono { get => telefono; set => telefono = value; }
     }
 }
