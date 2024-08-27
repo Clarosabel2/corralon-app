@@ -43,18 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_Administrador.cs" />
     <Compile Include="BE_Carrito.cs" />
     <Compile Include="BE_Cliente.cs" />
     <Compile Include="BE_Permiso.cs" />
-    <Compile Include="BE_Repartidor.cs" />
     <Compile Include="BE_Empleado.cs" />
-    <Compile Include="BE_Factura.cs" />
-    <Compile Include="BE_OperadorLogistica.cs" />
+    <Compile Include="BE_Venta.cs" />
     <Compile Include="BE_Persona.cs" />
     <Compile Include="BE_Producto.cs" />
     <Compile Include="BE_Usuario.cs" />
-    <Compile Include="BE_Vendedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

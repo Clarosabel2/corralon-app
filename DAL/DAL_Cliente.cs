@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    internal class DAL_Cliente:DAL_Conexion
+    internal class DAL_Cliente
     {
     }
 }

@@ -6,16 +6,14 @@ using System.Threading.Tasks;
 
 namespace BDE
 {
-    internal class BE_Cliente : BE_Persona
+    public class BE_Cliente : BE_Persona
     {
-        private string _domicilio { get; set; }
-        private List<BE_Factura> _facturas { get; set; }
+        private List<BE_Venta> facturas;
         public BE_Cliente(int id, int dni, string nombre, string apellido, string email, int telefono, string domicilio) 
             : base(id, dni, nombre, apellido, email, telefono, domicilio)
         {
-            this._domicilio = domicilio;
-            this._facturas = null;
+            this.Facturas = null;
         }
-
+        public List<BE_Venta> Facturas { get => facturas; set => facturas = value; }
     }
 }

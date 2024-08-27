@@ -10,16 +10,21 @@ namespace BDE
 {
     public class BE_Usuario
     {
-        public string username { get; set; }
-        public string password { get; set; }
-        public string rol { get; set; }
-        public BE_Empleado emp { get; set; }
+        private string username;
+        private string password;
+        private string rol;
+        private BE_Empleado emp;
 
         public BE_Usuario(SqlDataReader dr)
         {
-            this.username = dr.GetString(1);
-            this.rol= dr.GetString(8);
-            this.emp = new BE_Empleado(dr);
+            this.Username = dr.GetString(1);
+            this.Rol= dr.GetString(8);
+            this.Emp = new BE_Empleado(dr);
         }
+        public BE_Usuario() { }
+        public string Username { get => username; set => username = value; }
+        public string Password { get => password; set => password = value; }
+        public string Rol { get => rol; set => rol = value; }
+        public BE_Empleado Emp { get => emp; set => emp = value; }
     }
 }

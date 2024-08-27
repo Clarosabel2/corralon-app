@@ -30,7 +30,9 @@ namespace SVC
             }
             else { throw new Exception("Sesion no iniciada"); }
         }
-        public static void Logout() { if (_session != null) _session = null; else throw new Exception("Session Iniciada"); }
+        public static void Logout() { 
+            if (_session != null) _session = null; else throw new Exception("Session Iniciada");
+        }
 
     }
 }

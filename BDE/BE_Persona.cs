@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,6 +27,16 @@ namespace BDE
             this.Telefono = telefono;
             this.Domicilio = domicilio;
         }
+        public BE_Persona(SqlDataReader dr) {
+            this.Id = dr.GetInt32(dr.GetOrdinal("id_Persona"));
+            this.Dni = dr.GetInt32(dr.GetOrdinal("DNI"));
+            this.Nombre = dr.GetString(dr.GetOrdinal("nombre"));
+            this.Apellido = dr.GetString(dr.GetOrdinal("apellido"));
+            this.Email = dr.GetString(dr.GetOrdinal("email"));
+            this.Telefono = dr.GetInt32(dr.GetOrdinal("telefono"));
+            this.Domicilio = dr.GetString(dr.GetOrdinal("domicilio"));
+        }
+        public BE_Persona() { }
 
         public int Id { get => id; set => id = value; }
         public int Dni { get => dni; set => dni = value; }

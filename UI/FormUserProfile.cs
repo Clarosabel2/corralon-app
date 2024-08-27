@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SVC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,16 @@ namespace UI
         public FormUserProfile()
         {
             InitializeComponent();
+            LoadMyData();
+        }
+
+        private void LoadMyData()
+        {
+            lblUser.Text = SessionManager.GetInstance.usuario.Username;
+            lblFirstName.Text = SessionManager.GetInstance.usuario.Emp.Nombre;
+            lblLastName.Text = SessionManager.GetInstance.usuario.Emp.Apellido;
+            lblEmail.Text = SessionManager.GetInstance.usuario.Emp.Email;
+            lblPosition.Text = SessionManager.GetInstance.usuario.Rol;
         }
 
         private void lnkEditProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

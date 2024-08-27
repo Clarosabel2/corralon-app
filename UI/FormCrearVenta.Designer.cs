@@ -28,17 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxTipoProductos = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
             this.buttonCerrarVenta = new System.Windows.Forms.Button();
             this.btnAgregarCarrito = new System.Windows.Forms.Button();
-            this.gbProducto = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.txtBoxCantidad = new Guna.UI2.WinForms.Guna2TextBox();
-            this.lblCantidad = new ReaLTaiizor.Controls.NightLabel();
             this.panelFinVenta = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
@@ -49,39 +44,26 @@
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.gbProducto.SuspendLayout();
+            this.dgvProducts = new System.Windows.Forms.DataGridView();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.nightLabel1 = new ReaLTaiizor.Controls.NightLabel();
             this.panelFinVenta.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
+            this.guna2GroupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(15, 34);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(725, 256);
-            this.listView1.TabIndex = 4;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView2
-            // 
-            this.listView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(15, 312);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(725, 261);
-            this.listView2.TabIndex = 5;
-            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(61, 16);
             this.label1.TabIndex = 8;
@@ -91,7 +73,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 293);
+            this.label2.Location = new System.Drawing.Point(12, 295);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 16);
             this.label2.TabIndex = 9;
@@ -113,20 +95,21 @@
             this.comboBoxTipoProductos.Size = new System.Drawing.Size(121, 24);
             this.comboBoxTipoProductos.TabIndex = 10;
             // 
-            // button1
+            // btnRemoveItem
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::UI.Properties.Resources.icons8_remove_from_clipboard_24;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(746, 314);
-            this.button1.MaximumSize = new System.Drawing.Size(107, 57);
-            this.button1.MinimumSize = new System.Drawing.Size(107, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 57);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Eliminar \r\nItem";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveItem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveItem.Image = global::UI.Properties.Resources.icons8_remove_from_clipboard_24;
+            this.btnRemoveItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveItem.Location = new System.Drawing.Point(719, 313);
+            this.btnRemoveItem.MaximumSize = new System.Drawing.Size(107, 57);
+            this.btnRemoveItem.MinimumSize = new System.Drawing.Size(107, 57);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(107, 57);
+            this.btnRemoveItem.TabIndex = 11;
+            this.btnRemoveItem.Text = "Eliminar \r\nItem";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
             // 
             // buttonCerrarVenta
             // 
@@ -134,7 +117,7 @@
             this.buttonCerrarVenta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCerrarVenta.Image = global::UI.Properties.Resources.icons8_close_window_20;
             this.buttonCerrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCerrarVenta.Location = new System.Drawing.Point(748, 375);
+            this.buttonCerrarVenta.Location = new System.Drawing.Point(719, 372);
             this.buttonCerrarVenta.Name = "buttonCerrarVenta";
             this.buttonCerrarVenta.Size = new System.Drawing.Size(107, 57);
             this.buttonCerrarVenta.TabIndex = 7;
@@ -148,58 +131,13 @@
             this.btnAgregarCarrito.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarCarrito.Image = global::UI.Properties.Resources.icons8_add_shopping_cart_20;
             this.btnAgregarCarrito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCarrito.Location = new System.Drawing.Point(746, 233);
-            this.btnAgregarCarrito.MaximumSize = new System.Drawing.Size(107, 57);
-            this.btnAgregarCarrito.MinimumSize = new System.Drawing.Size(107, 57);
+            this.btnAgregarCarrito.Location = new System.Drawing.Point(718, 31);
             this.btnAgregarCarrito.Name = "btnAgregarCarrito";
-            this.btnAgregarCarrito.Size = new System.Drawing.Size(107, 57);
+            this.btnAgregarCarrito.Size = new System.Drawing.Size(108, 259);
             this.btnAgregarCarrito.TabIndex = 6;
             this.btnAgregarCarrito.Text = "Agregar \r\na Carrito";
             this.btnAgregarCarrito.UseVisualStyleBackColor = true;
-            // 
-            // gbProducto
-            // 
-            this.gbProducto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbProducto.Controls.Add(this.txtBoxCantidad);
-            this.gbProducto.Controls.Add(this.lblCantidad);
-            this.gbProducto.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gbProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.gbProducto.Location = new System.Drawing.Point(746, 34);
-            this.gbProducto.Name = "gbProducto";
-            this.gbProducto.Size = new System.Drawing.Size(107, 193);
-            this.gbProducto.TabIndex = 12;
-            this.gbProducto.Text = "Producto";
-            // 
-            // txtBoxCantidad
-            // 
-            this.txtBoxCantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtBoxCantidad.DefaultText = "";
-            this.txtBoxCantidad.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtBoxCantidad.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtBoxCantidad.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCantidad.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtBoxCantidad.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCantidad.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtBoxCantidad.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtBoxCantidad.Location = new System.Drawing.Point(3, 105);
-            this.txtBoxCantidad.Name = "txtBoxCantidad";
-            this.txtBoxCantidad.PasswordChar = '\0';
-            this.txtBoxCantidad.PlaceholderText = "";
-            this.txtBoxCantidad.SelectedText = "";
-            this.txtBoxCantidad.Size = new System.Drawing.Size(101, 22);
-            this.txtBoxCantidad.TabIndex = 1;
-            // 
-            // lblCantidad
-            // 
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.BackColor = System.Drawing.Color.Transparent;
-            this.lblCantidad.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(127)))));
-            this.lblCantidad.Location = new System.Drawing.Point(19, 85);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(64, 17);
-            this.lblCantidad.TabIndex = 0;
-            this.lblCantidad.Text = "Cantidad";
+            this.btnAgregarCarrito.Click += new System.EventHandler(this.btnAgregarCarrito_Click);
             // 
             // panelFinVenta
             // 
@@ -357,46 +295,138 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Ingrese DNI del Cliente";
             // 
+            // dgvProducts
+            // 
+            this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProducts.Location = new System.Drawing.Point(15, 31);
+            this.dgvProducts.Name = "dgvProducts";
+            this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProducts.Size = new System.Drawing.Size(697, 259);
+            this.dgvProducts.TabIndex = 14;
+            this.dgvProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProducts_CellClick);
+            // 
+            // dgvCart
+            // 
+            this.dgvCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IDProducto,
+            this.Nombre,
+            this.Cantidad});
+            this.dgvCart.Location = new System.Drawing.Point(15, 314);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCart.Size = new System.Drawing.Size(697, 269);
+            this.dgvCart.TabIndex = 15;
+            // 
+            // IDProducto
+            // 
+            this.IDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IDProducto.HeaderText = "IDProducto";
+            this.IDProducto.Name = "IDProducto";
+            this.IDProducto.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Nombre.HeaderText = "NombreProducto";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Cantidad
+            // 
+            this.Cantidad.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Cantidad.HeaderText = "Cantidad";
+            this.Cantidad.Name = "Cantidad";
+            this.Cantidad.ReadOnly = true;
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.guna2GroupBox1.Controls.Add(this.guna2TextBox2);
+            this.guna2GroupBox1.Controls.Add(this.nightLabel1);
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(718, 435);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(107, 148);
+            this.guna2GroupBox1.TabIndex = 13;
+            this.guna2GroupBox1.Text = "Carrito";
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox2.Location = new System.Drawing.Point(3, 83);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.ReadOnly = true;
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.Size = new System.Drawing.Size(101, 22);
+            this.guna2TextBox2.TabIndex = 1;
+            // 
+            // nightLabel1
+            // 
+            this.nightLabel1.AutoSize = true;
+            this.nightLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.nightLabel1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nightLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(118)))), ((int)(((byte)(127)))));
+            this.nightLabel1.Location = new System.Drawing.Point(20, 54);
+            this.nightLabel1.Name = "nightLabel1";
+            this.nightLabel1.Size = new System.Drawing.Size(37, 17);
+            this.nightLabel1.TabIndex = 0;
+            this.nightLabel1.Text = "Total";
+            // 
             // FormCrearVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(865, 579);
-            this.Controls.Add(this.panelFinVenta);
-            this.Controls.Add(this.gbProducto);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(838, 595);
+            this.Controls.Add(this.guna2GroupBox1);
+            this.Controls.Add(this.dgvCart);
+            this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnAgregarCarrito);
             this.Controls.Add(this.comboBoxTipoProductos);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonCerrarVenta);
-            this.Controls.Add(this.listView2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dgvProducts);
+            this.Controls.Add(this.panelFinVenta);
             this.Name = "FormCrearVenta";
             this.Text = "FormCrearVenta";
-            this.gbProducto.ResumeLayout(false);
-            this.gbProducto.PerformLayout();
+            this.Load += new System.EventHandler(this.FormCrearVenta_Load);
             this.panelFinVenta.ResumeLayout(false);
             this.panelFinVenta.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
+            this.guna2GroupBox1.ResumeLayout(false);
+            this.guna2GroupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Button buttonCerrarVenta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxTipoProductos;
         private System.Windows.Forms.Button btnAgregarCarrito;
-        private System.Windows.Forms.Button button1;
-        private Guna.UI2.WinForms.Guna2GroupBox gbProducto;
-        private Guna.UI2.WinForms.Guna2TextBox txtBoxCantidad;
-        private ReaLTaiizor.Controls.NightLabel lblCantidad;
+        private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.Panel panelFinVenta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -407,5 +437,13 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvProducts;
+        private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private ReaLTaiizor.Controls.NightLabel nightLabel1;
     }
 }

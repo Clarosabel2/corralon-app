@@ -10,8 +10,8 @@ using BDE;
 
 namespace DAL
 {
-    public class DAL_Empleado : DAL_Conexion
+    public class DAL_Empleado
     {
-        
+      
     }
 }
