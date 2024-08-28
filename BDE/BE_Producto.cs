@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace BDE
     {
         private int id;
         private string marca;
+        private string nombre;
         private string descripcion;
         private string categoria;
         private double precio;
@@ -25,6 +27,16 @@ namespace BDE
             this.Categoria = categoria;
             this.Stock = stock;
         }
+        public BE_Producto(DataRow r)
+        {
+            this.Id = r.Field<int>("id_Producto");
+            this.Marca = r.Field<string>("marca");
+            this.Nombre= r.Field<string>("nombre");
+            this.Precio = r.Field<double>("precio");
+            this.Categoria = r.Field<string>("nombreCategoria");
+            this.Stock = r.Field<int>("stock");
+        }
+        public BE_Producto() { }
 
         public int Id { get => id; set => id = value; }
         public string Marca { get => marca; set => marca = value; }
@@ -33,5 +45,6 @@ namespace BDE
         public int Peso { get => peso; set => peso = value; }
         public int Stock { get => stock; set => stock = value; }
         public string Categoria { get => categoria; set => categoria = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
     }
 }

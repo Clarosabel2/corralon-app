@@ -62,7 +62,7 @@ namespace UI
         }
         bool menuExpand = false;
         FlowLayoutPanel flp;
-
+        FlowLayoutPanel currentFlp;
         private void btnMenu_Click(object sender, EventArgs e)
         {
             int btn = ((Button)sender).TabIndex;
@@ -90,8 +90,22 @@ namespace UI
                     MessageBox.Show("opcion incorrecta");
                     break;
             }
-            menuTransition.Start();
 
+            if (currentFlp != null)
+            {
+                menuTransition.Stop();
+                while (currentFlp.Height > currentFlp.MinimumSize.Height)
+                {
+                    currentFlp.Height -= 10;
+                    Application.DoEvents();
+                }
+                currentFlp = null;
+            }
+
+            menuExpand = false;
+            flp.Height = flp.MinimumSize.Height;
+            menuTransition.Start();
+            currentFlp = flp;
         }
         #endregion
 
@@ -106,18 +120,24 @@ namespace UI
         }
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
-            Form frm;
-            frm = panelInterface.Controls.OfType<MyForm>().FirstOrDefault();
-            if (frm == null)
+            var forms = panelInterface.Controls.OfType<MyForm>();
+            Form frm = forms.FirstOrDefault();
+            if (frm != null)
             {
-                frm = new MyForm();
-                frm.TopLevel = false;
-                panelInterface.Controls.Add(frm);
-                panelInterface.Tag = frm;
-                frm.Show();
-                frm.BringToFront();
-                frm.FormClosed += new FormClosedEventHandler(CloseForms);
+                frm.Close();
             }
+
+            frm = new MyForm();
+            frm.TopLevel = false;
+            frm.Dock = DockStyle.Fill;
+            frm.AutoSize = true;
+            frm.ControlBox = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            panelInterface.Controls.Add(frm);
+            panelInterface.Tag = frm;
+            frm.Show();
+            frm.BringToFront();
+            frm.FormClosed += new FormClosedEventHandler(CloseForms);
         }
         private void CloseForms(object sender, FormClosedEventArgs e)
         {

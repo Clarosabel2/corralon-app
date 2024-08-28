@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BDE;
+using DAL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,8 +11,10 @@ namespace BLL
 {
     public static class BLL_Producto
     {
-        public static DataTable ObtenerProductos() {
-            return DAL_Producto.ObtenerProductos();
+        public static List<BE_Producto> ObtenerProductos()
+        {
+            return DAL_Producto.ObtenerProductos().AsEnumerable()
+                .Select(p => new BE_Producto(p)).ToList();
         }
     }
 }
