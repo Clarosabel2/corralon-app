@@ -11,6 +11,11 @@ namespace BLL
 {
     public static class BLL_Producto
     {
+        public static DataTable ObtenerCategoriasProducto()
+        {
+            return DAL_Producto.ObtenerCategoriasProducto();
+        }
+
         public static List<BE_Producto> ObtenerProductos()
         {
             return DAL_Producto.ObtenerProductos().AsEnumerable()

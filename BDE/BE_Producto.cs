@@ -10,7 +10,7 @@ namespace BDE
     public class BE_Producto
     {
         private int id;
-        private string marca;
+        private BE_Marca marca;
         private string nombre;
         private string descripcion;
         private string categoria;
@@ -18,7 +18,7 @@ namespace BDE
         private int peso;
         private int stock;
 
-        public BE_Producto(int id, string marca, string descripcion, string categoria, double precio, int stock)
+        public BE_Producto(int id, BE_Marca marca, string descripcion, string categoria, double precio, int stock)
         {
             this.Id = id;
             this.Marca = marca;
@@ -30,8 +30,8 @@ namespace BDE
         public BE_Producto(DataRow r)
         {
             this.Id = r.Field<int>("id_Producto");
-            this.Marca = r.Field<string>("marca");
-            this.Nombre= r.Field<string>("nombre");
+            this.Marca = new BE_Marca(r.Field<string>("marca"));
+            this.Nombre = r.Field<string>("nombre");
             this.Precio = r.Field<double>("precio");
             this.Categoria = r.Field<string>("nombreCategoria");
             this.Stock = r.Field<int>("stock");
@@ -39,7 +39,7 @@ namespace BDE
         public BE_Producto() { }
 
         public int Id { get => id; set => id = value; }
-        public string Marca { get => marca; set => marca = value; }
+        public BE_Marca Marca { get => marca; set => marca = value; }
         public string Descripcion { get => descripcion; set => descripcion = value; }
         public double Precio { get => precio; set => precio = value; }
         public int Peso { get => peso; set => peso = value; }

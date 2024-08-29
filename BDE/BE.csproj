@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="BE_Carrito.cs" />
     <Compile Include="BE_Cliente.cs" />
+    <Compile Include="BE_Marca.cs" />
     <Compile Include="BE_Permiso.cs" />
     <Compile Include="BE_Empleado.cs" />
     <Compile Include="BE_Venta.cs" />

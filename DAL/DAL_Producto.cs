@@ -12,6 +12,16 @@ namespace DAL
 {
     public static class DAL_Producto
     {
+        public static DataTable ObtenerCategoriasProducto()
+        {
+            var cnn = new DAL_Conexion();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter("SELECT c.id_Categoria, c.nombreCategoria FROM Categorias c", cnn.Connection);
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.Fill(table);
+            return table;
+        }
+
         public static DataTable ObtenerProductos()
         {
             var cnn = new DAL_Conexion();

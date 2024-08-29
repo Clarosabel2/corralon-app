@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BDE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,34 +14,57 @@ namespace UI
 {
     public partial class FormCrearVenta : Form
     {
+        private List<BE_Producto> products = BLL_Producto.ObtenerProductos();
         public FormCrearVenta()
         {
             InitializeComponent();
+            LoadTypesProducts();
             LoadProducts();
         }
 
         private void FormCrearVenta_Load(object sender, EventArgs e)
         {
         }
+        private void LoadTypesProducts()
+        {
+            DataTable dtCategorias = BLL_Producto.ObtenerCategoriasProducto();
+
+            DataRow rowTodos = dtCategorias.NewRow();
+            rowTodos["nombreCategoria"] = "Todos";
+            rowTodos["id_Categoria"] = DBNull.Value;
+
+            dtCategorias.Rows.InsertAt(rowTodos, 0);
+
+            cBTipoProductos.DataSource = dtCategorias;
+            cBTipoProductos.DisplayMember = "nombreCategoria";
+            cBTipoProductos.ValueMember = "id_Categoria";
+
+            cBTipoProductos.SelectedIndex = 0;
+        }
 
         private void LoadProducts()
         {
-            dgvProducts.DataSource = BLL_Producto.ObtenerProductos();
+            dgvProducts.Rows.Clear();
+            dgvProducts.AutoGenerateColumns = false;
+
+            foreach (var p in products)
+            {
+                dgvProducts.Rows.Add(p.Id, p.Categoria, p.Marca.NombreMarca, p.Nombre, p.Precio, p.Stock);
+            }
             foreach (DataGridViewColumn columna in dgvProducts.Columns)
             {
                 columna.ReadOnly = true;
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
-            DataGridViewColumn columnaCantidad = new DataGridViewTextBoxColumn();
-            columnaCantidad.Name = "Cantidad";
-            columnaCantidad.HeaderText = "Cantidad";
-            columnaCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            columnaCantidad.ReadOnly = false;
-            dgvProducts.Columns.Add(columnaCantidad);
-        }
-
-        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
+            if (dgvProducts.Columns["Cantidad"] == null)
+            {
+                DataGridViewColumn columnaCantidad = new DataGridViewTextBoxColumn();
+                columnaCantidad.Name = "Cantidad";
+                columnaCantidad.HeaderText = "Cantidad";
+                columnaCantidad.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                columnaCantidad.ReadOnly = false;
+                dgvProducts.Columns.Add(columnaCantidad);
+            }
 
         }
 
@@ -55,9 +79,11 @@ namespace UI
                 {
                     DataGridViewRow newRow = new DataGridViewRow();
                     newRow.CreateCells(dgvCart);
-                    newRow.Cells[0].Value = selectedRow.Cells[1].Value;
-                    newRow.Cells[1].Value = selectedRow.Cells[8].Value;
+                    newRow.Cells[0].Value = selectedRow.Cells[0].Value;//ID
+                    newRow.Cells[1].Value = selectedRow.Cells[3].Value;//NOMBRE
                     newRow.Cells[2].Value = cantidad;
+                    newRow.Cells[3].Value = selectedRow.Cells["Precio"].Value; //Precio unitario
+                    newRow.Cells[4].Value = (float.Parse(selectedRow.Cells["Precio"].Value.ToString()) * float.Parse(cantidad)).ToString(); //Total
                     dgvCart.Rows.Add(newRow);
                 }
                 else
@@ -101,10 +127,7 @@ namespace UI
             {
                 panelFinVenta.Visible = true;
                 panelFinVenta.BringToFront();
-                panelFinVenta.Location = new Point(
-                                                    (this.ClientSize.Width - panelFinVenta.Width) / 2,
-                                                    (this.ClientSize.Height - panelFinVenta.Height) / 2
-                                                );
+                panelFinVenta.Location = new Point((this.ClientSize.Width - panelFinVenta.Width) / 2, (this.ClientSize.Height - panelFinVenta.Height) / 2);
                 foreach (Control control in this.Controls)
                 {
                     if (control != panelFinVenta && control.Parent != panelFinVenta)
@@ -143,7 +166,7 @@ namespace UI
                         , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (r == DialogResult.Yes)
                     {
-
+                        //Agrefar form registrar cliente
                     }
                 }
             }
@@ -177,6 +200,53 @@ namespace UI
                 previousSelectedRow = null;
             }
         }
+        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
 
+        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
+        private void UpdateDetailsCart()
+        {
+            decimal totalCartValue = 0;
+            totalCartValue = dgvCart.Rows.Cast<DataGridViewRow>()
+            .Sum(row => Convert.ToDecimal(row.Cells["TotalC"].Value));
+            lblTotal.Text = "$ " + totalCartValue.ToString();
+            lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
+        }
+
+        private void txtFilterName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFilterName.Text != "")
+            {
+                string name = txtFilterName.Text;
+                products = products.Where(p => p.Nombre.ToLower().Contains(name.ToLower()) ||
+                                           p.Marca.NombreMarca.ToLower().Contains(name.ToLower())).ToList();
+            }
+            else
+            {
+                products = BLL_Producto.ObtenerProductos();
+            }
+            LoadProducts();
+        }
+
+        private void cBTipoProductos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            products = BLL_Producto.ObtenerProductos();//Provisorio
+            if (((DataRowView)cBTipoProductos.SelectedItem)["nombreCategoria"].ToString() == "Todos")
+            {
+                products = BLL_Producto.ObtenerProductos();
+            }
+            else
+            {
+                string selectedCategory = ((DataRowView)cBTipoProductos.SelectedItem)["nombreCategoria"].ToString();
+                products = products.Where(p => p.Categoria == selectedCategory).ToList();
+            }
+
+            LoadProducts();
+        }
     }
 }

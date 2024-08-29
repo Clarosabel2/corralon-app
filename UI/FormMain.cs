@@ -91,21 +91,35 @@ namespace UI
                     break;
             }
 
-            if (currentFlp != null)
+            if (flp == currentFlp && menuExpand)
             {
+                // Close the menu if it's already open
                 menuTransition.Stop();
-                while (currentFlp.Height > currentFlp.MinimumSize.Height)
+                while (flp.Height > flp.MinimumSize.Height)
                 {
-                    currentFlp.Height -= 10;
+                    flp.Height -= 10;
                     Application.DoEvents();
                 }
-                currentFlp = null;
+                menuExpand = false;
             }
+            else
+            {
+                if (currentFlp != null)
+                {
+                    menuTransition.Stop();
+                    while (currentFlp.Height > currentFlp.MinimumSize.Height)
+                    {
+                        currentFlp.Height -= 10;
+                        Application.DoEvents();
+                    }
+                    currentFlp = null;
+                }
 
-            menuExpand = false;
-            flp.Height = flp.MinimumSize.Height;
-            menuTransition.Start();
-            currentFlp = flp;
+                menuExpand = false;
+                flp.Height = flp.MinimumSize.Height;
+                menuTransition.Start();
+                currentFlp = flp;
+            }
         }
         #endregion
 
@@ -126,7 +140,6 @@ namespace UI
             {
                 frm.Close();
             }
-
             frm = new MyForm();
             frm.TopLevel = false;
             frm.Dock = DockStyle.Fill;
