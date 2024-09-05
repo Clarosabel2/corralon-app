@@ -99,6 +99,12 @@
     <Compile Include="FormRecoverPss.Designer.cs">
       <DependentUpon>FormRecoverPss.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRegistrarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistrarCliente.Designer.cs">
+      <DependentUpon>FormRegistrarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistrarCliente.resx">
+      <DependentUpon>FormRegistrarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>

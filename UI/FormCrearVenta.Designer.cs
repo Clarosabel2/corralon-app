@@ -31,16 +31,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cBTipoProductos = new System.Windows.Forms.ComboBox();
-            this.btnRemoveItem = new System.Windows.Forms.Button();
-            this.buttonCerrarVenta = new System.Windows.Forms.Button();
-            this.btnAgregarCarrito = new System.Windows.Forms.Button();
             this.panelFinVenta = new System.Windows.Forms.Panel();
+            this.cBTypesInvoice = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
             this.txtBClienteDNI = new System.Windows.Forms.TextBox();
             this.lblEstadoCliente = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnGenerarFactura = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.hopeDatePicker1 = new ReaLTaiizor.Controls.HopeDatePicker();
+            this.DPEntrega = new ReaLTaiizor.Controls.HopeDatePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
@@ -54,20 +53,12 @@
             this.label7 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.IDProductoC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProductoC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnitarioC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gBFiltros = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtFilterName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnRemoveItem = new System.Windows.Forms.Button();
+            this.btnAgregarCarrito = new System.Windows.Forms.Button();
+            this.buttonCerrarVenta = new System.Windows.Forms.Button();
             this.panelFinVenta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
@@ -107,73 +98,52 @@
             this.cBTipoProductos.TabIndex = 10;
             this.cBTipoProductos.SelectedIndexChanged += new System.EventHandler(this.cBTipoProductos_SelectedIndexChanged);
             // 
-            // btnRemoveItem
-            // 
-            this.btnRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemoveItem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRemoveItem.Image = global::UI.Properties.Resources.icons8_remove_from_clipboard_24;
-            this.btnRemoveItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveItem.Location = new System.Drawing.Point(837, 314);
-            this.btnRemoveItem.Name = "btnRemoveItem";
-            this.btnRemoveItem.Size = new System.Drawing.Size(110, 166);
-            this.btnRemoveItem.TabIndex = 11;
-            this.btnRemoveItem.Text = "Eliminar \r\nItem";
-            this.btnRemoveItem.UseVisualStyleBackColor = true;
-            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
-            // 
-            // buttonCerrarVenta
-            // 
-            this.buttonCerrarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCerrarVenta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCerrarVenta.Image = global::UI.Properties.Resources.icons8_close_window_20;
-            this.buttonCerrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCerrarVenta.Location = new System.Drawing.Point(837, 481);
-            this.buttonCerrarVenta.Name = "buttonCerrarVenta";
-            this.buttonCerrarVenta.Size = new System.Drawing.Size(110, 195);
-            this.buttonCerrarVenta.TabIndex = 7;
-            this.buttonCerrarVenta.Text = "Cerrar \r\nCarrito";
-            this.buttonCerrarVenta.UseVisualStyleBackColor = true;
-            this.buttonCerrarVenta.Click += new System.EventHandler(this.buttonCerrarVenta_Click);
-            // 
-            // btnAgregarCarrito
-            // 
-            this.btnAgregarCarrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregarCarrito.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarCarrito.Image = global::UI.Properties.Resources.icons8_add_shopping_cart_20;
-            this.btnAgregarCarrito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarCarrito.Location = new System.Drawing.Point(839, 59);
-            this.btnAgregarCarrito.Name = "btnAgregarCarrito";
-            this.btnAgregarCarrito.Size = new System.Drawing.Size(108, 231);
-            this.btnAgregarCarrito.TabIndex = 6;
-            this.btnAgregarCarrito.Text = "Agregar \r\na Carrito";
-            this.btnAgregarCarrito.UseVisualStyleBackColor = true;
-            this.btnAgregarCarrito.Click += new System.EventHandler(this.btnAgregarCarrito_Click);
-            // 
             // panelFinVenta
             // 
             this.panelFinVenta.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelFinVenta.Controls.Add(this.cBTypesInvoice);
+            this.panelFinVenta.Controls.Add(this.label10);
             this.panelFinVenta.Controls.Add(this.btnAtras);
             this.panelFinVenta.Controls.Add(this.txtBClienteDNI);
             this.panelFinVenta.Controls.Add(this.lblEstadoCliente);
-            this.panelFinVenta.Controls.Add(this.button2);
+            this.panelFinVenta.Controls.Add(this.btnGenerarFactura);
             this.panelFinVenta.Controls.Add(this.label4);
-            this.panelFinVenta.Controls.Add(this.hopeDatePicker1);
+            this.panelFinVenta.Controls.Add(this.DPEntrega);
             this.panelFinVenta.Controls.Add(this.groupBox1);
             this.panelFinVenta.Controls.Add(this.label3);
             this.panelFinVenta.Location = new System.Drawing.Point(272, 44);
             this.panelFinVenta.Name = "panelFinVenta";
-            this.panelFinVenta.Size = new System.Drawing.Size(373, 514);
+            this.panelFinVenta.Size = new System.Drawing.Size(376, 547);
             this.panelFinVenta.TabIndex = 13;
             this.panelFinVenta.Visible = false;
+            // 
+            // cBTypesInvoice
+            // 
+            this.cBTypesInvoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBTypesInvoice.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.cBTypesInvoice.FormattingEnabled = true;
+            this.cBTypesInvoice.Location = new System.Drawing.Point(91, 95);
+            this.cBTypesInvoice.Name = "cBTypesInvoice";
+            this.cBTypesInvoice.Size = new System.Drawing.Size(95, 24);
+            this.cBTypesInvoice.TabIndex = 10;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(11, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(77, 16);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Tipo Factura:";
             // 
             // btnAtras
             // 
             this.btnAtras.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnAtras.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(6, 459);
+            this.btnAtras.Location = new System.Drawing.Point(3, 3);
             this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(110, 52);
+            this.btnAtras.Size = new System.Drawing.Size(46, 28);
             this.btnAtras.TabIndex = 8;
             this.btnAtras.Text = "<---";
             this.btnAtras.UseVisualStyleBackColor = false;
@@ -182,7 +152,7 @@
             // txtBClienteDNI
             // 
             this.txtBClienteDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBClienteDNI.Location = new System.Drawing.Point(6, 37);
+            this.txtBClienteDNI.Location = new System.Drawing.Point(6, 53);
             this.txtBClienteDNI.MaxLength = 8;
             this.txtBClienteDNI.Multiline = true;
             this.txtBClienteDNI.Name = "txtBClienteDNI";
@@ -195,70 +165,73 @@
             // 
             this.lblEstadoCliente.AutoSize = true;
             this.lblEstadoCliente.ForeColor = System.Drawing.Color.Green;
-            this.lblEstadoCliente.Location = new System.Drawing.Point(212, 54);
+            this.lblEstadoCliente.Location = new System.Drawing.Point(192, 70);
             this.lblEstadoCliente.Name = "lblEstadoCliente";
             this.lblEstadoCliente.Size = new System.Drawing.Size(0, 13);
             this.lblEstadoCliente.TabIndex = 6;
             // 
-            // button2
+            // btnGenerarFactura
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(260, 459);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 52);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Generar Factura";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnGenerarFactura.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnGenerarFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnGenerarFactura.Enabled = false;
+            this.btnGenerarFactura.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarFactura.Location = new System.Drawing.Point(0, 495);
+            this.btnGenerarFactura.Name = "btnGenerarFactura";
+            this.btnGenerarFactura.Size = new System.Drawing.Size(376, 52);
+            this.btnGenerarFactura.TabIndex = 5;
+            this.btnGenerarFactura.Text = "Generar Factura";
+            this.btnGenerarFactura.UseVisualStyleBackColor = false;
+            this.btnGenerarFactura.Click += new System.EventHandler(this.btnGenerarFactura_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(3, 76);
+            this.label4.Location = new System.Drawing.Point(11, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 16);
             this.label4.TabIndex = 4;
             this.label4.Text = "Fecha A Entregar";
             // 
-            // hopeDatePicker1
+            // DPEntrega
             // 
-            this.hopeDatePicker1.BackColor = System.Drawing.Color.White;
-            this.hopeDatePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.hopeDatePicker1.Date = new System.DateTime(2024, 5, 25, 0, 0, 0, 0);
-            this.hopeDatePicker1.DayNames = "LMMJVSS";
-            this.hopeDatePicker1.DaysTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
-            this.hopeDatePicker1.DayTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.hopeDatePicker1.DayTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.hopeDatePicker1.HeaderFormat = "{0} Año - {1} Mes";
-            this.hopeDatePicker1.HeaderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.hopeDatePicker1.HeadLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
-            this.hopeDatePicker1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
-            this.hopeDatePicker1.Location = new System.Drawing.Point(57, 95);
-            this.hopeDatePicker1.Name = "hopeDatePicker1";
-            this.hopeDatePicker1.NMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.hopeDatePicker1.NMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeDatePicker1.NYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.hopeDatePicker1.NYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeDatePicker1.PMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.hopeDatePicker1.PMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeDatePicker1.PYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.hopeDatePicker1.PYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeDatePicker1.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.hopeDatePicker1.SelectedTextColor = System.Drawing.Color.White;
-            this.hopeDatePicker1.Size = new System.Drawing.Size(250, 270);
-            this.hopeDatePicker1.TabIndex = 3;
-            this.hopeDatePicker1.Text = "hopeDatePicker1";
-            this.hopeDatePicker1.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
+            this.DPEntrega.BackColor = System.Drawing.Color.White;
+            this.DPEntrega.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
+            this.DPEntrega.Date = new System.DateTime(2024, 5, 25, 0, 0, 0, 0);
+            this.DPEntrega.DayNames = "LMMJVSS";
+            this.DPEntrega.DaysTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
+            this.DPEntrega.DayTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.DPEntrega.DayTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
+            this.DPEntrega.HeaderFormat = "{0} Año - {1} Mes";
+            this.DPEntrega.HeaderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
+            this.DPEntrega.HeadLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
+            this.DPEntrega.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
+            this.DPEntrega.Location = new System.Drawing.Point(68, 166);
+            this.DPEntrega.Name = "DPEntrega";
+            this.DPEntrega.NMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            this.DPEntrega.NMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.DPEntrega.NYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            this.DPEntrega.NYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.DPEntrega.PMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            this.DPEntrega.PMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.DPEntrega.PYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
+            this.DPEntrega.PYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.DPEntrega.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
+            this.DPEntrega.SelectedTextColor = System.Drawing.Color.White;
+            this.DPEntrega.Size = new System.Drawing.Size(250, 270);
+            this.DPEntrega.TabIndex = 3;
+            this.DPEntrega.Text = "hopeDatePicker1";
+            this.DPEntrega.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.guna2RadioButton2);
             this.groupBox1.Controls.Add(this.guna2RadioButton1);
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 371);
+            this.groupBox1.Location = new System.Drawing.Point(3, 442);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(367, 46);
+            this.groupBox1.Size = new System.Drawing.Size(370, 46);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Medio de Pago";
@@ -305,7 +278,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 12);
+            this.label3.Location = new System.Drawing.Point(11, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 16);
             this.label3.TabIndex = 0;
@@ -316,18 +289,13 @@
             this.dgvProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProducts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDProducto,
-            this.Categoria,
-            this.Marca,
-            this.NombreProducto,
-            this.Precio,
-            this.Stock});
             this.dgvProducts.Location = new System.Drawing.Point(15, 59);
             this.dgvProducts.Name = "dgvProducts";
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducts.Size = new System.Drawing.Size(818, 231);
             this.dgvProducts.TabIndex = 14;
+            this.dgvProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProducts_CellFormatting);
+            this.dgvProducts.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvProducts_DataError);
             this.dgvProducts.SelectionChanged += new System.EventHandler(this.dgvProducts_SelectionChanged);
             // 
             // dgvCart
@@ -336,12 +304,6 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDProductoC,
-            this.NombreProductoC,
-            this.CantidadC,
-            this.PrecioUnitarioC,
-            this.TotalC});
             this.dgvCart.Location = new System.Drawing.Point(15, 314);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -427,72 +389,6 @@
             this.label5.TabIndex = 17;
             this.label5.Text = "Total:";
             // 
-            // IDProductoC
-            // 
-            this.IDProductoC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDProductoC.HeaderText = "IDProducto";
-            this.IDProductoC.Name = "IDProductoC";
-            // 
-            // NombreProductoC
-            // 
-            this.NombreProductoC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreProductoC.HeaderText = "Nombre";
-            this.NombreProductoC.Name = "NombreProductoC";
-            // 
-            // CantidadC
-            // 
-            this.CantidadC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CantidadC.HeaderText = "Cantidad";
-            this.CantidadC.Name = "CantidadC";
-            // 
-            // PrecioUnitarioC
-            // 
-            this.PrecioUnitarioC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.PrecioUnitarioC.HeaderText = "Precio Unitario";
-            this.PrecioUnitarioC.Name = "PrecioUnitarioC";
-            // 
-            // TotalC
-            // 
-            this.TotalC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TotalC.HeaderText = "Total";
-            this.TotalC.Name = "TotalC";
-            // 
-            // IDProducto
-            // 
-            this.IDProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.IDProducto.HeaderText = "IDProducto";
-            this.IDProducto.Name = "IDProducto";
-            // 
-            // Categoria
-            // 
-            this.Categoria.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Categoria.HeaderText = "Categoria";
-            this.Categoria.Name = "Categoria";
-            // 
-            // Marca
-            // 
-            this.Marca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Marca.HeaderText = "Marca";
-            this.Marca.Name = "Marca";
-            // 
-            // NombreProducto
-            // 
-            this.NombreProducto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.NombreProducto.HeaderText = "Nombre";
-            this.NombreProducto.Name = "NombreProducto";
-            // 
-            // Precio
-            // 
-            this.Precio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Precio.HeaderText = "Precio";
-            this.Precio.Name = "Precio";
-            // 
-            // Stock
-            // 
-            this.Stock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            // 
             // gBFiltros
             // 
             this.gBFiltros.Controls.Add(this.txtFilterName);
@@ -508,6 +404,15 @@
             this.gBFiltros.TabStop = false;
             this.gBFiltros.Text = "Filtros";
             // 
+            // txtFilterName
+            // 
+            this.txtFilterName.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.txtFilterName.Location = new System.Drawing.Point(342, 23);
+            this.txtFilterName.Name = "txtFilterName";
+            this.txtFilterName.Size = new System.Drawing.Size(100, 21);
+            this.txtFilterName.TabIndex = 12;
+            this.txtFilterName.TextChanged += new System.EventHandler(this.txtFilterName_TextChanged);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -518,20 +423,56 @@
             this.label6.TabIndex = 11;
             this.label6.Text = "Marca / Nombre:";
             // 
-            // txtFilterName
+            // btnRemoveItem
             // 
-            this.txtFilterName.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.txtFilterName.Location = new System.Drawing.Point(342, 23);
-            this.txtFilterName.Name = "txtFilterName";
-            this.txtFilterName.Size = new System.Drawing.Size(100, 21);
-            this.txtFilterName.TabIndex = 12;
-            this.txtFilterName.TextChanged += new System.EventHandler(this.txtFilterName_TextChanged);
+            this.btnRemoveItem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRemoveItem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveItem.Image = global::UI.Properties.Resources.icons8_remove_from_clipboard_24;
+            this.btnRemoveItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemoveItem.Location = new System.Drawing.Point(837, 314);
+            this.btnRemoveItem.Name = "btnRemoveItem";
+            this.btnRemoveItem.Size = new System.Drawing.Size(110, 166);
+            this.btnRemoveItem.TabIndex = 11;
+            this.btnRemoveItem.Text = "Eliminar \r\nItem";
+            this.btnRemoveItem.UseVisualStyleBackColor = true;
+            this.btnRemoveItem.Click += new System.EventHandler(this.btnRemoveItem_Click);
+            // 
+            // btnAgregarCarrito
+            // 
+            this.btnAgregarCarrito.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregarCarrito.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCarrito.Image = global::UI.Properties.Resources.icons8_add_shopping_cart_20;
+            this.btnAgregarCarrito.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarCarrito.Location = new System.Drawing.Point(839, 59);
+            this.btnAgregarCarrito.Name = "btnAgregarCarrito";
+            this.btnAgregarCarrito.Size = new System.Drawing.Size(108, 231);
+            this.btnAgregarCarrito.TabIndex = 6;
+            this.btnAgregarCarrito.Text = "Agregar \r\na Carrito";
+            this.btnAgregarCarrito.UseVisualStyleBackColor = true;
+            this.btnAgregarCarrito.Click += new System.EventHandler(this.btnAgregarCarrito_Click);
+            // 
+            // buttonCerrarVenta
+            // 
+            this.buttonCerrarVenta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonCerrarVenta.Enabled = false;
+            this.buttonCerrarVenta.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCerrarVenta.Image = global::UI.Properties.Resources.icons8_close_window_20;
+            this.buttonCerrarVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCerrarVenta.Location = new System.Drawing.Point(837, 481);
+            this.buttonCerrarVenta.Name = "buttonCerrarVenta";
+            this.buttonCerrarVenta.Size = new System.Drawing.Size(110, 195);
+            this.buttonCerrarVenta.TabIndex = 7;
+            this.buttonCerrarVenta.Text = "Cerrar \r\nCarrito";
+            this.buttonCerrarVenta.UseVisualStyleBackColor = true;
+            this.buttonCerrarVenta.Click += new System.EventHandler(this.buttonCerrarVenta_Click);
             // 
             // FormCrearVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 737);
+            this.Controls.Add(this.panelFinVenta);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.btnRemoveItem);
@@ -540,10 +481,11 @@
             this.Controls.Add(this.buttonCerrarVenta);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.gBFiltros);
-            this.Controls.Add(this.panelFinVenta);
             this.Name = "FormCrearVenta";
             this.Text = "FormCrearVenta";
             this.Load += new System.EventHandler(this.FormCrearVenta_Load);
+            this.ResizeEnd += new System.EventHandler(this.FormCrearVenta_ResizeEnd);
+            this.Resize += new System.EventHandler(this.FormCrearVenta_Resize);
             this.panelFinVenta.ResumeLayout(false);
             this.panelFinVenta.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -569,11 +511,11 @@
         private System.Windows.Forms.Panel panelFinVenta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private ReaLTaiizor.Controls.HopeDatePicker hopeDatePicker1;
+        private ReaLTaiizor.Controls.HopeDatePicker DPEntrega;
         private System.Windows.Forms.GroupBox groupBox1;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
         private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGenerarFactura;
         private System.Windows.Forms.Label lblEstadoCliente;
         private System.Windows.Forms.DataGridView dgvProducts;
         private System.Windows.Forms.DataGridView dgvCart;
@@ -586,19 +528,10 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProductoC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProductoC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnitarioC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TotalC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreProducto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
         private System.Windows.Forms.GroupBox gBFiltros;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtFilterName;
+        private System.Windows.Forms.ComboBox cBTypesInvoice;
+        private System.Windows.Forms.Label label10;
     }
 }

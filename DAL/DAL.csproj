@@ -46,10 +46,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>corralondbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL_Carrito.cs" />
     <Compile Include="DAL_Cliente.cs" />
+    <Compile Include="DAL_ClienteHelpers.cs" />
     <Compile Include="DAL_Conexion.cs" />
     <Compile Include="DAL_Empleado.cs" />
-    <Compile Include="DAL_Factura.cs" />
+    <Compile Include="DAL_Venta.cs" />
     <Compile Include="DAL_Producto.cs" />
     <Compile Include="DAL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

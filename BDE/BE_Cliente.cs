@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,12 @@ namespace BDE
         {
             this.Facturas = null;
         }
+        public BE_Cliente(SqlDataReader c)
+            : base(c)
+        {
+            this.Facturas = null;
+        }
         public List<BE_Venta> Facturas { get => facturas; set => facturas = value; }
+
     }
 }
