@@ -100,14 +100,14 @@ namespace DAL {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Carrito"] != null)) {
-                    base.Tables.Add(new CarritoDataTable(ds.Tables["Carrito"]));
+                if ((ds.Tables["Cart"] != null)) {
+                    base.Tables.Add(new CarritoDataTable(ds.Tables["Cart"]));
                 }
                 if ((ds.Tables["Carrito_Producto"] != null)) {
                     base.Tables.Add(new Carrito_ProductoDataTable(ds.Tables["Carrito_Producto"]));
                 }
-                if ((ds.Tables["Cliente"] != null)) {
-                    base.Tables.Add(new ClienteDataTable(ds.Tables["Cliente"]));
+                if ((ds.Tables["Client"] != null)) {
+                    base.Tables.Add(new ClienteDataTable(ds.Tables["Client"]));
                 }
                 if ((ds.Tables["ComprobanteEntrega"] != null)) {
                     base.Tables.Add(new ComprobanteEntregaDataTable(ds.Tables["ComprobanteEntrega"]));
@@ -121,8 +121,8 @@ namespace DAL {
                 if ((ds.Tables["Persona"] != null)) {
                     base.Tables.Add(new PersonaDataTable(ds.Tables["Persona"]));
                 }
-                if ((ds.Tables["Precio"] != null)) {
-                    base.Tables.Add(new PrecioDataTable(ds.Tables["Precio"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PrecioDataTable(ds.Tables["Price"]));
                 }
                 if ((ds.Tables["Producto"] != null)) {
                     base.Tables.Add(new ProductoDataTable(ds.Tables["Producto"]));
@@ -328,14 +328,14 @@ namespace DAL {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Carrito"] != null)) {
-                    base.Tables.Add(new CarritoDataTable(ds.Tables["Carrito"]));
+                if ((ds.Tables["Cart"] != null)) {
+                    base.Tables.Add(new CarritoDataTable(ds.Tables["Cart"]));
                 }
                 if ((ds.Tables["Carrito_Producto"] != null)) {
                     base.Tables.Add(new Carrito_ProductoDataTable(ds.Tables["Carrito_Producto"]));
                 }
-                if ((ds.Tables["Cliente"] != null)) {
-                    base.Tables.Add(new ClienteDataTable(ds.Tables["Cliente"]));
+                if ((ds.Tables["Client"] != null)) {
+                    base.Tables.Add(new ClienteDataTable(ds.Tables["Client"]));
                 }
                 if ((ds.Tables["ComprobanteEntrega"] != null)) {
                     base.Tables.Add(new ComprobanteEntregaDataTable(ds.Tables["ComprobanteEntrega"]));
@@ -349,8 +349,8 @@ namespace DAL {
                 if ((ds.Tables["Persona"] != null)) {
                     base.Tables.Add(new PersonaDataTable(ds.Tables["Persona"]));
                 }
-                if ((ds.Tables["Precio"] != null)) {
-                    base.Tables.Add(new PrecioDataTable(ds.Tables["Precio"]));
+                if ((ds.Tables["Price"] != null)) {
+                    base.Tables.Add(new PrecioDataTable(ds.Tables["Price"]));
                 }
                 if ((ds.Tables["Producto"] != null)) {
                     base.Tables.Add(new ProductoDataTable(ds.Tables["Producto"]));
@@ -394,7 +394,7 @@ namespace DAL {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableCarrito = ((CarritoDataTable)(base.Tables["Carrito"]));
+            this.tableCarrito = ((CarritoDataTable)(base.Tables["Cart"]));
             if ((initTable == true)) {
                 if ((this.tableCarrito != null)) {
                     this.tableCarrito.InitVars();
@@ -406,7 +406,7 @@ namespace DAL {
                     this.tableCarrito_Producto.InitVars();
                 }
             }
-            this.tableCliente = ((ClienteDataTable)(base.Tables["Cliente"]));
+            this.tableCliente = ((ClienteDataTable)(base.Tables["Client"]));
             if ((initTable == true)) {
                 if ((this.tableCliente != null)) {
                     this.tableCliente.InitVars();
@@ -436,7 +436,7 @@ namespace DAL {
                     this.tablePersona.InitVars();
                 }
             }
-            this.tablePrecio = ((PrecioDataTable)(base.Tables["Precio"]));
+            this.tablePrecio = ((PrecioDataTable)(base.Tables["Price"]));
             if ((initTable == true)) {
                 if ((this.tablePrecio != null)) {
                     this.tablePrecio.InitVars();
@@ -729,7 +729,7 @@ namespace DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CarritoDataTable() {
-                this.TableName = "Carrito";
+                this.TableName = "Cart";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1146,7 +1146,7 @@ namespace DAL {
             internal void InitVars() {
                 this.columnid_Producto = base.Columns["id_Producto"];
                 this.columnid_Carrito = base.Columns["id_Carrito"];
-                this.columnCantidad = base.Columns["Cantidad"];
+                this.columnCantidad = base.Columns["Amount"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1156,7 +1156,7 @@ namespace DAL {
                 base.Columns.Add(this.columnid_Producto);
                 this.columnid_Carrito = new global::System.Data.DataColumn("id_Carrito", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_Carrito);
-                this.columnCantidad = new global::System.Data.DataColumn("Cantidad", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnCantidad = new global::System.Data.DataColumn("Amount", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCantidad);
                 this.columnid_Producto.AllowDBNull = false;
                 this.columnid_Carrito.AllowDBNull = false;
@@ -1299,7 +1299,7 @@ namespace DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public ClienteDataTable() {
-                this.TableName = "Cliente";
+                this.TableName = "Client";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2922,7 +2922,7 @@ namespace DAL {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public PrecioDataTable() {
-                this.TableName = "Precio";
+                this.TableName = "Price";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -4086,7 +4086,7 @@ namespace DAL {
                         return ((int)(this[this.tableCarrito.id_ClienteColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_Cliente\' de la tabla \'Carrito\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id_Cliente\' de la tabla \'Cart\' es DBNull.", e);
                     }
                 }
                 set {
@@ -5532,14 +5532,14 @@ namespace DAL.corralondbDataSetTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Carrito";
+            tableMapping.DataSetTable = "Cart";
             tableMapping.ColumnMappings.Add("id_Carrito", "id_Carrito");
             tableMapping.ColumnMappings.Add("id_Cliente", "id_Cliente");
             tableMapping.ColumnMappings.Add("id_Producto", "id_Producto");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Carrito] WHERE (([id_Carrito] = @Original_id_Carrito) AND ((@I" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cart] WHERE (([id_Carrito] = @Original_id_Carrito) AND ((@I" +
                 "sNull_id_Cliente = 1 AND [id_Cliente] IS NULL) OR ([id_Cliente] = @Original_id_C" +
                 "liente)) AND ([id_Producto] = @Original_id_Producto))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
@@ -5549,17 +5549,17 @@ namespace DAL.corralondbDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Producto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Producto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Carrito] ([id_Carrito], [id_Cliente], [id_Producto]) VALUES (@" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cart] ([id_Carrito], [id_Cliente], [id_Producto]) VALUES (@" +
                 "id_Carrito, @id_Cliente, @id_Producto);\r\nSELECT id_Carrito, id_Cliente, id_Produ" +
-                "cto FROM Carrito WHERE (id_Carrito = @id_Carrito)";
+                "cto FROM Cart WHERE (id_Carrito = @id_Carrito)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Carrito", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Carrito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Producto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Carrito] SET [id_Carrito] = @id_Carrito, [id_Cliente] = @id_Cliente, [id_Producto] = @id_Producto WHERE (([id_Carrito] = @Original_id_Carrito) AND ((@IsNull_id_Cliente = 1 AND [id_Cliente] IS NULL) OR ([id_Cliente] = @Original_id_Cliente)) AND ([id_Producto] = @Original_id_Producto));
-SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_Carrito)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Cart] SET [id_Carrito] = @id_Carrito, [id_Cliente] = @id_Cliente, [id_Producto] = @id_Producto WHERE (([id_Carrito] = @Original_id_Carrito) AND ((@IsNull_id_Cliente = 1 AND [id_Cliente] IS NULL) OR ([id_Cliente] = @Original_id_Cliente)) AND ([id_Producto] = @Original_id_Producto));
+SELECT id_Carrito, id_Cliente, id_Producto FROM Cart WHERE (id_Carrito = @id_Carrito)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Carrito", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Carrito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -5583,7 +5583,7 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Carrito, id_Cliente, id_Producto FROM dbo.Carrito";
+            this._commandCollection[0].CommandText = "SELECT id_Carrito, id_Cliente, id_Producto FROM dbo.Cart";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -5622,7 +5622,7 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(corralondbDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Carrito");
+            return this.Adapter.Update(dataSet, "Cart");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5871,16 +5871,16 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
             tableMapping.DataSetTable = "Carrito_Producto";
             tableMapping.ColumnMappings.Add("id_Producto", "id_Producto");
             tableMapping.ColumnMappings.Add("id_Carrito", "id_Carrito");
-            tableMapping.ColumnMappings.Add("Cantidad", "Cantidad");
+            tableMapping.ColumnMappings.Add("Amount", "Amount");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Carrito_Producto] ([id_Producto], [id_Carrito], [Cantidad]) VA" +
-                "LUES (@id_Producto, @id_Carrito, @Cantidad)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Carrito_Producto] ([id_Producto], [id_Carrito], [Amount]) VA" +
+                "LUES (@id_Producto, @id_Carrito, @Amount)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Producto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Producto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Carrito", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Carrito", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Cantidad", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Cantidad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Amount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Amount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5896,7 +5896,7 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Producto, id_Carrito, Cantidad FROM dbo.Carrito_Producto";
+            this._commandCollection[0].CommandText = "SELECT id_Producto, id_Carrito, Amount FROM dbo.Carrito_Producto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6098,24 +6098,24 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Cliente";
+            tableMapping.DataSetTable = "Client";
             tableMapping.ColumnMappings.Add("id_Cliente", "id_Cliente");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Cliente] WHERE (([id_Cliente] = @Original_id_Cliente))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Client] WHERE (([id_Cliente] = @Original_id_Cliente))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Cliente", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Cliente] ([id_Cliente]) VALUES (@id_Cliente);\r\nSELECT id_Clien" +
-                "te FROM Cliente WHERE (id_Cliente = @id_Cliente)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Client] ([id_Cliente]) VALUES (@id_Cliente);\r\nSELECT id_Clien" +
+                "te FROM Client WHERE (id_Cliente = @id_Cliente)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Cliente] SET [id_Cliente] = @id_Cliente WHERE (([id_Cliente] = @Ori" +
-                "ginal_id_Cliente));\r\nSELECT id_Cliente FROM Cliente WHERE (id_Cliente = @id_Clie" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Client] SET [id_Cliente] = @id_Cliente WHERE (([id_Cliente] = @Ori" +
+                "ginal_id_Cliente));\r\nSELECT id_Cliente FROM Client WHERE (id_Cliente = @id_Clie" +
                 "nte)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Cliente", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Cliente", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6135,7 +6135,7 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Cliente FROM dbo.Cliente";
+            this._commandCollection[0].CommandText = "SELECT id_Cliente FROM dbo.Client";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -6174,7 +6174,7 @@ SELECT id_Carrito, id_Cliente, id_Producto FROM Carrito WHERE (id_Carrito = @id_
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(corralondbDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Cliente");
+            return this.Adapter.Update(dataSet, "Client");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7914,29 +7914,29 @@ SELECT id_Persona, DNI, nombre, apellido, domicilio, email, telefono FROM Person
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Precio";
+            tableMapping.DataSetTable = "Price";
             tableMapping.ColumnMappings.Add("id_Precio", "id_Precio");
             tableMapping.ColumnMappings.Add("precio", "precio");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Precio] WHERE (([id_Precio] = @Original_id_Precio) AND ([preci" +
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Price] WHERE (([id_Precio] = @Original_id_Precio) AND ([preci" +
                 "o] = @Original_precio))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id_Precio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Precio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_precio", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Precio] ([id_Precio], [precio]) VALUES (@id_Precio, @precio);\r" +
-                "\nSELECT id_Precio, precio FROM Precio WHERE (id_Precio = @id_Precio)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Price] ([id_Precio], [precio]) VALUES (@id_Precio, @precio);\r" +
+                "\nSELECT id_Precio, precio FROM Price WHERE (id_Precio = @id_Precio)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Precio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@precio", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Precio] SET [id_Precio] = @id_Precio, [precio] = @precio WHERE (([i" +
+            this._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Price] SET [id_Precio] = @id_Precio, [precio] = @precio WHERE (([i" +
                 "d_Precio] = @Original_id_Precio) AND ([precio] = @Original_precio));\r\nSELECT id_" +
-                "Precio, precio FROM Precio WHERE (id_Precio = @id_Precio)";
+                "Price, precio FROM Price WHERE (id_Precio = @id_Precio)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id_Precio", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id_Precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@precio", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "precio", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -7957,7 +7957,7 @@ SELECT id_Persona, DNI, nombre, apellido, domicilio, email, telefono FROM Person
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id_Precio, precio FROM dbo.Precio";
+            this._commandCollection[0].CommandText = "SELECT id_Precio, precio FROM dbo.Price";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -7996,7 +7996,7 @@ SELECT id_Persona, DNI, nombre, apellido, domicilio, email, telefono FROM Person
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(corralondbDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Precio");
+            return this.Adapter.Update(dataSet, "Price");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

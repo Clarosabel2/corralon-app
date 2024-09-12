@@ -22,8 +22,8 @@ namespace UI
         private void LoadMyData()
         {
             lblUser.Text = SessionManager.GetInstance.usuario.Username;
-            lblFirstName.Text = SessionManager.GetInstance.usuario.Emp.Nombre;
-            lblLastName.Text = SessionManager.GetInstance.usuario.Emp.Apellido;
+            lblFirstName.Text = SessionManager.GetInstance.usuario.Emp.Name;
+            lblLastName.Text = SessionManager.GetInstance.usuario.Emp.Lastname;
             lblEmail.Text = SessionManager.GetInstance.usuario.Emp.Email;
             lblPosition.Text = SessionManager.GetInstance.usuario.Rol;
         }

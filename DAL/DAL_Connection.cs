@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public class DAL_Conexion
+    public class DAL_Connection
     {
         private readonly SqlConnection _connection = new SqlConnection("Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;");
 

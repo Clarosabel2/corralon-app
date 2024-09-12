@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class FormCrearVenta
+    partial class FormCreateSale
     {
         /// <summary>
         /// Required designer variable.
@@ -83,9 +83,9 @@
             this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 295);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 16);
+            this.label2.Size = new System.Drawing.Size(31, 16);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Carrito";
+            this.label2.Text = "Cart";
             // 
             // cBTipoProductos
             // 
@@ -280,9 +280,9 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(11, 34);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 16);
+            this.label3.Size = new System.Drawing.Size(121, 16);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Ingrese DNI del Cliente";
+            this.label3.Text = "Ingrese DNI del Client";
             // 
             // dgvProducts
             // 
@@ -327,7 +327,7 @@
             this.groupBox2.Size = new System.Drawing.Size(959, 55);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detalles del Carrito";
+            this.groupBox2.Text = "Detalles del Cart";
             // 
             // lblItemsTotal
             // 
@@ -467,7 +467,7 @@
             this.buttonCerrarVenta.UseVisualStyleBackColor = true;
             this.buttonCerrarVenta.Click += new System.EventHandler(this.buttonCerrarVenta_Click);
             // 
-            // FormCrearVenta
+            // FormCreateSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -481,8 +481,8 @@
             this.Controls.Add(this.buttonCerrarVenta);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.gBFiltros);
-            this.Name = "FormCrearVenta";
-            this.Text = "FormCrearVenta";
+            this.Name = "FormCreateSale";
+            this.Text = "FormCreateSale";
             this.Load += new System.EventHandler(this.FormCrearVenta_Load);
             this.ResizeEnd += new System.EventHandler(this.FormCrearVenta_ResizeEnd);
             this.Resize += new System.EventHandler(this.FormCrearVenta_Resize);

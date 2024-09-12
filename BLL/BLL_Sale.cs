@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public static class BLL_Venta
+    public static class BLL_Sale
     {
         public static DataTable GetTypesInvoice()
         {
-            return DAL_Venta.GetTypesInvoice();
+            return DAL_Sale.GetTypesInvoice();
         }
 
-        public static void SaveInvoice(BE_Venta newSale)
+        public static void SaveInvoice(BE_Sale newSale)
         {
             
         }

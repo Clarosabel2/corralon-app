@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-    public static class BLL_Usuario
+    public static class BLL_User
     {
         public static bool ValidUser(string username, string password)
         {
-            return DAL_Usuario.ValidUser(username, password);
+            return DAL_User.ValidUser(username, password);
         }
     }
 }

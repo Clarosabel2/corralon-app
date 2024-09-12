@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public static class DAL_Carrito
+    public static class DAL_Cart
     {
-        public static void Savecart(BE_Carrito cart) {
+        public static void SaveCart(BE_Cart cart) {
             
         }
     }

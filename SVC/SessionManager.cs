@@ -9,7 +9,7 @@ namespace SVC
 {
     public class SessionManager
     {
-        public BE_Usuario usuario { get; set; }
+        public BE_User usuario { get; set; }
         
         private static SessionManager _session = null;
         protected SessionManager() { }
@@ -22,7 +22,7 @@ namespace SVC
 
             }
         }
-        public static void Login(BE_Usuario usuario) {
+        public static void Login(BE_User usuario) {
             if (_session == null)
             {
                 _session = new SessionManager();

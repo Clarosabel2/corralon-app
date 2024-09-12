@@ -15,11 +15,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
-    public partial class FormCrearVenta : Form
+    public partial class FormCreateSale : Form
     {
-        BE_Carrito cart;
-        private List<BE_Producto> products = BLL_Producto.ObtenerProductos();
-        public FormCrearVenta()
+        BE_Cart cart;
+        private List<BE_Product> products = BLL_Product.GetProducts();
+        public FormCreateSale()
         {
             InitializeComponent();
             LoadTypesProducts();
@@ -30,7 +30,7 @@ namespace UI
 
         private void CreateCart()
         {
-            cart = new BE_Carrito();
+            cart = new BE_Cart();
         }
 
         private void FormCrearVenta_Load(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace UI
         }
         private void LoadTypesProducts()
         {
-            DataTable dtCategorias = BLL_Producto.ObtenerCategoriasProducto();
+            DataTable dtCategorias = BLL_Product.GetCaterogyProducts();
 
             DataRow rowTodos = dtCategorias.NewRow();
             rowTodos["nombreCategoria"] = "Todos";
@@ -72,18 +72,18 @@ namespace UI
             cBTipoProductos.ValueMember = "id_Categoria";
         }
 
-        private void LoadProducts(List<BE_Producto> prdts)
+        private void LoadProducts(List<BE_Product> prdts)
         {
             if (prdts is null) MessageBox.Show("lista null");
 
-            BindingList<BE_Producto> p = new BindingList<BE_Producto>(prdts);
+            BindingList<BE_Product> p = new BindingList<BE_Product>(prdts);
             dgvProducts.DataSource = p;
             FillCellsDGV(dgvProducts);
-            if (dgvProducts.Columns["PrecioTotal"] != null)
+            if (dgvProducts.Columns["TotalPrice"] != null)
             {
-                dgvProducts.Columns["PrecioTotal"].Visible = false;
+                dgvProducts.Columns["TotalPrice"].Visible = false;
             }
-            dgvProducts.Columns["Cantidad"].ReadOnly = false;
+            dgvProducts.Columns["Amount"].ReadOnly = false;
 
         }
 
@@ -101,22 +101,22 @@ namespace UI
             {
                 DataGridViewRow selectedRow = dgvProducts.SelectedRows[0];
 
-                var product = selectedRow.DataBoundItem as BE_Producto;
+                var product = selectedRow.DataBoundItem as BE_Product;
 
 
-                int cantidad = int.Parse(selectedRow.Cells["Cantidad"].Value?.ToString());
-                dgvProducts.SelectedRows[0].Cells["Cantidad"].Value = "";
+                int cantidad = int.Parse(selectedRow.Cells["Amount"].Value?.ToString());
+                dgvProducts.SelectedRows[0].Cells["Amount"].Value = "";
 
 
-                product.Cantidad = cantidad;
+                product.Amount = cantidad;
 
-                if (product.VerificarDisponibilidad())
+                if (product.CheckAvailability())
                 {
-                    product.CalcularPrecioTotal();
-                    cart.AgregarProducto(product);
+                    product.CarculateTotalPrice();
+                    cart.AddProduct(product);
                     dgvCart.DataSource = null;
-                    dgvCart.DataSource = cart.Productos;
-                    dgvCart.Columns["Categoria"].Visible = false;
+                    dgvCart.DataSource = cart.Products;
+                    dgvCart.Columns["Category"].Visible = false;
                     dgvCart.Columns["Stock"].Visible = false;
                     FillCellsDGV(dgvCart);
                 }
@@ -139,10 +139,10 @@ namespace UI
                 try
                 {
                     DataGridViewRow selectedRow = dgvCart.SelectedRows[0];
-                    cart.RemoverProducto(selectedRow.DataBoundItem as BE_Producto);
+                    cart.RemoveProduct(selectedRow.DataBoundItem as BE_Product);
                     dgvCart.DataSource = null;
-                    dgvCart.DataSource = cart.Productos;
-                    dgvCart.Columns["Categoria"].Visible = false;
+                    dgvCart.DataSource = cart.Products;
+                    dgvCart.Columns["Category"].Visible = false;
                     dgvCart.Columns["Stock"].Visible = false;
                     FillCellsDGV(dgvCart);
 
@@ -168,7 +168,7 @@ namespace UI
             {
                 panelFinVenta.Visible = true;
                 panelFinVenta.BringToFront();
-                cBTypesInvoice.DataSource = BLL_Venta.GetTypesInvoice();
+                cBTypesInvoice.DataSource = BLL_Sale.GetTypesInvoice();
                 cBTypesInvoice.DisplayMember = "tipo";
                 cBTypesInvoice.ValueMember = "id_Tipo";
                 RecolatePanel();
@@ -208,12 +208,12 @@ namespace UI
             txtBClienteDNI.BackColor = SystemColors.Window;
             if (txtBClienteDNI.Text.Length >= 8)
             {
-                var cliente = BLL_Cliente.VerificarCliente(dni);
+                var cliente = BLL_Client.VerificarCliente(dni);
                 if (cliente != null)
                 {
                     btnGenerarFactura.Enabled = true;
                     txtBClienteDNI.BackColor = Color.GreenYellow;
-                    lblEstadoCliente.Text = cliente.Nombre + " " + cliente.Apellido;
+                    lblEstadoCliente.Text = cliente.Name + " " + cliente.Lastname;
                 }
                 else
                 {
@@ -224,11 +224,11 @@ namespace UI
                         , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (r == DialogResult.Yes)
                     {
-                        FormRegistrarCliente f = new FormRegistrarCliente();
+                        txtBClienteDNI.Text = "";
+                        FormRegisterClient f = new FormRegisterClient();
                         f.TopLevel = false;
                         this.Controls.Add(f);
                         f.BringToFront();
-                        f.StartPosition = FormStartPosition.CenterScreen;
                         f.txtDni.Text = dni;
                         f.Show();
                     }
@@ -249,7 +249,7 @@ namespace UI
         {
             if (previousSelectedRow != null)
             {
-                //previousSelectedRow.Cells["Cantidad"].Value = "";
+                //previousSelectedRow.Cells["Amount"].Value = "";
             }
             if (dgvProducts.SelectedRows.Count > 0)
             {
@@ -271,7 +271,7 @@ namespace UI
         }
         private void UpdateDetailsCart()
         {
-            decimal totalCartValue = (decimal)cart.Productos.Sum(p => p.PrecioTotal);
+            decimal totalCartValue = (decimal)cart.Products.Sum(p => p.TotalPrice);
             lblTotal.Text = "$ " + totalCartValue.ToString();
             lblItemsTotal.Text = (dgvCart.RowCount).ToString();
             if (dgvCart.RowCount == 0)
@@ -285,11 +285,11 @@ namespace UI
         {
             if (txtFilterName.Text != "")
             {
-                var prdtsFiltered = new List<BE_Producto>();
+                var prdtsFiltered = new List<BE_Product>();
 
                 string name = txtFilterName.Text;
-                prdtsFiltered = products.Where(p => p.Nombre.ToLower().Contains(name.ToLower()) ||
-                                           p.Marca.Contains(name.ToLower())).ToList();
+                prdtsFiltered = products.Where(p => p.Name.ToLower().Contains(name.ToLower()) ||
+                                           p.Brand.Contains(name.ToLower())).ToList();
                 LoadProducts(prdtsFiltered);
             }
             else
@@ -306,9 +306,9 @@ namespace UI
             }
             else
             {
-                var prdtsFiltered = new List<BE_Producto>();
+                var prdtsFiltered = new List<BE_Product>();
                 string selectedCategory = ((DataRowView)cBTipoProductos.SelectedItem)["nombreCategoria"].ToString();
-                prdtsFiltered = products.Where(p => p.Categoria == selectedCategory).ToList();
+                prdtsFiltered = products.Where(p => p.Category == selectedCategory).ToList();
                 LoadProducts(prdtsFiltered);
             }
 
@@ -316,11 +316,11 @@ namespace UI
 
         private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProducts.Columns[e.ColumnIndex].Name == "Cantidad")
+            if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
             {
                 if (e.Value != null && (int)e.Value == 0)
                 {
-                    e.Value = "";  // Establece la celda vacía
+                    e.Value = "";
                     e.FormattingApplied = true;
                 }
             }
@@ -333,14 +333,14 @@ namespace UI
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            BE_Venta newSale = new BE_Venta();
-            newSale.Carrito = cart;
-            newSale.Vendedor = SessionManager.GetInstance.usuario.Emp;
-            newSale.Cliente = BLL_Cliente.VerificarCliente(txtBClienteDNI.Text);
-            newSale.Tipo = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            newSale.FechaEntrega = DateTime.Parse(DPEntrega.Date.ToShortDateString());
+            BE_Sale newSale = new BE_Sale();
+            newSale.Cart = cart;
+            newSale.Saleman = SessionManager.GetInstance.usuario.Emp;
+            newSale.Client = BLL_Client.VerificarCliente(txtBClienteDNI.Text);
+            newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
+            newSale.DeliveryDate = DateTime.Parse(DPEntrega.Date.ToShortDateString());
             //FECHA ENTREGA
-            BLL_Venta.SaveInvoice(newSale);
+            BLL_Sale.SaveInvoice(newSale);
         }
     }
 }

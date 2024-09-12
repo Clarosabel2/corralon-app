@@ -46,9 +46,9 @@
             this.MenuGeneral = new System.Windows.Forms.FlowLayoutPanel();
             this.menuVentas = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonVentas = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnProducts = new System.Windows.Forms.Button();
             this.btnCrearVenta = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
             this.menuOperador = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOperador = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -76,9 +76,8 @@
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerDateHour = new System.Windows.Forms.Timer(this.components);
             this.menuTransition = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -222,9 +221,9 @@
             // 
             this.menuVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
             this.menuVentas.Controls.Add(this.buttonVentas);
-            this.menuVentas.Controls.Add(this.button3);
+            this.menuVentas.Controls.Add(this.btnProducts);
             this.menuVentas.Controls.Add(this.btnCrearVenta);
-            this.menuVentas.Controls.Add(this.button2);
+            this.menuVentas.Controls.Add(this.btnClients);
             resources.ApplyResources(this.menuVentas, "menuVentas");
             this.menuVentas.Name = "menuVentas";
             // 
@@ -242,17 +241,18 @@
             this.buttonVentas.UseVisualStyleBackColor = false;
             this.buttonVentas.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // button3
+            // btnProducts
             // 
-            resources.ApplyResources(this.button3, "button3");
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button3.ForeColor = System.Drawing.Color.Silver;
-            this.button3.Name = "button3";
-            this.button3.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.btnProducts, "btnProducts");
+            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnProducts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProducts.FlatAppearance.BorderSize = 0;
+            this.btnProducts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnProducts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnProducts.ForeColor = System.Drawing.Color.Silver;
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // btnCrearVenta
             // 
@@ -267,17 +267,17 @@
             this.btnCrearVenta.UseVisualStyleBackColor = false;
             this.btnCrearVenta.Click += new System.EventHandler(this.btnCrearVenta_Click);
             // 
-            // button2
+            // btnClients
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button2.ForeColor = System.Drawing.Color.Silver;
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = false;
+            resources.ApplyResources(this.btnClients, "btnClients");
+            this.btnClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnClients.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClients.FlatAppearance.BorderSize = 0;
+            this.btnClients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnClients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnClients.ForeColor = System.Drawing.Color.Silver;
+            this.btnClients.Name = "btnClients";
+            this.btnClients.UseVisualStyleBackColor = false;
             // 
             // menuOperador
             // 
@@ -602,9 +602,9 @@
             this.lblDateTime.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.lblDateTime.Name = "lblDateTime";
             // 
-            // timer1
+            // timerDateHour
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timerDateHour.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // menuTransition
             // 
@@ -659,12 +659,12 @@
         private System.Windows.Forms.PictureBox photoUser;
         private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.LinkLabel lnkMyProfile;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerDateHour;
         private ReaLTaiizor.Controls.NightControlBox nightControlBox1;
         private System.Windows.Forms.FlowLayoutPanel menuVentas;
         private System.Windows.Forms.Button buttonVentas;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnClients;
+        private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Timer menuTransition;
         private System.Windows.Forms.FlowLayoutPanel menuUsuario;
         private System.Windows.Forms.Button btnUser;
@@ -694,6 +694,5 @@
         private System.Windows.Forms.Panel panelDataUser;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2ResizeBox guna2ResizeBox1;
-        private System.Windows.Forms.Timer timer2;
     }
 }

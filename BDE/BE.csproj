@@ -43,15 +43,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_Carrito.cs" />
-    <Compile Include="BE_Cliente.cs" />
-    <Compile Include="BE_Marca.cs" />
-    <Compile Include="BE_Permiso.cs" />
-    <Compile Include="BE_Empleado.cs" />
-    <Compile Include="BE_Venta.cs" />
-    <Compile Include="BE_Persona.cs" />
-    <Compile Include="BE_Producto.cs" />
-    <Compile Include="BE_Usuario.cs" />
+    <Compile Include="BE_Cart.cs" />
+    <Compile Include="BE_Client.cs" />
+    <Compile Include="BE_Brand.cs" />
+    <Compile Include="BE_Employee.cs" />
+    <Compile Include="BE_Permisson.cs" />
+    <Compile Include="BE_Profile.cs" />
+    <Compile Include="BE_Sale.cs" />
+    <Compile Include="BE_Person.cs" />
+    <Compile Include="BE_Product.cs" />
+    <Compile Include="BE_User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

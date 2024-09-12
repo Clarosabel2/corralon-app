@@ -1,6 +1,7 @@
 ﻿namespace UI
 {
-    partial class FormRegistrarCliente
+    partial class FormRegisterClient
+
     {
         /// <summary>
         /// Required designer variable.
@@ -40,7 +41,7 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lblTelefono = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnSaveClient = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -152,15 +153,16 @@
             this.txtTelefono.Size = new System.Drawing.Size(200, 24);
             this.txtTelefono.TabIndex = 13;
             // 
-            // btnGuardar
+            // btnSaveClient
             // 
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnGuardar.Location = new System.Drawing.Point(100, 198);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(82, 31);
-            this.btnGuardar.TabIndex = 14;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnSaveClient.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnSaveClient.Location = new System.Drawing.Point(100, 198);
+            this.btnSaveClient.Name = "btnSaveClient";
+            this.btnSaveClient.Size = new System.Drawing.Size(82, 31);
+            this.btnSaveClient.TabIndex = 14;
+            this.btnSaveClient.Text = "Guardar";
+            this.btnSaveClient.UseVisualStyleBackColor = true;
+            this.btnSaveClient.Click += new System.EventHandler(this.btnSaveClient_Click);
             // 
             // btnCancelar
             // 
@@ -173,13 +175,13 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // FormRegistrarCliente
+            // FormRegisterClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 243);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnSaveClient);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.txtEmail);
@@ -192,7 +194,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblDni);
-            this.Name = "FormRegistrarCliente";
+            this.Name = "FormRegisterClient";
             this.Text = "Registrar Cliente";
             this.Load += new System.EventHandler(this.FormRegistrarCliente_Load);
             this.ResumeLayout(false);
@@ -210,7 +212,7 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnSaveClient;
         private System.Windows.Forms.Button btnCancelar;
         #endregion
 

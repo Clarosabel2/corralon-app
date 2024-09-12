@@ -243,7 +243,7 @@
             this.lblSurname2.Name = "lblSurname2";
             this.lblSurname2.Size = new System.Drawing.Size(73, 20);
             this.lblSurname2.TabIndex = 3;
-            this.lblSurname2.Text = "Apellido:";
+            this.lblSurname2.Text = "Lastname:";
             // 
             // lblName2
             // 
@@ -254,7 +254,7 @@
             this.lblName2.Name = "lblName2";
             this.lblName2.Size = new System.Drawing.Size(72, 20);
             this.lblName2.TabIndex = 2;
-            this.lblName2.Text = "Nombre:";
+            this.lblName2.Text = "Name:";
             // 
             // lblUsername2
             // 
@@ -265,7 +265,7 @@
             this.lblUsername2.Name = "lblUsername2";
             this.lblUsername2.Size = new System.Drawing.Size(154, 20);
             this.lblUsername2.TabIndex = 1;
-            this.lblUsername2.Text = "Nombre de Usuario:";
+            this.lblUsername2.Text = "Name de Usuario:";
             // 
             // lblEditMyData
             // 
@@ -307,7 +307,7 @@
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(66, 18);
             this.lblName.TabIndex = 3;
-            this.lblName.Text = "Nombre:";
+            this.lblName.Text = "Name:";
             // 
             // lblSurname
             // 
@@ -317,7 +317,7 @@
             this.lblSurname.Name = "lblSurname";
             this.lblSurname.Size = new System.Drawing.Size(63, 18);
             this.lblSurname.TabIndex = 4;
-            this.lblSurname.Text = "Apellido:";
+            this.lblSurname.Text = "Lastname:";
             // 
             // label14
             // 

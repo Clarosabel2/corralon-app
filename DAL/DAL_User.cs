@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    public static class DAL_Usuario
+    public static class DAL_User
     {
         public static bool ValidUser(string username, string password)
         {
-            var cnn = new DAL_Conexion();
+            var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
             cmd.CommandText = "sp_ValidUser";
@@ -26,7 +26,7 @@ namespace DAL
             {
                 while (dr.Read())
                 {
-                    SessionManager.Login(new BE_Usuario(dr));
+                    SessionManager.Login(new BE_User(dr));
                 }
                 return true;
             }

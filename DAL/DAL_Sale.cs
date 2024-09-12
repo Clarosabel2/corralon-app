@@ -9,11 +9,11 @@ using BDE;
 
 namespace DAL
 {
-    public class DAL_Venta : DAL_Conexion
+    public class DAL_Sale : DAL_Connection
     {
         public static DataTable GetTypesInvoice()
         {
-            var cnn = new DAL_Conexion();
+            var cnn = new DAL_Connection();
             DataTable table = new DataTable();
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT t.id_Tipo, t.tipo FROM TipoFactura t", cnn.Connection);
             adapter.SelectCommand.CommandType = CommandType.Text;
@@ -21,7 +21,7 @@ namespace DAL
             return table;
         }
 
-        public static void SaveInvoice(BE_Venta newSale)
+        public static void SaveInvoice(BE_Sale newSale)
         {
             throw new NotImplementedException();
         }

@@ -88,7 +88,7 @@ namespace UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (BLL_Usuario.ValidUser(txtUser.Text, txtPsswrd.Text))
+            if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
                 FormMain frmMain = new FormMain();
                 frmMain.Show();

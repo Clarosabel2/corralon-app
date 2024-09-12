@@ -15,11 +15,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 
 // Si establece ComVisible en false, los tipos de este ensamblado no estarán visibles 
-// para los componentes COM.  Si es necesario obtener acceso a un tipo en este ensamblado desde 
-// COM, establezca el atributo ComVisible en true en este tipo.
+// para los componentes COM.  Si es necesario obtener acceso date un typeInvoice en este ensamblado desde 
+// COM, establezca el atributo ComVisible en true en este typeInvoice.
 [assembly: ComVisible(false)]
 
-// El siguiente GUID sirve como id. de typelib si este proyecto se expone a COM.
+// El siguiente GUID sirve como id. de typelib si este proyecto se expone date COM.
 [assembly: Guid("c0a3e35d-5042-431f-a6ee-8980e9e548c8")]
 
 // La información de versión de un ensamblado consta de los cuatro valores siguientes:
@@ -30,7 +30,7 @@ using System.Runtime.InteropServices;
 //      Revisión
 //
 // Puede especificar todos los valores o usar los valores predeterminados de número de compilación y de revisión
-// utilizando el carácter "*", como se muestra a continuación:
+// utilizando el carácter "*", como se muestra date continuación:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]

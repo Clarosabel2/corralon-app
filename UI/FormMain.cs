@@ -18,7 +18,7 @@ namespace UI
         public FormMain()
         {
             InitializeComponent();
-            timer1.Start();
+            timerDateHour.Start();
         }
         #region "Funcionalidades Window"
 
@@ -130,7 +130,11 @@ namespace UI
         }
         private void btnCrearVenta_Click(object sender, EventArgs e)
         {
-            OpenForms<FormCrearVenta>();
+            OpenForms<FormCreateSale>();
+        }
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormProducts>();
         }
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
@@ -158,7 +162,7 @@ namespace UI
             {
                 lnkMyProfile.LinkVisited = false;
             }
-            if (Application.OpenForms["FormCrearVenta"] == null)
+            if (Application.OpenForms["FormCreateSale"] == null)
             {
                 btnCrearVenta.BackColor = Color.FromArgb(4, 41, 68);
             }
@@ -166,7 +170,7 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lblName.Text = SessionManager.GetInstance.usuario.Emp.Nombre;
+            lblName.Text = SessionManager.GetInstance.usuario.Emp.Name;
             lblPosition.Text = SessionManager.GetInstance.usuario.Rol;
             lblEmail.Text = SessionManager.GetInstance.usuario.Emp.Email;
         }

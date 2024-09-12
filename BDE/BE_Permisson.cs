@@ -1,15 +1,12 @@
-﻿using DAL;
-using SVC;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace BDE
 {
-    public class BLL_Empleado
+    internal class BE_Permisson
     {
-        
     }
 }

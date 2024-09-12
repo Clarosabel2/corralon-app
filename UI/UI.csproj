@@ -75,11 +75,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormCrearVenta.cs">
+    <Compile Include="FormCreateSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCrearVenta.Designer.cs">
-      <DependentUpon>FormCrearVenta.cs</DependentUpon>
+    <Compile Include="FormCreateSale.Designer.cs">
+      <DependentUpon>FormCreateSale.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -93,17 +93,23 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProducts.Designer.cs">
+      <DependentUpon>FormProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRecoverPss.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRecoverPss.Designer.cs">
       <DependentUpon>FormRecoverPss.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRegistrarCliente.cs">
+    <Compile Include="FormRegisterClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRegistrarCliente.Designer.cs">
-      <DependentUpon>FormRegistrarCliente.cs</DependentUpon>
+    <Compile Include="FormRegisterClient.Designer.cs">
+      <DependentUpon>FormRegisterClient.cs</DependentUpon>
     </Compile>
     <Compile Include="FormUserProfile.cs">
       <SubType>Form</SubType>
@@ -113,8 +119,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormCrearVenta.resx">
-      <DependentUpon>FormCrearVenta.cs</DependentUpon>
+    <EmbeddedResource Include="FormCreateSale.resx">
+      <DependentUpon>FormCreateSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -122,8 +128,11 @@
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRegistrarCliente.resx">
-      <DependentUpon>FormRegistrarCliente.cs</DependentUpon>
+    <EmbeddedResource Include="FormProducts.resx">
+      <DependentUpon>FormProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegisterClient.resx">
+      <DependentUpon>FormRegisterClient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
