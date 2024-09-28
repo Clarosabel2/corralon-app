@@ -23,9 +23,9 @@ namespace BLL
             }
         }
 
-        public static BE_Client VerificarCliente(string dni)
+        public static BE_Client GetClient(string dni)
         {
-            return DAL_Client.VerifyClient(dni);
+            return DAL_Client.GetClient(dni);
         }
     }
 }

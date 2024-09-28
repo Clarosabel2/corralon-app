@@ -16,9 +16,7 @@ namespace BDE
         private string category;
         private int weight;
         private int stock;
-        private int amount;
         private double price;
-        private double totalPrice;
 
         public BE_Product(int id, BE_Brand marca, string descripcion, string categoria, double precio, int stock)
         {
@@ -46,14 +44,6 @@ namespace BDE
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
         public int Stock { get => stock; set => stock = value; }
-        public int Amount { set => amount = value; get => amount; }
-        public double TotalPrice { set => totalPrice = value; get => totalPrice; }
         
-        public bool CheckAvailability() {
-            return this.amount <= this.Stock;
-        }
-        public double CarculateTotalPrice() {
-            return this.totalPrice = this.Amount * this.Price;
-        }
     }
 }

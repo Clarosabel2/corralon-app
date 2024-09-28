@@ -17,11 +17,13 @@ namespace BDE
         private List<BE_Permisson> permissones;
         private string language;
         private BE_Profile profile;
+        private bool status;
 
         public BE_User(SqlDataReader dr)
         {
             this.Username = dr.GetString(1);
-            this.Rol= dr.GetString(8);
+            this.Status = dr.GetBoolean(2);
+            this.Rol= dr.GetString(9);
             this.Emp = new BE_Employee(dr);
         }
         public BE_User() { }
@@ -29,5 +31,6 @@ namespace BDE
         public string Password { get => password; set => password = value; }
         public string Rol { get => rol; set => rol = value; }
         public BE_Employee Emp { get => emp; set => emp = value; }
+        public bool Status { get => status; set => status = value; }
     }
 }

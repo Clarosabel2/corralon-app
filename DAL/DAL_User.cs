@@ -12,6 +12,19 @@ namespace DAL
 {
     public static class DAL_User
     {
+        public static void BlockUser(string username)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"UPDATE Usuarios SET estado = 1 WHERE username = @p_username;";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_username", username);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            cmd.Connection = cnn.CloseConnection();
+            
+        }
+
         public static bool ValidUser(string username, string password)
         {
             var cnn = new DAL_Connection();

@@ -164,7 +164,7 @@ namespace UI
             }
             if (Application.OpenForms["FormCreateSale"] == null)
             {
-                btnCrearVenta.BackColor = Color.FromArgb(4, 41, 68);
+                btnCreateSale.BackColor = Color.FromArgb(4, 41, 68);
             }
         }
 

@@ -41,7 +41,7 @@ namespace DAL
 
         }
 
-        public static BE_Client VerifyClient(string dni)
+        public static BE_Client GetClient(string dni)
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();

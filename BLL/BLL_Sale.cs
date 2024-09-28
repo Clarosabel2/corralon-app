@@ -18,7 +18,7 @@ namespace BLL
 
         public static void SaveInvoice(BE_Sale newSale)
         {
-            
+            DAL_Sale.SaveInvoice(newSale);
         }
     }
 }

@@ -117,80 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;panelInterface.Name" xml:space="preserve">
-    <value>panelInterface</value>
-  </data>
-  <data name="&gt;&gt;panelInterface.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelInterface.Parent" xml:space="preserve">
-    <value>panelForms</value>
-  </data>
-  <data name="&gt;&gt;panelInterface.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Name" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Parent" xml:space="preserve">
-    <value>panelForms</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.Name" xml:space="preserve">
-    <value>panelBarraTitulo</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.Parent" xml:space="preserve">
-    <value>panelForms</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panelForms.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panelForms.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelForms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1179, 749</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panelForms.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelForms.Name" xml:space="preserve">
-    <value>panelForms</value>
-  </data>
-  <data name="&gt;&gt;panelForms.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelForms.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panelForms.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="panelInterface.AutoScroll" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="panelInterface.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="guna2ResizeBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="guna2ResizeBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>886, 698</value>
+    <value>1019, 830</value>
   </data>
   <data name="guna2ResizeBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -205,7 +145,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1179, 749</value>
+    <value>1312, 881</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>650, 650</value>
@@ -256,7 +196,7 @@
     <value>0, 0</value>
   </data>
   <data name="guna2CirclePictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>909, 721</value>
+    <value>1042, 853</value>
   </data>
   <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -283,7 +223,7 @@
     <value>270, 28</value>
   </data>
   <data name="panelInterface.Size" type="System.Drawing.Size, System.Drawing">
-    <value>909, 721</value>
+    <value>1042, 853</value>
   </data>
   <data name="panelInterface.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -299,78 +239,6 @@
   </data>
   <data name="&gt;&gt;panelInterface.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Name" xml:space="preserve">
-    <value>btnHelp</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.Parent" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;btnHelp.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnLogout.Name" xml:space="preserve">
-    <value>btnLogout</value>
-  </data>
-  <data name="&gt;&gt;btnLogout.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnLogout.Parent" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;btnLogout.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Name" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Parent" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Name" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Parent" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="panelMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Left</value>
-  </data>
-  <data name="panelMenu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 28</value>
-  </data>
-  <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 721</value>
-  </data>
-  <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Name" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.Parent" xml:space="preserve">
-    <value>panelForms</value>
-  </data>
-  <data name="&gt;&gt;panelMenu.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="btnHelp.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
@@ -388,7 +256,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 627</value>
+    <value>0, 759</value>
   </data>
   <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -427,7 +295,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnLogout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 674</value>
+    <value>0, 806</value>
   </data>
   <data name="btnLogout.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -449,90 +317,6 @@
   </data>
   <data name="&gt;&gt;btnLogout.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Name" xml:space="preserve">
-    <value>photoUser</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;photoUser.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Name" xml:space="preserve">
-    <value>lblPosition</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Name" xml:space="preserve">
-    <value>lnkMyProfile</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;lblName.Name" xml:space="preserve">
-    <value>lblName</value>
-  </data>
-  <data name="&gt;&gt;lblName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
-    <value>lblEmail</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="panelDataUser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="panelDataUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelDataUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 112</value>
-  </data>
-  <data name="panelDataUser.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Name" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.Parent" xml:space="preserve">
-    <value>panelMenu</value>
-  </data>
-  <data name="&gt;&gt;panelDataUser.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="photoUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -690,110 +474,62 @@
   <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="MenuGeneral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom</value>
+  <data name="panelDataUser.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="MenuGeneral.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="panelDataUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
   </data>
-  <data name="&gt;&gt;menuVentas.Name" xml:space="preserve">
-    <value>menuVentas</value>
+  <data name="panelDataUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 112</value>
   </data>
-  <data name="&gt;&gt;menuVentas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="panelDataUser.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
   </data>
-  <data name="&gt;&gt;menuVentas.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
+  <data name="&gt;&gt;panelDataUser.Name" xml:space="preserve">
+    <value>panelDataUser</value>
   </data>
-  <data name="&gt;&gt;menuVentas.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;panelDataUser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuOperador.Name" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;menuOperador.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuOperador.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;menuOperador.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;menuReportes.Name" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;menuReportes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuReportes.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;menuReportes.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Name" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;menuAdmin.Name" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;menuAdmin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuAdmin.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;menuAdmin.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="MenuGeneral.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
-    <value>TopDown</value>
-  </data>
-  <data name="MenuGeneral.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 115</value>
-  </data>
-  <data name="MenuGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>0, 0, 0, 0</value>
-  </data>
-  <data name="MenuGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 509</value>
-  </data>
-  <data name="MenuGeneral.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Name" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;MenuGeneral.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelDataUser.Parent" xml:space="preserve">
     <value>panelMenu</value>
   </data>
-  <data name="&gt;&gt;MenuGeneral.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;panelDataUser.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="menuGeneral.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
+  </data>
+  <data name="menuGeneral.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnProducts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnProducts.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnProducts.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12.75pt</value>
+  </data>
+  <data name="btnProducts.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnProducts.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnProducts.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnProducts.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 37</value>
+  </data>
+  <data name="btnProducts.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;buttonVentas.Name" xml:space="preserve">
-    <value>buttonVentas</value>
-  </data>
-  <data name="&gt;&gt;buttonVentas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;buttonVentas.Parent" xml:space="preserve">
-    <value>menuVentas</value>
-  </data>
-  <data name="&gt;&gt;buttonVentas.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btnProducts.Text" xml:space="preserve">
+    <value>Productos</value>
   </data>
   <data name="&gt;&gt;btnProducts.Name" xml:space="preserve">
     <value>btnProducts</value>
@@ -802,22 +538,37 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnProducts.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+    <value>menuGeneral</value>
   </data>
   <data name="&gt;&gt;btnProducts.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Name" xml:space="preserve">
-    <value>btnCrearVenta</value>
+  <data name="btnClients.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="btnClients.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+  <data name="btnClients.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12pt</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.ZOrder" xml:space="preserve">
+  <data name="btnClients.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnClients.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnClients.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 46</value>
+  </data>
+  <data name="btnClients.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 42</value>
+  </data>
+  <data name="btnClients.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
+  </data>
+  <data name="btnClients.Text" xml:space="preserve">
+    <value>Clientes</value>
   </data>
   <data name="&gt;&gt;btnClients.Name" xml:space="preserve">
     <value>btnClients</value>
@@ -826,13 +577,91 @@
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;btnClients.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+    <value>menuGeneral</value>
   </data>
   <data name="&gt;&gt;btnClients.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>1</value>
+  </data>
+  <data name="btnSales.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnSales.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSales.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 15.75pt</value>
+  </data>
+  <data name="btnSales.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSales.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSales.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="btnSales.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 65</value>
+  </data>
+  <data name="btnSales.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btnSales.Text" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
+  <data name="&gt;&gt;btnSales.Name" xml:space="preserve">
+    <value>btnSales</value>
+  </data>
+  <data name="&gt;&gt;btnSales.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSales.Parent" xml:space="preserve">
+    <value>menuVentas</value>
+  </data>
+  <data name="&gt;&gt;btnSales.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnCreateSale.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnCreateSale.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnCreateSale.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12.75pt</value>
+  </data>
+  <data name="btnCreateSale.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCreateSale.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCreateSale.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 74</value>
+  </data>
+  <data name="btnCreateSale.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 30</value>
+  </data>
+  <data name="btnCreateSale.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnCreateSale.Text" xml:space="preserve">
+    <value>Crear Venta</value>
+  </data>
+  <data name="&gt;&gt;btnCreateSale.Name" xml:space="preserve">
+    <value>btnCreateSale</value>
+  </data>
+  <data name="&gt;&gt;btnCreateSale.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCreateSale.Parent" xml:space="preserve">
+    <value>menuVentas</value>
+  </data>
+  <data name="&gt;&gt;btnCreateSale.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="menuVentas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+    <value>3, 94</value>
   </data>
   <data name="menuVentas.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>241, 187</value>
@@ -853,217 +682,131 @@
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuVentas.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
+    <value>menuGeneral</value>
   </data>
   <data name="&gt;&gt;menuVentas.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
-  <data name="buttonVentas.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnOperator.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="buttonVentas.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnOperator.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="buttonVentas.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnOperator.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 15.75pt</value>
   </data>
-  <data name="buttonVentas.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnOperator.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="buttonVentas.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnOperator.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="buttonVentas.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnOperator.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="buttonVentas.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnOperator.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 65</value>
   </data>
-  <data name="buttonVentas.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="btnOperator.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
   </data>
-  <data name="buttonVentas.Text" xml:space="preserve">
-    <value>Ventas</value>
+  <data name="btnOperator.Text" xml:space="preserve">
+    <value>Operador 
+Logistica</value>
   </data>
-  <data name="&gt;&gt;buttonVentas.Name" xml:space="preserve">
-    <value>buttonVentas</value>
+  <data name="&gt;&gt;btnOperator.Name" xml:space="preserve">
+    <value>btnOperator</value>
   </data>
-  <data name="&gt;&gt;buttonVentas.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnOperator.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;buttonVentas.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+  <data name="&gt;&gt;btnOperator.Parent" xml:space="preserve">
+    <value>menuOperador</value>
   </data>
-  <data name="&gt;&gt;buttonVentas.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnOperator.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnProducts.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnOrders.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="btnProducts.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnOrders.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnProducts.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnOrders.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="btnProducts.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnOrders.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnProducts.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnOrders.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnProducts.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnOrders.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 74</value>
   </data>
-  <data name="btnProducts.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnOrders.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 30</value>
   </data>
-  <data name="btnProducts.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnOrders.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="btnProducts.Text" xml:space="preserve">
-    <value>Productos</value>
+  <data name="btnOrders.Text" xml:space="preserve">
+    <value>Pedidos</value>
   </data>
-  <data name="&gt;&gt;btnProducts.Name" xml:space="preserve">
-    <value>btnProducts</value>
+  <data name="&gt;&gt;btnOrders.Name" xml:space="preserve">
+    <value>btnOrders</value>
   </data>
-  <data name="&gt;&gt;btnProducts.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnOrders.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnProducts.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+  <data name="&gt;&gt;btnOrders.Parent" xml:space="preserve">
+    <value>menuOperador</value>
   </data>
-  <data name="&gt;&gt;btnProducts.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnOrders.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnCrearVenta.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnRegisterOrder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="btnCrearVenta.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnRegisterOrder.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnCrearVenta.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnRegisterOrder.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="btnCrearVenta.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnRegisterOrder.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnCrearVenta.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnRegisterOrder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnCrearVenta.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnRegisterOrder.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 110</value>
   </data>
-  <data name="btnCrearVenta.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnRegisterOrder.Size" type="System.Drawing.Size, System.Drawing">
     <value>247, 30</value>
   </data>
-  <data name="btnCrearVenta.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnRegisterOrder.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="btnCrearVenta.Text" xml:space="preserve">
-    <value>Crear Venta</value>
+  <data name="btnRegisterOrder.Text" xml:space="preserve">
+    <value>Registrar Entrega</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Name" xml:space="preserve">
-    <value>btnCrearVenta</value>
+  <data name="&gt;&gt;btnRegisterOrder.Name" xml:space="preserve">
+    <value>btnRegisterOrder</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnRegisterOrder.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.Parent" xml:space="preserve">
-    <value>menuVentas</value>
+  <data name="&gt;&gt;btnRegisterOrder.Parent" xml:space="preserve">
+    <value>menuOperador</value>
   </data>
-  <data name="&gt;&gt;btnCrearVenta.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnRegisterOrder.ZOrder" xml:space="preserve">
     <value>2</value>
-  </data>
-  <data name="btnClients.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnClients.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnClients.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
-  </data>
-  <data name="btnClients.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnClients.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnClients.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 146</value>
-  </data>
-  <data name="btnClients.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 30</value>
-  </data>
-  <data name="btnClients.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnClients.Text" xml:space="preserve">
-    <value>Clientes</value>
-  </data>
-  <data name="&gt;&gt;btnClients.Name" xml:space="preserve">
-    <value>btnClients</value>
-  </data>
-  <data name="&gt;&gt;btnClients.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnClients.Parent" xml:space="preserve">
-    <value>menuVentas</value>
-  </data>
-  <data name="&gt;&gt;btnClients.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnOperador.Name" xml:space="preserve">
-    <value>btnOperador</value>
-  </data>
-  <data name="&gt;&gt;btnOperador.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnOperador.Parent" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;btnOperador.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
-  </data>
-  <data name="&gt;&gt;button8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button9.Name" xml:space="preserve">
-    <value>button9</value>
-  </data>
-  <data name="&gt;&gt;button9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button9.Parent" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button10.Name" xml:space="preserve">
-    <value>button10</value>
-  </data>
-  <data name="&gt;&gt;button10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button10.Parent" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
-    <value>3</value>
   </data>
   <data name="menuOperador.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 82</value>
+    <value>3, 173</value>
   </data>
   <data name="menuOperador.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>241, 187</value>
@@ -1084,218 +827,169 @@
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuOperador.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
+    <value>menuGeneral</value>
   </data>
   <data name="&gt;&gt;menuOperador.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
-  <data name="btnOperador.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnReport.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="btnOperador.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnReport.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnOperador.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReport.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 15.75pt</value>
   </data>
-  <data name="btnOperador.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnReport.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnOperador.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnReport.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnOperador.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnReport.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
-  <data name="btnOperador.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnReport.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 65</value>
   </data>
-  <data name="btnOperador.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
+  <data name="btnReport.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="btnOperador.Text" xml:space="preserve">
-    <value>Operador 
-Logistica</value>
+  <data name="btnReport.Text" xml:space="preserve">
+    <value>Reportes</value>
   </data>
-  <data name="&gt;&gt;btnOperador.Name" xml:space="preserve">
-    <value>btnOperador</value>
+  <data name="&gt;&gt;btnReport.Name" xml:space="preserve">
+    <value>btnReport</value>
   </data>
-  <data name="&gt;&gt;btnOperador.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnReport.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnOperador.Parent" xml:space="preserve">
-    <value>menuOperador</value>
+  <data name="&gt;&gt;btnReport.Parent" xml:space="preserve">
+    <value>menuReportes</value>
   </data>
-  <data name="&gt;&gt;btnOperador.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnReport.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button8.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnReport1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button8.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnReport1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button8.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReport1.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button8.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnReport1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnReport1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnReport1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 74</value>
   </data>
-  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 30</value>
+  <data name="btnReport1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 30</value>
   </data>
-  <data name="button8.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnReport1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button8.Text" xml:space="preserve">
-    <value>Pedidos</value>
+  <data name="btnReport1.Text" xml:space="preserve">
+    <value>Reporte 1</value>
   </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
+  <data name="&gt;&gt;btnReport1.Name" xml:space="preserve">
+    <value>btnReport1</value>
   </data>
-  <data name="&gt;&gt;button8.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnReport1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
-    <value>menuOperador</value>
+  <data name="&gt;&gt;btnReport1.Parent" xml:space="preserve">
+    <value>menuReportes</value>
   </data>
-  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnReport1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button9.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnReport2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button9.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnReport2.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button9.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReport2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button9.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnReport2.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnReport2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button9.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnReport2.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 110</value>
   </data>
-  <data name="button9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 30</value>
+  <data name="btnReport2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 30</value>
   </data>
-  <data name="button9.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnReport2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="button9.Text" xml:space="preserve">
-    <value>Registrar Entrega</value>
+  <data name="btnReport2.Text" xml:space="preserve">
+    <value>Reporte 2</value>
   </data>
-  <data name="&gt;&gt;button9.Name" xml:space="preserve">
-    <value>button9</value>
+  <data name="&gt;&gt;btnReport2.Name" xml:space="preserve">
+    <value>btnReport2</value>
   </data>
-  <data name="&gt;&gt;button9.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnReport2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button9.Parent" xml:space="preserve">
-    <value>menuOperador</value>
+  <data name="&gt;&gt;btnReport2.Parent" xml:space="preserve">
+    <value>menuReportes</value>
   </data>
-  <data name="&gt;&gt;button9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnReport2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button10.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnReport3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button10.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnReport3.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button10.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnReport3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12pt</value>
   </data>
-  <data name="button10.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnReport3.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button10.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnReport3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button10.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnReport3.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 146</value>
   </data>
-  <data name="button10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 30</value>
+  <data name="btnReport3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 30</value>
   </data>
-  <data name="button10.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnReport3.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="button10.Text" xml:space="preserve">
-    <value>Clientes</value>
+  <data name="btnReport3.Text" xml:space="preserve">
+    <value>Reporte 3</value>
   </data>
-  <data name="&gt;&gt;button10.Name" xml:space="preserve">
-    <value>button10</value>
+  <data name="&gt;&gt;btnReport3.Name" xml:space="preserve">
+    <value>btnReport3</value>
   </data>
-  <data name="&gt;&gt;button10.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnReport3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button10.Parent" xml:space="preserve">
-    <value>menuOperador</value>
-  </data>
-  <data name="&gt;&gt;button10.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Name" xml:space="preserve">
-    <value>btnReportes</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnReport3.Parent" xml:space="preserve">
     <value>menuReportes</value>
   </data>
-  <data name="&gt;&gt;btnReportes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button16.Name" xml:space="preserve">
-    <value>button16</value>
-  </data>
-  <data name="&gt;&gt;button16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button16.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button17.Name" xml:space="preserve">
-    <value>button17</value>
-  </data>
-  <data name="&gt;&gt;button17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button17.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button17.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button18.Name" xml:space="preserve">
-    <value>button18</value>
-  </data>
-  <data name="&gt;&gt;button18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button18.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button18.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnReport3.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="menuReportes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 153</value>
+    <value>3, 244</value>
   </data>
   <data name="menuReportes.MaximumSize" type="System.Drawing.Size, System.Drawing">
     <value>241, 187</value>
@@ -1316,241 +1010,10 @@ Logistica</value>
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;menuReportes.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
+    <value>menuGeneral</value>
   </data>
   <data name="&gt;&gt;menuReportes.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnReportes.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnReportes.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnReportes.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 15.75pt</value>
-  </data>
-  <data name="btnReportes.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnReportes.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnReportes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="btnReportes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 65</value>
-  </data>
-  <data name="btnReportes.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnReportes.Text" xml:space="preserve">
-    <value>Reportes</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Name" xml:space="preserve">
-    <value>btnReportes</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;btnReportes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="button16.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="button16.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="button16.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12.75pt</value>
-  </data>
-  <data name="button16.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="button16.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button16.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 74</value>
-  </data>
-  <data name="button16.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="button16.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="button16.Text" xml:space="preserve">
-    <value>Reporte 1</value>
-  </data>
-  <data name="&gt;&gt;button16.Name" xml:space="preserve">
-    <value>button16</value>
-  </data>
-  <data name="&gt;&gt;button16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button16.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button16.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button17.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="button17.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="button17.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12.75pt</value>
-  </data>
-  <data name="button17.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="button17.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button17.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 110</value>
-  </data>
-  <data name="button17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="button17.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="button17.Text" xml:space="preserve">
-    <value>Reporte 2</value>
-  </data>
-  <data name="&gt;&gt;button17.Name" xml:space="preserve">
-    <value>button17</value>
-  </data>
-  <data name="&gt;&gt;button17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button17.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button17.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="button18.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="button18.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="button18.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
-  </data>
-  <data name="button18.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="button18.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button18.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 146</value>
-  </data>
-  <data name="button18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="button18.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="button18.Text" xml:space="preserve">
-    <value>Reporte 3</value>
-  </data>
-  <data name="&gt;&gt;button18.Name" xml:space="preserve">
-    <value>button18</value>
-  </data>
-  <data name="&gt;&gt;button18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button18.Parent" xml:space="preserve">
-    <value>menuReportes</value>
-  </data>
-  <data name="&gt;&gt;button18.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnUser.Name" xml:space="preserve">
-    <value>btnUser</value>
-  </data>
-  <data name="&gt;&gt;btnUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnUser.Parent" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;btnUser.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button13.Name" xml:space="preserve">
-    <value>button13</value>
-  </data>
-  <data name="&gt;&gt;button13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button13.Parent" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button12.Name" xml:space="preserve">
-    <value>button12</value>
-  </data>
-  <data name="&gt;&gt;button12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button12.Parent" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button14.Name" xml:space="preserve">
-    <value>button14</value>
-  </data>
-  <data name="&gt;&gt;button14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="menuUsuario.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 224</value>
-  </data>
-  <data name="menuUsuario.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 187</value>
-  </data>
-  <data name="menuUsuario.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 65</value>
-  </data>
-  <data name="menuUsuario.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 65</value>
-  </data>
-  <data name="menuUsuario.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Name" xml:space="preserve">
-    <value>menuUsuario</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
-  </data>
-  <data name="&gt;&gt;menuUsuario.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="btnUser.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -1591,197 +1054,149 @@ Logistica</value>
   <data name="&gt;&gt;btnUser.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button13.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnMyAccount.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button13.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnMyAccount.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button13.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnMyAccount.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button13.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnMyAccount.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button13.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnMyAccount.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button13.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnMyAccount.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 74</value>
   </data>
-  <data name="button13.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnMyAccount.Size" type="System.Drawing.Size, System.Drawing">
     <value>238, 30</value>
   </data>
-  <data name="button13.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnMyAccount.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="button13.Text" xml:space="preserve">
+  <data name="btnMyAccount.Text" xml:space="preserve">
     <value>Datos Personales</value>
   </data>
-  <data name="&gt;&gt;button13.Name" xml:space="preserve">
-    <value>button13</value>
+  <data name="&gt;&gt;btnMyAccount.Name" xml:space="preserve">
+    <value>btnMyAccount</value>
   </data>
-  <data name="&gt;&gt;button13.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnMyAccount.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button13.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnMyAccount.Parent" xml:space="preserve">
     <value>menuUsuario</value>
   </data>
-  <data name="&gt;&gt;button13.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnMyAccount.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button12.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnLanguage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button12.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnLanguage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button12.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnLanguage.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button12.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnLanguage.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button12.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnLanguage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button12.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnLanguage.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 110</value>
   </data>
-  <data name="button12.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnLanguage.Size" type="System.Drawing.Size, System.Drawing">
     <value>238, 30</value>
   </data>
-  <data name="button12.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnLanguage.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button12.Text" xml:space="preserve">
+  <data name="btnLanguage.Text" xml:space="preserve">
     <value>Idioma</value>
   </data>
-  <data name="&gt;&gt;button12.Name" xml:space="preserve">
-    <value>button12</value>
+  <data name="&gt;&gt;btnLanguage.Name" xml:space="preserve">
+    <value>btnLanguage</value>
   </data>
-  <data name="&gt;&gt;button12.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnLanguage.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button12.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnLanguage.Parent" xml:space="preserve">
     <value>menuUsuario</value>
   </data>
-  <data name="&gt;&gt;button12.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnLanguage.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button14.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnSecurity.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button14.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnSecurity.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button14.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnSecurity.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12pt</value>
   </data>
-  <data name="button14.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSecurity.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button14.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnSecurity.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button14.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSecurity.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 146</value>
   </data>
-  <data name="button14.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSecurity.Size" type="System.Drawing.Size, System.Drawing">
     <value>238, 30</value>
   </data>
-  <data name="button14.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSecurity.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="button14.Text" xml:space="preserve">
+  <data name="btnSecurity.Text" xml:space="preserve">
     <value>Seguridad</value>
   </data>
-  <data name="&gt;&gt;button14.Name" xml:space="preserve">
-    <value>button14</value>
+  <data name="&gt;&gt;btnSecurity.Name" xml:space="preserve">
+    <value>btnSecurity</value>
   </data>
-  <data name="&gt;&gt;button14.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSecurity.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button14.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSecurity.Parent" xml:space="preserve">
     <value>menuUsuario</value>
   </data>
-  <data name="&gt;&gt;button14.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSecurity.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;btnAdmin.Name" xml:space="preserve">
-    <value>btnAdmin</value>
+  <data name="menuUsuario.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 315</value>
   </data>
-  <data name="&gt;&gt;btnAdmin.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="menuUsuario.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 187</value>
   </data>
-  <data name="&gt;&gt;btnAdmin.Parent" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;btnAdmin.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button4.Name" xml:space="preserve">
-    <value>button4</value>
-  </data>
-  <data name="&gt;&gt;button4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button4.Parent" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Name" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Parent" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button6.Name" xml:space="preserve">
-    <value>button6</value>
-  </data>
-  <data name="&gt;&gt;button6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button6.Parent" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="menuAdmin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 295</value>
-  </data>
-  <data name="menuAdmin.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 305</value>
-  </data>
-  <data name="menuAdmin.MinimumSize" type="System.Drawing.Size, System.Drawing">
+  <data name="menuUsuario.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>241, 65</value>
   </data>
-  <data name="menuAdmin.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menuUsuario.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 65</value>
   </data>
-  <data name="menuAdmin.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="menuUsuario.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
   </data>
-  <data name="&gt;&gt;menuAdmin.Name" xml:space="preserve">
-    <value>menuAdmin</value>
+  <data name="&gt;&gt;menuUsuario.Name" xml:space="preserve">
+    <value>menuUsuario</value>
   </data>
-  <data name="&gt;&gt;menuAdmin.Type" xml:space="preserve">
+  <data name="&gt;&gt;menuUsuario.Type" xml:space="preserve">
     <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;menuAdmin.Parent" xml:space="preserve">
-    <value>MenuGeneral</value>
+  <data name="&gt;&gt;menuUsuario.Parent" xml:space="preserve">
+    <value>menuGeneral</value>
   </data>
-  <data name="&gt;&gt;menuAdmin.ZOrder" xml:space="preserve">
-    <value>4</value>
+  <data name="&gt;&gt;menuUsuario.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="btnAdmin.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -1822,119 +1237,44 @@ Logistica</value>
   <data name="&gt;&gt;btnAdmin.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="button4.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnManagerLanguages.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button4.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnManagerLanguages.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button4.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnManagerLanguages.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button4.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnManagerLanguages.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnManagerLanguages.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button4.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnManagerLanguages.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 75</value>
   </data>
-  <data name="button4.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnManagerLanguages.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 30</value>
   </data>
-  <data name="button4.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnManagerLanguages.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button4.Text" xml:space="preserve">
+  <data name="btnManagerLanguages.Text" xml:space="preserve">
     <value>Idiomas</value>
   </data>
-  <data name="&gt;&gt;button4.Name" xml:space="preserve">
-    <value>button4</value>
+  <data name="&gt;&gt;btnManagerLanguages.Name" xml:space="preserve">
+    <value>btnManagerLanguages</value>
   </data>
-  <data name="&gt;&gt;button4.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnManagerLanguages.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button4.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnManagerLanguages.Parent" xml:space="preserve">
     <value>menuAdmin</value>
   </data>
-  <data name="&gt;&gt;button4.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnManagerLanguages.ZOrder" xml:space="preserve">
     <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnSubProfiles.Name" xml:space="preserve">
-    <value>btnSubProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnSubProfiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSubProfiles.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnSubProfiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;button19.Name" xml:space="preserve">
-    <value>button19</value>
-  </data>
-  <data name="&gt;&gt;button19.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button19.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;button19.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button20.Name" xml:space="preserve">
-    <value>button20</value>
-  </data>
-  <data name="&gt;&gt;button20.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button20.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;button20.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="subMenuProfiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 111</value>
-  </data>
-  <data name="subMenuProfiles.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 144</value>
-  </data>
-  <data name="subMenuProfiles.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="subMenuProfiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="subMenuProfiles.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Name" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Parent" xml:space="preserve">
-    <value>menuAdmin</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.ZOrder" xml:space="preserve">
-    <value>2</value>
   </data>
   <data name="btnSubProfiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
@@ -2014,176 +1354,194 @@ Logistica</value>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="button19.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnModifyProfiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button19.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnModifyProfiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button19.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnModifyProfiles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button19.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnModifyProfiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button19.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnModifyProfiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button19.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnModifyProfiles.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 75</value>
   </data>
-  <data name="button19.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnModifyProfiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 30</value>
   </data>
-  <data name="button19.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnModifyProfiles.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="button19.Text" xml:space="preserve">
+  <data name="btnModifyProfiles.Text" xml:space="preserve">
     <value>Modificar</value>
   </data>
-  <data name="&gt;&gt;button19.Name" xml:space="preserve">
-    <value>button19</value>
+  <data name="&gt;&gt;btnModifyProfiles.Name" xml:space="preserve">
+    <value>btnModifyProfiles</value>
   </data>
-  <data name="&gt;&gt;button19.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnModifyProfiles.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button19.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnModifyProfiles.Parent" xml:space="preserve">
     <value>subMenuProfiles</value>
   </data>
-  <data name="&gt;&gt;button19.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnModifyProfiles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button20.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnAssing.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="button20.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnAssing.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="button20.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnAssing.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="button20.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnAssing.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button20.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnAssing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button20.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnAssing.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 111</value>
   </data>
-  <data name="button20.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnAssing.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 30</value>
   </data>
-  <data name="button20.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnAssing.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="button20.Text" xml:space="preserve">
+  <data name="btnAssing.Text" xml:space="preserve">
     <value>Asignar</value>
   </data>
-  <data name="&gt;&gt;button20.Name" xml:space="preserve">
-    <value>button20</value>
+  <data name="&gt;&gt;btnAssing.Name" xml:space="preserve">
+    <value>btnAssing</value>
   </data>
-  <data name="&gt;&gt;button20.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnAssing.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button20.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnAssing.Parent" xml:space="preserve">
     <value>subMenuProfiles</value>
   </data>
-  <data name="&gt;&gt;button20.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnAssing.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="button6.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
+  <data name="subMenuProfiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 111</value>
   </data>
-  <data name="button6.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
+  <data name="subMenuProfiles.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 144</value>
   </data>
-  <data name="button6.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12pt</value>
+  <data name="subMenuProfiles.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 30</value>
   </data>
-  <data name="button6.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
+  <data name="subMenuProfiles.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 30</value>
   </data>
-  <data name="button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="subMenuProfiles.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
   </data>
-  <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 147</value>
+  <data name="&gt;&gt;subMenuProfiles.Name" xml:space="preserve">
+    <value>subMenuProfiles</value>
   </data>
-  <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>247, 30</value>
+  <data name="&gt;&gt;subMenuProfiles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="button6.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="button6.Text" xml:space="preserve">
-    <value>Clientes</value>
-  </data>
-  <data name="&gt;&gt;button6.Name" xml:space="preserve">
-    <value>button6</value>
-  </data>
-  <data name="&gt;&gt;button6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;subMenuProfiles.Parent" xml:space="preserve">
     <value>menuAdmin</value>
   </data>
-  <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;subMenuProfiles.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="menuAdmin.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 386</value>
+  </data>
+  <data name="menuAdmin.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 305</value>
+  </data>
+  <data name="menuAdmin.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>241, 65</value>
+  </data>
+  <data name="menuAdmin.Size" type="System.Drawing.Size, System.Drawing">
+    <value>241, 65</value>
+  </data>
+  <data name="menuAdmin.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;menuAdmin.Name" xml:space="preserve">
+    <value>menuAdmin</value>
+  </data>
+  <data name="&gt;&gt;menuAdmin.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuAdmin.Parent" xml:space="preserve">
+    <value>menuGeneral</value>
+  </data>
+  <data name="&gt;&gt;menuAdmin.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="menuGeneral.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
+    <value>TopDown</value>
+  </data>
+  <data name="menuGeneral.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 115</value>
+  </data>
+  <data name="menuGeneral.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>0, 0, 0, 0</value>
+  </data>
+  <data name="menuGeneral.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 641</value>
+  </data>
+  <data name="menuGeneral.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;menuGeneral.Name" xml:space="preserve">
+    <value>menuGeneral</value>
+  </data>
+  <data name="&gt;&gt;menuGeneral.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuGeneral.Parent" xml:space="preserve">
+    <value>panelMenu</value>
+  </data>
+  <data name="&gt;&gt;menuGeneral.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;nightControlBox1.Name" xml:space="preserve">
-    <value>nightControlBox1</value>
+  <data name="panelMenu.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Left</value>
   </data>
-  <data name="&gt;&gt;nightControlBox1.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.NightControlBox, ReaLTaiizor, Version=3.8.0.5, Culture=neutral, PublicKeyToken=null</value>
+  <data name="panelMenu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 28</value>
   </data>
-  <data name="&gt;&gt;nightControlBox1.Parent" xml:space="preserve">
-    <value>panelBarraTitulo</value>
+  <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>270, 853</value>
   </data>
-  <data name="&gt;&gt;nightControlBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Name" xml:space="preserve">
-    <value>lblDateTime</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Parent" xml:space="preserve">
-    <value>panelBarraTitulo</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.ZOrder" xml:space="preserve">
+  <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="panelBarraTitulo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
+  <data name="&gt;&gt;panelMenu.Name" xml:space="preserve">
+    <value>panelMenu</value>
   </data>
-  <data name="panelBarraTitulo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="panelBarraTitulo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1179, 28</value>
-  </data>
-  <data name="panelBarraTitulo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.Name" xml:space="preserve">
-    <value>panelBarraTitulo</value>
-  </data>
-  <data name="&gt;&gt;panelBarraTitulo.Type" xml:space="preserve">
+  <data name="&gt;&gt;panelMenu.Type" xml:space="preserve">
     <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;panelBarraTitulo.Parent" xml:space="preserve">
+  <data name="&gt;&gt;panelMenu.Parent" xml:space="preserve">
     <value>panelForms</value>
   </data>
-  <data name="&gt;&gt;panelBarraTitulo.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;panelMenu.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="nightControlBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
   </data>
   <data name="nightControlBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1040, 0</value>
+    <value>1173, 0</value>
   </data>
   <data name="nightControlBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 31</value>
@@ -2235,6 +1593,54 @@ Logistica</value>
   </data>
   <data name="&gt;&gt;lblDateTime.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="panelBarraTitulo.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="panelBarraTitulo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelBarraTitulo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1312, 28</value>
+  </data>
+  <data name="panelBarraTitulo.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelBarraTitulo.Name" xml:space="preserve">
+    <value>panelBarraTitulo</value>
+  </data>
+  <data name="&gt;&gt;panelBarraTitulo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelBarraTitulo.Parent" xml:space="preserve">
+    <value>panelForms</value>
+  </data>
+  <data name="&gt;&gt;panelBarraTitulo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="panelForms.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="panelForms.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="panelForms.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1312, 881</value>
+  </data>
+  <data name="panelForms.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panelForms.Name" xml:space="preserve">
+    <value>panelForms</value>
+  </data>
+  <data name="&gt;&gt;panelForms.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panelForms.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelForms.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="timerDateHour.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

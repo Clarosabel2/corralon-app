@@ -148,7 +148,6 @@
             this.lblErrorMessage.Size = new System.Drawing.Size(80, 16);
             this.lblErrorMessage.TabIndex = 8;
             this.lblErrorMessage.Text = "Error Message";
-            this.lblErrorMessage.Visible = false;
             // 
             // lblSignIn
             // 

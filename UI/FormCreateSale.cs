@@ -17,21 +17,20 @@ namespace UI
 {
     public partial class FormCreateSale : Form
     {
-        BE_Cart cart;
         private List<BE_Product> products = BLL_Product.GetProducts();
+        BE_Sale newSale = new BE_Sale();
+        private int itemID = 1;
         public FormCreateSale()
         {
             InitializeComponent();
             LoadTypesProducts();
             LoadProducts(products);
-            CreateCart();
 
         }
 
-        private void CreateCart()
-        {
-            cart = new BE_Cart();
-        }
+        #region "Funciones Visuales"
+
+
 
         private void FormCrearVenta_Load(object sender, EventArgs e)
         {
@@ -58,6 +57,7 @@ namespace UI
             panelFinVenta.Location =
                 new Point((this.ClientSize.Width - panelFinVenta.Width) / 2, (this.ClientSize.Height - panelFinVenta.Height) / 2);
         }
+        #endregion
         private void LoadTypesProducts()
         {
             DataTable dtCategorias = BLL_Product.GetCaterogyProducts();
@@ -78,20 +78,27 @@ namespace UI
 
             BindingList<BE_Product> p = new BindingList<BE_Product>(prdts);
             dgvProducts.DataSource = p;
-            FillCellsDGV(dgvProducts);
-            if (dgvProducts.Columns["TotalPrice"] != null)
-            {
-                dgvProducts.Columns["TotalPrice"].Visible = false;
-            }
-            dgvProducts.Columns["Amount"].ReadOnly = false;
 
+            if (!dgvProducts.Columns.Contains("Amount"))
+            {
+                DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
+                amountColumn.Name = "Amount";
+                amountColumn.HeaderText = "Amount";
+                amountColumn.ReadOnly = false;
+                amountColumn.ValueType = typeof(int);
+                dgvProducts.Columns.Add(amountColumn);
+            }
+            FillCellsDGV(dgvProducts);
         }
 
         private void FillCellsDGV(DataGridView dgv)
         {
             foreach (DataGridViewColumn columna in dgv.Columns)
             {
-                columna.ReadOnly = true;
+                if (columna.Name != "Amount")
+                {
+                    columna.ReadOnly = true;
+                }
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
@@ -103,32 +110,28 @@ namespace UI
 
                 var product = selectedRow.DataBoundItem as BE_Product;
 
-
                 int cantidad = int.Parse(selectedRow.Cells["Amount"].Value?.ToString());
                 dgvProducts.SelectedRows[0].Cells["Amount"].Value = "";
 
-
-                product.Amount = cantidad;
-
-                if (product.CheckAvailability())
+                try
                 {
-                    product.CarculateTotalPrice();
-                    cart.AddProduct(product);
+                    var item = new BE_Item(itemID, product, cantidad);
+                    newSale.AddItem(item);
                     dgvCart.DataSource = null;
-                    dgvCart.DataSource = cart.Products;
-                    dgvCart.Columns["Category"].Visible = false;
-                    dgvCart.Columns["Stock"].Visible = false;
-                    FillCellsDGV(dgvCart);
-                }
-                else
-                {
-                    MessageBox.Show("No hay stock disponible para lo silicitado");
-                }
+                    dgvCart.Rows.Add(itemID, item.Product.Name, item.Amount, item.Subtotal);
 
+                    FillCellsDGV(dgvCart);
+                    itemID++;
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
             else
             {
-                MessageBox.Show("Selecciona un producto primero.");
+                MessageBox.Show("Debes Seleccionar un Producto.");
             }
         }
 
@@ -138,19 +141,23 @@ namespace UI
             {
                 try
                 {
-                    DataGridViewRow selectedRow = dgvCart.SelectedRows[0];
-                    cart.RemoveProduct(selectedRow.DataBoundItem as BE_Product);
-                    dgvCart.DataSource = null;
-                    dgvCart.DataSource = cart.Products;
-                    dgvCart.Columns["Category"].Visible = false;
-                    dgvCart.Columns["Stock"].Visible = false;
-                    FillCellsDGV(dgvCart);
-
+                    int row = dgvCart.CurrentRow.Index;
+                    int itemID = int.Parse(dgvCart.Rows[row].Cells["IDItem"].Value.ToString());
+                    var itemRemove = newSale.ItemsProducts.FirstOrDefault(i => i.Id == itemID);
+                    newSale.RemoveItem(itemRemove);
                 }
                 catch
                 {
                     MessageBox.Show("No hay productos para eliminar");
                 }
+
+                dgvCart.Rows.Clear();
+
+                foreach (var i in newSale.ItemsProducts)
+                {
+                    dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal);
+                }
+                FillCellsDGV(dgvCart);
             }
             else
             {
@@ -208,7 +215,7 @@ namespace UI
             txtBClienteDNI.BackColor = SystemColors.Window;
             if (txtBClienteDNI.Text.Length >= 8)
             {
-                var cliente = BLL_Client.VerificarCliente(dni);
+                var cliente = BLL_Client.GetClient(dni);
                 if (cliente != null)
                 {
                     btnGenerarFactura.Enabled = true;
@@ -240,45 +247,6 @@ namespace UI
                 btnGenerarFactura.Enabled = false;
             }
 
-        }
-
-
-
-        private DataGridViewRow previousSelectedRow;
-        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
-        {
-            if (previousSelectedRow != null)
-            {
-                //previousSelectedRow.Cells["Amount"].Value = "";
-            }
-            if (dgvProducts.SelectedRows.Count > 0)
-            {
-                previousSelectedRow = dgvProducts.SelectedRows[0];
-            }
-            else
-            {
-                previousSelectedRow = null;
-            }
-        }
-        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            UpdateDetailsCart();
-        }
-
-        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            UpdateDetailsCart();
-        }
-        private void UpdateDetailsCart()
-        {
-            decimal totalCartValue = (decimal)cart.Products.Sum(p => p.TotalPrice);
-            lblTotal.Text = "$ " + totalCartValue.ToString();
-            lblItemsTotal.Text = (dgvCart.RowCount).ToString();
-            if (dgvCart.RowCount == 0)
-            {
-                buttonCerrarVenta.Enabled = false;
-            }
-            else { buttonCerrarVenta.Enabled = true; }
         }
 
         private void txtFilterName_TextChanged(object sender, EventArgs e)
@@ -314,11 +282,13 @@ namespace UI
 
         }
 
+
         private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
             {
-                if (e.Value != null && (int)e.Value == 0)
+                int? amount = e.Value as int?;
+                if (amount.HasValue && amount.Value == 0)
                 {
                     e.Value = "";
                     e.FormattingApplied = true;
@@ -330,13 +300,47 @@ namespace UI
         {
             e.ThrowException = false;
         }
+        private DataGridViewRow previousSelectedRow;
+        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
+        {
+            if (previousSelectedRow != null)
+            {
+                //previousSelectedRow.Cells["Amount"].Value = "";
+            }
+            if (dgvProducts.SelectedRows.Count > 0)
+            {
+                previousSelectedRow = dgvProducts.SelectedRows[0];
+            }
+            else
+            {
+                previousSelectedRow = null;
+            }
+        }
+        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
+
+        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
+        private void UpdateDetailsCart()
+        {
+            double totalCartValue = newSale.Total;
+            lblTotal.Text = "$ " + totalCartValue.ToString();
+            lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
+            if (dgvCart.RowCount == 0)
+            {
+                buttonCerrarVenta.Enabled = false;
+            }
+            else { buttonCerrarVenta.Enabled = true; }
+        }
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            BE_Sale newSale = new BE_Sale();
-            newSale.Cart = cart;
             newSale.Saleman = SessionManager.GetInstance.usuario.Emp;
-            newSale.Client = BLL_Client.VerificarCliente(txtBClienteDNI.Text);
+            newSale.Client = BLL_Client.GetClient(txtBClienteDNI.Text);
             newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
             newSale.DeliveryDate = DateTime.Parse(DPEntrega.Date.ToShortDateString());
             //FECHA ENTREGA

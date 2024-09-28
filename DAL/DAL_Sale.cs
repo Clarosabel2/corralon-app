@@ -23,7 +23,8 @@ namespace DAL
 
         public static void SaveInvoice(BE_Sale newSale)
         {
-            throw new NotImplementedException();
+            var ccnn = new DAL_Connection();
+
         }
     }
 }

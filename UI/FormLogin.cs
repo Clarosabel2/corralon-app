@@ -15,12 +15,14 @@ namespace UI
 {
     public partial class FormLogin : Form
     {
-        
+        private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
+
         public FormLogin()
         {
             InitializeComponent();
+            lblErrorMessage.Text = "";
         }
-        
+
         #region "Funcionalidades Visuales"
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -88,19 +90,53 @@ namespace UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //Por ahora 
+            lblErrorMessage.Text = "";
             if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
-                FormMain frmMain = new FormMain();
-                frmMain.Show();
-                this.Hide();
+                if (SessionManager.GetInstance.usuario.Status)
+                {
+                    lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
+                    if (!_failedLogins.ContainsKey(txtUser.Text))
+                    {
+                        _failedLogins[SessionManager.GetInstance.usuario.Username] = -5;
+                    }
+                    SessionManager.Logout();
+                }
+                else
+                {
+                    FormMain frmMain = new FormMain();
+                    frmMain.Show();
+                    this.Hide();
+                }
+
+            }
+            else
+            {
+                bool flagBlock = false;
                 
+                if (_failedLogins.TryGetValue(txtUser.Text, out int _fails))
+                {
+                    _failedLogins[txtUser.Text]++;
+                    if (_failedLogins[txtUser.Text] >= 3)
+                    {
+                        //bloquear cuenta
+                        flagBlock = true;
+                        BLL_User.BlockUser(txtUser.Text);
+                        lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
+                    }
+                }
+                else
+                {
+                    _failedLogins.Add(txtUser.Text, 1);
+                }
+                if (!flagBlock)
+                {
+                    lblErrorMessage.Text = $"Credenciales Incorrectas. Intentos restantes: {3 - _failedLogins[txtUser.Text]}";
+                }
             }
-            else {
-                MessageBox.Show("Usuario/Contraseña incorrecta");
-            }
-            
+
         }
 
-        
     }
 }
