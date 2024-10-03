@@ -49,6 +49,7 @@
     <Compile Include="DAL_Client.cs" />
     <Compile Include="DAL_Connection.cs" />
     <Compile Include="DAL_Employee.cs" />
+    <Compile Include="DAL_Permission.cs" />
     <Compile Include="DAL_Product.cs" />
     <Compile Include="DAL_Sale.cs" />
     <Compile Include="DAL_User.cs" />

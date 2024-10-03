@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.panelForms = new System.Windows.Forms.Panel();
             this.panelInterface = new System.Windows.Forms.Panel();
+            this.menuAdmin = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAdmin = new System.Windows.Forms.Button();
+            this.btnManagerLanguages = new System.Windows.Forms.Button();
+            this.btnProfiles = new System.Windows.Forms.Button();
             this.guna2ResizeBox1 = new Guna.UI2.WinForms.Guna2ResizeBox();
             this.guna2CirclePictureBox1 = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
@@ -44,11 +48,11 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.menuGeneral = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnProducts = new System.Windows.Forms.Button();
+            this.btnClients = new System.Windows.Forms.Button();
             this.menuVentas = new System.Windows.Forms.FlowLayoutPanel();
             this.btnSales = new System.Windows.Forms.Button();
-            this.btnProducts = new System.Windows.Forms.Button();
             this.btnCreateSale = new System.Windows.Forms.Button();
-            this.btnClients = new System.Windows.Forms.Button();
             this.menuOperador = new System.Windows.Forms.FlowLayoutPanel();
             this.btnOperator = new System.Windows.Forms.Button();
             this.btnOrders = new System.Windows.Forms.Button();
@@ -63,14 +67,6 @@
             this.btnMyAccount = new System.Windows.Forms.Button();
             this.btnLanguage = new System.Windows.Forms.Button();
             this.btnSecurity = new System.Windows.Forms.Button();
-            this.menuAdmin = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAdmin = new System.Windows.Forms.Button();
-            this.btnManagerLanguages = new System.Windows.Forms.Button();
-            this.subMenuProfiles = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnSubProfiles = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnModifyProfiles = new System.Windows.Forms.Button();
-            this.btnAssing = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -78,6 +74,7 @@
             this.menuTransition = new System.Windows.Forms.Timer(this.components);
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
+            this.menuAdmin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             this.panelDataUser.SuspendLayout();
@@ -87,8 +84,6 @@
             this.menuOperador.SuspendLayout();
             this.menuReportes.SuspendLayout();
             this.menuUsuario.SuspendLayout();
-            this.menuAdmin.SuspendLayout();
-            this.subMenuProfiles.SuspendLayout();
             this.panelBarraTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,6 +104,55 @@
             this.panelInterface.Controls.Add(this.guna2CirclePictureBox1);
             this.panelInterface.Name = "panelInterface";
             // 
+            // menuAdmin
+            // 
+            this.menuAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.menuAdmin.Controls.Add(this.btnAdmin);
+            this.menuAdmin.Controls.Add(this.btnManagerLanguages);
+            this.menuAdmin.Controls.Add(this.btnProfiles);
+            resources.ApplyResources(this.menuAdmin, "menuAdmin");
+            this.menuAdmin.Name = "menuAdmin";
+            // 
+            // btnAdmin
+            // 
+            resources.ApplyResources(this.btnAdmin, "btnAdmin");
+            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.FlatAppearance.BorderSize = 0;
+            this.btnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAdmin.ForeColor = System.Drawing.Color.Silver;
+            this.btnAdmin.Image = global::UI.Properties.Resources.icons8_administrator_male_30;
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.UseVisualStyleBackColor = false;
+            this.btnAdmin.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
+            // btnManagerLanguages
+            // 
+            resources.ApplyResources(this.btnManagerLanguages, "btnManagerLanguages");
+            this.btnManagerLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(90)))));
+            this.btnManagerLanguages.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManagerLanguages.FlatAppearance.BorderSize = 0;
+            this.btnManagerLanguages.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnManagerLanguages.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnManagerLanguages.ForeColor = System.Drawing.Color.Silver;
+            this.btnManagerLanguages.Name = "btnManagerLanguages";
+            this.btnManagerLanguages.UseVisualStyleBackColor = false;
+            // 
+            // btnProfiles
+            // 
+            resources.ApplyResources(this.btnProfiles, "btnProfiles");
+            this.btnProfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(90)))));
+            this.btnProfiles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProfiles.FlatAppearance.BorderSize = 0;
+            this.btnProfiles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnProfiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnProfiles.ForeColor = System.Drawing.Color.Silver;
+            this.btnProfiles.Image = global::UI.Properties.Resources.employee_icon;
+            this.btnProfiles.Name = "btnProfiles";
+            this.btnProfiles.UseVisualStyleBackColor = false;
+            this.btnProfiles.Click += new System.EventHandler(this.btnProfiles_Click);
+            // 
             // guna2ResizeBox1
             // 
             resources.ApplyResources(this.guna2ResizeBox1, "guna2ResizeBox1");
@@ -120,7 +164,6 @@
             // 
             this.guna2CirclePictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.Image = global::UI.Properties.Resources.logo_bss;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -217,6 +260,31 @@
             this.menuGeneral.Controls.Add(this.menuAdmin);
             this.menuGeneral.Name = "menuGeneral";
             // 
+            // btnProducts
+            // 
+            resources.ApplyResources(this.btnProducts, "btnProducts");
+            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnProducts.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProducts.FlatAppearance.BorderSize = 0;
+            this.btnProducts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnProducts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnProducts.ForeColor = System.Drawing.Color.Silver;
+            this.btnProducts.Name = "btnProducts";
+            this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
+            // 
+            // btnClients
+            // 
+            resources.ApplyResources(this.btnClients, "btnClients");
+            this.btnClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnClients.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClients.FlatAppearance.BorderSize = 0;
+            this.btnClients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnClients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnClients.ForeColor = System.Drawing.Color.Silver;
+            this.btnClients.Name = "btnClients";
+            this.btnClients.UseVisualStyleBackColor = false;
+            // 
             // menuVentas
             // 
             this.menuVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
@@ -239,19 +307,6 @@
             this.btnSales.UseVisualStyleBackColor = false;
             this.btnSales.Click += new System.EventHandler(this.btnMenu_Click);
             // 
-            // btnProducts
-            // 
-            resources.ApplyResources(this.btnProducts, "btnProducts");
-            this.btnProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.btnProducts.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProducts.FlatAppearance.BorderSize = 0;
-            this.btnProducts.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnProducts.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnProducts.ForeColor = System.Drawing.Color.Silver;
-            this.btnProducts.Name = "btnProducts";
-            this.btnProducts.UseVisualStyleBackColor = false;
-            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
-            // 
             // btnCreateSale
             // 
             resources.ApplyResources(this.btnCreateSale, "btnCreateSale");
@@ -264,18 +319,6 @@
             this.btnCreateSale.Name = "btnCreateSale";
             this.btnCreateSale.UseVisualStyleBackColor = false;
             this.btnCreateSale.Click += new System.EventHandler(this.btnCrearVenta_Click);
-            // 
-            // btnClients
-            // 
-            resources.ApplyResources(this.btnClients, "btnClients");
-            this.btnClients.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.btnClients.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClients.FlatAppearance.BorderSize = 0;
-            this.btnClients.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnClients.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnClients.ForeColor = System.Drawing.Color.Silver;
-            this.btnClients.Name = "btnClients";
-            this.btnClients.UseVisualStyleBackColor = false;
             // 
             // menuOperador
             // 
@@ -444,100 +487,6 @@
             this.btnSecurity.Name = "btnSecurity";
             this.btnSecurity.UseVisualStyleBackColor = false;
             // 
-            // menuAdmin
-            // 
-            this.menuAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.menuAdmin.Controls.Add(this.btnAdmin);
-            this.menuAdmin.Controls.Add(this.btnManagerLanguages);
-            this.menuAdmin.Controls.Add(this.subMenuProfiles);
-            resources.ApplyResources(this.menuAdmin, "menuAdmin");
-            this.menuAdmin.Name = "menuAdmin";
-            // 
-            // btnAdmin
-            // 
-            resources.ApplyResources(this.btnAdmin, "btnAdmin");
-            this.btnAdmin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(68)))));
-            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdmin.FlatAppearance.BorderSize = 0;
-            this.btnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnAdmin.ForeColor = System.Drawing.Color.Silver;
-            this.btnAdmin.Image = global::UI.Properties.Resources.icons8_administrator_male_30;
-            this.btnAdmin.Name = "btnAdmin";
-            this.btnAdmin.UseVisualStyleBackColor = false;
-            this.btnAdmin.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // btnManagerLanguages
-            // 
-            resources.ApplyResources(this.btnManagerLanguages, "btnManagerLanguages");
-            this.btnManagerLanguages.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(90)))));
-            this.btnManagerLanguages.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnManagerLanguages.FlatAppearance.BorderSize = 0;
-            this.btnManagerLanguages.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnManagerLanguages.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnManagerLanguages.ForeColor = System.Drawing.Color.Silver;
-            this.btnManagerLanguages.Name = "btnManagerLanguages";
-            this.btnManagerLanguages.UseVisualStyleBackColor = false;
-            // 
-            // subMenuProfiles
-            // 
-            this.subMenuProfiles.Controls.Add(this.btnSubProfiles);
-            this.subMenuProfiles.Controls.Add(this.button1);
-            this.subMenuProfiles.Controls.Add(this.btnModifyProfiles);
-            this.subMenuProfiles.Controls.Add(this.btnAssing);
-            resources.ApplyResources(this.subMenuProfiles, "subMenuProfiles");
-            this.subMenuProfiles.Name = "subMenuProfiles";
-            // 
-            // btnSubProfiles
-            // 
-            resources.ApplyResources(this.btnSubProfiles, "btnSubProfiles");
-            this.btnSubProfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(90)))));
-            this.btnSubProfiles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSubProfiles.FlatAppearance.BorderSize = 0;
-            this.btnSubProfiles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnSubProfiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnSubProfiles.ForeColor = System.Drawing.Color.Silver;
-            this.btnSubProfiles.Image = global::UI.Properties.Resources.employee_icon;
-            this.btnSubProfiles.Name = "btnSubProfiles";
-            this.btnSubProfiles.UseVisualStyleBackColor = false;
-            this.btnSubProfiles.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
-            // button1
-            // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(90)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.button1.ForeColor = System.Drawing.Color.Silver;
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // btnModifyProfiles
-            // 
-            resources.ApplyResources(this.btnModifyProfiles, "btnModifyProfiles");
-            this.btnModifyProfiles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(90)))));
-            this.btnModifyProfiles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifyProfiles.FlatAppearance.BorderSize = 0;
-            this.btnModifyProfiles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnModifyProfiles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnModifyProfiles.ForeColor = System.Drawing.Color.Silver;
-            this.btnModifyProfiles.Name = "btnModifyProfiles";
-            this.btnModifyProfiles.UseVisualStyleBackColor = false;
-            // 
-            // btnAssing
-            // 
-            resources.ApplyResources(this.btnAssing, "btnAssing");
-            this.btnAssing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(50)))), ((int)(((byte)(90)))));
-            this.btnAssing.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAssing.FlatAppearance.BorderSize = 0;
-            this.btnAssing.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnAssing.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnAssing.ForeColor = System.Drawing.Color.Silver;
-            this.btnAssing.Name = "btnAssing";
-            this.btnAssing.UseVisualStyleBackColor = false;
-            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(141)))));
@@ -597,6 +546,7 @@
             this.panelForms.ResumeLayout(false);
             this.panelForms.PerformLayout();
             this.panelInterface.ResumeLayout(false);
+            this.menuAdmin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
@@ -608,8 +558,6 @@
             this.menuOperador.ResumeLayout(false);
             this.menuReportes.ResumeLayout(false);
             this.menuUsuario.ResumeLayout(false);
-            this.menuAdmin.ResumeLayout(false);
-            this.subMenuProfiles.ResumeLayout(false);
             this.panelBarraTitulo.ResumeLayout(false);
             this.panelBarraTitulo.PerformLayout();
             this.ResumeLayout(false);
@@ -650,16 +598,12 @@
         private System.Windows.Forms.FlowLayoutPanel menuAdmin;
         private System.Windows.Forms.Button btnAdmin;
         private System.Windows.Forms.Button btnManagerLanguages;
-        private System.Windows.Forms.Button btnSubProfiles;
+        private System.Windows.Forms.Button btnProfiles;
         private System.Windows.Forms.FlowLayoutPanel menuReportes;
         private System.Windows.Forms.Button btnReport;
         private System.Windows.Forms.Button btnReport1;
         private System.Windows.Forms.Button btnReport2;
         private System.Windows.Forms.Button btnReport3;
-        private System.Windows.Forms.FlowLayoutPanel subMenuProfiles;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnModifyProfiles;
-        private System.Windows.Forms.Button btnAssing;
         private System.Windows.Forms.FlowLayoutPanel menuGeneral;
         private System.Windows.Forms.Panel panelDataUser;
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;

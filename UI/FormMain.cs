@@ -83,9 +83,6 @@ namespace UI
                 case 5:
                     flp = menuAdmin;
                     break;
-                case 6:
-                    flp = subMenuProfiles;
-                    break;
                 default:
                     MessageBox.Show("opcion incorrecta");
                     break;
@@ -123,37 +120,29 @@ namespace UI
         }
         #endregion
 
-        private void lnkMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            lnkMyProfile.LinkVisited = true;
-            OpenForms<FormUserProfile>();
-        }
-        private void btnCrearVenta_Click(object sender, EventArgs e)
-        {
-            OpenForms<FormCreateSale>();
-        }
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            OpenForms<FormProducts>();
-        }
+
+
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
             var forms = panelInterface.Controls.OfType<MyForm>();
             Form frm = forms.FirstOrDefault();
+
             if (frm != null)
             {
-                frm.Close();
+                frm.Close(); 
+                panelInterface.Controls.Remove(frm);
             }
-            frm = new MyForm();
-            frm.TopLevel = false;
-            frm.Dock = DockStyle.Fill;
-            frm.AutoSize = true;
-            frm.ControlBox = false;
-            frm.FormBorderStyle = FormBorderStyle.None;
-            panelInterface.Controls.Add(frm);
-            panelInterface.Tag = frm;
-            frm.Show();
+
+            frm = new MyForm
+            {
+                TopLevel = false
+            };
+
+            panelInterface.Controls.Add(frm); 
+            panelInterface.Tag = frm; 
+            frm.Show(); 
             frm.BringToFront();
+
             frm.FormClosed += new FormClosedEventHandler(CloseForms);
         }
         private void CloseForms(object sender, FormClosedEventArgs e)
@@ -174,13 +163,39 @@ namespace UI
             lblPosition.Text = SessionManager.GetInstance.usuario.Rol;
             lblEmail.Text = SessionManager.GetInstance.usuario.Emp.Email;
         }
-
+        private void lnkMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            lnkMyProfile.LinkVisited = true;
+            OpenForms<FormUserProfile>();
+        }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            SessionManager.Logout();
-            FormLogin frmLogin = new FormLogin();
-            frmLogin.Show();
-            this.Close();
+            DialogResult r = MessageBox.Show("Esta seguro que quiere cerrar sesion ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes)
+            {
+                SessionManager.Logout();
+                FormLogin frmLogin = new FormLogin();
+                frmLogin.Show();
+                this.Close();
+            }
+        }
+
+        private void btnModifyProfiles_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormProfiles>();
+        }
+        private void btnCrearVenta_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormCreateSale>();
+        }
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormProducts>();
+        }
+
+        private void btnProfiles_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormProfiles>();
         }
 
     }

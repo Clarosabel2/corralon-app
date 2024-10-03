@@ -45,14 +45,16 @@
   <ItemGroup>
     <Compile Include="BE_Client.cs" />
     <Compile Include="BE_Brand.cs" />
+    <Compile Include="Permissions\BE_Permission.cs" />
     <Compile Include="BE_Employee.cs" />
     <Compile Include="BE_Item.cs" />
-    <Compile Include="BE_Permisson.cs" />
-    <Compile Include="BE_Profile.cs" />
     <Compile Include="BE_Sale.cs" />
     <Compile Include="BE_Person.cs" />
     <Compile Include="BE_Product.cs" />
     <Compile Include="BE_User.cs" />
+    <Compile Include="Permissions\BE_Family.cs" />
+    <Compile Include="Permissions\BE_Patent.cs" />
+    <Compile Include="Permissions\BE_TypePermission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

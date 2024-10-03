@@ -18,7 +18,8 @@ namespace UI
     public partial class FormCreateSale : Form
     {
         private List<BE_Product> products = BLL_Product.GetProducts();
-        BE_Sale newSale = new BE_Sale();
+        private BE_Sale newSale = new BE_Sale();
+        private BE_Client client = new BE_Client();
         private int itemID = 1;
         public FormCreateSale()
         {
@@ -215,12 +216,12 @@ namespace UI
             txtBClienteDNI.BackColor = SystemColors.Window;
             if (txtBClienteDNI.Text.Length >= 8)
             {
-                var cliente = BLL_Client.GetClient(dni);
-                if (cliente != null)
+                client = BLL_Client.GetClient(dni);
+                if (client != null)
                 {
                     btnGenerarFactura.Enabled = true;
                     txtBClienteDNI.BackColor = Color.GreenYellow;
-                    lblEstadoCliente.Text = cliente.Name + " " + cliente.Lastname;
+                    lblEstadoCliente.Text = client.Name + " " + client.Lastname;
                 }
                 else
                 {
@@ -340,7 +341,7 @@ namespace UI
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
             newSale.Saleman = SessionManager.GetInstance.usuario.Emp;
-            newSale.Client = BLL_Client.GetClient(txtBClienteDNI.Text);
+            newSale.Client = client;
             newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
             newSale.DeliveryDate = DateTime.Parse(DPEntrega.Date.ToShortDateString());
             //FECHA ENTREGA

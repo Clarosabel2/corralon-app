@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLL_Client.cs" />
     <Compile Include="BLL_Employee.cs" />
+    <Compile Include="BLL_Permission.cs" />
     <Compile Include="BLL_Sale.cs" />
     <Compile Include="BLL_Product.cs" />
     <Compile Include="BLL_User.cs" />

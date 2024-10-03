@@ -22,7 +22,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@p_username", username);
             int rowsAffected = cmd.ExecuteNonQuery();
             cmd.Connection = cnn.CloseConnection();
-            
         }
 
         public static bool ValidUser(string username, string password)

@@ -189,6 +189,23 @@
   <data name="guna2CirclePictureBox1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="guna2CirclePictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        Qk32AgAAAAAAADYAAAAoAAAADgAAABAAAAABABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEgoTGw8bGw8bGw8bGw8bGw8bGw8bG
+        w8bGw8bGw8bGw8bGw8bGw8YAAAAAAISChP///////////////////////////////////////////8bD
+        xgAAAAAAhIKE////////////////////////////////////////////xsPGAAAAAACEgoT/////////
+        ///////////////////////////////////Gw8YAAAAAAISChP//////////////////////////////
+        /////////////8bDxgAAAAAAhIKE////////////AAD/AAD/////////AAD/AAD/////////xsPGAAAA
+        AACEgoT///////////////8AAP8AAP8AAP8AAP/////////////Gw8YAAAAAAISChP//////////////
+        /////wAA/wAA/////////////////8bDxgAAAAAAhIKE////////////////AAD/AAD/AAD/AAD/////
+        ////////xsPGAAAAAACEgoT///////////8AAP8AAP////////8AAP8AAP/////////Gw8YAAAAAAISC
+        hP///////////////////////////////////////////8bDxgAAAAAAhIKE////////////////////
+        ////////////////////////xsPGAAAAAACEgoT/////////////////////////////////////////
+        ///Gw8YAAAAAAISChP///////////////////////////////////////////8bDxgAAAAAAhIKEhIKE
+        hIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEhIKEAAA=
+</value>
+  </data>
   <data name="guna2CirclePictureBox1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -1276,194 +1293,50 @@ Logistica</value>
   <data name="&gt;&gt;btnManagerLanguages.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="btnSubProfiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+  <data name="btnProfiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="btnSubProfiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+  <data name="btnProfiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
     <value>Flat</value>
   </data>
-  <data name="btnSubProfiles.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="btnProfiles.Font" type="System.Drawing.Font, System.Drawing">
     <value>Century Gothic, 12.75pt</value>
   </data>
-  <data name="btnSubProfiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnProfiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="btnSubProfiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnProfiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnSubProfiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
+  <data name="btnProfiles.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 111</value>
   </data>
-  <data name="btnSubProfiles.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnProfiles.Size" type="System.Drawing.Size, System.Drawing">
     <value>241, 30</value>
   </data>
-  <data name="btnSubProfiles.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnProfiles.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="btnSubProfiles.Text" xml:space="preserve">
+  <data name="btnProfiles.Text" xml:space="preserve">
     <value>Perfiles</value>
   </data>
-  <data name="&gt;&gt;btnSubProfiles.Name" xml:space="preserve">
-    <value>btnSubProfiles</value>
+  <data name="&gt;&gt;btnProfiles.Name" xml:space="preserve">
+    <value>btnProfiles</value>
   </data>
-  <data name="&gt;&gt;btnSubProfiles.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnProfiles.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;btnSubProfiles.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnSubProfiles.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="button1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="button1.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="button1.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12.75pt</value>
-  </data>
-  <data name="button1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 39</value>
-  </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="button1.Text" xml:space="preserve">
-    <value>Crear</value>
-  </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
-  </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnModifyProfiles.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnModifyProfiles.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnModifyProfiles.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12.75pt</value>
-  </data>
-  <data name="btnModifyProfiles.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnModifyProfiles.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnModifyProfiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 75</value>
-  </data>
-  <data name="btnModifyProfiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="btnModifyProfiles.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnModifyProfiles.Text" xml:space="preserve">
-    <value>Modificar</value>
-  </data>
-  <data name="&gt;&gt;btnModifyProfiles.Name" xml:space="preserve">
-    <value>btnModifyProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnModifyProfiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnModifyProfiles.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnModifyProfiles.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnAssing.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="btnAssing.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btnAssing.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 12.75pt</value>
-  </data>
-  <data name="btnAssing.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnAssing.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnAssing.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 111</value>
-  </data>
-  <data name="btnAssing.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="btnAssing.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnAssing.Text" xml:space="preserve">
-    <value>Asignar</value>
-  </data>
-  <data name="&gt;&gt;btnAssing.Name" xml:space="preserve">
-    <value>btnAssing</value>
-  </data>
-  <data name="&gt;&gt;btnAssing.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnAssing.Parent" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;btnAssing.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="subMenuProfiles.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 111</value>
-  </data>
-  <data name="subMenuProfiles.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 144</value>
-  </data>
-  <data name="subMenuProfiles.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="subMenuProfiles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>241, 30</value>
-  </data>
-  <data name="subMenuProfiles.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Name" xml:space="preserve">
-    <value>subMenuProfiles</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;subMenuProfiles.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnProfiles.Parent" xml:space="preserve">
     <value>menuAdmin</value>
   </data>
-  <data name="&gt;&gt;subMenuProfiles.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnProfiles.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="menuAdmin.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 386</value>
   </data>
   <data name="menuAdmin.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>241, 305</value>
+    <value>241, 187</value>
   </data>
   <data name="menuAdmin.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>241, 65</value>

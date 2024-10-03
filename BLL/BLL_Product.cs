@@ -23,6 +23,7 @@ namespace BLL
         }
         public static bool UpdateProducts(DataTable dt)
         {
+            
             return DAL_Product.UpdateProducts(dt);
         }
     }
