@@ -16,7 +16,7 @@ namespace BDE
         private BE_Employee saleman;
         private List<BE_Item> itemsProducts;
         private double total;
-
+        private bool status;
         public BE_Sale(int id, char tipo)
         {
             this.Id = id;
@@ -38,6 +38,7 @@ namespace BDE
         public double Total { get => total; set => total = value; }
         public BE_Employee Saleman { get => saleman; set => saleman = value; }
         public List<BE_Item> ItemsProducts { get => itemsProducts; set => itemsProducts = value; }
+        public bool Status { get => status; set => status = value; }
 
         public void AddItem(BE_Item i) { this.ItemsProducts.Add(i); CalculateTotal(); }
         public void RemoveItem(BE_Item item)

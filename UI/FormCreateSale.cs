@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using ReaLTaiizor.Controls;
 using SVC;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace UI
             InitializeComponent();
             LoadTypesProducts();
             LoadProducts(products);
+
 
         }
 
@@ -343,9 +345,26 @@ namespace UI
             newSale.Saleman = SessionManager.GetInstance.usuario.Emp;
             newSale.Client = client;
             newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            newSale.DeliveryDate = DateTime.Parse(DPEntrega.Date.ToShortDateString());
-            //FECHA ENTREGA
-            BLL_Sale.SaveInvoice(newSale);
+            newSale.Status = checkBox1.Checked;
+            newSale.DeliveryDate = new DateTime(DPEntrega.Date.Year, DPEntrega.Date.Month, DPEntrega.Date.Day);
+            try
+            {
+                if (BLL_Sale.SaveInvoice(newSale))
+                {
+                    DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (r == DialogResult.OK) this.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar la factura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

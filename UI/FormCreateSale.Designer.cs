@@ -40,12 +40,13 @@
             this.btnGenerarFactura = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.DPEntrega = new ReaLTaiizor.Controls.HopeDatePicker();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.guna2RadioButton2 = new Guna.UI2.WinForms.Guna2RadioButton();
-            this.guna2RadioButton1 = new Guna.UI2.WinForms.Guna2RadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.IDItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblItemsTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -59,12 +60,8 @@
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnAgregarCarrito = new System.Windows.Forms.Button();
             this.buttonCerrarVenta = new System.Windows.Forms.Button();
-            this.IDItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panelFinVenta.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -105,6 +102,7 @@
             // panelFinVenta
             // 
             this.panelFinVenta.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelFinVenta.Controls.Add(this.checkBox1);
             this.panelFinVenta.Controls.Add(this.cBTypesInvoice);
             this.panelFinVenta.Controls.Add(this.label10);
             this.panelFinVenta.Controls.Add(this.btnAtras);
@@ -113,7 +111,6 @@
             this.panelFinVenta.Controls.Add(this.btnGenerarFactura);
             this.panelFinVenta.Controls.Add(this.label4);
             this.panelFinVenta.Controls.Add(this.DPEntrega);
-            this.panelFinVenta.Controls.Add(this.groupBox1);
             this.panelFinVenta.Controls.Add(this.label3);
             this.panelFinVenta.Location = new System.Drawing.Point(272, 44);
             this.panelFinVenta.Name = "panelFinVenta";
@@ -201,9 +198,10 @@
             // DPEntrega
             // 
             this.DPEntrega.BackColor = System.Drawing.Color.White;
+            this.DPEntrega.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DPEntrega.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.DPEntrega.Date = new System.DateTime(2024, 5, 25, 0, 0, 0, 0);
-            this.DPEntrega.DayNames = "LMMJVSS";
+            this.DPEntrega.Date = new System.DateTime(2024, 10, 4, 0, 0, 0, 0);
+            this.DPEntrega.DayNames = "LMMJVSD";
             this.DPEntrega.DaysTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
             this.DPEntrega.DayTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
             this.DPEntrega.DayTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
@@ -225,58 +223,7 @@
             this.DPEntrega.SelectedTextColor = System.Drawing.Color.White;
             this.DPEntrega.Size = new System.Drawing.Size(250, 270);
             this.DPEntrega.TabIndex = 3;
-            this.DPEntrega.Text = "hopeDatePicker1";
             this.DPEntrega.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.guna2RadioButton2);
-            this.groupBox1.Controls.Add(this.guna2RadioButton1);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(3, 442);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(370, 46);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Medio de Pago";
-            // 
-            // guna2RadioButton2
-            // 
-            this.guna2RadioButton2.AutoSize = true;
-            this.guna2RadioButton2.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2RadioButton2.CheckedState.BorderThickness = 0;
-            this.guna2RadioButton2.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2RadioButton2.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2RadioButton2.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton2.Location = new System.Drawing.Point(145, 20);
-            this.guna2RadioButton2.Name = "guna2RadioButton2";
-            this.guna2RadioButton2.Size = new System.Drawing.Size(146, 20);
-            this.guna2RadioButton2.TabIndex = 1;
-            this.guna2RadioButton2.Text = "Tarjeta Credito/Debito";
-            this.guna2RadioButton2.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton2.UncheckedState.BorderThickness = 2;
-            this.guna2RadioButton2.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2RadioButton2.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
-            // 
-            // guna2RadioButton1
-            // 
-            this.guna2RadioButton1.AutoSize = true;
-            this.guna2RadioButton1.Checked = true;
-            this.guna2RadioButton1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2RadioButton1.CheckedState.BorderThickness = 0;
-            this.guna2RadioButton1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2RadioButton1.CheckedState.InnerColor = System.Drawing.Color.White;
-            this.guna2RadioButton1.CheckedState.InnerOffset = -4;
-            this.guna2RadioButton1.Location = new System.Drawing.Point(56, 20);
-            this.guna2RadioButton1.Name = "guna2RadioButton1";
-            this.guna2RadioButton1.Size = new System.Drawing.Size(69, 20);
-            this.guna2RadioButton1.TabIndex = 0;
-            this.guna2RadioButton1.TabStop = true;
-            this.guna2RadioButton1.Text = "Efectivo";
-            this.guna2RadioButton1.UncheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2RadioButton1.UncheckedState.BorderThickness = 2;
-            this.guna2RadioButton1.UncheckedState.FillColor = System.Drawing.Color.Transparent;
-            this.guna2RadioButton1.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
             // 
             // label3
             // 
@@ -320,6 +267,32 @@
             this.dgvCart.TabIndex = 15;
             this.dgvCart.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvCart_RowsAdded);
             this.dgvCart.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvCart_RowsRemoved);
+            // 
+            // IDItem
+            // 
+            this.IDItem.HeaderText = "ID";
+            this.IDItem.Name = "IDItem";
+            // 
+            // ProductName
+            // 
+            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ProductName.HeaderText = "Product";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Amount
+            // 
+            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Amount.HeaderText = "Amount";
+            this.Amount.Name = "Amount";
+            this.Amount.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            this.Subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Subtotal.HeaderText = "Subtotal";
+            this.Subtotal.Name = "Subtotal";
+            this.Subtotal.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -476,31 +449,16 @@
             this.buttonCerrarVenta.UseVisualStyleBackColor = true;
             this.buttonCerrarVenta.Click += new System.EventHandler(this.buttonCerrarVenta_Click);
             // 
-            // IDItem
+            // checkBox1
             // 
-            this.IDItem.HeaderText = "ID";
-            this.IDItem.Name = "IDItem";
-            // 
-            // ProductName
-            // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Product";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.checkBox1.Location = new System.Drawing.Point(14, 453);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(114, 20);
+            this.checkBox1.TabIndex = 12;
+            this.checkBox1.Text = "Marcar Pagado";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // FormCreateSale
             // 
@@ -523,8 +481,6 @@
             this.Resize += new System.EventHandler(this.FormCrearVenta_Resize);
             this.panelFinVenta.ResumeLayout(false);
             this.panelFinVenta.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -547,9 +503,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private ReaLTaiizor.Controls.HopeDatePicker DPEntrega;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton2;
-        private Guna.UI2.WinForms.Guna2RadioButton guna2RadioButton1;
         private System.Windows.Forms.Button btnGenerarFactura;
         private System.Windows.Forms.Label lblEstadoCliente;
         private System.Windows.Forms.DataGridView dgvProducts;
@@ -572,5 +525,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

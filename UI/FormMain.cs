@@ -139,7 +139,9 @@ namespace UI
             };
 
             panelInterface.Controls.Add(frm); 
-            panelInterface.Tag = frm; 
+            panelInterface.Tag = frm;
+            frm.MinimizeBox = false; // Deshabilita el botón de minimizar
+            frm.MaximizeBox = false; // Deshabilita el botón de maximizar
             frm.Show(); 
             frm.BringToFront();
 

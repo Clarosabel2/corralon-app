@@ -16,9 +16,13 @@ namespace BLL
             return DAL_Sale.GetTypesInvoice();
         }
 
-        public static void SaveInvoice(BE_Sale newSale)
+        public static bool SaveInvoice(BE_Sale newSale)
         {
-            DAL_Sale.SaveInvoice(newSale);
+            if (newSale.DeliveryDate < DateTime.Now.Date)
+            {
+                throw new Exception("La fecha de entrega no puede ser anterior a la fecha actual.");
+            }
+            return DAL_Sale.SaveSale(newSale);
         }
     }
 }
