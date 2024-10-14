@@ -24,6 +24,51 @@ namespace DAL
             cmd.Connection = cnn.CloseConnection();
         }
 
+        public static bool UpdateUserData(BE_User user)
+        {
+            try
+            {
+                var cnn = new DAL_Connection();
+                using (var cmd = new SqlCommand($"UPDATE Personas SET nombre=@name, apellido=@lastname, email=@email WHERE id_Persona={SessionManager.GetInstance.user.Emp.Id}", cnn.OpenConnection()))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@name", user.Emp.Name);
+                    cmd.Parameters.AddWithValue("@lastname", user.Emp.Lastname);
+                    cmd.Parameters.AddWithValue("@email", user.Emp.Email);
+                    cmd.ExecuteNonQuery();
+                }
+                SessionManager.GetInstance.user.Emp.Name= user.Emp.Name;
+                SessionManager.GetInstance.user.Emp.Lastname= user.Emp.Lastname;
+                SessionManager.GetInstance.user.Emp.Email= user.Emp.Email;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static void UpdateUserPasswordById(string password)
+        {
+            try
+            {
+                var cnn = new DAL_Connection();
+                using (var cmd = new SqlCommand($"UPDATE Usuarios SET password=@newpass WHERE id_Usuario={SessionManager.GetInstance.user.Emp.Id}", cnn.OpenConnection()))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("@newpass", password);
+                    cmd.ExecuteNonQuery();
+                }
+                SessionManager.GetInstance.user.Password = password;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public static bool ValidUser(string username, string password)
         {
             var cnn = new DAL_Connection();

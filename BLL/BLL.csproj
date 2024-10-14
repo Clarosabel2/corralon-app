@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="BLL_Client.cs" />
     <Compile Include="BLL_Employee.cs" />
+    <Compile Include="BLL_Invoice.cs" />
+    <Compile Include="BLL_Language.cs" />
+    <Compile Include="BLL_Order.cs" />
     <Compile Include="BLL_Permission.cs" />
     <Compile Include="BLL_Sale.cs" />
     <Compile Include="BLL_Product.cs" />

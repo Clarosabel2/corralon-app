@@ -1,9 +1,11 @@
 ﻿using BDE;
 using DAL;
+using SVC;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,18 +13,17 @@ namespace BLL
 {
     public static class BLL_Sale
     {
-        public static DataTable GetTypesInvoice()
+        public static BE_Sale newSale { get; set; }
+
+        public static void CreateSale()
         {
-            return DAL_Sale.GetTypesInvoice();
+            newSale = new BE_Sale();
+            newSale.Saleman = SessionManager.GetInstance.user.Emp;
         }
 
-        public static bool SaveInvoice(BE_Sale newSale)
+        public static bool SaveInvoice(out int idInvoice)
         {
-            if (newSale.DeliveryDate < DateTime.Now.Date)
-            {
-                throw new Exception("La fecha de entrega no puede ser anterior a la fecha actual.");
-            }
-            return DAL_Sale.SaveSale(newSale);
+            return DAL_Sale.SaveSale(newSale, out idInvoice);
         }
     }
 }

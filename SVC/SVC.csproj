@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncodeManager.cs" />
+    <Compile Include="LanguageManager\IObserver.cs" />
+    <Compile Include="LanguageManager\ISubject.cs" />
+    <Compile Include="LanguageManager\LanguageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SessionManager.cs" />
   </ItemGroup>

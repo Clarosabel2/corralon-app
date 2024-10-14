@@ -11,7 +11,6 @@ namespace DAL
     public class DAL_Connection
     {
         private readonly SqlConnection _connection = new SqlConnection("Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;");
-
         public SqlConnection Connection => _connection;
         public SqlConnection OpenConnection()
         {

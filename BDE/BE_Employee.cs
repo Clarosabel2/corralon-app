@@ -25,6 +25,7 @@ namespace BDE
             this.area = dr.GetString(dr.GetOrdinal("nombreArea"));
             this.salary = 0.0;
         }
+        public BE_Employee(string name, string lastname, string email) : base(name, lastname, email) { }
         public BE_Employee() : base() { }
 
         public double Salario { get => salary; set => salary = value; }

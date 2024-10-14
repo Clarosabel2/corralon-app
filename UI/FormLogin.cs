@@ -10,17 +10,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL;
 using SVC;
+using SVC.LanguageManager;
 
 namespace UI
 {
-    public partial class FormLogin : Form
+    public partial class FormLogin : Form, IObserver
     {
         private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
+        public void Update(string language)
+        {
+            
+        }
 
         public FormLogin()
         {
             InitializeComponent();
             lblErrorMessage.Text = "";
+            LanguageManager.Attach(this);
+            LanguageManager.CurrentLanguage = "SP";
         }
 
         #region "Funcionalidades Visuales"
@@ -94,12 +101,12 @@ namespace UI
             lblErrorMessage.Text = "";
             if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
-                if (SessionManager.GetInstance.usuario.Status)
+                if (SessionManager.GetInstance.user.Status)
                 {
                     lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
                     if (!_failedLogins.ContainsKey(txtUser.Text))
                     {
-                        _failedLogins[SessionManager.GetInstance.usuario.Username] = -5;
+                        _failedLogins[SessionManager.GetInstance.user.Username] = -5;
                     }
                     SessionManager.Logout();
                 }
@@ -137,6 +144,21 @@ namespace UI
             }
 
         }
-
+        private bool isEnglish = false;
+        private void btnChangeLenguage_Click(object sender, EventArgs e)
+        {
+            if (isEnglish)
+            {
+                btnChangeLenguage.Text = "SP";
+                isEnglish = false;
+                LanguageManager.CurrentLanguage = "SP";
+            }
+            else
+            {
+                btnChangeLenguage.Text = "EN";
+                isEnglish = true;
+                LanguageManager.CurrentLanguage = "EN";
+            }
+        }
     }
 }

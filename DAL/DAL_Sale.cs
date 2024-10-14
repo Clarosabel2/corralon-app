@@ -11,49 +11,38 @@ namespace DAL
 {
     public class DAL_Sale : DAL_Connection
     {
-        public static DataTable GetTypesInvoice()
-        {
-            var cnn = new DAL_Connection();
-            DataTable table = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter("SELECT t.id_Tipo, t.tipo FROM TipoFactura t", cnn.Connection);
-            adapter.SelectCommand.CommandType = CommandType.Text;
-            adapter.Fill(table);
-            return table;
-        }
-
-        public static bool SaveSale(BE_Sale newSale)
+        public static bool SaveSale(BE_Sale newSale, out int idInvoice)
         {
             try
             {
                 var cnn = new DAL_Connection();
-                var cmd = new SqlCommand();
-                cmd.Connection = cnn.OpenConnection();
-                cmd.CommandText = @"sp_SaveInvoice";
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idCliente", newSale.Client.Id);
-                cmd.Parameters.AddWithValue("@idEmpleado", newSale.Saleman.Id);
-                cmd.Parameters.AddWithValue("@TipoFactura", newSale.TypeInvoice);
-                cmd.Parameters.AddWithValue("@total", newSale.Total);
-                cmd.Parameters.AddWithValue("@estadoFactura", newSale.Status);
-                cmd.Parameters.AddWithValue("@fechaEmision", newSale.Date);
 
-
-                SqlParameter outputIdParam = new SqlParameter("@newInvoiceID", SqlDbType.Int)
+                using (var cmd = new SqlCommand("sp_SaveInvoice", cnn.OpenConnection()))
                 {
-                    Direction = ParameterDirection.Output
-                };
-                cmd.Parameters.Add(outputIdParam);
-                cmd.ExecuteNonQuery();
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                newSale.Id = (int)outputIdParam.Value;
+                    cmd.Parameters.AddWithValue("@idCliente", newSale.Client.Id);
+                    cmd.Parameters.AddWithValue("@idEmpleado", newSale.Saleman.Id);
+                    cmd.Parameters.AddWithValue("@TipoFactura", newSale.TypeInvoice);
+                    cmd.Parameters.AddWithValue("@total", newSale.Total);
+                    cmd.Parameters.AddWithValue("@estadoFactura", newSale.Status);
+                    cmd.Parameters.AddWithValue("@fechaEmision", newSale.Date);
 
+                    SqlParameter outputIdParam = new SqlParameter("@newInvoiceID", SqlDbType.Int)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+
+                    cmd.Parameters.Add(outputIdParam);
+                    cmd.ExecuteNonQuery();
+                    newSale.Id = (int)outputIdParam.Value;
+                }
 
                 foreach (var item in newSale.ItemsProducts)
                 {
                     using (var itemCmd = new SqlCommand("sp_SaveItemsInvoice", cnn.OpenConnection()))
                     {
                         itemCmd.CommandType = CommandType.StoredProcedure;
-
                         itemCmd.Parameters.AddWithValue("@idProducto", item.Product.Id);
                         itemCmd.Parameters.AddWithValue("@idFactura", newSale.Id);
                         itemCmd.Parameters.AddWithValue("@cantidad", item.Amount);
@@ -61,19 +50,14 @@ namespace DAL
                         itemCmd.ExecuteNonQuery();
                     }
                 }
-
+                idInvoice = newSale.Id;
                 return true;
-
             }
             catch (Exception)
             {
-
+                idInvoice = 0;
                 return false;
             }
-
-        }
-        private static void CreateProofDelivery()
-        {
 
         }
     }

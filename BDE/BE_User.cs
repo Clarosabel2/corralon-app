@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDE.Language;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -13,24 +14,32 @@ namespace BDE
         private string username;
         private string password;
         private string rol;
-        private string language;
         private bool status;
         private BE_Employee emp;
+        private BE_Language language;
         private List<BE_Permission> permissions;
 
         public BE_User(SqlDataReader dr)
         {
-            this.Username = dr.GetString(1);
-            this.Status = dr.GetBoolean(2);
-            this.Rol= dr.GetString(9);
+            this.Username = dr.GetString(dr.GetOrdinal("username"));
+            this.Status = dr.GetBoolean(dr.GetOrdinal("estado"));
+            this.Rol = dr.GetString(dr.GetOrdinal("rol"));
             this.Emp = new BE_Employee(dr);
+            this.Password = dr.GetString(dr.GetOrdinal("password"));
         }
+
         public BE_User() { }
+
+        public BE_User(string name, string lastname, string email)
+        {
+            this.Emp = new BE_Employee(name, lastname, email);
+        }
+
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
         public string Rol { get => rol; set => rol = value; }
         public BE_Employee Emp { get => emp; set => emp = value; }
         public bool Status { get => status; set => status = value; }
-        public List<BE_Permission> Permissones { get => permissions; }
+        public List<BE_Permission> Permissons { get => permissions; }
     }
 }

@@ -11,7 +11,6 @@ namespace BDE
         private int id;
         private char typeInvoice;
         private DateTime date;
-        private DateTime deliveryDate;
         private BE_Client client;
         private BE_Employee saleman;
         private List<BE_Item> itemsProducts;
@@ -33,7 +32,6 @@ namespace BDE
         public int Id { get => id; set => id = value; }
         public char TypeInvoice { get => typeInvoice; set => typeInvoice = value; }
         public DateTime Date { get => date; set => date = value; }
-        public DateTime DeliveryDate { get => deliveryDate; set => deliveryDate = value; }
         public BE_Client Client { get => client; set => client = value; }
         public double Total { get => total; set => total = value; }
         public BE_Employee Saleman { get => saleman; set => saleman = value; }

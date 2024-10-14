@@ -176,6 +176,7 @@
             this.btnChangeLenguage.TabIndex = 9;
             this.btnChangeLenguage.Text = "SP";
             this.btnChangeLenguage.UseVisualStyleBackColor = false;
+            this.btnChangeLenguage.Click += new System.EventHandler(this.btnChangeLenguage_Click);
             // 
             // checkBoxShowPassword
             // 

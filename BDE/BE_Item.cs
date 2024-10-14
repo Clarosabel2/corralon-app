@@ -15,38 +15,39 @@ namespace BDE
 
         public BE_Item(int id, BE_Product product, int amount)
         {
-            if (amount <= 0)
-            {
-                throw new ArgumentException("La cantidad debe ser vamor a cero");
-            }
-            Id = id;
-            Product = product;
-            Amount = amount;
-            Subtotal = CalculateSubtotal();
-            if (CheckAvailability())
-            {
-                throw new Exception("No hay Stock para la cantidad requerida");
-            }
+            this.Id = id;
+            this.Product = product;
+            this.Amount = amount;
+            CheckAvailability();
         }
 
         public BE_Item() { }
 
-        public BE_Product Product { get => product; set => product = value; }
-        public int Amount { get => amount; set => amount = value; }
-        public double Subtotal { get => subtotal; set => subtotal = value; }
         public int Id { get => id; set => id = value; }
-
-        private double CalculateSubtotal()
+        public BE_Product Product { get => product; set => product = value; }
+        public int Amount
         {
-            return this.Amount * this.Product.Price;
-        }
-        public bool CheckAvailability()
-        {
-            if (this.amount > this.Product.Stock)
+            get => amount;
+            set
             {
-                return true;
+                if (value <= 0)
+                {
+                    throw new Exception("La cantidad debe ser mayor a cero");
+                }
+                amount = value;
+
+                this.subtotal = this.Amount * this.Product.Price;
             }
-            return false;
+        }
+        public double Subtotal { get => subtotal; set => subtotal = value;
+        }
+
+        public void CheckAvailability()
+        {
+            if (this.Amount > this.Product.Stock)
+            {
+                throw new InvalidOperationException("No hay stock suficiente para la cantidad requerida.");
+            }
         }
     }
 }

@@ -19,16 +19,15 @@ namespace UI
     public partial class FormCreateSale : Form
     {
         private List<BE_Product> products = BLL_Product.GetProducts();
-        private BE_Sale newSale = new BE_Sale();
-        private BE_Client client = new BE_Client();
+        private BE_Client client;
         private int itemID = 1;
         public FormCreateSale()
         {
             InitializeComponent();
+            client = null;
             LoadTypesProducts();
+            BLL_Sale.CreateSale();
             LoadProducts(products);
-
-
         }
 
         #region "Funciones Visuales"
@@ -119,10 +118,9 @@ namespace UI
                 try
                 {
                     var item = new BE_Item(itemID, product, cantidad);
-                    newSale.AddItem(item);
+                    BLL_Sale.newSale.AddItem(item);
                     dgvCart.DataSource = null;
                     dgvCart.Rows.Add(itemID, item.Product.Name, item.Amount, item.Subtotal);
-
                     FillCellsDGV(dgvCart);
                     itemID++;
 
@@ -146,8 +144,8 @@ namespace UI
                 {
                     int row = dgvCart.CurrentRow.Index;
                     int itemID = int.Parse(dgvCart.Rows[row].Cells["IDItem"].Value.ToString());
-                    var itemRemove = newSale.ItemsProducts.FirstOrDefault(i => i.Id == itemID);
-                    newSale.RemoveItem(itemRemove);
+                    var itemRemove = BLL_Sale.newSale.ItemsProducts.FirstOrDefault(i => i.Id == itemID);
+                    BLL_Sale.newSale.RemoveItem(itemRemove);
                 }
                 catch
                 {
@@ -156,7 +154,7 @@ namespace UI
 
                 dgvCart.Rows.Clear();
 
-                foreach (var i in newSale.ItemsProducts)
+                foreach (var i in BLL_Sale.newSale.ItemsProducts)
                 {
                     dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal);
                 }
@@ -178,7 +176,7 @@ namespace UI
             {
                 panelFinVenta.Visible = true;
                 panelFinVenta.BringToFront();
-                cBTypesInvoice.DataSource = BLL_Sale.GetTypesInvoice();
+                cBTypesInvoice.DataSource = BLL_Invoice.GetTypesInvoice();
                 cBTypesInvoice.DisplayMember = "tipo";
                 cBTypesInvoice.ValueMember = "id_Tipo";
                 RecolatePanel();
@@ -308,7 +306,7 @@ namespace UI
         {
             if (previousSelectedRow != null)
             {
-                //previousSelectedRow.Cells["Amount"].Value = "";
+                previousSelectedRow.Cells["Amount"].Value = "";
             }
             if (dgvProducts.SelectedRows.Count > 0)
             {
@@ -330,7 +328,7 @@ namespace UI
         }
         private void UpdateDetailsCart()
         {
-            double totalCartValue = newSale.Total;
+            double totalCartValue = BLL_Sale.newSale.Total;
             lblTotal.Text = "$ " + totalCartValue.ToString();
             lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
             if (dgvCart.RowCount == 0)
@@ -342,14 +340,15 @@ namespace UI
 
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            newSale.Saleman = SessionManager.GetInstance.usuario.Emp;
-            newSale.Client = client;
-            newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            newSale.Status = checkBox1.Checked;
-            newSale.DeliveryDate = new DateTime(DPEntrega.Date.Year, DPEntrega.Date.Month, DPEntrega.Date.Day);
+            BLL_Sale.newSale.Client = client;
+            BLL_Sale.newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
+            BLL_Sale.newSale.Status = checkBox1.Checked;
+
+            BLL_Order.CreateOrder(DPEntrega.Date, BLL_Sale.newSale);
+
             try
             {
-                if (BLL_Sale.SaveInvoice(newSale))
+                if (BLL_Order.SaveOrder())
                 {
                     DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK) this.Dispose();

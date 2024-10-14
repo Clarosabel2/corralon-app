@@ -49,6 +49,9 @@
     <Compile Include="DAL_Client.cs" />
     <Compile Include="DAL_Connection.cs" />
     <Compile Include="DAL_Employee.cs" />
+    <Compile Include="DAL_Invoice.cs" />
+    <Compile Include="DAL_Language.cs" />
+    <Compile Include="DAL_Order.cs" />
     <Compile Include="DAL_Permission.cs" />
     <Compile Include="DAL_Product.cs" />
     <Compile Include="DAL_Sale.cs" />

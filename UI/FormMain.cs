@@ -1,4 +1,5 @@
 ﻿using SVC;
+using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormMain : Form
+    public partial class FormMain : Form, IObserver
     {
+        public void Update(string newLanguage)
+        {
+            throw new NotImplementedException();
+        }
         public FormMain()
         {
             InitializeComponent();
@@ -119,9 +124,6 @@ namespace UI
             }
         }
         #endregion
-
-
-
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
             var forms = panelInterface.Controls.OfType<MyForm>();
@@ -161,12 +163,19 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            lblName.Text = SessionManager.GetInstance.usuario.Emp.Name;
-            lblPosition.Text = SessionManager.GetInstance.usuario.Rol;
-            lblEmail.Text = SessionManager.GetInstance.usuario.Emp.Email;
+            LoadMyData();
         }
+
+        public void LoadMyData()
+        {
+            lblName.Text = SessionManager.GetInstance.user.Emp.Name;
+            lblPosition.Text = SessionManager.GetInstance.user.Rol;
+            lblEmail.Text = SessionManager.GetInstance.user.Emp.Email;
+        }
+
         private void lnkMyProfile_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            FormUserProfile.frmmain = this;
             lnkMyProfile.LinkVisited = true;
             OpenForms<FormUserProfile>();
         }
@@ -200,5 +209,6 @@ namespace UI
             OpenForms<FormProfiles>();
         }
 
+        
     }
 }
