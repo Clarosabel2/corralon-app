@@ -10,7 +10,7 @@ El sistema sigue una arquitectura en capas que separa las responsabilidades de l
 - **Presentación (UI):** Interfaz de usuario donde se interactúa con el sistema. Implementada utilizando Windows Forms, proporciona formularios para la gestión de ventas, productos, clientes y reportes.
 - **Negocio (BLL):** Contiene la lógica de negocio, encargándose de las operaciones y reglas que definen el funcionamiento del sistema.
 - **Acceso a Datos (DAL):** Capa encargada de la comunicación con la base de datos, ejecutando consultas y operaciones de almacenamiento.
-- - **Servicios (SVC):** Capa que gestiona la comunicación entre la lógica de negocio y las interfaces de usuario, ofreciendo métodos centralizados para las operaciones del negocio. Incluye clases para encriptación y la implementación de los patrones Observer y Singleton.
+- **Servicios (SVC):** Capa que gestiona la comunicación entre la lógica de negocio y las interfaces de usuario, ofreciendo métodos centralizados para las operaciones del negocio. Incluye clases para encriptación y la implementación de los patrones Observer y Singleton.
 
 ### Patrón Observador
 El sistema utiliza el **patrón Observador** para implementar la actualización de idioma en respuesta a cambios en el estado del sistema o los datos. Esto permite que los formularios se actualicen automáticamente cuando se modifican los datos relevantes.
