@@ -18,5 +18,3 @@ El sistema utiliza el **patrón Observador** para implementar la actualización 
 ### Patrón Singleton
 Para el manejo de sesiones y la conexión a la base de datos, se utiliza el **patrón Singleton**, asegurando que exista una única instancia de la sesión del usuario y la conexión a la base de datos a lo largo de la ejecución del programa. Esto ayuda a gestionar los recursos de manera eficiente y a mantener el control sobre el acceso a los datos.
 
-### Patrón Repositorio
-El **patrón Repositorio** se emplea para abstraer la lógica de acceso a datos de la capa de negocio, permitiendo una manera más organizada y mantenible de acceder y modificar los datos. Facilita la implementación de operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para las entidades del sistema.
