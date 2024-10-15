@@ -1,6 +1,8 @@
 ﻿using BDE;
+using BDE.Language;
 using BLL;
 using SVC;
+using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +15,27 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormUserProfile : Form
+    public partial class FormUserProfile : Form, IObserver
     {
         public static FormMain frmmain;
         public FormUserProfile()
         {
             InitializeComponent();
             LoadMyData();
+            LoadLanguages();
+            LanguageManager.Attach(this);
             txtConfirmPassword.Enabled = false;
             txtCurrentPassword.Enabled = false;
             txtPassword.Enabled = false;
             txtEmail.Enabled = false;
             txtFirstName.Enabled = false;
             txtLastName.Enabled = false;
+        }
+
+        private void LoadLanguages()
+        {
+            BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(l));
+            //cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
         }
 
         private void LoadMyData()
@@ -58,10 +68,10 @@ namespace UI
                 if (BLL_User.UpdateUserData(user))
                 {
                     DialogResult r = MessageBox.Show("Se cambio los datos correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (r == DialogResult.OK) 
+                    if (r == DialogResult.OK)
                         panelEditProfile.Visible = false;
-                        LoadMyData();
-                        frmmain.LoadMyData();
+                    LoadMyData();
+                    frmmain.LoadMyData();
                 }
             }
             if (checkBoxChangePassword.Checked)
@@ -108,6 +118,16 @@ namespace UI
                 txtFirstName.Enabled = false;
                 txtLastName.Enabled = false;
             }
+        }
+
+        private void cBLanguages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LanguageManager.CurrentLanguage = cBLanguages.SelectedItem.ToString();
+        }
+
+        public void Update(string language)
+        {
+            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, language));
         }
     }
 }

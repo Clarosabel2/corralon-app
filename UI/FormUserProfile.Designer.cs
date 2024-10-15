@@ -59,6 +59,8 @@
             this.lblPosition = new System.Windows.Forms.Label();
             this.lnkEditProfile = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cBLanguages = new System.Windows.Forms.ComboBox();
             this.panelEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -397,7 +399,7 @@
             this.lnkEditProfile.AutoSize = true;
             this.lnkEditProfile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lnkEditProfile.LinkColor = System.Drawing.Color.SteelBlue;
-            this.lnkEditProfile.Location = new System.Drawing.Point(95, 260);
+            this.lnkEditProfile.Location = new System.Drawing.Point(30, 218);
             this.lnkEditProfile.Name = "lnkEditProfile";
             this.lnkEditProfile.Size = new System.Drawing.Size(60, 13);
             this.lnkEditProfile.TabIndex = 12;
@@ -415,11 +417,34 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.label1.Location = new System.Drawing.Point(156, 258);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(56, 18);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Idioma:";
+            // 
+            // cBLanguages
+            // 
+            this.cBLanguages.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cBLanguages.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cBLanguages.FormattingEnabled = true;
+            this.cBLanguages.Location = new System.Drawing.Point(159, 279);
+            this.cBLanguages.Name = "cBLanguages";
+            this.cBLanguages.Size = new System.Drawing.Size(121, 25);
+            this.cBLanguages.TabIndex = 15;
+            this.cBLanguages.SelectedIndexChanged += new System.EventHandler(this.cBLanguages_SelectedIndexChanged);
+            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 559);
+            this.Controls.Add(this.cBLanguages);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lnkEditProfile);
             this.Controls.Add(this.lblPosition);
@@ -477,5 +502,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxChangePassword;
         private System.Windows.Forms.CheckBox checkBoxChangeData;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cBLanguages;
     }
 }

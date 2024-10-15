@@ -125,6 +125,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UITranslator.cs" />
     <EmbeddedResource Include="FormCreateSale.resx">
       <DependentUpon>FormCreateSale.cs</DependentUpon>
     </EmbeddedResource>

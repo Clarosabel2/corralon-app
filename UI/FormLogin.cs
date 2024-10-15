@@ -17,17 +17,12 @@ namespace UI
     public partial class FormLogin : Form, IObserver
     {
         private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
-        public void Update(string language)
-        {
-            
-        }
-
         public FormLogin()
         {
             InitializeComponent();
-            lblErrorMessage.Text = "";
+            lblErrorMessage.Visible = false;
             LanguageManager.Attach(this);
-            LanguageManager.CurrentLanguage = "SP";
+            LanguageManager.CurrentLanguage = "spanish";
         }
 
         #region "Funcionalidades Visuales"
@@ -98,11 +93,12 @@ namespace UI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             //Por ahora 
-            lblErrorMessage.Text = "";
+            lblErrorMessage.Visible = false;
             if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
                 if (SessionManager.GetInstance.user.Status)
                 {
+                    lblErrorMessage.Visible = true;
                     lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
                     if (!_failedLogins.ContainsKey(txtUser.Text))
                     {
@@ -121,7 +117,7 @@ namespace UI
             else
             {
                 bool flagBlock = false;
-                
+
                 if (_failedLogins.TryGetValue(txtUser.Text, out int _fails))
                 {
                     _failedLogins[txtUser.Text]++;
@@ -130,6 +126,7 @@ namespace UI
                         //bloquear cuenta
                         flagBlock = true;
                         BLL_User.BlockUser(txtUser.Text);
+                        lblErrorMessage.Visible = true;
                         lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
                     }
                 }
@@ -139,6 +136,7 @@ namespace UI
                 }
                 if (!flagBlock)
                 {
+                    lblErrorMessage.Visible = true;
                     lblErrorMessage.Text = $"Credenciales Incorrectas. Intentos restantes: {3 - _failedLogins[txtUser.Text]}";
                 }
             }
@@ -151,14 +149,20 @@ namespace UI
             {
                 btnChangeLenguage.Text = "SP";
                 isEnglish = false;
-                LanguageManager.CurrentLanguage = "SP";
+                LanguageManager.CurrentLanguage = "spanish";
             }
             else
             {
                 btnChangeLenguage.Text = "EN";
                 isEnglish = true;
-                LanguageManager.CurrentLanguage = "EN";
+                LanguageManager.CurrentLanguage = "english";
             }
         }
+        public void Update(string newLanguage)
+        {
+            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, newLanguage));
+        }
+
+        
     }
 }

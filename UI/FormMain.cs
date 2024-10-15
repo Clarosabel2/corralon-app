@@ -1,4 +1,5 @@
-﻿using SVC;
+﻿using BLL;
+using SVC;
 using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
@@ -16,14 +17,11 @@ namespace UI
 {
     public partial class FormMain : Form, IObserver
     {
-        public void Update(string newLanguage)
-        {
-            throw new NotImplementedException();
-        }
         public FormMain()
         {
             InitializeComponent();
             timerDateHour.Start();
+            LanguageManager.Attach(this);
         }
         #region "Funcionalidades Window"
 
@@ -131,7 +129,7 @@ namespace UI
 
             if (frm != null)
             {
-                frm.Close(); 
+                frm.Close();
                 panelInterface.Controls.Remove(frm);
             }
 
@@ -140,11 +138,11 @@ namespace UI
                 TopLevel = false
             };
 
-            panelInterface.Controls.Add(frm); 
+            panelInterface.Controls.Add(frm);
             panelInterface.Tag = frm;
             frm.MinimizeBox = false; // Deshabilita el botón de minimizar
             frm.MaximizeBox = false; // Deshabilita el botón de maximizar
-            frm.Show(); 
+            frm.Show();
             frm.BringToFront();
 
             frm.FormClosed += new FormClosedEventHandler(CloseForms);
@@ -209,6 +207,10 @@ namespace UI
             OpenForms<FormProfiles>();
         }
 
-        
+        public void Update(string newLanguage)
+        {
+            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, newLanguage));
+        }
+
     }
 }

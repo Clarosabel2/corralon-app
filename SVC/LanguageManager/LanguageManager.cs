@@ -25,6 +25,7 @@ namespace SVC.LanguageManager
         public static void Attach(IObserver ob)
         {
             observers.Add(ob);
+            if (CurrentLanguage != null) ob.Update(CurrentLanguage);
         }
 
         public static void Detach(IObserver ob)

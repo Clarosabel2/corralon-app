@@ -26,6 +26,7 @@ namespace BDE
             this.Rol = dr.GetString(dr.GetOrdinal("rol"));
             this.Emp = new BE_Employee(dr);
             this.Password = dr.GetString(dr.GetOrdinal("password"));
+            this.Language = new BE_Language { Name = dr.GetString(dr.GetOrdinal("nombreIdioma")) };
         }
 
         public BE_User() { }
@@ -41,5 +42,6 @@ namespace BDE
         public BE_Employee Emp { get => emp; set => emp = value; }
         public bool Status { get => status; set => status = value; }
         public List<BE_Permission> Permissons { get => permissions; }
+        public BE_Language Language { get => language; set => language = value; }
     }
 }
