@@ -19,9 +19,8 @@ namespace BLL
         {
             if (newOrder.DeliveryDate < DateTime.Now.Date) throw new Exception("La fecha de entrega no puede ser anterior a la fecha actual.");
 
-            int idInvoice;
 
-            if (BLL_Sale.SaveInvoice(out idInvoice))
+            if (BLL_Sale.SaveInvoice(out int idInvoice))
             {
                 newOrder.Invoice.Id = idInvoice;
             }

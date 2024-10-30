@@ -28,26 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblCatogory = new System.Windows.Forms.Label();
+            this.lblCart = new System.Windows.Forms.Label();
             this.cBTipoProductos = new System.Windows.Forms.ComboBox();
             this.panelFinVenta = new System.Windows.Forms.Panel();
+            this.checkBoxPaid = new System.Windows.Forms.CheckBox();
             this.cBTypesInvoice = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblTypeInvoice = new System.Windows.Forms.Label();
             this.btnAtras = new System.Windows.Forms.Button();
             this.txtBClienteDNI = new System.Windows.Forms.TextBox();
             this.lblEstadoCliente = new System.Windows.Forms.Label();
             this.btnGenerarFactura = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDeliveryDate = new System.Windows.Forms.Label();
             this.DPEntrega = new ReaLTaiizor.Controls.HopeDatePicker();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblInsertDniClient = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.dgvCart = new System.Windows.Forms.DataGridView();
             this.IDItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gbDetailsCart = new System.Windows.Forms.GroupBox();
             this.lblItemsTotal = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,37 +57,36 @@
             this.label5 = new System.Windows.Forms.Label();
             this.gBFiltros = new System.Windows.Forms.GroupBox();
             this.txtFilterName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblBrandName = new System.Windows.Forms.Label();
             this.btnRemoveItem = new System.Windows.Forms.Button();
             this.btnAgregarCarrito = new System.Windows.Forms.Button();
             this.buttonCerrarVenta = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panelFinVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
-            this.groupBox2.SuspendLayout();
+            this.gbDetailsCart.SuspendLayout();
             this.gBFiltros.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // lblCatogory
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Categorias";
+            this.lblCatogory.AutoSize = true;
+            this.lblCatogory.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatogory.Location = new System.Drawing.Point(12, 25);
+            this.lblCatogory.Name = "lblCatogory";
+            this.lblCatogory.Size = new System.Drawing.Size(66, 16);
+            this.lblCatogory.TabIndex = 8;
+            this.lblCatogory.Text = "Categorias";
             // 
-            // label2
+            // lblCart
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 295);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 16);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Cart";
+            this.lblCart.AutoSize = true;
+            this.lblCart.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCart.Location = new System.Drawing.Point(12, 295);
+            this.lblCart.Name = "lblCart";
+            this.lblCart.Size = new System.Drawing.Size(31, 16);
+            this.lblCart.TabIndex = 9;
+            this.lblCart.Text = "Cart";
             // 
             // cBTipoProductos
             // 
@@ -102,21 +102,32 @@
             // panelFinVenta
             // 
             this.panelFinVenta.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelFinVenta.Controls.Add(this.checkBox1);
+            this.panelFinVenta.Controls.Add(this.checkBoxPaid);
             this.panelFinVenta.Controls.Add(this.cBTypesInvoice);
-            this.panelFinVenta.Controls.Add(this.label10);
+            this.panelFinVenta.Controls.Add(this.lblTypeInvoice);
             this.panelFinVenta.Controls.Add(this.btnAtras);
             this.panelFinVenta.Controls.Add(this.txtBClienteDNI);
             this.panelFinVenta.Controls.Add(this.lblEstadoCliente);
             this.panelFinVenta.Controls.Add(this.btnGenerarFactura);
-            this.panelFinVenta.Controls.Add(this.label4);
+            this.panelFinVenta.Controls.Add(this.lblDeliveryDate);
             this.panelFinVenta.Controls.Add(this.DPEntrega);
-            this.panelFinVenta.Controls.Add(this.label3);
+            this.panelFinVenta.Controls.Add(this.lblInsertDniClient);
             this.panelFinVenta.Location = new System.Drawing.Point(272, 44);
             this.panelFinVenta.Name = "panelFinVenta";
             this.panelFinVenta.Size = new System.Drawing.Size(376, 547);
             this.panelFinVenta.TabIndex = 13;
             this.panelFinVenta.Visible = false;
+            // 
+            // checkBoxPaid
+            // 
+            this.checkBoxPaid.AutoSize = true;
+            this.checkBoxPaid.Font = new System.Drawing.Font("Century Gothic", 8.25F);
+            this.checkBoxPaid.Location = new System.Drawing.Point(14, 453);
+            this.checkBoxPaid.Name = "checkBoxPaid";
+            this.checkBoxPaid.Size = new System.Drawing.Size(114, 20);
+            this.checkBoxPaid.TabIndex = 12;
+            this.checkBoxPaid.Text = "Marcar Pagado";
+            this.checkBoxPaid.UseVisualStyleBackColor = true;
             // 
             // cBTypesInvoice
             // 
@@ -128,15 +139,15 @@
             this.cBTypesInvoice.Size = new System.Drawing.Size(95, 24);
             this.cBTypesInvoice.TabIndex = 10;
             // 
-            // label10
+            // lblTypeInvoice
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(11, 98);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 16);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Tipo Factura:";
+            this.lblTypeInvoice.AutoSize = true;
+            this.lblTypeInvoice.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTypeInvoice.Location = new System.Drawing.Point(11, 98);
+            this.lblTypeInvoice.Name = "lblTypeInvoice";
+            this.lblTypeInvoice.Size = new System.Drawing.Size(77, 16);
+            this.lblTypeInvoice.TabIndex = 9;
+            this.lblTypeInvoice.Text = "Tipo Factura:";
             // 
             // btnAtras
             // 
@@ -185,15 +196,15 @@
             this.btnGenerarFactura.UseVisualStyleBackColor = false;
             this.btnGenerarFactura.Click += new System.EventHandler(this.btnGenerarFactura_Click);
             // 
-            // label4
+            // lblDeliveryDate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(11, 135);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Fecha A Entregar";
+            this.lblDeliveryDate.AutoSize = true;
+            this.lblDeliveryDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDeliveryDate.Location = new System.Drawing.Point(11, 135);
+            this.lblDeliveryDate.Name = "lblDeliveryDate";
+            this.lblDeliveryDate.Size = new System.Drawing.Size(99, 16);
+            this.lblDeliveryDate.TabIndex = 4;
+            this.lblDeliveryDate.Text = "Fecha A Entregar";
             // 
             // DPEntrega
             // 
@@ -225,15 +236,15 @@
             this.DPEntrega.TabIndex = 3;
             this.DPEntrega.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
             // 
-            // label3
+            // lblInsertDniClient
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(11, 34);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 16);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Ingrese DNI del Client";
+            this.lblInsertDniClient.AutoSize = true;
+            this.lblInsertDniClient.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInsertDniClient.Location = new System.Drawing.Point(11, 34);
+            this.lblInsertDniClient.Name = "lblInsertDniClient";
+            this.lblInsertDniClient.Size = new System.Drawing.Size(121, 16);
+            this.lblInsertDniClient.TabIndex = 0;
+            this.lblInsertDniClient.Text = "Ingrese DNI del Client";
             // 
             // dgvProducts
             // 
@@ -294,22 +305,22 @@
             this.Subtotal.Name = "Subtotal";
             this.Subtotal.ReadOnly = true;
             // 
-            // groupBox2
+            // gbDetailsCart
             // 
-            this.groupBox2.Controls.Add(this.lblItemsTotal);
-            this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.lblTotal);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 682);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(959, 55);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Detalles del Cart";
+            this.gbDetailsCart.Controls.Add(this.lblItemsTotal);
+            this.gbDetailsCart.Controls.Add(this.label9);
+            this.gbDetailsCart.Controls.Add(this.label8);
+            this.gbDetailsCart.Controls.Add(this.label7);
+            this.gbDetailsCart.Controls.Add(this.lblTotal);
+            this.gbDetailsCart.Controls.Add(this.label5);
+            this.gbDetailsCart.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gbDetailsCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDetailsCart.Location = new System.Drawing.Point(0, 682);
+            this.gbDetailsCart.Name = "gbDetailsCart";
+            this.gbDetailsCart.Size = new System.Drawing.Size(959, 55);
+            this.gbDetailsCart.TabIndex = 16;
+            this.gbDetailsCart.TabStop = false;
+            this.gbDetailsCart.Text = "Detalles del Cart";
             // 
             // lblItemsTotal
             // 
@@ -374,9 +385,9 @@
             // gBFiltros
             // 
             this.gBFiltros.Controls.Add(this.txtFilterName);
-            this.gBFiltros.Controls.Add(this.label6);
+            this.gBFiltros.Controls.Add(this.lblBrandName);
             this.gBFiltros.Controls.Add(this.cBTipoProductos);
-            this.gBFiltros.Controls.Add(this.label1);
+            this.gBFiltros.Controls.Add(this.lblCatogory);
             this.gBFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.gBFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBFiltros.Location = new System.Drawing.Point(0, 0);
@@ -395,15 +406,15 @@
             this.txtFilterName.TabIndex = 12;
             this.txtFilterName.TextChanged += new System.EventHandler(this.txtFilterName_TextChanged);
             // 
-            // label6
+            // lblBrandName
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(235, 25);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(101, 16);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Marca / Nombre:";
+            this.lblBrandName.AutoSize = true;
+            this.lblBrandName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBrandName.Location = new System.Drawing.Point(235, 25);
+            this.lblBrandName.Name = "lblBrandName";
+            this.lblBrandName.Size = new System.Drawing.Size(101, 16);
+            this.lblBrandName.TabIndex = 11;
+            this.lblBrandName.Text = "Marca / Nombre:";
             // 
             // btnRemoveItem
             // 
@@ -449,33 +460,23 @@
             this.buttonCerrarVenta.UseVisualStyleBackColor = true;
             this.buttonCerrarVenta.Click += new System.EventHandler(this.buttonCerrarVenta_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.checkBox1.Location = new System.Drawing.Point(14, 453);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(114, 20);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "Marcar Pagado";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // FormCreateSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(959, 737);
             this.Controls.Add(this.panelFinVenta);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.gbDetailsCart);
             this.Controls.Add(this.dgvCart);
             this.Controls.Add(this.btnRemoveItem);
             this.Controls.Add(this.btnAgregarCarrito);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblCart);
             this.Controls.Add(this.buttonCerrarVenta);
             this.Controls.Add(this.dgvProducts);
             this.Controls.Add(this.gBFiltros);
             this.Name = "FormCreateSale";
             this.Text = "FormCreateSale";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCreateSale_FormClosed);
             this.Load += new System.EventHandler(this.FormCrearVenta_Load);
             this.ResizeEnd += new System.EventHandler(this.FormCrearVenta_ResizeEnd);
             this.Resize += new System.EventHandler(this.FormCrearVenta_Resize);
@@ -483,8 +484,8 @@
             this.panelFinVenta.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gbDetailsCart.ResumeLayout(false);
+            this.gbDetailsCart.PerformLayout();
             this.gBFiltros.ResumeLayout(false);
             this.gBFiltros.PerformLayout();
             this.ResumeLayout(false);
@@ -494,14 +495,14 @@
 
         #endregion
         private System.Windows.Forms.Button buttonCerrarVenta;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblCatogory;
+        private System.Windows.Forms.Label lblCart;
         private System.Windows.Forms.ComboBox cBTipoProductos;
         private System.Windows.Forms.Button btnAgregarCarrito;
         private System.Windows.Forms.Button btnRemoveItem;
         private System.Windows.Forms.Panel panelFinVenta;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblInsertDniClient;
+        private System.Windows.Forms.Label lblDeliveryDate;
         private ReaLTaiizor.Controls.HopeDatePicker DPEntrega;
         private System.Windows.Forms.Button btnGenerarFactura;
         private System.Windows.Forms.Label lblEstadoCliente;
@@ -509,7 +510,7 @@
         private System.Windows.Forms.DataGridView dgvCart;
         private System.Windows.Forms.TextBox txtBClienteDNI;
         private System.Windows.Forms.Button btnAtras;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gbDetailsCart;
         private System.Windows.Forms.Label lblItemsTotal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -517,14 +518,14 @@
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gBFiltros;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblBrandName;
         private System.Windows.Forms.TextBox txtFilterName;
         private System.Windows.Forms.ComboBox cBTypesInvoice;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTypeInvoice;
         private System.Windows.Forms.DataGridViewTextBoxColumn IDItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxPaid;
     }
 }

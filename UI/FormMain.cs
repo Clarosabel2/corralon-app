@@ -22,6 +22,7 @@ namespace UI
             InitializeComponent();
             timerDateHour.Start();
             LanguageManager.Attach(this);
+            LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language.Name;
         }
         #region "Funcionalidades Window"
 
@@ -124,24 +125,24 @@ namespace UI
         #endregion
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
-            var forms = panelInterface.Controls.OfType<MyForm>();
-            Form frm = forms.FirstOrDefault();
-
-            if (frm != null)
+            foreach (Form openForm in panelInterface.Controls.OfType<Form>())
             {
-                frm.Close();
-                panelInterface.Controls.Remove(frm);
+                openForm.Close();
+                panelInterface.Controls.Remove(openForm); 
             }
 
-            frm = new MyForm
+            Form frm = new MyForm
             {
-                TopLevel = false
+                TopLevel = false, 
+                MinimizeBox = false,
+                MaximizeBox = false,
+                FormBorderStyle = FormBorderStyle.None,
+                Dock = DockStyle.Fill 
             };
 
             panelInterface.Controls.Add(frm);
             panelInterface.Tag = frm;
-            frm.MinimizeBox = false; // Deshabilita el botón de minimizar
-            frm.MaximizeBox = false; // Deshabilita el botón de maximizar
+
             frm.Show();
             frm.BringToFront();
 
@@ -152,10 +153,6 @@ namespace UI
             if (Application.OpenForms["FormUserProfile"] == null)
             {
                 lnkMyProfile.LinkVisited = false;
-            }
-            if (Application.OpenForms["FormCreateSale"] == null)
-            {
-                btnCreateSale.BackColor = Color.FromArgb(4, 41, 68);
             }
         }
 
@@ -207,10 +204,14 @@ namespace UI
             OpenForms<FormProfiles>();
         }
 
-        public void Update(string newLanguage)
+        public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, newLanguage));
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
         }
 
+        private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LanguageManager.Detach(this);
+        }
     }
 }

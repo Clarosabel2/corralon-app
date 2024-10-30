@@ -461,6 +461,7 @@
             this.Controls.Add(this.panelEditProfile);
             this.Name = "FormUserProfile";
             this.Text = "Mi Perfil";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormUserProfile_FormClosed);
             this.panelEditProfile.ResumeLayout(false);
             this.panelEditProfile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

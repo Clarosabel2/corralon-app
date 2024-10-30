@@ -196,6 +196,7 @@
             this.Controls.Add(this.lblDni);
             this.Name = "FormRegisterClient";
             this.Text = "Registrar Cliente";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormRegisterClient_FormClosed);
             this.Load += new System.EventHandler(this.FormRegistrarCliente_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

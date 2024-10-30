@@ -21,6 +21,7 @@ namespace UI
         {
             InitializeComponent();
             lblErrorMessage.Visible = false;
+            BLL_Language.Loadtranslations();
             LanguageManager.Attach(this);
             LanguageManager.CurrentLanguage = "spanish";
         }
@@ -42,7 +43,7 @@ namespace UI
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == "Username")
+            if (txtUser.Text == LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name])
             {
                 txtUser.Text = "";
             }
@@ -51,14 +52,14 @@ namespace UI
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = "Username";
+                txtUser.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name];
             }
 
         }
 
         private void txtPsswrd_Enter(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text == "Password")
+            if (txtPsswrd.Text == LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
             {
                 txtPsswrd.Text = "";
                 txtPsswrd.PasswordChar = '*';
@@ -70,12 +71,12 @@ namespace UI
             if (txtPsswrd.Text == "")
             {
                 txtPsswrd.PasswordChar = '\0';
-                txtPsswrd.Text = "Password";
+                txtPsswrd.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name];
             }
         }
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text != "Password")
+            if (txtPsswrd.Text != LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
             {
                 if (checkBoxShowPassword.Checked)
                 {
@@ -158,11 +159,9 @@ namespace UI
                 LanguageManager.CurrentLanguage = "english";
             }
         }
-        public void Update(string newLanguage)
+        public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, newLanguage));
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
         }
-
-        
     }
 }

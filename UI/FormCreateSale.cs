@@ -1,7 +1,9 @@
 ﻿using BDE;
+using BDE.Language;
 using BLL;
 using ReaLTaiizor.Controls;
 using SVC;
+using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
-    public partial class FormCreateSale : Form
+    public partial class FormCreateSale : Form, IObserver
     {
         private List<BE_Product> products = BLL_Product.GetProducts();
         private BE_Client client;
@@ -28,6 +30,7 @@ namespace UI
             LoadTypesProducts();
             BLL_Sale.CreateSale();
             LoadProducts(products);
+            LanguageManager.Attach(this);
         }
 
         #region "Funciones Visuales"
@@ -342,7 +345,7 @@ namespace UI
         {
             BLL_Sale.newSale.Client = client;
             BLL_Sale.newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            BLL_Sale.newSale.Status = checkBox1.Checked;
+            BLL_Sale.newSale.Status = checkBoxPaid.Checked;
 
             BLL_Order.CreateOrder(DPEntrega.Date, BLL_Sale.newSale);
 
@@ -364,6 +367,16 @@ namespace UI
             }
 
 
+        }
+
+        public void Update(string language)
+        {
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+        }
+
+        private void FormCreateSale_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LanguageManager.Detach(this);
         }
     }
 }

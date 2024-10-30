@@ -254,7 +254,6 @@
             this.btnSales.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnSales.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnSales.ForeColor = System.Drawing.Color.Silver;
-            this.btnSales.Image = global::UI.Properties.Resources.shop_store_business_sale_supermarket_icon_175937;
             this.btnSales.Name = "btnSales";
             this.btnSales.UseVisualStyleBackColor = false;
             this.btnSales.Click += new System.EventHandler(this.btnMenu_Click);
@@ -262,7 +261,7 @@
             // btnCreateSale
             // 
             resources.ApplyResources(this.btnCreateSale, "btnCreateSale");
-            this.btnCreateSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnCreateSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(90)))));
             this.btnCreateSale.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCreateSale.FlatAppearance.BorderSize = 0;
             this.btnCreateSale.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
@@ -290,7 +289,6 @@
             this.btnOperator.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnOperator.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnOperator.ForeColor = System.Drawing.Color.Silver;
-            this.btnOperator.Image = global::UI.Properties.Resources.icons8_forklift_48;
             this.btnOperator.Name = "btnOperator";
             this.btnOperator.UseVisualStyleBackColor = false;
             this.btnOperator.Click += new System.EventHandler(this.btnMenu_Click);
@@ -338,7 +336,6 @@
             this.btnReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnReport.ForeColor = System.Drawing.Color.Silver;
-            this.btnReport.Image = global::UI.Properties.Resources.icons8_report_48;
             this.btnReport.Name = "btnReport";
             this.btnReport.UseVisualStyleBackColor = false;
             this.btnReport.Click += new System.EventHandler(this.btnMenu_Click);
@@ -398,7 +395,6 @@
             this.btnUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnUser.ForeColor = System.Drawing.Color.Silver;
-            this.btnUser.Image = global::UI.Properties.Resources.shop_store_business_sale_supermarket_icon_175937;
             this.btnUser.Name = "btnUser";
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnMenu_Click);
@@ -457,7 +453,6 @@
             this.btnAdmin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
             this.btnAdmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
             this.btnAdmin.ForeColor = System.Drawing.Color.Silver;
-            this.btnAdmin.Image = global::UI.Properties.Resources.icons8_administrator_male_30;
             this.btnAdmin.Name = "btnAdmin";
             this.btnAdmin.UseVisualStyleBackColor = false;
             this.btnAdmin.Click += new System.EventHandler(this.btnMenu_Click);
@@ -543,6 +538,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormMain";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMain_FormClosed);
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelForms.ResumeLayout(false);
             this.panelForms.PerformLayout();

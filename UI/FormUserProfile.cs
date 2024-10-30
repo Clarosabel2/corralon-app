@@ -35,7 +35,7 @@ namespace UI
         private void LoadLanguages()
         {
             BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(l));
-            //cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
+            cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
         }
 
         private void LoadMyData()
@@ -127,7 +127,12 @@ namespace UI
 
         public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, BLL_Language.GetTraductions(this.Name, language));
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+        }
+
+        private void FormUserProfile_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LanguageManager.Detach(this);
         }
     }
 }

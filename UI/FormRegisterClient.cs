@@ -1,5 +1,7 @@
 ﻿using BDE;
+using BDE.Language;
 using BLL;
+using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,11 +14,12 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class FormRegisterClient : Form
+    public partial class FormRegisterClient : Form, IObserver
     {
         public FormRegisterClient()
         {
             InitializeComponent();
+            LanguageManager.Attach(this);
         }
 
         private void FormRegistrarCliente_Load(object sender, EventArgs e)
@@ -56,6 +59,16 @@ namespace UI
 
                 MessageBox.Show($"Hubo un error al registrar al cliente: {client.Name} {client.Lastname} \nDetalles: {ex.Message}", "Error");
             }
+        }
+
+        public void Update(string language)
+        {
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+        }
+
+        private void FormRegisterClient_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LanguageManager.Detach(this);
         }
     }
 }

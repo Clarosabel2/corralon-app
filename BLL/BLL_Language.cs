@@ -1,4 +1,5 @@
 ﻿using DAL;
+using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,10 @@ namespace BLL
             return DAL_Language.GetLanguages()
                 .Select(l => char.ToUpper(l[0]) + l.Substring(1).ToLower()).ToList();
         }
-        public static Dictionary<string, string> GetTraductions(string frmName,string language) {
-            return DAL_Language.GetTraductions(frmName,language.ToLower());
+
+        public static void Loadtranslations()
+        {
+            DAL_Language.LoadTraductions();
         }
     }
 }
