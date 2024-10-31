@@ -371,7 +371,7 @@ namespace UI
 
         public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
         }
 
         private void FormCreateSale_FormClosed(object sender, FormClosedEventArgs e)

@@ -68,6 +68,7 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.ExecuteNonQuery();
             var dr = cmd.ExecuteReader();
+            LanguageManager.translations = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
             if (dr.HasRows)
             {
                 while (dr.Read())

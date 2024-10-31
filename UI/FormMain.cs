@@ -204,14 +204,13 @@ namespace UI
             OpenForms<FormProfiles>();
         }
 
-        public void Update(string language)
-        {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
-        }
-
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             LanguageManager.Detach(this);
+        }
+        public void Update(string language)
+        {
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
         }
     }
 }

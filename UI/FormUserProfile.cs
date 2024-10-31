@@ -122,12 +122,19 @@ namespace UI
 
         private void cBLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LanguageManager.CurrentLanguage = cBLanguages.SelectedItem.ToString();
+            LanguageManager.CurrentLanguage = cBLanguages.SelectedItem.ToString().ToLower();
         }
 
         public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+            try
+            {
+                UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         private void FormUserProfile_FormClosed(object sender, FormClosedEventArgs e)

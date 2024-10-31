@@ -100,7 +100,7 @@ namespace UI
                 if (SessionManager.GetInstance.user.Status)
                 {
                     lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
+                    lblErrorMessage.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     if (!_failedLogins.ContainsKey(txtUser.Text))
                     {
                         _failedLogins[SessionManager.GetInstance.user.Username] = -5;
@@ -128,7 +128,7 @@ namespace UI
                         flagBlock = true;
                         BLL_User.BlockUser(txtUser.Text);
                         lblErrorMessage.Visible = true;
-                        lblErrorMessage.Text = "Tu cuenta ha sido bloqueada.";
+                        lblErrorMessage.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     }
                 }
                 else
@@ -138,7 +138,7 @@ namespace UI
                 if (!flagBlock)
                 {
                     lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = $"Credenciales Incorrectas. Intentos restantes: {3 - _failedLogins[txtUser.Text]}";
+                    lblErrorMessage.Text = $"{LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgErrorCredentials"]} { 3 - _failedLogins[txtUser.Text]}" ;
                 }
             }
 
@@ -146,6 +146,7 @@ namespace UI
         private bool isEnglish = false;
         private void btnChangeLenguage_Click(object sender, EventArgs e)
         {
+            lblErrorMessage.Visible = false;
             if (isEnglish)
             {
                 btnChangeLenguage.Text = "SP";
@@ -159,9 +160,11 @@ namespace UI
                 LanguageManager.CurrentLanguage = "english";
             }
         }
+        
+            
         public void Update(string language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language]);
+            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
         }
     }
 }

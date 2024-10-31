@@ -11,13 +11,7 @@ namespace SVC.LanguageManager
     {
         private static List<IObserver> observers = new List<IObserver>();
         private static string currentLanguage;
-        //idioma    frm     crtl    traduction
-        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> translations;
-
-        static LanguageManager()
-        {
-            translations = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
-        }
+        public static Dictionary<string, Dictionary<string, Dictionary<string, string>>> translations { get; set; }
 
         public static string CurrentLanguage
         {

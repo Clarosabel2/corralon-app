@@ -10,21 +10,19 @@ namespace UI
 {
     public static class UITranslator
     {
-        public static void ApplyTranslations(Control parent, Dictionary<string, Dictionary<string, string>> translations)
+        public static void ApplyTranslations(Control parent,  Dictionary<string, string> translations)
         {
             try
             {
-                if (!translations.ContainsKey(parent.Name)) throw new Exception("No hay traducciones para el form: " + parent.Name);
-
-                var frmTraductions = translations[parent.Name];
+                if (translations is null) throw new Exception("No hay traducciones para el form: " + parent.Name);
 
                 foreach (Control ctrl in parent.Controls)
                 {
-                    if (ctrl is Button || ctrl is Label || ctrl is GroupBox || ctrl is TextBox)
+                    if (ctrl is Button || ctrl is Label || ctrl is GroupBox || ctrl is TextBox  || ctrl is CheckBox)
                     {
-                        if (frmTraductions.ContainsKey(ctrl.Name))
+                        if (translations.ContainsKey(ctrl.Name))
                         {
-                            ctrl.Text = frmTraductions[ctrl.Name];
+                            ctrl.Text = translations[ctrl.Name];
                         }
                     }
                     if (ctrl.HasChildren)
