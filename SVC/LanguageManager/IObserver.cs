@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDE.Language;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace SVC.LanguageManager
 {
     public interface IObserver
     {
-        void Update(string language);
+        void Update(BE_Language language);
     }
 }

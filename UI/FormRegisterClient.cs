@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BDE.Language;
 using BLL;
+using SVC;
 using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
@@ -61,9 +62,10 @@ namespace UI
             }
         }
 
-        public void Update(string language)
+        public void Update(BE_Language language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
+            //BE_Language lang = LanguageManager.translations.First(l => l.Key.Name == language).Key;
+            UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
 
         private void FormRegisterClient_FormClosed(object sender, FormClosedEventArgs e)

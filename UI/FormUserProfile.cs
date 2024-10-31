@@ -34,7 +34,7 @@ namespace UI
 
         private void LoadLanguages()
         {
-            BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(l));
+            BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(l.Name));
             cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
         }
 
@@ -122,14 +122,15 @@ namespace UI
 
         private void cBLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LanguageManager.CurrentLanguage = cBLanguages.SelectedItem.ToString().ToLower();
+            LanguageManager.CurrentLanguage = SessionManager.translations.First(l => l.Key.Name == cBLanguages.SelectedItem.ToString().ToLower()).Key;
         }
 
-        public void Update(string language)
+        public void Update(BE_Language language)
         {
             try
             {
-                UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
+                //BE_Language lang = LanguageManager.translations.First(l => l.Key.Name == language).Key;
+                UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
             }
             catch (Exception ex)
             {

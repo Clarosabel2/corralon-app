@@ -84,6 +84,7 @@ namespace DAL
                 while (dr.Read())
                 {
                     SessionManager.Login(new BE_User(dr));
+                    SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == dr.GetString(dr.GetOrdinal("nombreIdioma"))).Key;
                 }
                 return true;
             }

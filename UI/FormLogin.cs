@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BDE.Language;
 using BLL;
 using SVC;
 using SVC.LanguageManager;
@@ -23,7 +24,6 @@ namespace UI
             lblErrorMessage.Visible = false;
             BLL_Language.Loadtranslations();
             LanguageManager.Attach(this);
-            LanguageManager.CurrentLanguage = "spanish";
         }
 
         #region "Funcionalidades Visuales"
@@ -43,7 +43,7 @@ namespace UI
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name])
+            if (txtUser.Text == SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name])
             {
                 txtUser.Text = "";
             }
@@ -52,14 +52,14 @@ namespace UI
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name];
+                txtUser.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name];
             }
 
         }
 
         private void txtPsswrd_Enter(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text == LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
+            if (txtPsswrd.Text == SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
             {
                 txtPsswrd.Text = "";
                 txtPsswrd.PasswordChar = '*';
@@ -71,12 +71,12 @@ namespace UI
             if (txtPsswrd.Text == "")
             {
                 txtPsswrd.PasswordChar = '\0';
-                txtPsswrd.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name];
+                txtPsswrd.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name];
             }
         }
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text != LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
+            if (txtPsswrd.Text != SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
             {
                 if (checkBoxShowPassword.Checked)
                 {
@@ -100,7 +100,7 @@ namespace UI
                 if (SessionManager.GetInstance.user.Status)
                 {
                     lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
+                    lblErrorMessage.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     if (!_failedLogins.ContainsKey(txtUser.Text))
                     {
                         _failedLogins[SessionManager.GetInstance.user.Username] = -5;
@@ -128,7 +128,7 @@ namespace UI
                         flagBlock = true;
                         BLL_User.BlockUser(txtUser.Text);
                         lblErrorMessage.Visible = true;
-                        lblErrorMessage.Text = LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
+                        lblErrorMessage.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     }
                 }
                 else
@@ -138,7 +138,7 @@ namespace UI
                 if (!flagBlock)
                 {
                     lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = $"{LanguageManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgErrorCredentials"]} { 3 - _failedLogins[txtUser.Text]}" ;
+                    lblErrorMessage.Text = $"{SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgErrorCredentials"]} { 3 - _failedLogins[txtUser.Text]}" ;
                 }
             }
 
@@ -151,20 +151,24 @@ namespace UI
             {
                 btnChangeLenguage.Text = "SP";
                 isEnglish = false;
-                LanguageManager.CurrentLanguage = "spanish";
+                //LanguageManager.CurrentLanguage = "spanish";
             }
             else
             {
                 btnChangeLenguage.Text = "EN";
                 isEnglish = true;
-                LanguageManager.CurrentLanguage = "english";
+                //LanguageManager.CurrentLanguage = "english";
             }
         }
         
-            
-        public void Update(string language)
+        public void Update(BE_Language language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
+            UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
+        }
+
+        private void FormLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            LanguageManager.Detach(this);
         }
     }
 }

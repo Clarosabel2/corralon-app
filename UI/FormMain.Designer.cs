@@ -468,6 +468,7 @@
             this.btnManagerLanguages.ForeColor = System.Drawing.Color.Silver;
             this.btnManagerLanguages.Name = "btnManagerLanguages";
             this.btnManagerLanguages.UseVisualStyleBackColor = false;
+            this.btnManagerLanguages.Click += new System.EventHandler(this.btnManagerLanguages_Click);
             // 
             // btnProfiles
             // 

@@ -1,4 +1,5 @@
-﻿using DAL;
+﻿using BDE.Language;
+using DAL;
 using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
@@ -12,15 +13,20 @@ namespace BLL
 {
     public static class BLL_Language
     {
-        public static List<string> GetLanguages()
+        public static List<BE_Language> GetLanguages()
         {
-            return DAL_Language.GetLanguages()
-                .Select(l => char.ToUpper(l[0]) + l.Substring(1).ToLower()).ToList();
+            return DAL_Language.GetLanguages()/*
+                .Select(l => char.ToUpper(l[0]) + l.Substring(1).ToLower())*/.ToList();
         }
 
         public static void Loadtranslations()
         {
             DAL_Language.LoadTraductions();
+        }
+
+        public static void SetDefaultLanguage(string selectedItem)
+        {
+            DAL_Language.SetDefaultLanguage(selectedItem);
         }
     }
 }

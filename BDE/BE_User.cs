@@ -18,7 +18,6 @@ namespace BDE
         private BE_Employee emp;
         private BE_Language language;
         private List<BE_Permission> permissions;
-
         public BE_User(SqlDataReader dr)
         {
             this.Username = dr.GetString(dr.GetOrdinal("username"));
@@ -26,7 +25,7 @@ namespace BDE
             this.Rol = dr.GetString(dr.GetOrdinal("rol"));
             this.Emp = new BE_Employee(dr);
             this.Password = dr.GetString(dr.GetOrdinal("password"));
-            this.Language = new BE_Language { Name = dr.GetString(dr.GetOrdinal("nombreIdioma")) };
+            this.Language = new BE_Language();
         }
 
         public BE_User() { }

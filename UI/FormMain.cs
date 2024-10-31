@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BDE.Language;
+using BLL;
 using SVC;
 using SVC.LanguageManager;
 using System;
@@ -22,7 +23,7 @@ namespace UI
             InitializeComponent();
             timerDateHour.Start();
             LanguageManager.Attach(this);
-            LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language.Name;
+            LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
         }
         #region "Funcionalidades Window"
 
@@ -203,14 +204,19 @@ namespace UI
         {
             OpenForms<FormProfiles>();
         }
+        private void btnManagerLanguages_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormLanguageConfig>();
+        }
 
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             LanguageManager.Detach(this);
         }
-        public void Update(string language)
+        public void Update(BE_Language language)
         {
-            UITranslator.ApplyTranslations(this, LanguageManager.translations[language][this.Name]);
+            UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
+
     }
 }
