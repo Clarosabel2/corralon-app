@@ -13,12 +13,13 @@ namespace DAL
 {
     public static class DAL_Permission
     {
-        public static List<BE_Family> GetAllPermissions()
+        public static List<BE_Family> GetAllPermissions(bool type)
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
-            cmd.CommandText = @"SELECT * FROM Permisos WHERE tipo = 0";
+            cmd.CommandText = @"SELECT * FROM Permisos WHERE IsGeneral=@Type AND tipo=1";
+            cmd.Parameters.AddWithValue("@Type", type);
             cmd.CommandType = CommandType.Text;
 
             cmd.ExecuteNonQuery();
@@ -42,6 +43,36 @@ namespace DAL
 
             return permissions;
         }
+
+        public static void SaveProfile(BE_Family profile)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"sp_SaveProfile";
+            cmd.CommandType= CommandType.StoredProcedure;
+            Console.WriteLine(profile.Id);
+            //CREACION FAMILIA
+            foreach (var item in profile.Children)
+            {
+                //ASOCIACION DE LAS PATENES CON LA FAMILIA CREADA.
+                //RECURSIVIDAD
+                /*
+                Console.WriteLine(item.Id.ToString());
+                if (item.Children != null)
+                {
+                    foreach (var item1 in item.Children)
+                    {
+                        Console.WriteLine(item1.Id.ToString());
+                    }
+                }*/
+            }
+        }
+        private static void sasda(SqlCommand cmd)
+        {
+
+        }
+
         private static List<BE_Patent> GetPatentsByFamily(BE_Family f)
         {
             var cnn = new DAL_Connection();

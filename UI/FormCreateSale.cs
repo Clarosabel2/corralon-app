@@ -371,7 +371,6 @@ namespace UI
 
         public void Update(BE_Language language)
         {
-            //BE_Language lang = LanguageManager.translations.First(l => l.Key.Name == language).Key;
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
 

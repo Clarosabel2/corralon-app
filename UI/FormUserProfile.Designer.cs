@@ -61,6 +61,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cBLanguages = new System.Windows.Forms.ComboBox();
+            this.btnChangeLanguage = new System.Windows.Forms.Button();
             this.panelEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -438,11 +439,23 @@
             this.cBLanguages.TabIndex = 15;
             this.cBLanguages.SelectedIndexChanged += new System.EventHandler(this.cBLanguages_SelectedIndexChanged);
             // 
+            // btnChangeLanguage
+            // 
+            this.btnChangeLanguage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChangeLanguage.Location = new System.Drawing.Point(286, 279);
+            this.btnChangeLanguage.Name = "btnChangeLanguage";
+            this.btnChangeLanguage.Size = new System.Drawing.Size(75, 25);
+            this.btnChangeLanguage.TabIndex = 16;
+            this.btnChangeLanguage.Text = "Guardar";
+            this.btnChangeLanguage.UseVisualStyleBackColor = true;
+            this.btnChangeLanguage.Click += new System.EventHandler(this.btnChangeLanguage_Click);
+            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(730, 559);
+            this.Controls.Add(this.btnChangeLanguage);
             this.Controls.Add(this.cBLanguages);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -505,5 +518,6 @@
         private System.Windows.Forms.CheckBox checkBoxChangeData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cBLanguages;
+        private System.Windows.Forms.Button btnChangeLanguage;
     }
 }

@@ -7,9 +7,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -18,57 +20,23 @@ namespace UI
         public FormProfiles()
         {
             InitializeComponent();
+
         }
-
-        private void LoadAllPermissions()
-        {
-            var p = BLL_Permission.GetAllPermissions();
-            foreach (var per in p)
-            {
-                TreeNode t = new TreeNode(per.Id);
-                t.Tag = per;
-
-                foreach (var item in per.Children)
-                {
-                    if (item.GetType() == typeof(BE_Family))
-                    {
-                        var t2 = new TreeNode(item.Id);
-                        t.Nodes.Add(t2);
-
-                        foreach (var item1 in item.Children)
-                        {
-                            TreeNode patentNode1 = new TreeNode(item1.Id);
-                            patentNode1.Tag = item1;
-                            t2.Nodes.Add(patentNode1); 
-                        }
-                    }
-                    else
-                    {
-                        // Nodo hijo de t (patentNode)
-                        TreeNode patentNode = new TreeNode(item.Id);
-                        patentNode.Tag = item;
-                        t.Nodes.Add(patentNode);
-                    }
-                }
-                treeView1.Nodes.Add(t);
-            }
-        }
-
         private void FormProfiles_Load(object sender, EventArgs e)
         {
-            LoadAllPermissions();
+            
         }
 
-        private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        private void createNewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TreeNode selectedNode = e.Node;
-            string nodeId = selectedNode.Text; 
-
-            if (selectedNode.Tag is BE_Permission permission)
-            {
-                label1.Text = "ID Permiso: "+ permission.Id;
-                label2.Text = "Descripción: " + permission.Description;
-            }
+            FormManageProfile f = new FormManageProfile();
+            f.TopLevel = false;
+            this.Controls.Add(f);
+            f.BringToFront();
+            f.FormBorderStyle= FormBorderStyle.None;
+            f.StartPosition= FormStartPosition.CenterScreen;
+            f.Location = new Point((this.ClientSize.Width - f.Width) / 2, (this.ClientSize.Height - f.Height) / 2);
+            f.Show();
         }
     }
 }

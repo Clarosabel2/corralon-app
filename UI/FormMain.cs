@@ -159,10 +159,10 @@ namespace UI
 
         private void FormMain_Load(object sender, EventArgs e)
         {
-            LoadMyData();
+            LoadDataUser();
         }
 
-        public void LoadMyData()
+        public void LoadDataUser()
         {
             lblName.Text = SessionManager.GetInstance.user.Emp.Name;
             lblPosition.Text = SessionManager.GetInstance.user.Rol;
@@ -177,7 +177,10 @@ namespace UI
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult r = MessageBox.Show("Esta seguro que quiere cerrar sesion ?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult r = 
+                MessageBox.Show(SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgLogout"], "Aviso", 
+                MessageBoxButtons.YesNo, 
+                MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
                 SessionManager.Logout();

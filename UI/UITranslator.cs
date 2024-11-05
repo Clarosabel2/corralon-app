@@ -30,7 +30,6 @@ namespace UI
                         ApplyTranslations(ctrl, translations);
                     }
                 }
-
             }
             catch (Exception ex)
             {

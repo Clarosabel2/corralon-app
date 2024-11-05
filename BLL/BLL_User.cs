@@ -1,4 +1,5 @@
 ﻿using BDE;
+using BDE.Language;
 using DAL;
 using SVC;
 using System;
@@ -14,6 +15,12 @@ namespace BLL
         public static void BlockUser(string username)
         {
             DAL_User.BlockUser(username);
+        }
+
+        public static void ChangeLanguageUser(BE_Language language)
+        {
+            SessionManager.GetInstance.user.Language = language;
+            DAL_User.ChangeLanguageUser(language);
         }
 
         public static bool UpdateUserData(BE_User user)

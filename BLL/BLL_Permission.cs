@@ -11,8 +11,13 @@ namespace BLL
 {
     public static class BLL_Permission
     {
-        public static List<BE_Family> GetAllPermissions() {
-            return DAL_Permission.GetAllPermissions();
-        } 
+        public static List<BE_Family> GetAllPermissions(bool type) {
+            return DAL_Permission.GetAllPermissions(type);
+        }
+
+        public static void SaveProfile(BE_Family profile)
+        {
+            DAL_Permission.SaveProfile(profile);
+        }
     }
 }

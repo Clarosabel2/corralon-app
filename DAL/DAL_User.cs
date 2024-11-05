@@ -7,6 +7,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BDE.Language;
 
 namespace DAL
 {
@@ -20,6 +21,19 @@ namespace DAL
             cmd.CommandText = @"UPDATE Usuarios SET estado = 1 WHERE username = @p_username;";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@p_username", username);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            cmd.Connection = cnn.CloseConnection();
+        }
+
+        public static void ChangeLanguageUser(BE_Language language)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"sp_ChangeLanguageUser";
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@p_language", language.Name);
+            cmd.Parameters.AddWithValue("@p_id_user", SessionManager.GetInstance.user.Emp.Id);
             int rowsAffected = cmd.ExecuteNonQuery();
             cmd.Connection = cnn.CloseConnection();
         }

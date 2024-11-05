@@ -63,7 +63,6 @@
             this.btnSend.TabIndex = 5;
             this.btnSend.Text = "Send";
             this.btnSend.UseVisualStyleBackColor = false;
-            
             // 
             // lblErrorMessage
             // 
@@ -81,16 +80,15 @@
             // btnClose
             // 
             this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            
+            this.btnClose.Image = global::UI.Properties.Resources.marca_de_la_cruz;
             this.btnClose.Location = new System.Drawing.Point(457, 12);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 23);
-            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnClose.TabIndex = 10;
             this.btnClose.TabStop = false;
-            
             // 
-            // FormRecoverPassword
+            // FormRecoverPss
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +99,7 @@
             this.Controls.Add(this.btnSend);
             this.Controls.Add(this.txtEoU);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormRecoverPass";
+            this.Name = "FormRecoverPss";
             this.Opacity = 0.95D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRecoverPass";

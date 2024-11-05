@@ -21,9 +21,15 @@ namespace UI
         public FormUserProfile()
         {
             InitializeComponent();
-            LoadMyData();
+            LoadDataUser();
             LoadLanguages();
             LanguageManager.Attach(this);
+            DisableControls();
+        }
+
+        private void DisableControls()
+        {
+            btnChangeLanguage.Enabled = false;
             txtConfirmPassword.Enabled = false;
             txtCurrentPassword.Enabled = false;
             txtPassword.Enabled = false;
@@ -38,7 +44,7 @@ namespace UI
             cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
         }
 
-        private void LoadMyData()
+        private void LoadDataUser()
         {
             lblUser.Text = SessionManager.GetInstance.user.Username;
             lblFirstName.Text = SessionManager.GetInstance.user.Emp.Name;
@@ -70,8 +76,8 @@ namespace UI
                     DialogResult r = MessageBox.Show("Se cambio los datos correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK)
                         panelEditProfile.Visible = false;
-                    LoadMyData();
-                    frmmain.LoadMyData();
+                    LoadDataUser();
+                    frmmain.LoadDataUser();
                 }
             }
             if (checkBoxChangePassword.Checked)
@@ -122,14 +128,13 @@ namespace UI
 
         private void cBLanguages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LanguageManager.CurrentLanguage = SessionManager.translations.First(l => l.Key.Name == cBLanguages.SelectedItem.ToString().ToLower()).Key;
+            if (LanguageManager.CurrentLanguage.Name != cBLanguages.SelectedItem.ToString()) btnChangeLanguage.Enabled = true; else { btnChangeLanguage.Enabled = false; }
         }
 
         public void Update(BE_Language language)
         {
             try
             {
-                //BE_Language lang = LanguageManager.translations.First(l => l.Key.Name == language).Key;
                 UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
             }
             catch (Exception ex)
@@ -141,6 +146,16 @@ namespace UI
         private void FormUserProfile_FormClosed(object sender, FormClosedEventArgs e)
         {
             LanguageManager.Detach(this);
+        }
+
+        private void btnChangeLanguage_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Esta seguro que desea cambiar el idioma?", "Corfirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (r == DialogResult.Yes) {
+                LanguageManager.CurrentLanguage = SessionManager.translations.First(l => l.Key.Name == cBLanguages.SelectedItem.ToString().ToLower()).Key;
+                BLL_User.ChangeLanguageUser(LanguageManager.CurrentLanguage);
+                btnChangeLanguage.Enabled = false;
+            }
         }
     }
 }
