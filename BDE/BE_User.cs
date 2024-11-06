@@ -17,7 +17,8 @@ namespace BDE
         private bool status;
         private BE_Employee emp;
         private BE_Language language;
-        private List<BE_Permission> permissions;
+        private BE_Profile profile;
+
         public BE_User(SqlDataReader dr)
         {
             this.Username = dr.GetString(dr.GetOrdinal("username"));
@@ -40,7 +41,6 @@ namespace BDE
         public string Rol { get => rol; set => rol = value; }
         public BE_Employee Emp { get => emp; set => emp = value; }
         public bool Status { get => status; set => status = value; }
-        public List<BE_Permission> Permissons { get => permissions; }
         public BE_Language Language { get => language; set => language = value; }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="BE_Client.cs" />
     <Compile Include="BE_Brand.cs" />
     <Compile Include="BE_Order.cs" />
+    <Compile Include="BE_Profile.cs" />
     <Compile Include="Language\BE_Language.cs" />
     <Compile Include="Permissions\BE_Permission.cs" />
     <Compile Include="BE_Employee.cs" />

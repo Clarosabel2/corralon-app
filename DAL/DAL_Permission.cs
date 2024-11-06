@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SVC;
 using BDE.Composite;
+using System.Runtime.InteropServices;
 
 namespace DAL
 {
@@ -18,7 +19,7 @@ namespace DAL
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
-            cmd.CommandText = @"SELECT * FROM Permisos WHERE IsGeneral=@Type AND tipo=1";
+            cmd.CommandText = @"SELECT * FROM Permisos WHERE isGeneral=@Type AND tipo=1";
             cmd.Parameters.AddWithValue("@Type", type);
             cmd.CommandType = CommandType.Text;
 
@@ -49,28 +50,25 @@ namespace DAL
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
-            cmd.CommandText = @"sp_SaveProfile";
-            cmd.CommandType= CommandType.StoredProcedure;
-            Console.WriteLine(profile.Id);
-            //CREACION FAMILIA
-            foreach (var item in profile.Children)
+            cmd.CommandText = @"INSERT INTO Permisos (id_Permiso,tipo, descripcion,isGeneral) VALUES (@id_permiso,@type,@description,0)";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@id_permiso", profile.Id);
+            cmd.Parameters.AddWithValue("@type", 1);
+            cmd.Parameters.AddWithValue("@description", profile.Description);
+            cmd.ExecuteNonQuery();
+            if (profile.Children != null)
             {
-                //ASOCIACION DE LAS PATENES CON LA FAMILIA CREADA.
-                //RECURSIVIDAD
-                /*
-                Console.WriteLine(item.Id.ToString());
-                if (item.Children != null)
+                var query = @"INSERT INTO RelacionPermiso (id_PermisoCompuesto, id_PermisoSimple) VALUES";
+                foreach (var child in profile.Children)
                 {
-                    foreach (var item1 in item.Children)
-                    {
-                        Console.WriteLine(item1.Id.ToString());
-                    }
-                }*/
+                    query += $"('{profile.Id}','{child.Id}'),";
+                }
+                query = query.Substring(0, query.Length - 1) + ";";
+                cmd.CommandText = query;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
             }
-        }
-        private static void sasda(SqlCommand cmd)
-        {
-
+            cmd.Connection = cnn.CloseConnection();
         }
 
         private static List<BE_Patent> GetPatentsByFamily(BE_Family f)
@@ -101,9 +99,9 @@ namespace DAL
                 {
                     patents.Add(new BE_Patent(dr["id_Permiso"].ToString(), dr["descripcion"].ToString()));
                 }
-
             }
             return patents;
         }
     }
+
 }

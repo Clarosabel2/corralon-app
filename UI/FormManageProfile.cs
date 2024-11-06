@@ -170,7 +170,7 @@ namespace UI
         private void ButtonSaveFamily_Click(object sender, EventArgs e)
         {
             BLL_Permission.SaveProfile(profile);
-            this.Dispose();
+            //this.Dispose();
         }
     }
 }
