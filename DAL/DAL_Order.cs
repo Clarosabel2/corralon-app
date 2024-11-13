@@ -14,7 +14,7 @@ namespace DAL
         public static bool SaveOrder(BE_Order newOrder)
         {
             try
-            {
+            { 
                 var cnn = new DAL_Connection();
                 using (var cmd = new SqlCommand("INSERT INTO Pedidos (id_Factura,estado,fecha_entrega) VALUES (@idFactura,@est,@fecha)", cnn.OpenConnection()))
                 {

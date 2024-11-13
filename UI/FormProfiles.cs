@@ -11,7 +11,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -24,7 +23,37 @@ namespace UI
         }
         private void FormProfiles_Load(object sender, EventArgs e)
         {
-            
+            LoadAllPermissions();
+        }
+
+        private void LoadNodes(TreeNode parentNode, BE_Permission family)
+        {
+            if (family.Children != null)
+            {
+                foreach (var child in family.Children)
+                {
+                    TreeNode childNode = new TreeNode(child.Id);
+                    childNode.Tag = child;
+                    parentNode.Nodes.Add(childNode);
+                    LoadNodes(childNode, child);
+                }
+            }
+        }
+        private void LoadNodesInTreeView(TreeView tv, List<BE_Family> p)
+        {
+            tv.Nodes.Clear();
+            foreach (var family in p)
+            {
+                TreeNode rootNode = new TreeNode(family.Id);
+                rootNode.Tag = family;
+                tv.Nodes.Add(rootNode);
+                LoadNodes(rootNode, family);
+            }
+            tv.ExpandAll();
+        }
+        private void LoadAllPermissions()
+        {
+            LoadNodesInTreeView(treeView1, BLL_Permission.GetAllPermissions(false));
         }
 
         private void createNewProfileToolStripMenuItem_Click(object sender, EventArgs e)

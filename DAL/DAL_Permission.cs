@@ -39,9 +39,7 @@ namespace DAL
 
                     permissions.Add(f);
                 }
-
             }
-
             return permissions;
         }
 

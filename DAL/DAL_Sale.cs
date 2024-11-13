@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAL_Sale : DAL_Connection
     {
-        public static bool SaveSale(BE_Sale newSale, out int idInvoice)
+        public static bool SaveSale(BE_Sale newSale)
         {
             try
             {
@@ -50,12 +50,11 @@ namespace DAL
                         itemCmd.ExecuteNonQuery();
                     }
                 }
-                idInvoice = newSale.Id;
+                
                 return true;
             }
             catch (Exception)
             {
-                idInvoice = 0;
                 return false;
             }
 

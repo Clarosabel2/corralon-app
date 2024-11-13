@@ -17,7 +17,6 @@ namespace SVC
         protected SessionManager() { }
         public static SessionManager GetInstance
         {
-            //cambiar a metodo
             get
             {
                 if (_session == null) _session = new SessionManager();

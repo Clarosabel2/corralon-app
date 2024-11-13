@@ -15,22 +15,5 @@ namespace BLL
         {
             newOrder = new BE_Order(deliveryDate, sale);
         }
-        public static bool SaveOrder()
-        {
-            if (newOrder.DeliveryDate < DateTime.Now.Date) throw new Exception("La fecha de entrega no puede ser anterior a la fecha actual.");
-
-
-            if (BLL_Sale.SaveInvoice(out int idInvoice))
-            {
-                newOrder.Invoice.Id = idInvoice;
-            }
-            else
-            {
-                throw new Exception("Error al guardar la factura");
-            }
-
-            return DAL_Order.SaveOrder(newOrder);
-
-        }
     }
 }

@@ -22,7 +22,6 @@ namespace UI
     {
         private List<BE_Product> products = BLL_Product.GetProducts();
         private BE_Client client;
-        private int itemID = 1;
         public FormCreateSale()
         {
             InitializeComponent();
@@ -63,6 +62,8 @@ namespace UI
                 new Point((this.ClientSize.Width - panelFinVenta.Width) / 2, (this.ClientSize.Height - panelFinVenta.Height) / 2);
         }
         #endregion
+
+        #region "Funciones Carga de Datos a DGV"
         private void LoadTypesProducts()
         {
             DataTable dtCategorias = BLL_Product.GetCaterogyProducts();
@@ -107,25 +108,29 @@ namespace UI
                 columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
         }
+        #endregion
+
         private void btnAgregarCarrito_Click(object sender, EventArgs e)
         {
             if (dgvProducts.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = dgvProducts.SelectedRows[0];
 
-                var product = selectedRow.DataBoundItem as BE_Product;
 
+                var product = selectedRow.DataBoundItem as BE_Product;
                 int cantidad = int.Parse(selectedRow.Cells["Amount"].Value?.ToString());
                 dgvProducts.SelectedRows[0].Cells["Amount"].Value = "";
 
                 try
                 {
-                    var item = new BE_Item(itemID, product, cantidad);
-                    BLL_Sale.newSale.AddItem(item);
-                    dgvCart.DataSource = null;
-                    dgvCart.Rows.Add(itemID, item.Product.Name, item.Amount, item.Subtotal);
+                    MessageBox.Show($"{product.Stock} || {cantidad}");
+                    BLL_Sale.AddItem(product, cantidad);
+                    dgvCart.Rows.Clear();
+                    BLL_Sale.newSale.ItemsProducts.ForEach(i => dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal));
+                    selectedRow.Cells["Stock"].Value = product.Stock - cantidad;
+                    EnableRow(selectedRow);
                     FillCellsDGV(dgvCart);
-                    itemID++;
+
 
                 }
                 catch (Exception ex)
@@ -139,35 +144,85 @@ namespace UI
             }
         }
 
-        private void btnRemoveItem_Click(object sender, EventArgs e)
+        private void EnableRow(DataGridViewRow row)
         {
-            if (dgvCart.SelectedRows.Count > 0)
+            bool isRowReadOnly = true;
+            foreach (DataGridViewCell cell in row.Cells)
             {
-                try
+                if (!cell.ReadOnly)
                 {
-                    int row = dgvCart.CurrentRow.Index;
-                    int itemID = int.Parse(dgvCart.Rows[row].Cells["IDItem"].Value.ToString());
-                    var itemRemove = BLL_Sale.newSale.ItemsProducts.FirstOrDefault(i => i.Id == itemID);
-                    BLL_Sale.newSale.RemoveItem(itemRemove);
+                    isRowReadOnly = false;
+                    break;
                 }
-                catch
-                {
-                    MessageBox.Show("No hay productos para eliminar");
-                }
+            }
 
-                dgvCart.Rows.Clear();
-
-                foreach (var i in BLL_Sale.newSale.ItemsProducts)
+            if (!isRowReadOnly)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal);
+                    cell.ReadOnly = true;
+                    cell.Style.BackColor = Color.LightGray;
                 }
-                FillCellsDGV(dgvCart);
             }
             else
             {
-                MessageBox.Show("Seleccione un producto para eliminar.");
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.ReadOnly = false;
+                    cell.Style.BackColor = Color.White;
+                }
+
             }
         }
+
+        private void btnRemoveItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvCart.SelectedRows.Count > 0)
+                {
+                    try
+                    {
+                        int row = dgvCart.CurrentRow.Index;
+                        int itemID = int.Parse(dgvCart.Rows[row].Cells["IDItem"].Value.ToString());
+                        var item = BLL_Sale.RemoveItem(itemID);
+
+                        foreach (DataGridViewRow dr in dgvProducts.Rows)
+                        {
+                            if (dr.Cells[1]?.Value?.ToString() == item.Product.Id.ToString())
+                            {
+                                int currentStock = int.Parse(dr.Cells["Stock"].Value.ToString());
+                                dr.Cells["Stock"].Value = currentStock + item.Amount;
+                                EnableRow(dr);
+                                break;
+                            }
+
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("No hay productos para eliminar");
+                    }
+
+                    dgvCart.Rows.Clear();
+
+                    foreach (var i in BLL_Sale.newSale.ItemsProducts)
+                    {
+                        dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal);
+                    }
+
+                    FillCellsDGV(dgvCart);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un producto para eliminar.");
+                }
+
+            }
+            catch (Exception ex) { }
+        }
+        //Se Muestra el panel de confirmacion de venta
         private void buttonCerrarVenta_Click(object sender, EventArgs e)
         {
             if (dgvCart.Rows.Count == 0)
@@ -193,64 +248,58 @@ namespace UI
             }
 
         }
-        private void btnAtras_Click(object sender, EventArgs e)
+        private void dgvProducts_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            panelFinVenta.Visible = false;
-            foreach (Control control in this.Controls)
-            {
-                if (control != panelFinVenta && control.Parent != panelFinVenta)
-                {
-                    control.Enabled = true;
-                }
-            }
+            e.ThrowException = false;
         }
-
-        private void txtBClienteDNI_KeyPress(object sender, KeyPressEventArgs e)
+        private DataGridViewRow previousSelectedRow;
+        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (previousSelectedRow != null)
             {
-                e.Handled = true;
+                previousSelectedRow.Cells["Amount"].Value = "";
             }
-        }
-
-        private void txtBClienteDNI_TextChanged(object sender, EventArgs e)
-        {
-            var dni = txtBClienteDNI.Text;
-            txtBClienteDNI.BackColor = SystemColors.Window;
-            if (txtBClienteDNI.Text.Length >= 8)
+            if (dgvProducts.SelectedRows.Count > 0)
             {
-                client = BLL_Client.GetClient(dni);
-                if (client != null)
-                {
-                    btnGenerarFactura.Enabled = true;
-                    txtBClienteDNI.BackColor = Color.GreenYellow;
-                    lblEstadoCliente.Text = client.Name + " " + client.Lastname;
-                }
-                else
-                {
-                    txtBClienteDNI.BackColor = Color.Red;
-
-                    DialogResult r =
-                        MessageBox.Show($"El cliente con DNI {dni} no esta registrado. Desea registrar el cliente?", "Aviso"
-                        , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (r == DialogResult.Yes)
-                    {
-                        txtBClienteDNI.Text = "";
-                        FormRegisterClient f = new FormRegisterClient();
-                        f.TopLevel = false;
-                        this.Controls.Add(f);
-                        f.BringToFront();
-                        f.txtDni.Text = dni;
-                        f.Show();
-                    }
-                }
+                previousSelectedRow = dgvProducts.SelectedRows[0];
             }
             else
             {
-                lblEstadoCliente.Text = "";
-                btnGenerarFactura.Enabled = false;
+                previousSelectedRow = null;
             }
+        }
+        private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
+            {
+                int? amount = e.Value as int?;
+                if (amount.HasValue && amount.Value == 0)
+                {
+                    e.Value = "";
+                    e.FormattingApplied = true;
+                }
+            }
+        }
 
+        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
+
+        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            UpdateDetailsCart();
+        }
+        private void UpdateDetailsCart()
+        {
+            double totalCartValue = BLL_Sale.newSale.Total;
+            lblTotal.Text = "$ " + totalCartValue.ToString();
+            lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
+            if (dgvCart.RowCount == 0)
+            {
+                buttonCerrarVenta.Enabled = false;
+            }
+            else { buttonCerrarVenta.Enabled = true; }
         }
 
         private void txtFilterName_TextChanged(object sender, EventArgs e)
@@ -287,71 +336,76 @@ namespace UI
         }
 
 
-        private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+
+        #region "Funcionales del Panel Cerrar Venta"
+        private void btnAtras_Click(object sender, EventArgs e)
         {
-            if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
+            panelFinVenta.Visible = false;
+            foreach (Control control in this.Controls)
             {
-                int? amount = e.Value as int?;
-                if (amount.HasValue && amount.Value == 0)
+                if (control != panelFinVenta && control.Parent != panelFinVenta)
                 {
-                    e.Value = "";
-                    e.FormattingApplied = true;
+                    control.Enabled = true;
                 }
             }
         }
 
-        private void dgvProducts_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        private void txtBClienteDNI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.ThrowException = false;
-        }
-        private DataGridViewRow previousSelectedRow;
-        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
-        {
-            if (previousSelectedRow != null)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                previousSelectedRow.Cells["Amount"].Value = "";
+                e.Handled = true;
             }
-            if (dgvProducts.SelectedRows.Count > 0)
+        }
+
+        private void txtBClienteDNI_TextChanged(object sender, EventArgs e)
+        {
+            var dni = txtBClienteDNI.Text;
+            txtBClienteDNI.BackColor = SystemColors.Window;
+            if (txtBClienteDNI.Text.Length >= 8)
             {
-                previousSelectedRow = dgvProducts.SelectedRows[0];
+                var client = BLL_Sale.AddClient(dni);
+                if (client != null)
+                {
+                    btnGenerarFactura.Enabled = true;
+                    txtBClienteDNI.BackColor = Color.GreenYellow;
+                    lblEstadoCliente.Text = client.Name + " " + client.Lastname;
+                }
+                else
+                {
+                    txtBClienteDNI.BackColor = Color.Red;
+
+                    DialogResult r =
+                        MessageBox.Show($"El cliente con DNI {dni} no esta registrado. Desea registrar el cliente?", "Aviso"
+                        , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (r == DialogResult.Yes)
+                    {
+                        txtBClienteDNI.Text = "";
+                        FormRegisterClient f = new FormRegisterClient();
+                        f.TopLevel = false;
+                        this.Controls.Add(f);
+                        f.BringToFront();
+                        f.txtDni.Text = dni;
+                        f.Show();
+                    }
+                }
             }
             else
             {
-                previousSelectedRow = null;
+                lblEstadoCliente.Text = "";
+                btnGenerarFactura.Enabled = false;
             }
-        }
-        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            UpdateDetailsCart();
-        }
 
-        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            UpdateDetailsCart();
         }
-        private void UpdateDetailsCart()
-        {
-            double totalCartValue = BLL_Sale.newSale.Total;
-            lblTotal.Text = "$ " + totalCartValue.ToString();
-            lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
-            if (dgvCart.RowCount == 0)
-            {
-                buttonCerrarVenta.Enabled = false;
-            }
-            else { buttonCerrarVenta.Enabled = true; }
-        }
-
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            BLL_Sale.newSale.Client = client;
             BLL_Sale.newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
             BLL_Sale.newSale.Status = checkBoxPaid.Checked;
 
-            BLL_Order.CreateOrder(DPEntrega.Date, BLL_Sale.newSale);
-
             try
             {
-                if (BLL_Order.SaveOrder())
+
+                if (BLL_Sale.SaveInvoice())
                 {
                     DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK) this.Dispose();
@@ -360,14 +414,15 @@ namespace UI
                 {
                     MessageBox.Show("Error al guardar la factura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+        #endregion
+
 
         public void Update(BE_Language language)
         {
