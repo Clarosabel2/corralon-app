@@ -14,9 +14,9 @@ namespace BLL
 {
     public static class BLL_Sale
     {
-        private static int _idItem = 1;
+        public static BE_Order newOrder = new BE_Order();
         public static BE_Sale newSale { get; set; }
-        public static BE_Client client { get; set; }
+        private static int _idItem = 1;
 
         public static void CreateSale()
         {
@@ -38,13 +38,23 @@ namespace BLL
         }
         public static BE_Client AddClient(string dniClient)
         {
-            newSale.Client = BLL_Client.GetClient(dniClient);
+            newSale.Client = BLL_Client.GetClientByDNI(dniClient);
             return newSale.Client;
         }
-        public static bool SaveInvoice()
+        public static void SaveInvoice()
         {
+            if (newOrder.DeliveryDate < DateTime.Today)
+            {
+                throw new Exception("La fecha de entrega no puede ser menor al actual");
+            }
+            
+            newOrder.Invoice = newSale;
+            DAL_Sale.SaveSale(newOrder);
+        }
 
-            return DAL_Sale.SaveSale(newSale);
+        public static DataTable GetProductsByIdInvoice(int idInvoice)
+        {
+            return DAL_Sale.GetProductsByIdInvoice(idInvoice);
         }
     }
 }

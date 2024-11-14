@@ -123,15 +123,12 @@ namespace UI
 
                 try
                 {
-                    MessageBox.Show($"{product.Stock} || {cantidad}");
                     BLL_Sale.AddItem(product, cantidad);
                     dgvCart.Rows.Clear();
                     BLL_Sale.newSale.ItemsProducts.ForEach(i => dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal));
                     selectedRow.Cells["Stock"].Value = product.Stock - cantidad;
                     EnableRow(selectedRow);
                     FillCellsDGV(dgvCart);
-
-
                 }
                 catch (Exception ex)
                 {
@@ -401,19 +398,21 @@ namespace UI
         {
             BLL_Sale.newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
             BLL_Sale.newSale.Status = checkBoxPaid.Checked;
-
+            BLL_Sale.newOrder.DeliveryDate = DPEntrega.Date;
             try
             {
-
-                if (BLL_Sale.SaveInvoice())
+                try
                 {
+                    BLL_Sale.SaveInvoice();
                     DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK) this.Dispose();
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Error al guardar la factura.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error al guardar la factura:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+
 
             }
             catch (Exception ex)

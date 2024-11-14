@@ -11,24 +11,69 @@ namespace DAL
 {
     public class DAL_Order
     {
-        public static bool SaveOrder(BE_Order newOrder)
+        public static void DepatchOrder(int id_invoice, BE_Employee key)
         {
             try
-            { 
+            {
                 var cnn = new DAL_Connection();
-                using (var cmd = new SqlCommand("INSERT INTO Pedidos (id_Factura,estado,fecha_entrega) VALUES (@idFactura,@est,@fecha)", cnn.OpenConnection()))
+                var cmd = new SqlCommand
                 {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Parameters.AddWithValue("@idFactura", newOrder.Invoice.Id);
-                    cmd.Parameters.AddWithValue("@est", newOrder.Status);
-                    cmd.Parameters.AddWithValue("@fecha", newOrder.DeliveryDate);
-                    cmd.ExecuteNonQuery();
-                }
-                return true;
+                    Connection = cnn.OpenConnection(),
+                    CommandText = "UPDATE Pedidos SET id_Empleado=@p_idEmployee where id_Factura=@p_idInvoice",
+                    CommandType = CommandType.Text
+                };
+                cmd.Parameters.AddWithValue("@p_idInvoice", id_invoice);
+                cmd.Parameters.AddWithValue("@p_idEmployee", key.Id);
+                cmd.ExecuteNonQuery();
+
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public static DataTable GetAllPendingOrders()
+        {
+            var cnn = new DAL_Connection();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter("sp_GetAllPendingOrder"
+                , cnn.Connection);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.Fill(table);
+            return table;
+        }
+
+        public static DataTable GetOrdersDispatched()
+        {
+            var cnn = new DAL_Connection();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter("sp_GetOrdersDepatched"
+                , cnn.Connection);
+            adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+            adapter.SelectCommand.Parameters.AddWithValue("@status", 0);
+            adapter.Fill(table);
+            return table;
+        }
+
+        public static void MarkDeliveredOrder(int idInvoice)
+        {
+            try
+            {
+                var cnn = new DAL_Connection();
+                var cmd = new SqlCommand
+                {
+                    Connection = cnn.OpenConnection(),
+                    CommandText = "UPDATE Pedidos SET estado=1 WHERE id_Factura=@p_idInvoice",
+                    CommandType = CommandType.Text
+                };
+                cmd.Parameters.AddWithValue("@p_idInvoice", idInvoice);
+                cmd.ExecuteNonQuery();
+
             }
             catch (Exception ex)
             {
-                return false;
+                throw new Exception(ex.Message);
             }
         }
     }

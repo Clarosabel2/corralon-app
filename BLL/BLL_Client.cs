@@ -23,9 +23,14 @@ namespace BLL
             }
         }
 
-        public static BE_Client GetClient(string dni)
+        public static BE_Client GetClientByDNI(string dni)
         {
-            return DAL_Client.GetClient(dni);
+            return DAL_Client.GetClientByDNI(dni);
+        }
+
+        public static BE_Client GetClientById(string idClient)
+        {
+            return DAL_Client.GetClientById(idClient);
         }
     }
 }

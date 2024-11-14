@@ -19,6 +19,10 @@ namespace BDE
             this.status = false;
             this.invoice = invoice;
         }
+        public BE_Order(BE_Sale invoice)
+        {
+            this.invoice=invoice;
+        }
         public BE_Order()
         {
 

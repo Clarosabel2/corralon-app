@@ -48,5 +48,6 @@ namespace BDE
         {
             this.Total = this.ItemsProducts.Sum(p => p.Subtotal);
         }
+
     }
 }

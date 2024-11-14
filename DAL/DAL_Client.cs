@@ -41,13 +41,29 @@ namespace DAL
 
         }
 
-        public static BE_Client GetClient(string dni)
+        public static BE_Client GetClientByDNI(string dni)
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
             cmd.CommandText = "sp_GetClientByDNI";
             cmd.Parameters.AddWithValue("@p_dni_client", dni);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows && dr.Read())
+            {
+                return new BE_Client(dr);
+            }
+            return null;
+        }
+
+        public static BE_Client GetClientById(string idClient)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = "SELECT * FROM Personas p WHERE p.id_Persona=@p_id_client;";
+            cmd.Parameters.AddWithValue("@p_id_client", idClient);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows && dr.Read())

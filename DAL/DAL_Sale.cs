@@ -6,13 +6,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BDE;
+using System.Net;
 
 namespace DAL
 {
     public class DAL_Sale : DAL_Connection
     {
-        public static bool SaveSale(BE_Sale newSale)
+        public static DataTable GetProductsByIdInvoice(int idInvoice)
         {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand
+            {
+                Connection = cnn.OpenConnection(),
+                CommandText = "sp_GetProductsByInvoice",
+                CommandType = CommandType.StoredProcedure
+            };
+            cmd.Parameters.AddWithValue("@p_idFactura", idInvoice);
+            var dataTable = new DataTable();
+
+            try
+            {
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.HasRows)
+                {
+                    dataTable.Load(dr);
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener los productos por factura: " + ex.Message, ex);
+            }
+            finally
+            {
+                cnn.CloseConnection();
+            }
+
+            return dataTable;
+        }
+
+        public static void SaveSale(BE_Order order)
+        {
+            int idInvoice;
             try
             {
                 var cnn = new DAL_Connection();
@@ -21,41 +57,43 @@ namespace DAL
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@idCliente", newSale.Client.Id);
-                    cmd.Parameters.AddWithValue("@idEmpleado", newSale.Saleman.Id);
-                    cmd.Parameters.AddWithValue("@TipoFactura", newSale.TypeInvoice);
-                    cmd.Parameters.AddWithValue("@total", newSale.Total);
-                    cmd.Parameters.AddWithValue("@estadoFactura", newSale.Status);
-                    cmd.Parameters.AddWithValue("@fechaEmision", newSale.Date);
+                    cmd.Parameters.AddWithValue("@idCliente", order.Invoice.Client.Id);
+                    cmd.Parameters.AddWithValue("@idEmpleado", order.Invoice.Saleman.Id);
+                    cmd.Parameters.AddWithValue("@TipoFactura", order.Invoice.TypeInvoice);
+                    cmd.Parameters.AddWithValue("@total", order.Invoice.Total);
+                    cmd.Parameters.AddWithValue("@estadoFactura", order.Invoice.Status);
+                    cmd.Parameters.AddWithValue("@fechaEmision", order.Invoice.Date);
+                    cmd.Parameters.AddWithValue("@fechaEntrega", order.DeliveryDate);
 
-                    SqlParameter outputIdParam = new SqlParameter("@newInvoiceID", SqlDbType.Int)
+                    SqlParameter outputIdParam = new SqlParameter("@@newInvoiceID", SqlDbType.Int)
                     {
                         Direction = ParameterDirection.Output
                     };
 
                     cmd.Parameters.Add(outputIdParam);
                     cmd.ExecuteNonQuery();
-                    newSale.Id = (int)outputIdParam.Value;
+                    idInvoice = (int)outputIdParam.Value;
                 }
 
-                foreach (var item in newSale.ItemsProducts)
+                foreach (var item in order.Invoice.ItemsProducts)
                 {
                     using (var itemCmd = new SqlCommand("sp_SaveItemsInvoice", cnn.OpenConnection()))
                     {
                         itemCmd.CommandType = CommandType.StoredProcedure;
                         itemCmd.Parameters.AddWithValue("@idProducto", item.Product.Id);
-                        itemCmd.Parameters.AddWithValue("@idFactura", newSale.Id);
+                        itemCmd.Parameters.AddWithValue("@idFactura", idInvoice);
                         itemCmd.Parameters.AddWithValue("@cantidad", item.Amount);
                         itemCmd.Parameters.AddWithValue("@precio_unitario", item.Product.Price);
                         itemCmd.ExecuteNonQuery();
                     }
                 }
-                
-                return true;
+
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return false;
+
+                throw new Exception(ex.Message);
             }
 
         }

@@ -129,16 +129,16 @@ namespace UI
             foreach (Form openForm in panelInterface.Controls.OfType<Form>())
             {
                 openForm.Close();
-                panelInterface.Controls.Remove(openForm); 
+                panelInterface.Controls.Remove(openForm);
             }
 
             Form frm = new MyForm
             {
-                TopLevel = false, 
+                TopLevel = false,
                 MinimizeBox = false,
                 MaximizeBox = false,
                 FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill 
+                Dock = DockStyle.Fill
             };
 
             panelInterface.Controls.Add(frm);
@@ -177,9 +177,9 @@ namespace UI
         }
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            DialogResult r = 
-                MessageBox.Show(SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgLogout"], "Aviso", 
-                MessageBoxButtons.YesNo, 
+            DialogResult r =
+                MessageBox.Show(SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgLogout"], "Aviso",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
@@ -190,6 +190,7 @@ namespace UI
             }
         }
 
+        #region "Menu"
         private void btnModifyProfiles_Click(object sender, EventArgs e)
         {
             OpenForms<FormProfiles>();
@@ -211,7 +212,11 @@ namespace UI
         {
             OpenForms<FormLanguageConfig>();
         }
-
+        private void btnOrders_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormOrders>();
+        }
+        #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
             LanguageManager.Detach(this);

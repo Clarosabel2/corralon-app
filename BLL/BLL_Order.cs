@@ -2,6 +2,7 @@
 using DAL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,24 @@ namespace BLL
 {
     public class BLL_Order
     {
-        private static BE_Order newOrder;
-        public static void CreateOrder(DateTime deliveryDate, BE_Sale sale)
+        public static void DepatchOrder(int id_invoice, BE_Employee key)
         {
-            newOrder = new BE_Order(deliveryDate, sale);
+            DAL_Order.DepatchOrder(id_invoice, key);
+        }
+
+        public static DataTable GetAllPendingOrders()
+        {
+            return DAL_Order.GetAllPendingOrders();
+        }
+
+        public static DataTable GetOrdersDispatched()
+        {
+            return DAL_Order.GetOrdersDispatched();
+        }
+
+        public static void MarkDeliveredOrder(int idInvoice)
+        {
+            DAL_Order.MarkDeliveredOrder(idInvoice);
         }
     }
 }

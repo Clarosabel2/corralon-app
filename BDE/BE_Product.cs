@@ -44,6 +44,6 @@ namespace BDE
         public string Name { get => name; set => name = value; }
         public double Price { get => price; set => price = value; }
         public int Stock { get => stock; set => stock = value; }
-        
+
     }
 }
