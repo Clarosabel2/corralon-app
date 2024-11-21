@@ -12,7 +12,6 @@ namespace SVC
     {
         public BE_User user { get; set; }
         public static Dictionary<BE_Language, Dictionary<string, Dictionary<string, string>>> translations { get; set; }
-
         private static SessionManager _session = null;
         protected SessionManager() { }
         public static SessionManager GetInstance

@@ -17,39 +17,49 @@ namespace UI
     public partial class FormManageProfile : Form
     {
         private BE_Family profile;
-        public FormManageProfile()
+        private FormProfiles pForm;
+        private bool isModifyProfile = false;
+        public FormManageProfile(BE_Family p = null, FormProfiles previousForm = null)
         {
             InitializeComponent();
-            LoadAllPermissions();
-        }
-        private void LoadNodes(TreeNode parentNode, BE_Permission family)
-        {
-            if (family.Children != null)
+            LoadNodesInTreeView(treeViewPermissions, BLL_Permission.GetAllPermissionsSystem());
+            if (p != null)
             {
-                foreach (var child in family.Children)
-                {
-                    TreeNode childNode = new TreeNode(child.Id);
-                    childNode.Tag = child;
-                    parentNode.Nodes.Add(childNode);
-                    LoadNodes(childNode, child);
-                }
+                pForm = previousForm;
+                profile = p;
+                isModifyProfile = true;
+                ButtonCreateFamily.Visible = false;
+                txtNameFamily.Text = p.Id;
+                txtDescripcionFamily.Text = p.Description;
+                txtNameFamily.ReadOnly = true;
+                txtDescripcionFamily.ReadOnly = true;
+
+                groupBoxTreeViews.Enabled = true;
+                treeViewProfile.Nodes.Add(CreateNode(p));
             }
+
         }
         private void LoadNodesInTreeView(TreeView tv, List<BE_Family> p)
         {
             tv.Nodes.Clear();
-            foreach (var family in p)
-            {
-                TreeNode rootNode = new TreeNode(family.Id);
-                rootNode.Tag = family;
-                treeViewPermissions.Nodes.Add(rootNode);
-                LoadNodes(rootNode, family);
-            }
+            p.ForEach(per => tv.Nodes.Add(CreateNode(per)));
             tv.ExpandAll();
         }
-        private void LoadAllPermissions()
+        private TreeNode CreateNode(BE_Permission p)
         {
-            LoadNodesInTreeView(treeViewPermissions, BLL_Permission.GetAllPermissions(true));
+            TreeNode rootNode = new TreeNode(p.Id);
+            rootNode.Tag = p;
+
+            if (p.Children != null && p.Children.Count > 0)
+            {
+                foreach (var child in p.Children)
+                {
+                    TreeNode childNode = CreateNode(child);
+                    rootNode.Nodes.Add(childNode);
+                }
+            }
+            rootNode.ExpandAll();
+            return rootNode;
         }
 
         private ToolTip toolTip = new ToolTip();
@@ -161,16 +171,23 @@ namespace UI
                 treeViewProfile.SelectedNode = node;
             }
         }
-
-        private void ButtonBack_Click(object sender, EventArgs e)
-        {
-            this.Dispose();
-        }
-
         private void ButtonSaveFamily_Click(object sender, EventArgs e)
         {
-            BLL_Permission.SaveProfile(profile);
-            //this.Dispose();
+            if (isModifyProfile)
+            {
+                BLL_Permission.UpdateProfile(profile);
+            }
+            else
+            {
+                BLL_Permission.SaveProfile(profile);
+            }
+            this.Close();
+            pForm?.LoadAllPermissions();
+        }
+
+        private void FormManageProfile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            pForm?.LoadAllPermissions();
         }
     }
 }

@@ -12,15 +12,11 @@ namespace BDE
     {
         private List<BE_Sale> invoices;
         private string level;
-        public BE_Client(int id, int dni, string nombre, string apellido, string email, int telefono, string domicilio) 
-            : base(id, dni, nombre, apellido, email, telefono, domicilio)
+        public BE_Client(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono) 
+            : base(id, dni, nombre, apellido, domicilio, email, telefono)
         {
             this.Invoices = null;
-        }
-        public BE_Client(SqlDataReader c)
-            : base(c)
-        {
-            this.Invoices = null;
+
         }
         public BE_Client():base(){}
         public List<BE_Sale> Invoices { get => invoices; set => invoices = value; }

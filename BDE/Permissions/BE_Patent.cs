@@ -10,6 +10,7 @@ namespace BDE.Composite
     {
         public BE_Patent(string id, string description) : base(id, description)
         {
+
         }
 
         public override IList<BE_Permission> Children

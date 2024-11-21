@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BE_Area.cs" />
     <Compile Include="BE_Client.cs" />
     <Compile Include="BE_Brand.cs" />
     <Compile Include="BE_Order.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="BE_User.cs" />
     <Compile Include="Permissions\BE_Family.cs" />
     <Compile Include="Permissions\BE_Patent.cs" />
-    <Compile Include="Permissions\BE_TypePermission.cs" />
+    <Compile Include="BE_TypeUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

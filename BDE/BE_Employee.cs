@@ -13,8 +13,8 @@ namespace BDE
     {
         private double salary;
         private string area;
-        public BE_Employee(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono, string rol, double salario, string username, string password, string area)
-            : base(id, dni, nombre, apellido, email, telefono, domicilio)
+        public BE_Employee(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono, double salario, string area)
+            : base(id, dni, nombre, apellido,domicilio, email, telefono)
         {
             this.Area = area;
             this.salary = salario;

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using BDE;
 using SVC;
 using System.Net;
+using System.Net.Sockets;
 
 namespace DAL
 {
@@ -52,7 +53,7 @@ namespace DAL
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows && dr.Read())
             {
-                return new BE_Client(dr);
+                return InstanceClient(dr);
             }
             return null;
         }
@@ -68,9 +69,36 @@ namespace DAL
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows && dr.Read())
             {
-                return new BE_Client(dr);
+                return InstanceClient(dr);
             }
             return null;
+        }
+
+        public static IEnumerable<BE_Client> GetAllClients()
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            List<BE_Client> clients = new List<BE_Client>();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = "select * from Personas p inner join Clientes c on c.id_Cliente=p.id_Persona";
+            cmd.CommandType = CommandType.Text;
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                clients.Add(InstanceClient(dr));
+            }
+            return clients;
+        }
+        private static BE_Client InstanceClient(SqlDataReader dr)
+        {
+            return new BE_Client(
+                        dr.GetInt32(dr.GetOrdinal("id_Persona")),
+                        dr.GetInt32(dr.GetOrdinal("DNI")),
+                        dr.GetString(dr.GetOrdinal("nombre")),
+                        dr.GetString(dr.GetOrdinal("apellido")),
+                        dr.GetString(dr.GetOrdinal("domicilio")),
+                        dr.GetString(dr.GetOrdinal("email")),
+                        dr.GetInt32(dr.GetOrdinal("telefono")));
         }
     }
 }

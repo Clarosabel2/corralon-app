@@ -21,6 +21,7 @@ namespace UI
         {
             InitializeComponent();
             LanguageManager.Attach(this);
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
         private void FormRegistrarCliente_Load(object sender, EventArgs e)

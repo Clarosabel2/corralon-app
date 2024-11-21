@@ -32,5 +32,10 @@ namespace BLL
         {
             return DAL_Client.GetClientById(idClient);
         }
+
+        public static IEnumerable<BE_Client> GetAllClients()
+        {
+            return DAL_Client.GetAllClients();
+        }
     }
 }

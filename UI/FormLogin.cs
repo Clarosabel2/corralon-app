@@ -22,8 +22,9 @@ namespace UI
         {
             InitializeComponent();
             lblErrorMessage.Visible = false;
-            BLL_Language.Loadtranslations();
+            BLL_Language.LoadTranslations();
             LanguageManager.Attach(this);
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
         #region "Funcionalidades Visuales"
@@ -110,6 +111,7 @@ namespace UI
                 else
                 {
                     FormMain frmMain = new FormMain();
+                    frmMain.WindowState = FormWindowState.Maximized;
                     frmMain.Show();
                     this.Hide();
                 }

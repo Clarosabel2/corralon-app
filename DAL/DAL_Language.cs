@@ -86,7 +86,8 @@ namespace DAL
 
                     var language = languages.FirstOrDefault(x => x.Name.Equals(languageName, StringComparison.OrdinalIgnoreCase));
 
-                    if (language == null) {
+                    if (language == null)
+                    {
                         throw new Exception("Error en encontrar idioma");
                     }
 
@@ -102,7 +103,6 @@ namespace DAL
                 }
             }
             LanguageManager.CurrentLanguage = SessionManager.translations.FirstOrDefault(l => l.Key.IsDefault).Key;
-            
         }
 
         public static void SetDefaultLanguage(string languague)
@@ -114,6 +114,43 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("language", languague);
             cmd.ExecuteNonQuery();
+        }
+
+
+        public static bool UpdateTranslations(Tuple<string, string, DataTable> translations)
+        {
+            int a = 0;
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            var entry = SessionManager.translations.FirstOrDefault(i => i.Key.Name == translations.Item1);
+            BE_Language len = entry.Key;
+
+            foreach (DataRow row in translations.Item3.Rows)
+            {
+                if (SessionManager.translations.ContainsKey(len) &&
+                    SessionManager.translations[len].ContainsKey(translations.Item2) &&
+                    SessionManager.translations[len][translations.Item2].ContainsKey(row[0].ToString()) &&
+                    SessionManager.translations[len][translations.Item2][row[0].ToString()] != row[1].ToString())
+                {
+                    cmd.CommandText = @"UPDATE idioma_control SET traduccion=@p_translation
+                                WHERE id_Idioma=(SELECT TOP 1 i.id_Idioma FROM tb_Idiomas i WHERE i.nombreIdioma=@p_language)
+                                AND id_Control=(SELECT TOP 1 c.id_Control 
+                                    FROM tb_Controles c 
+                                     INNER JOIN tb_Forms f ON f.id_Form=c.id_Form
+                                    WHERE c.nombreControl=@p_controlName AND f.nombreForm=@p_formName);";
+
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.Parameters.Clear();
+
+                    cmd.Parameters.AddWithValue("@p_translation", row[1].ToString());
+                    cmd.Parameters.AddWithValue("@p_language", translations.Item1);
+                    cmd.Parameters.AddWithValue("@p_controlName", row[0].ToString());
+                    cmd.Parameters.AddWithValue("@p_formName", translations.Item2);
+                }
+            }
+            return cmd.ExecuteNonQuery() > 0;
         }
     }
 }

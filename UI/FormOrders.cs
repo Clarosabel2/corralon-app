@@ -17,9 +17,10 @@ namespace UI
         {
             InitializeComponent();
             LoadOrders();
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
-        private void LoadOrders()
+        public void LoadOrders()
         {
             dgvOrders.DataSource = BLL_Order.GetAllPendingOrders();
             dgvOrdersShipped.DataSource = BLL_Order.GetOrdersDispatched();
@@ -29,7 +30,7 @@ namespace UI
         {
             if (dgvOrders.SelectedRows.Count > 0)
             {
-                FormPreShipOrder frm = new FormPreShipOrder(Convert.ToInt32(dgvOrders.SelectedRows[0].Cells[0].Value.ToString()));
+                FormPreShipOrder frm = new FormPreShipOrder(Convert.ToInt32(dgvOrders.SelectedRows[0].Cells[0].Value.ToString()), this);
                 frm.StartPosition = FormStartPosition.CenterScreen;
                 frm.ShowDialog();
             }
@@ -44,8 +45,12 @@ namespace UI
             var idInvoice = Convert.ToInt32(dgvOrdersShipped.SelectedRows[0].Cells[0].Value.ToString());
             try
             {
-                BLL_Order.MarkDeliveredOrder(idInvoice);
-                LoadOrders();
+                DialogResult r = MessageBox.Show("Estas seguro que quieres Marcar el pedido como 'Entregado'?", "Pedidos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r == DialogResult.Yes)
+                {
+                    BLL_Order.MarkDeliveredOrder(idInvoice);
+                    LoadOrders();
+                }
             }
             catch (Exception ex)
             {

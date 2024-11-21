@@ -16,56 +16,88 @@ namespace UI
 {
     public partial class FormProfiles : Form
     {
+        private List<BE_Family> profiles = new List<BE_Family>();
+        private string idProfile;
         public FormProfiles()
         {
             InitializeComponent();
-
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
         private void FormProfiles_Load(object sender, EventArgs e)
         {
             LoadAllPermissions();
         }
 
-        private void LoadNodes(TreeNode parentNode, BE_Permission family)
+        public void LoadAllPermissions()
         {
-            if (family.Children != null)
+            profiles = BLL_Permission.GetAllProfiles();
+            cBProfiles.Items.Clear();
+            cBProfiles.Items.Add(new KeyValuePair<string, string>("", "All"));
+            profiles.ForEach(f => cBProfiles.Items.Add(new KeyValuePair<string, string>(f.Description, f.Id)));
+            cBProfiles.DisplayMember = "Value";
+            cBProfiles.ValueMember = "Key";
+            cBProfiles.SelectedIndex = 0;
+            //dgvUsers.DataSource = BLL_User.GetUsersByProfile();
+        }
+
+        private TreeNode CreateNode(BE_Permission p)
+        {
+            TreeNode rootNode = new TreeNode(p.Id);
+            rootNode.Tag = p.Description;
+
+            if (p.Children != null && p.Children.Count > 0)
             {
-                foreach (var child in family.Children)
+                foreach (var child in p.Children)
                 {
-                    TreeNode childNode = new TreeNode(child.Id);
-                    childNode.Tag = child;
-                    parentNode.Nodes.Add(childNode);
-                    LoadNodes(childNode, child);
+                    TreeNode childNode = CreateNode(child);
+                    rootNode.Nodes.Add(childNode);
                 }
             }
-        }
-        private void LoadNodesInTreeView(TreeView tv, List<BE_Family> p)
-        {
-            tv.Nodes.Clear();
-            foreach (var family in p)
-            {
-                TreeNode rootNode = new TreeNode(family.Id);
-                rootNode.Tag = family;
-                tv.Nodes.Add(rootNode);
-                LoadNodes(rootNode, family);
-            }
-            tv.ExpandAll();
-        }
-        private void LoadAllPermissions()
-        {
-            LoadNodesInTreeView(treeView1, BLL_Permission.GetAllPermissions(false));
+            rootNode.ExpandAll();
+            return rootNode;
         }
 
         private void createNewProfileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormManageProfile f = new FormManageProfile();
-            f.TopLevel = false;
-            this.Controls.Add(f);
             f.BringToFront();
-            f.FormBorderStyle= FormBorderStyle.None;
-            f.StartPosition= FormStartPosition.CenterScreen;
-            f.Location = new Point((this.ClientSize.Width - f.Width) / 2, (this.ClientSize.Height - f.Height) / 2);
-            f.Show();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
+        private void assignProfileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormAssignProfile f = new FormAssignProfile();
+            f.BringToFront();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
+        private void cBProfiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var selectedPair = (KeyValuePair<string, string>)cBProfiles.SelectedItem;
+            idProfile = selectedPair.Value;
+            treeView1.Nodes.Clear();
+            if ((sender as ComboBox).SelectedIndex != 0)
+            {
+                btnConfigureProfile.Enabled = true;
+                treeView1.Nodes.Add(CreateNode(profiles.FirstOrDefault(f => f.Id == idProfile)));
+            }
+            else
+            {
+                btnConfigureProfile.Enabled = false;
+                profiles.ForEach(f => treeView1.Nodes.Add(CreateNode(f)));
+            }
+        }
+
+        private void btnConfigureProfile_Click(object sender, EventArgs e)
+        {
+            BE_Family fm = new BE_Family();
+            fm = profiles.FirstOrDefault(p => p.Id == idProfile);
+            FormManageProfile f = new FormManageProfile(fm,this);
+            f.BringToFront();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
         }
     }
 }

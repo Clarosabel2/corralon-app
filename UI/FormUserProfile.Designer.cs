@@ -58,10 +58,10 @@
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lnkEditProfile = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cBLanguages = new System.Windows.Forms.ComboBox();
             this.btnChangeLanguage = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelEditProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -87,9 +87,9 @@
             this.panelEditProfile.Controls.Add(this.lblName2);
             this.panelEditProfile.Controls.Add(this.lblEditMyData);
             this.panelEditProfile.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelEditProfile.Location = new System.Drawing.Point(401, 0);
+            this.panelEditProfile.Location = new System.Drawing.Point(400, 0);
             this.panelEditProfile.Name = "panelEditProfile";
-            this.panelEditProfile.Size = new System.Drawing.Size(329, 559);
+            this.panelEditProfile.Size = new System.Drawing.Size(329, 564);
             this.panelEditProfile.TabIndex = 0;
             this.panelEditProfile.Visible = false;
             // 
@@ -408,16 +408,6 @@
             this.lnkEditProfile.Text = "Editar Perfil";
             this.lnkEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditProfile_LinkClicked);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::UI.Properties.Resources.user_photo_profile;
-            this.pictureBox1.Location = new System.Drawing.Point(33, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(105, 103);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -450,11 +440,21 @@
             this.btnChangeLanguage.UseVisualStyleBackColor = true;
             this.btnChangeLanguage.Click += new System.EventHandler(this.btnChangeLanguage_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.user_photo_profile;
+            this.pictureBox1.Location = new System.Drawing.Point(33, 97);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(105, 103);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormUserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 559);
+            this.ClientSize = new System.Drawing.Size(729, 564);
             this.Controls.Add(this.btnChangeLanguage);
             this.Controls.Add(this.cBLanguages);
             this.Controls.Add(this.label1);

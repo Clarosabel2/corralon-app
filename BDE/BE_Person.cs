@@ -17,7 +17,7 @@ namespace BDE
         private int numPhone;
         private string address;
 
-        public BE_Person(int id, int dni, string nombre, string apellido, string email, int telefono, string domicilio)
+        public BE_Person(int id, int dni, string nombre, string apellido, string domicilio, string email, int telefono)
         {
             this.Id = id;
             this.Dni = dni;

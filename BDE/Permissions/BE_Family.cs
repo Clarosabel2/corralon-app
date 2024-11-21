@@ -14,6 +14,7 @@ namespace BDE.Composite
         {
             _childs = new List<BE_Permission>();
         }
+        public BE_Family():base(){}
 
         public override IList<BE_Permission> Children
         {

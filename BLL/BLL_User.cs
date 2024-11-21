@@ -4,6 +4,7 @@ using DAL;
 using SVC;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,16 @@ namespace BLL
         {
             SessionManager.GetInstance.user.Language = language;
             DAL_User.ChangeLanguageUser(language);
+        }
+
+        public static DataTable GetAllUser()
+        {
+            return DAL_User.GetAllUsers();
+        }
+
+        public static DataTable GetUsersByProfile()
+        {
+            return DAL_User.GetUserByProfile();
         }
 
         public static bool UpdateUserData(BE_User user)

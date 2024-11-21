@@ -55,7 +55,7 @@
             this.groupBoxSearch.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBoxSearch.Location = new System.Drawing.Point(0, 0);
             this.groupBoxSearch.Name = "groupBoxSearch";
-            this.groupBoxSearch.Size = new System.Drawing.Size(749, 373);
+            this.groupBoxSearch.Size = new System.Drawing.Size(777, 367);
             this.groupBoxSearch.TabIndex = 0;
             this.groupBoxSearch.TabStop = false;
             // 
@@ -63,9 +63,9 @@
             // 
             this.btnDispatchOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDispatchOrder.Location = new System.Drawing.Point(661, 91);
+            this.btnDispatchOrder.Location = new System.Drawing.Point(689, 91);
             this.btnDispatchOrder.Name = "btnDispatchOrder";
-            this.btnDispatchOrder.Size = new System.Drawing.Size(82, 244);
+            this.btnDispatchOrder.Size = new System.Drawing.Size(82, 68);
             this.btnDispatchOrder.TabIndex = 3;
             this.btnDispatchOrder.Text = "Despachar Pedido";
             this.btnDispatchOrder.UseVisualStyleBackColor = true;
@@ -101,7 +101,7 @@
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
             this.dgvOrders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrders.Size = new System.Drawing.Size(643, 244);
+            this.dgvOrders.Size = new System.Drawing.Size(671, 270);
             this.dgvOrders.TabIndex = 1;
             // 
             // lblOrders
@@ -126,7 +126,8 @@
             // 
             // dgvOrdersShipped
             // 
-            this.dgvOrdersShipped.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvOrdersShipped.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvOrdersShipped.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvOrdersShipped.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -135,7 +136,7 @@
             this.dgvOrdersShipped.Name = "dgvOrdersShipped";
             this.dgvOrdersShipped.ReadOnly = true;
             this.dgvOrdersShipped.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdersShipped.Size = new System.Drawing.Size(643, 246);
+            this.dgvOrdersShipped.Size = new System.Drawing.Size(671, 252);
             this.dgvOrdersShipped.TabIndex = 4;
             // 
             // groupBox1
@@ -144,19 +145,19 @@
             this.groupBox1.Controls.Add(this.btnMarkDelivered);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.dgvOrdersShipped);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(0, 341);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 367);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(749, 385);
+            this.groupBox1.Size = new System.Drawing.Size(777, 314);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(661, 167);
+            this.button2.Location = new System.Drawing.Point(689, 167);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 120);
+            this.button2.Size = new System.Drawing.Size(82, 126);
             this.button2.TabIndex = 5;
             this.button2.Text = "Notificar Problema";
             this.button2.UseVisualStyleBackColor = true;
@@ -164,7 +165,7 @@
             // btnMarkDelivered
             // 
             this.btnMarkDelivered.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMarkDelivered.Location = new System.Drawing.Point(661, 41);
+            this.btnMarkDelivered.Location = new System.Drawing.Point(689, 41);
             this.btnMarkDelivered.Name = "btnMarkDelivered";
             this.btnMarkDelivered.Size = new System.Drawing.Size(82, 120);
             this.btnMarkDelivered.TabIndex = 4;
@@ -176,7 +177,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 726);
+            this.ClientSize = new System.Drawing.Size(777, 681);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxSearch);
             this.Name = "FormOrders";

@@ -24,9 +24,26 @@ namespace UI
             timerDateHour.Start();
             LanguageManager.Attach(this);
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
-        #region "Funcionalidades Window"
 
+        private void EnableControls()
+        {
+            switch (SessionManager.GetInstance.user.Rol)
+            {
+                case BDE.BE_TypeUser.ADMIN:
+                    
+                    break;
+                case BDE.BE_TypeUser.SALESMAN:
+
+                    break;
+                case BDE.BE_TypeUser.LOGISTICMAN:
+
+                    break;
+            }
+        }
+
+        #region "Funcionalidades Window"
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -37,13 +54,16 @@ namespace UI
             ReleaseCapture();
             SendMessage(Handle, 0x112, 0xf012, 0);
         }
-
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timerDateHour_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToString();
+
         }
-
-
+        /*
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+        }
+        
         private void menuTransition_Tick(object sender, EventArgs e)
         {
             if (menuExpand == false)
@@ -122,7 +142,7 @@ namespace UI
                 menuTransition.Start();
                 currentFlp = flp;
             }
-        }
+        }*/
         #endregion
         private void OpenForms<MyForm>() where MyForm : Form, new()
         {
@@ -165,7 +185,7 @@ namespace UI
         public void LoadDataUser()
         {
             lblName.Text = SessionManager.GetInstance.user.Emp.Name;
-            lblPosition.Text = SessionManager.GetInstance.user.Rol;
+            lblPosition.Text = SessionManager.GetInstance.user.Rol.ToString();
             lblEmail.Text = SessionManager.GetInstance.user.Emp.Email;
         }
 
@@ -184,9 +204,9 @@ namespace UI
             if (r == DialogResult.Yes)
             {
                 SessionManager.Logout();
-                FormLogin frmLogin = new FormLogin();
-                frmLogin.Show();
                 this.Close();
+                FormLogin frmLogin = new FormLogin();
+                frmLogin.ShowDialog();
             }
         }
 
@@ -216,15 +236,32 @@ namespace UI
         {
             OpenForms<FormOrders>();
         }
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormUsers>();
+        }
+        private void btnEmployees_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormEmployees>();
+        }
+        private void btnReports_Click(object sender, EventArgs e)
+        {
+            dropdownMenuReports.Show(btnReports, btnReports.Width, 0);
+        }
+
+        private void btnClients_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormClients>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            LanguageManager.Detach(this);
         }
         public void Update(BE_Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
 
+        
     }
 }

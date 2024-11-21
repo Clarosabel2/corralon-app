@@ -15,8 +15,8 @@ namespace BDE
         {
             Id = id;
             Description = description;
-            
         }
+        public BE_Permission() { }
 
         public abstract IList<BE_Permission> Children { get; }
         public abstract void addChild(BE_Permission c);

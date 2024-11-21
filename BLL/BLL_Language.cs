@@ -3,6 +3,7 @@ using DAL;
 using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -19,7 +20,7 @@ namespace BLL
                 .Select(l => char.ToUpper(l[0]) + l.Substring(1).ToLower())*/.ToList();
         }
 
-        public static void Loadtranslations()
+        public static void LoadTranslations()
         {
             DAL_Language.LoadTraductions();
         }
@@ -27,6 +28,11 @@ namespace BLL
         public static void SetDefaultLanguage(string selectedItem)
         {
             DAL_Language.SetDefaultLanguage(selectedItem);
+        }
+
+        public static bool UpdateTranslations(Tuple<string, string, DataTable> translations)
+        {
+            return DAL_Language.UpdateTranslations(translations);
         }
     }
 }

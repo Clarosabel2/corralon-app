@@ -21,15 +21,14 @@ namespace UI
     public partial class FormCreateSale : Form, IObserver
     {
         private List<BE_Product> products = BLL_Product.GetProducts();
-        private BE_Client client;
         public FormCreateSale()
         {
             InitializeComponent();
-            client = null;
             LoadTypesProducts();
             BLL_Sale.CreateSale();
             LoadProducts(products);
             LanguageManager.Attach(this);
+            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
         #region "Funciones Visuales"
@@ -140,38 +139,6 @@ namespace UI
                 MessageBox.Show("Debes Seleccionar un Producto.");
             }
         }
-
-        private void EnableRow(DataGridViewRow row)
-        {
-            bool isRowReadOnly = true;
-            foreach (DataGridViewCell cell in row.Cells)
-            {
-                if (!cell.ReadOnly)
-                {
-                    isRowReadOnly = false;
-                    break;
-                }
-            }
-
-            if (!isRowReadOnly)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.ReadOnly = true;
-                    cell.Style.BackColor = Color.LightGray;
-                }
-            }
-            else
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.ReadOnly = false;
-                    cell.Style.BackColor = Color.White;
-                }
-
-            }
-        }
-
         private void btnRemoveItem_Click(object sender, EventArgs e)
         {
             try
@@ -219,6 +186,39 @@ namespace UI
             }
             catch (Exception ex) { }
         }
+
+        private void EnableRow(DataGridViewRow row)
+        {
+            bool isRowReadOnly = true;
+            foreach (DataGridViewCell cell in row.Cells)
+            {
+                if (!cell.ReadOnly)
+                {
+                    isRowReadOnly = false;
+                    break;
+                }
+            }
+
+            if (!isRowReadOnly)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.ReadOnly = true;
+                    cell.Style.BackColor = Color.LightGray;
+                }
+            }
+            else
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    cell.ReadOnly = false;
+                    cell.Style.BackColor = Color.White;
+                }
+
+            }
+        }
+
+        
         //Se Muestra el panel de confirmacion de venta
         private void buttonCerrarVenta_Click(object sender, EventArgs e)
         {
