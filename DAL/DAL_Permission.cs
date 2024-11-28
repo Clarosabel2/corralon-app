@@ -141,10 +141,31 @@ namespace DAL
 
             if (profile.Children != null && profile.Children.Count > 0)
             {
+                DeleteChildrenRecursively(cmd, profile.Children);
                 InsertChildrenRecursively(cmd, profile.Id, profile.Children);
             }
 
             cmd.Connection = cnn.CloseConnection();
+        }
+        private static void DeleteChildrenRecursively(SqlCommand cmd, IList<BE_Permission> children)
+        {
+            foreach (var child in children)
+            {
+                // Elimina la relación de cada hijo en la base de datos
+                cmd.CommandText = @"DELETE FROM RelacionPermiso WHERE id_PermisoCompuesto=@id_profile";
+
+                // Asignamos los parámetros correctamente
+                cmd.Parameters.Clear();
+                  // El id del perfil padre
+                cmd.Parameters.AddWithValue("@id_profile", child.Id);  // El id del hijo que se va a eliminar
+                cmd.ExecuteNonQuery();
+
+                // Recursión para los hijos de este hijo (si los tiene)
+                if (child.Children != null && child.Children.Count > 0)
+                {
+                    DeleteChildrenRecursively(cmd, child.Children);  // Llamada recursiva con el id del hijo actual
+                }
+            }
         }
         private static void InsertChildrenRecursively(SqlCommand cmd, string parentId, IList<BE_Permission> children)
         {

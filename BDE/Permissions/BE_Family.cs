@@ -8,7 +8,7 @@ namespace BDE.Composite
 {
     public class BE_Family : BE_Permission
     {
-        private IList<BE_Permission> _childs;
+        private List<BE_Permission> _childs;
 
         public BE_Family(string id, string description) : base(id, description)
         {
@@ -16,9 +16,9 @@ namespace BDE.Composite
         }
         public BE_Family():base(){}
 
-        public override IList<BE_Permission> Children
+        public override List<BE_Permission> Children
         {
-            get { return _childs.ToArray(); }
+            get { return _childs; }
         }
 
         public override void addChild(BE_Permission c)

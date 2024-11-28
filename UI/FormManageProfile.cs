@@ -93,10 +93,32 @@ namespace UI
 
         private void treeViewProfile_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (e.Node != null && e.Node.Parent != null)
+            if (e.Node != null)
             {
-                e.Node.Remove();
-                profile.removeChild((BE_Permission)e.Node.Tag);
+                BE_Permission permissionToRemove = (BE_Permission)e.Node.Tag;
+                if (e.Node.Parent != null)
+                {
+                    e.Node.Remove();
+                    RemovePermissionFromProfile(profile, permissionToRemove);
+                }
+            }
+        }
+        private void RemovePermissionFromProfile(BE_Family family, BE_Permission permissionToRemove)
+        {
+            if (family.Children != null && family.Children.Count != 0)
+            {
+                foreach (var child in family.Children)
+                {
+                    if (child.Equals(permissionToRemove))
+                    {
+                        family.Children.Remove(child);
+                        return;
+                    }
+                    else
+                    {
+                        RemovePermissionFromProfile((BE_Family)child, permissionToRemove);
+                    }
+                }
             }
         }
         private bool NodeExists(TreeNodeCollection nodes, string nodeText)
@@ -137,8 +159,6 @@ namespace UI
                     MessageBox.Show("El Permiso ya está agregado.");
                     return;
                 }
-
-
                 if (targetTreeView.SelectedNode != null)
                 {
 
@@ -155,7 +175,6 @@ namespace UI
                 {
 
                     profile.addChild(permissionToAdd);
-
                     targetTreeView.Nodes.Add((TreeNode)newNode.Clone());
                 }
             }
@@ -221,7 +240,6 @@ namespace UI
             {
                 foreach (var child in family.Children)
                 {
-
                     PrintFamilyHierarchy((BE_Family)child, indent + "  ");
                 }
             }

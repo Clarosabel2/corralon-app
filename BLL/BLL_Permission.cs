@@ -47,7 +47,6 @@ namespace BLL
                 .ForEach(f => DAL_Permission.GetAllPermissionsByFamily(f.Id)
                     .ForEach(c => f.addChild(c)));
 
-            /*
             List<BE_Family> toRemove = new List<BE_Family>();
 
             foreach (BE_Family f in families) // permiso hijo
@@ -70,8 +69,8 @@ namespace BLL
                 }
             }
 
-            // Elimina los elementos después de la enumeración
-            families.RemoveAll(f => toRemove.Contains(f));*/
+            //Elimina los elementos después de la enumeración
+            families.RemoveAll(f => toRemove.Contains(f));
 
             return families;
         }

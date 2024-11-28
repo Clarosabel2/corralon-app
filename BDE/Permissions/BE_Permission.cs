@@ -18,7 +18,7 @@ namespace BDE
         }
         public BE_Permission() { }
 
-        public abstract IList<BE_Permission> Children { get; }
+        public abstract List<BE_Permission> Children { get; }
         public abstract void addChild(BE_Permission c);
         public abstract void removeChild(BE_Permission c);
         

@@ -13,7 +13,7 @@ namespace BDE.Composite
 
         }
 
-        public override IList<BE_Permission> Children
+        public override List<BE_Permission> Children
         {
             get
             {
