@@ -31,18 +31,18 @@
         {
             this.lblDni = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblApellido = new System.Windows.Forms.Label();
+            this.lblSurname = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.lblDomicilio = new System.Windows.Forms.Label();
+            this.lblAddress = new System.Windows.Forms.Label();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.lblTelefono = new System.Windows.Forms.Label();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnSaveClient = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDni
@@ -63,15 +63,15 @@
             this.txtDni.Size = new System.Drawing.Size(200, 24);
             this.txtDni.TabIndex = 3;
             // 
-            // lblNombre
+            // lblName
             // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(12, 48);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(68, 19);
-            this.lblNombre.TabIndex = 4;
-            this.lblNombre.Text = "Nombre:";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblName.Location = new System.Drawing.Point(12, 48);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(68, 19);
+            this.lblName.TabIndex = 4;
+            this.lblName.Text = "Nombre:";
             // 
             // txtNombre
             // 
@@ -81,15 +81,15 @@
             this.txtNombre.Size = new System.Drawing.Size(200, 24);
             this.txtNombre.TabIndex = 5;
             // 
-            // lblApellido
+            // lblSurname
             // 
-            this.lblApellido.AutoSize = true;
-            this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblApellido.Location = new System.Drawing.Point(12, 78);
-            this.lblApellido.Name = "lblApellido";
-            this.lblApellido.Size = new System.Drawing.Size(69, 19);
-            this.lblApellido.TabIndex = 6;
-            this.lblApellido.Text = "Apellido:";
+            this.lblSurname.AutoSize = true;
+            this.lblSurname.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblSurname.Location = new System.Drawing.Point(12, 78);
+            this.lblSurname.Name = "lblSurname";
+            this.lblSurname.Size = new System.Drawing.Size(69, 19);
+            this.lblSurname.TabIndex = 6;
+            this.lblSurname.Text = "Apellido:";
             // 
             // txtApellido
             // 
@@ -99,15 +99,15 @@
             this.txtApellido.Size = new System.Drawing.Size(200, 24);
             this.txtApellido.TabIndex = 7;
             // 
-            // lblDomicilio
+            // lblAddress
             // 
-            this.lblDomicilio.AutoSize = true;
-            this.lblDomicilio.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblDomicilio.Location = new System.Drawing.Point(12, 108);
-            this.lblDomicilio.Name = "lblDomicilio";
-            this.lblDomicilio.Size = new System.Drawing.Size(75, 19);
-            this.lblDomicilio.TabIndex = 8;
-            this.lblDomicilio.Text = "Domicilio:";
+            this.lblAddress.AutoSize = true;
+            this.lblAddress.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblAddress.Location = new System.Drawing.Point(12, 108);
+            this.lblAddress.Name = "lblAddress";
+            this.lblAddress.Size = new System.Drawing.Size(75, 19);
+            this.lblAddress.TabIndex = 8;
+            this.lblAddress.Text = "Domicilio:";
             // 
             // txtDomicilio
             // 
@@ -135,15 +135,15 @@
             this.txtEmail.Size = new System.Drawing.Size(200, 24);
             this.txtEmail.TabIndex = 11;
             // 
-            // lblTelefono
+            // lblPhone
             // 
-            this.lblTelefono.AutoSize = true;
-            this.lblTelefono.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblTelefono.Location = new System.Drawing.Point(12, 168);
-            this.lblTelefono.Name = "lblTelefono";
-            this.lblTelefono.Size = new System.Drawing.Size(70, 19);
-            this.lblTelefono.TabIndex = 12;
-            this.lblTelefono.Text = "Telefono:";
+            this.lblPhone.AutoSize = true;
+            this.lblPhone.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblPhone.Location = new System.Drawing.Point(12, 168);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(70, 19);
+            this.lblPhone.TabIndex = 12;
+            this.lblPhone.Text = "Telefono:";
             // 
             // txtTelefono
             // 
@@ -164,34 +164,34 @@
             this.btnSaveClient.UseVisualStyleBackColor = true;
             this.btnSaveClient.Click += new System.EventHandler(this.btnSaveClient_Click);
             // 
-            // btnCancelar
+            // btnCancel
             // 
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnCancelar.Location = new System.Drawing.Point(188, 198);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(91, 31);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancel.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnCancel.Location = new System.Drawing.Point(188, 198);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(91, 31);
+            this.btnCancel.TabIndex = 15;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FormRegisterClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(327, 243);
-            this.Controls.Add(this.btnCancelar);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSaveClient);
             this.Controls.Add(this.txtTelefono);
-            this.Controls.Add(this.lblTelefono);
+            this.Controls.Add(this.lblPhone);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.txtDomicilio);
-            this.Controls.Add(this.lblDomicilio);
+            this.Controls.Add(this.lblAddress);
             this.Controls.Add(this.txtApellido);
-            this.Controls.Add(this.lblApellido);
+            this.Controls.Add(this.lblSurname);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.lblNombre);
+            this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.lblDni);
             this.Name = "FormRegisterClient";
@@ -203,18 +203,18 @@
 
         }
         private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.Label lblNombre;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblApellido;
+        private System.Windows.Forms.Label lblSurname;
         private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label lblDomicilio;
+        private System.Windows.Forms.Label lblAddress;
         private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.Label lblTelefono;
+        private System.Windows.Forms.Label lblPhone;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Button btnSaveClient;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnCancel;
         #endregion
 
         public System.Windows.Forms.TextBox txtDni;

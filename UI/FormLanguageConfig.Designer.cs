@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.comboBoxLanguages = new System.Windows.Forms.ComboBox();
-            this.lblLanguage = new System.Windows.Forms.Label();
+            this.lblLanguageSetting = new System.Windows.Forms.Label();
             this.btnSetDefaultLanguage = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblLanguageFilter = new System.Windows.Forms.Label();
+            this.gBSettingLanguage = new System.Windows.Forms.GroupBox();
             this.cBLanguages = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gBFilters = new System.Windows.Forms.GroupBox();
             this.cBForms = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.dgvTranslation = new System.Windows.Forms.DataGridView();
+            this.lblFormFilter = new System.Windows.Forms.Label();
+            this.gBControls = new System.Windows.Forms.GroupBox();
             this.btnUpdateTranlationsControls = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.dgvTranslation = new System.Windows.Forms.DataGridView();
+            this.btnCreateNewLanguage = new System.Windows.Forms.Button();
+            this.gBSettingLanguage.SuspendLayout();
+            this.gBFilters.SuspendLayout();
+            this.gBControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTranslation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,15 +57,15 @@
             this.comboBoxLanguages.Size = new System.Drawing.Size(182, 24);
             this.comboBoxLanguages.TabIndex = 0;
             // 
-            // lblLanguage
+            // lblLanguageSetting
             // 
-            this.lblLanguage.AutoSize = true;
-            this.lblLanguage.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLanguage.Location = new System.Drawing.Point(9, 35);
-            this.lblLanguage.Name = "lblLanguage";
-            this.lblLanguage.Size = new System.Drawing.Size(58, 16);
-            this.lblLanguage.TabIndex = 1;
-            this.lblLanguage.Text = "IDIOMAS:";
+            this.lblLanguageSetting.AutoSize = true;
+            this.lblLanguageSetting.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLanguageSetting.Location = new System.Drawing.Point(9, 35);
+            this.lblLanguageSetting.Name = "lblLanguageSetting";
+            this.lblLanguageSetting.Size = new System.Drawing.Size(58, 16);
+            this.lblLanguageSetting.TabIndex = 1;
+            this.lblLanguageSetting.Text = "IDIOMAS:";
             // 
             // btnSetDefaultLanguage
             // 
@@ -76,28 +77,28 @@
             this.btnSetDefaultLanguage.UseVisualStyleBackColor = true;
             this.btnSetDefaultLanguage.Click += new System.EventHandler(this.btnSetDefaultLanguage_Click);
             // 
-            // label1
+            // lblLanguageFilter
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.label1.Location = new System.Drawing.Point(8, 70);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Idioma:";
+            this.lblLanguageFilter.AutoSize = true;
+            this.lblLanguageFilter.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.lblLanguageFilter.Location = new System.Drawing.Point(8, 70);
+            this.lblLanguageFilter.Name = "lblLanguageFilter";
+            this.lblLanguageFilter.Size = new System.Drawing.Size(61, 19);
+            this.lblLanguageFilter.TabIndex = 3;
+            this.lblLanguageFilter.Text = "Idioma:";
             // 
-            // groupBox1
+            // gBSettingLanguage
             // 
-            this.groupBox1.Controls.Add(this.btnSetDefaultLanguage);
-            this.groupBox1.Controls.Add(this.comboBoxLanguages);
-            this.groupBox1.Controls.Add(this.lblLanguage);
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 153);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(225, 155);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configuracion";
+            this.gBSettingLanguage.Controls.Add(this.btnSetDefaultLanguage);
+            this.gBSettingLanguage.Controls.Add(this.comboBoxLanguages);
+            this.gBSettingLanguage.Controls.Add(this.lblLanguageSetting);
+            this.gBSettingLanguage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBSettingLanguage.Location = new System.Drawing.Point(2, 153);
+            this.gBSettingLanguage.Name = "gBSettingLanguage";
+            this.gBSettingLanguage.Size = new System.Drawing.Size(225, 142);
+            this.gBSettingLanguage.TabIndex = 4;
+            this.gBSettingLanguage.TabStop = false;
+            this.gBSettingLanguage.Text = "Configuracion";
             // 
             // cBLanguages
             // 
@@ -110,19 +111,19 @@
             this.cBLanguages.TabIndex = 5;
             this.cBLanguages.SelectedIndexChanged += new System.EventHandler(this.cBLanguages_SelectedIndexChanged);
             // 
-            // groupBox2
+            // gBFilters
             // 
-            this.groupBox2.Controls.Add(this.cBForms);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.cBLanguages);
-            this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(225, 147);
-            this.groupBox2.TabIndex = 6;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Filtros";
+            this.gBFilters.Controls.Add(this.cBForms);
+            this.gBFilters.Controls.Add(this.lblFormFilter);
+            this.gBFilters.Controls.Add(this.lblLanguageFilter);
+            this.gBFilters.Controls.Add(this.cBLanguages);
+            this.gBFilters.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBFilters.Location = new System.Drawing.Point(0, 0);
+            this.gBFilters.Name = "gBFilters";
+            this.gBFilters.Size = new System.Drawing.Size(225, 147);
+            this.gBFilters.TabIndex = 6;
+            this.gBFilters.TabStop = false;
+            this.gBFilters.Text = "Filtros";
             // 
             // cBForms
             // 
@@ -135,30 +136,41 @@
             this.cBForms.TabIndex = 7;
             this.cBForms.SelectedIndexChanged += new System.EventHandler(this.cBForms_SelectedIndexChanged);
             // 
-            // label2
+            // lblFormFilter
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.label2.Location = new System.Drawing.Point(8, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Form";
+            this.lblFormFilter.AutoSize = true;
+            this.lblFormFilter.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.lblFormFilter.Location = new System.Drawing.Point(8, 20);
+            this.lblFormFilter.Name = "lblFormFilter";
+            this.lblFormFilter.Size = new System.Drawing.Size(42, 19);
+            this.lblFormFilter.TabIndex = 6;
+            this.lblFormFilter.Text = "Form";
             // 
-            // groupBox3
+            // gBControls
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.gBControls.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.btnUpdateTranlationsControls);
-            this.groupBox3.Controls.Add(this.dgvTranslation);
-            this.groupBox3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(230, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(419, 618);
-            this.groupBox3.TabIndex = 7;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Controles";
+            this.gBControls.Controls.Add(this.btnUpdateTranlationsControls);
+            this.gBControls.Controls.Add(this.dgvTranslation);
+            this.gBControls.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBControls.Location = new System.Drawing.Point(230, 0);
+            this.gBControls.Name = "gBControls";
+            this.gBControls.Size = new System.Drawing.Size(419, 618);
+            this.gBControls.TabIndex = 7;
+            this.gBControls.TabStop = false;
+            this.gBControls.Text = "Controles";
+            // 
+            // btnUpdateTranlationsControls
+            // 
+            this.btnUpdateTranlationsControls.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnUpdateTranlationsControls.Location = new System.Drawing.Point(3, 578);
+            this.btnUpdateTranlationsControls.Name = "btnUpdateTranlationsControls";
+            this.btnUpdateTranlationsControls.Size = new System.Drawing.Size(413, 37);
+            this.btnUpdateTranlationsControls.TabIndex = 1;
+            this.btnUpdateTranlationsControls.Text = "Actualizar";
+            this.btnUpdateTranlationsControls.UseVisualStyleBackColor = true;
+            this.btnUpdateTranlationsControls.Click += new System.EventHandler(this.btnUpdateTranlationsControls_Click);
             // 
             // dgvTranslation
             // 
@@ -172,33 +184,33 @@
             this.dgvTranslation.Size = new System.Drawing.Size(413, 596);
             this.dgvTranslation.TabIndex = 0;
             // 
-            // btnUpdateTranlationsControls
+            // btnCreateNewLanguage
             // 
-            this.btnUpdateTranlationsControls.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnUpdateTranlationsControls.Location = new System.Drawing.Point(3, 578);
-            this.btnUpdateTranlationsControls.Name = "btnUpdateTranlationsControls";
-            this.btnUpdateTranlationsControls.Size = new System.Drawing.Size(413, 37);
-            this.btnUpdateTranlationsControls.TabIndex = 1;
-            this.btnUpdateTranlationsControls.Text = "Actualizar";
-            this.btnUpdateTranlationsControls.UseVisualStyleBackColor = true;
-            this.btnUpdateTranlationsControls.Click += new System.EventHandler(this.btnUpdateTranlationsControls_Click);
+            this.btnCreateNewLanguage.Location = new System.Drawing.Point(2, 301);
+            this.btnCreateNewLanguage.Name = "btnCreateNewLanguage";
+            this.btnCreateNewLanguage.Size = new System.Drawing.Size(225, 49);
+            this.btnCreateNewLanguage.TabIndex = 3;
+            this.btnCreateNewLanguage.Text = "Crear Nuevo Idioma";
+            this.btnCreateNewLanguage.UseVisualStyleBackColor = true;
+            this.btnCreateNewLanguage.Click += new System.EventHandler(this.btnCreateNewLanguage_Click);
             // 
             // FormLanguageConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 630);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnCreateNewLanguage);
+            this.Controls.Add(this.gBControls);
+            this.Controls.Add(this.gBFilters);
+            this.Controls.Add(this.gBSettingLanguage);
             this.Name = "FormLanguageConfig";
             this.Text = "FormLanguageConfig";
             this.Load += new System.EventHandler(this.FormLanguageConfig_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
+            this.gBSettingLanguage.ResumeLayout(false);
+            this.gBSettingLanguage.PerformLayout();
+            this.gBFilters.ResumeLayout(false);
+            this.gBFilters.PerformLayout();
+            this.gBControls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTranslation)).EndInit();
             this.ResumeLayout(false);
 
@@ -207,16 +219,17 @@
         #endregion
 
         private System.Windows.Forms.ComboBox comboBoxLanguages;
-        private System.Windows.Forms.Label lblLanguage;
+        private System.Windows.Forms.Label lblLanguageSetting;
         private System.Windows.Forms.Button btnSetDefaultLanguage;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label lblLanguageFilter;
+        private System.Windows.Forms.GroupBox gBSettingLanguage;
         private System.Windows.Forms.ComboBox cBLanguages;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gBFilters;
         private System.Windows.Forms.ComboBox cBForms;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblFormFilter;
+        private System.Windows.Forms.GroupBox gBControls;
         private System.Windows.Forms.DataGridView dgvTranslation;
         private System.Windows.Forms.Button btnUpdateTranlationsControls;
+        private System.Windows.Forms.Button btnCreateNewLanguage;
     }
 }

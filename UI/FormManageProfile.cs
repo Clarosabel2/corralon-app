@@ -22,7 +22,7 @@ namespace UI
         public FormManageProfile(BE_Family p = null, FormProfiles previousForm = null)
         {
             InitializeComponent();
-            LoadNodesInTreeView(treeViewPermissions, BLL_Permission.GetAllPermissionsSystem());
+            cBTypePermission.SelectedIndex = 0;
             if (p != null)
             {
                 pForm = previousForm;
@@ -33,11 +33,9 @@ namespace UI
                 txtDescripcionFamily.Text = p.Description;
                 txtNameFamily.ReadOnly = true;
                 txtDescripcionFamily.ReadOnly = true;
-
                 groupBoxTreeViews.Enabled = true;
                 treeViewProfile.Nodes.Add(CreateNode(p));
             }
-
         }
         private void LoadNodesInTreeView(TreeView tv, List<BE_Family> p)
         {
@@ -123,18 +121,42 @@ namespace UI
 
             if (newNode != null)
             {
-                profile.addChild((BE_Permission)newNode.Tag);
-                if (!NodeExists(targetTreeView.Nodes, newNode.Text))
+                BE_Permission permissionToAdd = (BE_Permission)newNode.Tag;
+
+
+                if (BLL_Permission.IsAncestor(permissionToAdd, profile))
                 {
-                    if (targetTreeView.SelectedNode != null)
-                    {
-                        targetTreeView.SelectedNode.Nodes.Add((TreeNode)newNode.Clone());
-                        targetTreeView.SelectedNode.Expand();
-                    }
-                    else
-                    {
-                        targetTreeView.Nodes.Add((TreeNode)newNode.Clone());
-                    }
+                    MessageBox.Show("No se puede agregar un nodo padre como hijo, ya que esto generaría una relación circular.",
+                        "Operación no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+
+                if (NodeExists(targetTreeView.Nodes, newNode.Text))
+                {
+                    MessageBox.Show("El Permiso ya está agregado.");
+                    return;
+                }
+
+
+                if (targetTreeView.SelectedNode != null)
+                {
+
+                    BE_Permission parentPermission = (BE_Permission)targetTreeView.SelectedNode.Tag;
+
+
+                    parentPermission.addChild(permissionToAdd);
+
+
+                    targetTreeView.SelectedNode.Nodes.Add((TreeNode)newNode.Clone());
+                    targetTreeView.SelectedNode.Expand();
+                }
+                else
+                {
+
+                    profile.addChild(permissionToAdd);
+
+                    targetTreeView.Nodes.Add((TreeNode)newNode.Clone());
                 }
             }
         }
@@ -150,7 +172,7 @@ namespace UI
                 e.Effect = DragDropEffects.None;
             }
         }
-        private bool isLeave = true;
+
         private void treeView_MouseLeave(object sender, EventArgs e)
         {
             toolTip.Hide(sender as TreeView);
@@ -171,23 +193,60 @@ namespace UI
                 treeViewProfile.SelectedNode = node;
             }
         }
+
         private void ButtonSaveFamily_Click(object sender, EventArgs e)
         {
+            PrintFamilyHierarchy(profile);
+
             if (isModifyProfile)
             {
+                MessageBox.Show(profile.Children.Count.ToString());
                 BLL_Permission.UpdateProfile(profile);
             }
             else
             {
                 BLL_Permission.SaveProfile(profile);
             }
-            this.Close();
             pForm?.LoadAllPermissions();
+            this.Close();
+        }
+        private void PrintFamilyHierarchy(BE_Family family, string indent = "")
+        {
+            if (family == null) return;
+
+            Console.WriteLine($"{indent}- {family.Description} (ID: {family.Id})");
+
+
+            if (family.Children != null && family.Children.Count > 0)
+            {
+                foreach (var child in family.Children)
+                {
+
+                    PrintFamilyHierarchy((BE_Family)child, indent + "  ");
+                }
+            }
         }
 
         private void FormManageProfile_FormClosing(object sender, FormClosingEventArgs e)
         {
             pForm?.LoadAllPermissions();
+        }
+
+        private void cBTypePermission_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if ((sender as ComboBox).SelectedIndex == 0)
+            {
+                LoadNodesInTreeView(treeViewPermissions, BLL_Permission.GetAllPermissionsSystem());
+            }
+            else
+            {
+                var profiles = BLL_Permission.GetAllProfiles();
+                if (profile != null)
+                {
+                    profiles.Remove(profiles.FirstOrDefault(p => p.Id == profile.Id));
+                }
+                LoadNodesInTreeView(treeViewPermissions, profiles);
+            }
         }
     }
 }

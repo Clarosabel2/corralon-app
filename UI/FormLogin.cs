@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,9 +25,7 @@ namespace UI
             lblErrorMessage.Visible = false;
             BLL_Language.LoadTranslations();
             LanguageManager.Attach(this);
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
-
         #region "Funcionalidades Visuales"
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -44,7 +43,8 @@ namespace UI
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
-            if (txtUser.Text == SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name])
+            string txt = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name] ?? "username";
+            if (txtUser.Text == txt)
             {
                 txtUser.Text = "";
             }
@@ -53,14 +53,15 @@ namespace UI
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name];
+                txtUser.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name]??"username";
             }
 
         }
 
         private void txtPsswrd_Enter(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text == SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
+            var txt = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name] ?? "password";
+            if (txtPsswrd.Text == txt)
             {
                 txtPsswrd.Text = "";
                 txtPsswrd.PasswordChar = '*';
@@ -72,12 +73,13 @@ namespace UI
             if (txtPsswrd.Text == "")
             {
                 txtPsswrd.PasswordChar = '\0';
-                txtPsswrd.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name];
+                txtPsswrd.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name]??"password";
             }
         }
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            if (txtPsswrd.Text != SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name])
+            string txt = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name] ?? "password";
+            if (txtPsswrd.Text != txt)
             {
                 if (checkBoxShowPassword.Checked)
                 {
@@ -88,7 +90,7 @@ namespace UI
                     txtPsswrd.PasswordChar = '*';
                 }
             }
-
+            
         }
         #endregion
 
@@ -140,7 +142,7 @@ namespace UI
                 if (!flagBlock)
                 {
                     lblErrorMessage.Visible = true;
-                    lblErrorMessage.Text = $"{SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgErrorCredentials"]} { 3 - _failedLogins[txtUser.Text]}" ;
+                    lblErrorMessage.Text = $"{SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgErrorCredentials"]} {3 - _failedLogins[txtUser.Text]}";
                 }
             }
 
@@ -153,16 +155,14 @@ namespace UI
             {
                 btnChangeLenguage.Text = "SP";
                 isEnglish = false;
-                //LanguageManager.CurrentLanguage = "spanish";
             }
             else
             {
                 btnChangeLenguage.Text = "EN";
                 isEnglish = true;
-                //LanguageManager.CurrentLanguage = "english";
             }
         }
-        
+
         public void Update(BE_Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);

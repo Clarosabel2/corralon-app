@@ -1,5 +1,6 @@
 ﻿using BDE.Language;
 using DAL;
+using SVC;
 using SVC.LanguageManager;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,11 @@ namespace BLL
 {
     public static class BLL_Language
     {
+        public static bool CreateLanguage(string userInput)
+        {
+            return DAL_Language.CreateLanguage(userInput);
+        }
+
         public static List<BE_Language> GetLanguages()
         {
             return DAL_Language.GetLanguages()/*
@@ -32,7 +38,14 @@ namespace BLL
 
         public static bool UpdateTranslations(Tuple<string, string, DataTable> translations)
         {
-            return DAL_Language.UpdateTranslations(translations);
+            
+            if (DAL_Language.UpdateTranslations(translations))
+            {
+                LoadTranslations();
+                LanguageManager.CurrentLanguage = SessionManager.translations.FirstOrDefault(i => i.Key.Name == SessionManager.GetInstance.user.Language.Name).Key;
+                return true;
+            }
+            return false;
         }
     }
 }

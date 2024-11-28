@@ -42,23 +42,23 @@
             this.lblCurrentPassword = new System.Windows.Forms.Label();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblSurname2 = new System.Windows.Forms.Label();
-            this.lblName2 = new System.Windows.Forms.Label();
-            this.lblEditMyData = new System.Windows.Forms.Label();
-            this.lblTittle = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.lblSurname = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lblPosition2 = new System.Windows.Forms.Label();
+            this.lblChangeEmail = new System.Windows.Forms.Label();
+            this.lblChangeSurname = new System.Windows.Forms.Label();
+            this.lblChangeName = new System.Windows.Forms.Label();
+            this.lblEditMyDataTitle = new System.Windows.Forms.Label();
+            this.lblTitleForm = new System.Windows.Forms.Label();
+            this.lblUserTitle = new System.Windows.Forms.Label();
+            this.lblNameTitle = new System.Windows.Forms.Label();
+            this.lblLastnameTitle = new System.Windows.Forms.Label();
+            this.lblEmailTitle = new System.Windows.Forms.Label();
+            this.lblPositionTitle = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblName = new System.Windows.Forms.Label();
             this.lblLastName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblPosition = new System.Windows.Forms.Label();
             this.lnkEditProfile = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblLanguage = new System.Windows.Forms.Label();
             this.cBLanguages = new System.Windows.Forms.ComboBox();
             this.btnChangeLanguage = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -82,10 +82,10 @@
             this.panelEditProfile.Controls.Add(this.lblCurrentPassword);
             this.panelEditProfile.Controls.Add(this.lblConfirmPassword);
             this.panelEditProfile.Controls.Add(this.lblPassword);
-            this.panelEditProfile.Controls.Add(this.label5);
-            this.panelEditProfile.Controls.Add(this.lblSurname2);
-            this.panelEditProfile.Controls.Add(this.lblName2);
-            this.panelEditProfile.Controls.Add(this.lblEditMyData);
+            this.panelEditProfile.Controls.Add(this.lblChangeEmail);
+            this.panelEditProfile.Controls.Add(this.lblChangeSurname);
+            this.panelEditProfile.Controls.Add(this.lblChangeName);
+            this.panelEditProfile.Controls.Add(this.lblEditMyDataTitle);
             this.panelEditProfile.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelEditProfile.Location = new System.Drawing.Point(400, 0);
             this.panelEditProfile.Name = "panelEditProfile";
@@ -235,110 +235,110 @@
             this.lblPassword.TabIndex = 5;
             this.lblPassword.Text = "Contraseña:";
             // 
-            // label5
+            // lblChangeEmail
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(15, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 20);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Email:";
+            this.lblChangeEmail.AutoSize = true;
+            this.lblChangeEmail.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeEmail.ForeColor = System.Drawing.Color.White;
+            this.lblChangeEmail.Location = new System.Drawing.Point(15, 161);
+            this.lblChangeEmail.Name = "lblChangeEmail";
+            this.lblChangeEmail.Size = new System.Drawing.Size(50, 20);
+            this.lblChangeEmail.TabIndex = 4;
+            this.lblChangeEmail.Text = "Email:";
             // 
-            // lblSurname2
+            // lblChangeSurname
             // 
-            this.lblSurname2.AutoSize = true;
-            this.lblSurname2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSurname2.ForeColor = System.Drawing.Color.White;
-            this.lblSurname2.Location = new System.Drawing.Point(15, 114);
-            this.lblSurname2.Name = "lblSurname2";
-            this.lblSurname2.Size = new System.Drawing.Size(73, 20);
-            this.lblSurname2.TabIndex = 3;
-            this.lblSurname2.Text = "Apellido:";
+            this.lblChangeSurname.AutoSize = true;
+            this.lblChangeSurname.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeSurname.ForeColor = System.Drawing.Color.White;
+            this.lblChangeSurname.Location = new System.Drawing.Point(15, 114);
+            this.lblChangeSurname.Name = "lblChangeSurname";
+            this.lblChangeSurname.Size = new System.Drawing.Size(73, 20);
+            this.lblChangeSurname.TabIndex = 3;
+            this.lblChangeSurname.Text = "Apellido:";
             // 
-            // lblName2
+            // lblChangeName
             // 
-            this.lblName2.AutoSize = true;
-            this.lblName2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName2.ForeColor = System.Drawing.Color.White;
-            this.lblName2.Location = new System.Drawing.Point(15, 68);
-            this.lblName2.Name = "lblName2";
-            this.lblName2.Size = new System.Drawing.Size(72, 20);
-            this.lblName2.TabIndex = 2;
-            this.lblName2.Text = "Nombre:";
+            this.lblChangeName.AutoSize = true;
+            this.lblChangeName.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeName.ForeColor = System.Drawing.Color.White;
+            this.lblChangeName.Location = new System.Drawing.Point(15, 68);
+            this.lblChangeName.Name = "lblChangeName";
+            this.lblChangeName.Size = new System.Drawing.Size(72, 20);
+            this.lblChangeName.TabIndex = 2;
+            this.lblChangeName.Text = "Nombre:";
             // 
-            // lblEditMyData
+            // lblEditMyDataTitle
             // 
-            this.lblEditMyData.AutoSize = true;
-            this.lblEditMyData.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditMyData.ForeColor = System.Drawing.Color.White;
-            this.lblEditMyData.Location = new System.Drawing.Point(13, 20);
-            this.lblEditMyData.Name = "lblEditMyData";
-            this.lblEditMyData.Size = new System.Drawing.Size(213, 31);
-            this.lblEditMyData.TabIndex = 0;
-            this.lblEditMyData.Text = "Editar Mis Datos";
-            this.lblEditMyData.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblEditMyDataTitle.AutoSize = true;
+            this.lblEditMyDataTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditMyDataTitle.ForeColor = System.Drawing.Color.White;
+            this.lblEditMyDataTitle.Location = new System.Drawing.Point(13, 20);
+            this.lblEditMyDataTitle.Name = "lblEditMyDataTitle";
+            this.lblEditMyDataTitle.Size = new System.Drawing.Size(213, 31);
+            this.lblEditMyDataTitle.TabIndex = 0;
+            this.lblEditMyDataTitle.Text = "Editar Mis Datos";
+            this.lblEditMyDataTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblTittle
+            // lblTitleForm
             // 
-            this.lblTittle.AutoSize = true;
-            this.lblTittle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
-            this.lblTittle.Location = new System.Drawing.Point(12, 20);
-            this.lblTittle.Name = "lblTittle";
-            this.lblTittle.Size = new System.Drawing.Size(111, 31);
-            this.lblTittle.TabIndex = 1;
-            this.lblTittle.Text = "Mi Perfil";
+            this.lblTitleForm.AutoSize = true;
+            this.lblTitleForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F);
+            this.lblTitleForm.Location = new System.Drawing.Point(12, 20);
+            this.lblTitleForm.Name = "lblTitleForm";
+            this.lblTitleForm.Size = new System.Drawing.Size(111, 31);
+            this.lblTitleForm.TabIndex = 1;
+            this.lblTitleForm.Text = "Mi Perfil";
             // 
-            // lblUsername
+            // lblUserTitle
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblUsername.Location = new System.Drawing.Point(156, 77);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(64, 18);
-            this.lblUsername.TabIndex = 2;
-            this.lblUsername.Text = "Usuario:";
+            this.lblUserTitle.AutoSize = true;
+            this.lblUserTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblUserTitle.Location = new System.Drawing.Point(156, 77);
+            this.lblUserTitle.Name = "lblUserTitle";
+            this.lblUserTitle.Size = new System.Drawing.Size(64, 18);
+            this.lblUserTitle.TabIndex = 2;
+            this.lblUserTitle.Text = "Usuario:";
             // 
-            // lblName
+            // lblNameTitle
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblName.Location = new System.Drawing.Point(156, 112);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(52, 18);
-            this.lblName.TabIndex = 3;
-            this.lblName.Text = "Name:";
+            this.lblNameTitle.AutoSize = true;
+            this.lblNameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblNameTitle.Location = new System.Drawing.Point(156, 112);
+            this.lblNameTitle.Name = "lblNameTitle";
+            this.lblNameTitle.Size = new System.Drawing.Size(52, 18);
+            this.lblNameTitle.TabIndex = 3;
+            this.lblNameTitle.Text = "Name:";
             // 
-            // lblSurname
+            // lblLastnameTitle
             // 
-            this.lblSurname.AutoSize = true;
-            this.lblSurname.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblSurname.Location = new System.Drawing.Point(156, 146);
-            this.lblSurname.Name = "lblSurname";
-            this.lblSurname.Size = new System.Drawing.Size(77, 18);
-            this.lblSurname.TabIndex = 4;
-            this.lblSurname.Text = "Lastname:";
+            this.lblLastnameTitle.AutoSize = true;
+            this.lblLastnameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblLastnameTitle.Location = new System.Drawing.Point(156, 146);
+            this.lblLastnameTitle.Name = "lblLastnameTitle";
+            this.lblLastnameTitle.Size = new System.Drawing.Size(77, 18);
+            this.lblLastnameTitle.TabIndex = 4;
+            this.lblLastnameTitle.Text = "Lastname:";
             // 
-            // label14
+            // lblEmailTitle
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label14.Location = new System.Drawing.Point(156, 180);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(49, 18);
-            this.label14.TabIndex = 5;
-            this.label14.Text = "Email:";
+            this.lblEmailTitle.AutoSize = true;
+            this.lblEmailTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblEmailTitle.Location = new System.Drawing.Point(156, 180);
+            this.lblEmailTitle.Name = "lblEmailTitle";
+            this.lblEmailTitle.Size = new System.Drawing.Size(49, 18);
+            this.lblEmailTitle.TabIndex = 5;
+            this.lblEmailTitle.Text = "Email:";
             // 
-            // lblPosition2
+            // lblPositionTitle
             // 
-            this.lblPosition2.AutoSize = true;
-            this.lblPosition2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.lblPosition2.Location = new System.Drawing.Point(156, 214);
-            this.lblPosition2.Name = "lblPosition2";
-            this.lblPosition2.Size = new System.Drawing.Size(53, 18);
-            this.lblPosition2.TabIndex = 6;
-            this.lblPosition2.Text = "Cargo:";
+            this.lblPositionTitle.AutoSize = true;
+            this.lblPositionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblPositionTitle.Location = new System.Drawing.Point(156, 214);
+            this.lblPositionTitle.Name = "lblPositionTitle";
+            this.lblPositionTitle.Size = new System.Drawing.Size(53, 18);
+            this.lblPositionTitle.TabIndex = 6;
+            this.lblPositionTitle.Text = "Cargo:";
             // 
             // lblUser
             // 
@@ -351,16 +351,16 @@
             this.lblUser.TabIndex = 7;
             this.lblUser.Text = "user";
             // 
-            // lblFirstName
+            // lblName
             // 
-            this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.lblFirstName.Location = new System.Drawing.Point(163, 130);
-            this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(55, 16);
-            this.lblFirstName.TabIndex = 8;
-            this.lblFirstName.Text = "firstname";
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.lblName.Location = new System.Drawing.Point(163, 130);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(55, 16);
+            this.lblName.TabIndex = 8;
+            this.lblName.Text = "firstname";
             // 
             // lblLastName
             // 
@@ -408,15 +408,15 @@
             this.lnkEditProfile.Text = "Editar Perfil";
             this.lnkEditProfile.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkEditProfile_LinkClicked);
             // 
-            // label1
+            // lblLanguage
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
-            this.label1.Location = new System.Drawing.Point(156, 258);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 18);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Idioma:";
+            this.lblLanguage.AutoSize = true;
+            this.lblLanguage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblLanguage.Location = new System.Drawing.Point(156, 258);
+            this.lblLanguage.Name = "lblLanguage";
+            this.lblLanguage.Size = new System.Drawing.Size(56, 18);
+            this.lblLanguage.TabIndex = 14;
+            this.lblLanguage.Text = "Idioma:";
             // 
             // cBLanguages
             // 
@@ -457,20 +457,20 @@
             this.ClientSize = new System.Drawing.Size(729, 564);
             this.Controls.Add(this.btnChangeLanguage);
             this.Controls.Add(this.cBLanguages);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblLanguage);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lnkEditProfile);
             this.Controls.Add(this.lblPosition);
             this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblLastName);
-            this.Controls.Add(this.lblFirstName);
-            this.Controls.Add(this.lblUser);
-            this.Controls.Add(this.lblPosition2);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.lblSurname);
             this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.lblTittle);
+            this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.lblPositionTitle);
+            this.Controls.Add(this.lblEmailTitle);
+            this.Controls.Add(this.lblLastnameTitle);
+            this.Controls.Add(this.lblNameTitle);
+            this.Controls.Add(this.lblUserTitle);
+            this.Controls.Add(this.lblTitleForm);
             this.Controls.Add(this.panelEditProfile);
             this.Name = "FormUserProfile";
             this.Text = "Mi Perfil";
@@ -495,20 +495,20 @@
         private System.Windows.Forms.Label lblCurrentPassword;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblSurname2;
-        private System.Windows.Forms.Label lblName2;
-        private System.Windows.Forms.Label lblEditMyData;
+        private System.Windows.Forms.Label lblChangeEmail;
+        private System.Windows.Forms.Label lblChangeSurname;
+        private System.Windows.Forms.Label lblChangeName;
+        private System.Windows.Forms.Label lblEditMyDataTitle;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSaveMyData;
-        private System.Windows.Forms.Label lblTittle;
-        private System.Windows.Forms.Label lblUsername;
-        private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.Label lblSurname;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label lblPosition2;
+        private System.Windows.Forms.Label lblTitleForm;
+        private System.Windows.Forms.Label lblUserTitle;
+        private System.Windows.Forms.Label lblNameTitle;
+        private System.Windows.Forms.Label lblLastnameTitle;
+        private System.Windows.Forms.Label lblEmailTitle;
+        private System.Windows.Forms.Label lblPositionTitle;
         private System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblPosition;
@@ -516,7 +516,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBoxChangePassword;
         private System.Windows.Forms.CheckBox checkBoxChangeData;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblLanguage;
         private System.Windows.Forms.ComboBox cBLanguages;
         private System.Windows.Forms.Button btnChangeLanguage;
     }

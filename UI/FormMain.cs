@@ -8,7 +8,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Runtime.Serialization;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,18 +23,17 @@ namespace UI
         public FormMain()
         {
             InitializeComponent();
-            timerDateHour.Start();
-            LanguageManager.Attach(this);
+            //timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
+            LanguageManager.Attach(this);  
         }
-
+       
         private void EnableControls()
         {
             switch (SessionManager.GetInstance.user.Rol)
             {
                 case BDE.BE_TypeUser.ADMIN:
-                    
+
                     break;
                 case BDE.BE_TypeUser.SALESMAN:
 
@@ -262,6 +263,6 @@ namespace UI
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
 
-        
+
     }
 }

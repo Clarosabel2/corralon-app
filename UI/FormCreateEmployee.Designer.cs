@@ -41,7 +41,7 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblDni = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblAreas = new System.Windows.Forms.Label();
             this.cBAreas = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -174,15 +174,15 @@
             this.lblDni.TabIndex = 16;
             this.lblDni.Text = "DNI:";
             // 
-            // label1
+            // lblAreas
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label1.Location = new System.Drawing.Point(12, 39);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Area:";
+            this.lblAreas.AutoSize = true;
+            this.lblAreas.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblAreas.Location = new System.Drawing.Point(12, 39);
+            this.lblAreas.Name = "lblAreas";
+            this.lblAreas.Size = new System.Drawing.Size(45, 19);
+            this.lblAreas.TabIndex = 29;
+            this.lblAreas.Text = "Area:";
             // 
             // cBAreas
             // 
@@ -200,7 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(338, 263);
             this.Controls.Add(this.cBAreas);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblAreas);
             this.Controls.Add(this.btnSaveEmployee);
             this.Controls.Add(this.txtTelefono);
             this.Controls.Add(this.lblTelefono);
@@ -236,7 +236,7 @@
         private System.Windows.Forms.Label lblNombre;
         public System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblAreas;
         private System.Windows.Forms.ComboBox cBAreas;
     }
 }

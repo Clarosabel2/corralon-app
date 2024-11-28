@@ -117,4 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FormLogin" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormMain" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormUserProfile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormCreateSale" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormProfiles" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormLanguageConfig" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormRegisterClient" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormCreateUser" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormCreateEmployee" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormEmployees" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormManageProfile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormOrders" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormPreShipOrder" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FormUsers" xml:space="preserve">
+    <value />
+  </data>
 </root>

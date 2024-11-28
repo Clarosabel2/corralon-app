@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BDE.Language;
 using BLL;
+using Microsoft.VisualBasic;
 using SVC;
 using SVC.LanguageManager;
 using System;
@@ -27,21 +28,30 @@ namespace UI
             LoadAllForms();
             dgvTranslation.DataSource = GetContolsWithTranslations();
         }
-        public void LoadAllForms()
+        private void LoadLanguageInComboBox()
         {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-
-            var formTypes = assembly.GetTypes()
-                                .Where(t => t.IsSubclassOf(typeof(Form)) && !t.IsAbstract)
-                                .ToList();
-
-            foreach (var formType in formTypes)
-            {
-                cBForms.Items.Add(formType.Name);
-            }
+            cBLanguages.Items.Clear();
             BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(new KeyValuePair<BE_Language, string>(l, l.Name)));
             cBLanguages.DisplayMember = "Value";
             cBLanguages.ValueMember = "Key";
+
+            comboBoxLanguages.Items.Clear();
+            var len = BLL_Language.GetLanguages();
+            len.ForEach(l => comboBoxLanguages.Items.Add(l.Name));
+            comboBoxLanguages.SelectedIndex = comboBoxLanguages.FindString(len.FirstOrDefault(l => l.IsDefault).Name);
+        }
+        public void LoadAllForms()
+        {
+            using (ResXResourceReader fileResx = new ResXResourceReader
+                (@"../../Resources/ResourceForms.resx"))
+            {
+                foreach (DictionaryEntry f in fileResx)
+                {
+                    cBForms.Items.Add(f.Key.ToString());
+                }
+            }
+
+            LoadLanguageInComboBox();
 
             cBLanguages.SelectedIndex = 0;
             cBForms.SelectedIndex = 0;
@@ -52,17 +62,22 @@ namespace UI
             dt.Columns.Add("Controles", typeof(string));
             dt.Columns.Add("Traducción", typeof(string));
             var len = SessionManager.translations.FirstOrDefault(l => l.Key.Name == cBLanguages.Text);
+
             Dictionary<string, string> lens = null;
 
-            if (SessionManager.translations.ContainsKey(len.Key) &&
-                SessionManager.translations[len.Key].ContainsKey(cBForms.Text))
+            if (!len.Equals(default(KeyValuePair<BE_Language, Dictionary<string, Dictionary<string, string>>>)))
             {
-                lens = SessionManager.translations[len.Key][cBForms.Text];
+
+                if (SessionManager.translations.ContainsKey(len.Key) &&
+                    SessionManager.translations[len.Key].ContainsKey(cBForms.Text))
+                {
+                    lens = SessionManager.translations[len.Key][cBForms.Text];
+                }
             }
 
             List<KeyValuePair<string, string>> resxData = new List<KeyValuePair<string, string>>();
-
-            using (ResXResourceReader resxReader = new ResXResourceReader(@"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx"))
+            using (ResXResourceReader resxReader = new ResXResourceReader
+                (@"../../Resources/Resource1.resx"))
             {
                 foreach (DictionaryEntry entry in resxReader)
                 {
@@ -83,13 +98,12 @@ namespace UI
                 }
                 dt.Rows.Add(data.Key, translation);
             }
+
             return dt;
         }
         private void FormLanguageConfig_Load(object sender, EventArgs e)
         {
-            var len = BLL_Language.GetLanguages();
-            len.ForEach(l => comboBoxLanguages.Items.Add(l.Name));
-            comboBoxLanguages.SelectedIndex = comboBoxLanguages.FindString(len.FirstOrDefault(l => l.IsDefault).Name);
+
         }
 
         private void btnSetDefaultLanguage_Click(object sender, EventArgs e)
@@ -110,13 +124,32 @@ namespace UI
         private void btnUpdateTranlationsControls_Click(object sender, EventArgs e)
         {
             Tuple<string, string, DataTable> translations
-                = new Tuple<string, string, DataTable>
-                (cBLanguages.Text, cBForms.Text, dgvTranslation.DataSource as DataTable);
-            if (BLL_Language.UpdateTranslations(translations))
+               = new Tuple<string, string, DataTable>
+               (cBLanguages.Text, cBForms.Text, dgvTranslation.DataSource as DataTable);
+            try
             {
-                BLL_Language.LoadTranslations();
-                LanguageManager.CurrentLanguage = SessionManager.translations.FirstOrDefault(i => i.Key.Name == SessionManager.GetInstance.user.Language.Name).Key;
-                MessageBox.Show("Se actualizo correctamente la traducción");
+                if (BLL_Language.UpdateTranslations(translations))
+                {
+                    MessageBox.Show("Se actualizo correctamente la traducción");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnCreateNewLanguage_Click(object sender, EventArgs e)
+        {
+            string userInput = Interaction.InputBox("Ingrese el idioma:", "Entrada requerida", "");
+
+            if (!string.IsNullOrEmpty(userInput))
+            {
+                if (BLL_Language.CreateLanguage(userInput))
+                {
+                    LoadLanguageInComboBox();
+                    cBLanguages.SelectedItem = cBLanguages.Items[cBLanguages.Items.Count - 1];
+                }
             }
         }
     }

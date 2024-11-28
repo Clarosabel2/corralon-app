@@ -19,12 +19,11 @@ namespace UI
         public FormPreShipOrder(int idInvoice, FormOrders f)
         {
             InitializeComponent();
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
             frmOrders = f;
             _id_invoice = idInvoice;
             dgvDetailsOrder.DataSource = BLL_Sale.GetProductsByIdInvoice(idInvoice);
 
-            BLL_Employee.GetEmployeesByArea("Reparto")
+            BLL_Employee.GetEmployeesByArea(BE_Area.DELIVERY.ToString())
                 .ForEach(e => cBDealers.Items.Add(new KeyValuePair<BE_Employee, string>(e, $"{e.Lastname}, {e.Name}")));
             cBDealers.DisplayMember = "Value";
             cBDealers.ValueMember = "Key";

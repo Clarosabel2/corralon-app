@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblEmployees = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.lblRols = new System.Windows.Forms.Label();
             this.comboBoxEmployees = new System.Windows.Forms.ComboBox();
             this.comboBoxRols = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -39,45 +39,45 @@
             this.btnCreateUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblEmployees
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label1.Location = new System.Drawing.Point(6, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Empleado:";
+            this.lblEmployees.AutoSize = true;
+            this.lblEmployees.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblEmployees.Location = new System.Drawing.Point(6, 14);
+            this.lblEmployees.Name = "lblEmployees";
+            this.lblEmployees.Size = new System.Drawing.Size(85, 19);
+            this.lblEmployees.TabIndex = 0;
+            this.lblEmployees.Text = "Empleado:";
             // 
-            // label2
+            // lblUsername
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label2.Location = new System.Drawing.Point(6, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Usuario:";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblUsername.Location = new System.Drawing.Point(6, 45);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(62, 19);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "Usuario:";
             // 
-            // label3
+            // lblPassword
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label3.Location = new System.Drawing.Point(6, 74);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Contraseña:";
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblPassword.Location = new System.Drawing.Point(6, 74);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(94, 19);
+            this.lblPassword.TabIndex = 2;
+            this.lblPassword.Text = "Contraseña:";
             // 
-            // label4
+            // lblRols
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label4.Location = new System.Drawing.Point(12, 103);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Rol:";
+            this.lblRols.AutoSize = true;
+            this.lblRols.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.lblRols.Location = new System.Drawing.Point(12, 103);
+            this.lblRols.Name = "lblRols";
+            this.lblRols.Size = new System.Drawing.Size(34, 19);
+            this.lblRols.TabIndex = 3;
+            this.lblRols.Text = "Rol:";
             // 
             // comboBoxEmployees
             // 
@@ -125,6 +125,7 @@
             // btnCreateUser
             // 
             this.btnCreateUser.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCreateUser.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCreateUser.Location = new System.Drawing.Point(0, 137);
             this.btnCreateUser.Name = "btnCreateUser";
             this.btnCreateUser.Size = new System.Drawing.Size(300, 41);
@@ -143,10 +144,10 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBoxRols);
             this.Controls.Add(this.comboBoxEmployees);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblRols);
+            this.Controls.Add(this.lblPassword);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblEmployees);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormCreateUser";
             this.Text = "FormCreateUser";
@@ -157,10 +158,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblEmployees;
+        private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label lblPassword;
+        private System.Windows.Forms.Label lblRols;
         private System.Windows.Forms.ComboBox comboBoxEmployees;
         private System.Windows.Forms.ComboBox comboBoxRols;
         private System.Windows.Forms.TextBox textBox1;

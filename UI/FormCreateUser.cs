@@ -17,8 +17,7 @@ namespace UI
         public FormCreateUser()
         {
             InitializeComponent();
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
-            LoadData();
+            LoadData(); 
         }
 
         private void LoadData()

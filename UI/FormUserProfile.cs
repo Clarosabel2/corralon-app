@@ -25,7 +25,6 @@ namespace UI
             LoadLanguages();
             LanguageManager.Attach(this);
             DisableControls();
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
         private void DisableControls()
@@ -48,7 +47,7 @@ namespace UI
         private void LoadDataUser()
         {
             lblUser.Text = SessionManager.GetInstance.user.Username;
-            lblFirstName.Text = SessionManager.GetInstance.user.Emp.Name;
+            lblName.Text = SessionManager.GetInstance.user.Emp.Name;
             lblLastName.Text = SessionManager.GetInstance.user.Emp.Lastname;
             lblEmail.Text = SessionManager.GetInstance.user.Emp.Email;
             lblPosition.Text = SessionManager.GetInstance.user.Rol.ToString();

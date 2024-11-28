@@ -17,7 +17,6 @@ namespace UI
         {
             InitializeComponent();
             LoadOrders();
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
 
         public void LoadOrders()

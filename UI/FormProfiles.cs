@@ -21,7 +21,6 @@ namespace UI
         public FormProfiles()
         {
             InitializeComponent();
-            //ResxExporter.ExportControlsToResx(this, @"D:\Proyectos\UAI\3ER AÑO\IS\Proyecto Aplicacion\corralon-app\UI\Resources\ResourceControlsLanguage.resx");
         }
         private void FormProfiles_Load(object sender, EventArgs e)
         {
@@ -57,22 +56,6 @@ namespace UI
             return rootNode;
         }
 
-        private void createNewProfileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormManageProfile f = new FormManageProfile();
-            f.BringToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog();
-        }
-
-        private void assignProfileToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormAssignProfile f = new FormAssignProfile();
-            f.BringToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
-            f.ShowDialog();
-        }
-
         private void cBProfiles_SelectedIndexChanged(object sender, EventArgs e)
         {
             var selectedPair = (KeyValuePair<string, string>)cBProfiles.SelectedItem;
@@ -94,10 +77,26 @@ namespace UI
         {
             BE_Family fm = new BE_Family();
             fm = profiles.FirstOrDefault(p => p.Id == idProfile);
-            FormManageProfile f = new FormManageProfile(fm,this);
+            FormManageProfile f = new FormManageProfile(fm, this);
             f.BringToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.ShowDialog();
+        }
+
+        private void btnCreateProfile_Click(object sender, EventArgs e)
+        {
+            FormManageProfile f = new FormManageProfile(null, this);
+            f.BringToFront();
+            f.StartPosition = FormStartPosition.CenterScreen;
+            f.ShowDialog();
+        }
+
+        private void btnDeleteFamily_Click(object sender, EventArgs e)
+        {
+            BE_Family fm = new BE_Family();
+            fm = profiles.FirstOrDefault(p => p.Id == idProfile);
+            BLL_Permission.DeleteProfile(fm);
+            LoadAllPermissions();
         }
     }
 }

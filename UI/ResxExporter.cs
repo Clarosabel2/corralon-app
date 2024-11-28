@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Resources;
 using System.Windows.Forms;
+using System.Reflection;
+using System.Linq;
 
 namespace UI
 {
@@ -25,13 +27,14 @@ namespace UI
                     }
                 }
             }
+
             using (ResXResourceWriter resxWriter = new ResXResourceWriter(resxFilePath))
             {
                 void ProcessControls(Control parent)
                 {
                     foreach (Control control in parent.Controls)
                     {
-                        if (control is Button || control is Label || control is GroupBox || control is LinkLabel)
+                        if (control is Button || control is Label || control is GroupBox || control is LinkLabel || control is CheckBox)
                         {
                             string controlInfo = $"{form.Name}:{control.Name}";
 
@@ -53,7 +56,6 @@ namespace UI
                 }
                 ProcessControls(form);
             }
-            MessageBox.Show($"Archivo .resx actualizado en: {resxFilePath}", "Exportación exitosa", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

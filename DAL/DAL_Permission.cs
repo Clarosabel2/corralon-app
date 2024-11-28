@@ -11,6 +11,7 @@ using BDE.Composite;
 using System.Runtime.InteropServices;
 using System.Runtime.Remoting.Messaging;
 using System.Collections;
+using System.Configuration;
 
 namespace DAL
 {
@@ -101,38 +102,6 @@ namespace DAL
             return p;
         }
 
-        private static List<BE_Patent> GetPatentsByFamily(BE_Family f)
-        {
-            var cnn = new DAL_Connection();
-            var cmd = new SqlCommand();
-            cmd.Connection = cnn.OpenConnection();
-            cmd.CommandText = @"SELECT 
-                                    p.id_Permiso,
-                                    p.descripcion 
-                                FROM 
-                                    Permisos p
-                                INNER JOIN 
-                                    RelacionPermiso rp ON p.id_Permiso = rp.id_PermisoSimple
-                                WHERE rp.id_PermisoCompuesto = @idFamily ;";
-
-            cmd.Parameters.AddWithValue("@idFamily", f.Id);
-            cmd.CommandType = CommandType.Text;
-
-            cmd.ExecuteNonQuery();
-
-            var patents = new List<BE_Patent>();
-
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
-                {
-                    patents.Add(new BE_Patent(dr["id_Permiso"].ToString(), dr["descripcion"].ToString()));
-                }
-            }
-            return patents;
-        }
-
         public static void SaveProfile(BE_Family profile)
         {
             var cnn = new DAL_Connection();
@@ -144,7 +113,7 @@ namespace DAL
             cmd.Parameters.AddWithValue("@type", 1);
             cmd.Parameters.AddWithValue("@description", profile.Description);
             cmd.ExecuteNonQuery();
-            if (profile.Children != null)
+            if (profile.Children != null && profile.Children.Count != 0)
             {
                 var query = @"INSERT INTO RelacionPermiso (id_PermisoCompuesto, id_PermisoSimple) VALUES";
                 foreach (var child in profile.Children)
@@ -165,32 +134,49 @@ namespace DAL
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
             cmd.CommandText = @"DELETE FROM RelacionPermiso WHERE id_PermisoCompuesto=@id_profile";
-            cmd.CommandType= CommandType.Text;
+            cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@id_profile", profile.Id);
             cmd.ExecuteNonQuery();
             cmd.Parameters.Clear();
-            /*
-            cmd.CommandText = @"INSERT INTO Permisos (id_Permiso,tipo, descripcion,isGeneral) VALUES (@id_permiso,@type,@description,0)";
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.AddWithValue("@id_permiso", profile.Id);
-            cmd.Parameters.AddWithValue("@type", 1);
-            cmd.Parameters.AddWithValue("@description", profile.Description);
-            cmd.ExecuteNonQuery();*/
 
-            if (profile.Children != null)
+            if (profile.Children != null && profile.Children.Count > 0)
             {
-                var query = @"INSERT INTO RelacionPermiso (id_PermisoCompuesto, id_PermisoSimple) VALUES";
-                foreach (var child in profile.Children)
-                {
-                    query += $"('{profile.Id}','{child.Id}'),";
-                }
-                query = query.Substring(0, query.Length - 1) + ";";
-                cmd.CommandText = query;
-                cmd.CommandType = CommandType.Text;
-                cmd.ExecuteNonQuery();
+                InsertChildrenRecursively(cmd, profile.Id, profile.Children);
             }
+
             cmd.Connection = cnn.CloseConnection();
         }
-    }
+        private static void InsertChildrenRecursively(SqlCommand cmd, string parentId, IList<BE_Permission> children)
+        {
+            foreach (var child in children)
+            {
+                // Insertar la relación padre-hijo
+                cmd.CommandText = @"INSERT INTO RelacionPermiso (id_PermisoCompuesto, id_PermisoSimple) VALUES (@parentId, @childId)";
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@parentId", parentId);
+                cmd.Parameters.AddWithValue("@childId", child.Id);
+                cmd.ExecuteNonQuery();
 
+                // Insertar las relaciones de los hijos del hijo recursivamente
+                if (child.Children != null && child.Children.Count > 0)
+                {
+                    InsertChildrenRecursively(cmd, child.Id, child.Children);
+                }
+            }
+        }
+        public static void DeleteFamily(BE_Family profile)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+
+            cmd.CommandText = @"
+                                DELETE FROM RelacionPermiso WHERE id_PermisoCompuesto = @id_profile;
+                                DELETE FROM Permisos WHERE id_Permiso = @id_profile;";
+            cmd.Parameters.AddWithValue("@id_profile", profile.Id);
+
+            cmd.ExecuteNonQuery();
+            cnn.CloseConnection();
+        }
+    }
 }

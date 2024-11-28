@@ -60,20 +60,6 @@ namespace DAL
             }
             return emps;
         }
-        private static BE_Employee InstanceEmployee(SqlDataReader dr)
-        {
-            return new BE_Employee(
-                             dr.GetInt32(dr.GetOrdinal("id_Persona")),
-                             dr.GetInt32(dr.GetOrdinal("DNI")),
-                             dr.GetString(dr.GetOrdinal("nombre")),
-                             dr.GetString(dr.GetOrdinal("apellido")),
-                             dr.GetString(dr.GetOrdinal("domicilio")),
-                             dr.GetString(dr.GetOrdinal("email")),
-                             dr.GetInt32(dr.GetOrdinal("telefono")),
-                             0.0,
-                             dr.GetString(dr.GetOrdinal("nombreArea")));
-        }
-
         public static bool SaveEmployee(BE_Employee emp)
         {
             var cnn = new DAL_Connection();
@@ -89,7 +75,19 @@ namespace DAL
             cmd.Parameters.AddWithValue("@p_area", emp.Area);
             cmd.CommandType = CommandType.StoredProcedure;
             return cmd.ExecuteNonQuery() > 0;
-
+        }
+        private static BE_Employee InstanceEmployee(SqlDataReader dr)
+        {
+            return new BE_Employee(
+                             dr.GetInt32(dr.GetOrdinal("id_Persona")),
+                             dr.GetInt32(dr.GetOrdinal("DNI")),
+                             dr.GetString(dr.GetOrdinal("nombre")),
+                             dr.GetString(dr.GetOrdinal("apellido")),
+                             dr.GetString(dr.GetOrdinal("domicilio")),
+                             dr.GetString(dr.GetOrdinal("email")),
+                             dr.GetInt32(dr.GetOrdinal("telefono")),
+                             0.0,
+                             dr.GetString(dr.GetOrdinal("nombreArea")));
         }
     }
 }
