@@ -114,9 +114,9 @@ namespace UI
                         family.Children.Remove(child);
                         return;
                     }
-                    else
+                    else if(child is BE_Family childFamily)
                     {
-                        RemovePermissionFromProfile((BE_Family)child, permissionToRemove);
+                        RemovePermissionFromProfile(childFamily, permissionToRemove);
                     }
                 }
             }
@@ -145,7 +145,6 @@ namespace UI
             {
                 BE_Permission permissionToAdd = (BE_Permission)newNode.Tag;
 
-
                 if (BLL_Permission.IsAncestor(permissionToAdd, profile))
                 {
                     MessageBox.Show("No se puede agregar un nodo padre como hijo, ya que esto generaría una relación circular.",
@@ -161,13 +160,9 @@ namespace UI
                 }
                 if (targetTreeView.SelectedNode != null)
                 {
-
                     BE_Permission parentPermission = (BE_Permission)targetTreeView.SelectedNode.Tag;
 
-
-                    parentPermission.addChild(permissionToAdd);
-
-
+                    profile.addChild(permissionToAdd);
                     targetTreeView.SelectedNode.Nodes.Add((TreeNode)newNode.Clone());
                     targetTreeView.SelectedNode.Expand();
                 }
@@ -200,14 +195,14 @@ namespace UI
         private void ButtonAddFamily_Click(object sender, EventArgs e)
         {
             groupBox3.Enabled = false;
+
             if (!string.IsNullOrEmpty(txtNameFamily.Text) && !string.IsNullOrEmpty(txtDescripcionFamily.Text))
             {
                 groupBoxTreeViews.Enabled = true;
                 TreeNode node = new TreeNode(txtNameFamily.Text);
-                node.Tag = txtDescripcionFamily.Text;
-
+                BE_Permission permission = new BE_Family(txtNameFamily.Text, txtDescripcionFamily.Text);
+                node.Tag = permission;
                 profile = new BE_Family(node.Text, node.Tag.ToString());
-
                 treeViewProfile.Nodes.Add(node);
                 treeViewProfile.SelectedNode = node;
             }
@@ -240,7 +235,7 @@ namespace UI
             {
                 foreach (var child in family.Children)
                 {
-                    PrintFamilyHierarchy((BE_Family)child, indent + "  ");
+                    if (child is BE_Family) PrintFamilyHierarchy((BE_Family)child, indent + "  ");
                 }
             }
         }
