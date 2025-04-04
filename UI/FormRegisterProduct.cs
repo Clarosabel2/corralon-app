@@ -14,12 +14,16 @@ namespace UI
 {
     public partial class FormRegisterProduct : Form
     {
+
         BE_Product product = new BE_Product();
+        FormProducts fm = new FormProducts();
+        public bool ProductWasSaved { get; private set; } = false;
         bool isEdit = false;
-        public FormRegisterProduct(int idprdt = 0)
+        public FormRegisterProduct(int idprdt = 0, FormProducts fmPrdts = null)
         {
             InitializeComponent();
             LoadData();
+            fm = fmPrdts;
             if (idprdt != 0)
             {
                 isEdit = true;
@@ -77,7 +81,8 @@ namespace UI
             {
                 BLL_Product.UpdateProduct(product);
             }
-
+            fm.LoadData();
+            this.Close();
         }
     }
 }

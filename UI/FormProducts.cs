@@ -18,8 +18,10 @@ namespace UI
             InitializeComponent();
         }
 
-        private void LoadData()
+        public void LoadData()
         {
+            dgvProducts.Columns.Clear();
+            dgvProducts.Rows.Clear();
             DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
             col1.HeaderText = "ID";
             col1.Name = "productId";
@@ -59,7 +61,7 @@ namespace UI
             col6.Name = "productStock";
             col6.DataPropertyName = "Stock";
             col6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col6.ReadOnly= true;
+            col6.ReadOnly = true;
 
             DataGridViewImageColumn btnDeleteCol = new DataGridViewImageColumn();
             btnDeleteCol.HeaderText = "Acciones";
@@ -94,8 +96,11 @@ namespace UI
             FormRegisterProduct fm = new FormRegisterProduct();
             fm.StartPosition = FormStartPosition.CenterScreen;
             fm.FormBorderStyle = FormBorderStyle.FixedDialog;
+
             fm.ShowDialog();
         }
+
+
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -125,7 +130,7 @@ namespace UI
             // Clic en botón "Editar"
             else if (e.ColumnIndex == dgvProducts.Columns["btnEdit"].Index)
             {
-                FormRegisterProduct fm = new FormRegisterProduct(productId);
+                FormRegisterProduct fm = new FormRegisterProduct(productId, this);
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.ShowDialog();
             }
