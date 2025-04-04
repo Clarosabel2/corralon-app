@@ -17,11 +17,13 @@ namespace BDE
         private int weight;
         private int stock;
         private double price;
+        private bool isDelete;
 
-        public BE_Product(int id, BE_Brand marca, string descripcion, string categoria, double precio, int stock)
+        public BE_Product(int id, BE_Brand marca,string nombre, string descripcion, string categoria, double precio, int stock)
         {
             this.Id = id;
-            this.brand = marca;
+            this.Brand = marca;
+            this.Name = nombre;
             this.description = descripcion;
             this.Price = precio;
             this.Category = categoria;
@@ -30,7 +32,7 @@ namespace BDE
         public BE_Product(DataRow r)
         {
             this.Id = r.Field<int>("id_Producto");
-            this.brand = new BE_Brand(r.Field<string>("marca"));
+            this.Brand = new BE_Brand(r.Field<string>("marca"));
             this.Name = r.Field<string>("nombre");
             this.Price = r.Field<double>("precio");
             this.Category = r.Field<string>("nombreCategoria");
@@ -39,11 +41,11 @@ namespace BDE
         public BE_Product() { }
 
         public int Id { get => id; set => id = value; }
-        public string Category { get => category; set => category = value; }
-        public string Brand { get => brand.NameBrand; }
         public string Name { get => name; set => name = value; }
+        public string Description { get => description; set => description = value; }
         public double Price { get => price; set => price = value; }
         public int Stock { get => stock; set => stock = value; }
-
+        public string Category { get => category; set => category = value; }
+        public BE_Brand Brand { get => brand; set => brand = value; }
     }
 }

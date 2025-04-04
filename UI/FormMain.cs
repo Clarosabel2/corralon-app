@@ -262,7 +262,5 @@ namespace UI
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
-
-
     }
 }

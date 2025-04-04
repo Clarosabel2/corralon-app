@@ -56,8 +56,8 @@
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="ReaLTaiizor, Version=3.8.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ReaLTaiizor.3.8.0.5\lib\net48\ReaLTaiizor.dll</HintPath>
+    <Reference Include="ReaLTaiizor, Version=3.8.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReaLTaiizor.3.8.1.1\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -171,6 +171,12 @@
     <Compile Include="FormRegisterClient.Designer.cs">
       <DependentUpon>FormRegisterClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormRegisterProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegisterProduct.Designer.cs">
+      <DependentUpon>FormRegisterProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormUserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegisterClient.resx">
       <DependentUpon>FormRegisterClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegisterProduct.resx">
+      <DependentUpon>FormRegisterProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
@@ -351,6 +360,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-close-window-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-icon-circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit-icon-circle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

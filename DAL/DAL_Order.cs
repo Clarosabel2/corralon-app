@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAL_Order
     {
-        public static void DepatchOrder(int id_invoice, BE_Employee key)
+        public static void DepatchOrder(int id_invoice, BE_Employee dealer)
         {
             try
             {
@@ -23,11 +23,11 @@ namespace DAL
                     CommandType = CommandType.Text
                 };
                 cmd.Parameters.AddWithValue("@p_idInvoice", id_invoice);
-                cmd.Parameters.AddWithValue("@p_idEmployee", key.Id);
+                cmd.Parameters.AddWithValue("@p_idEmployee", dealer.Id);
                 cmd.ExecuteNonQuery();
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
@@ -37,8 +37,7 @@ namespace DAL
         {
             var cnn = new DAL_Connection();
             DataTable table = new DataTable();
-            SqlDataAdapter adapter = new SqlDataAdapter("sp_GetAllPendingOrder"
-                , cnn.Connection);
+            SqlDataAdapter adapter = new SqlDataAdapter("sp_GetAllPendingOrder", cnn.Connection);
             adapter.SelectCommand.CommandType = CommandType.StoredProcedure;
             adapter.Fill(table);
             return table;

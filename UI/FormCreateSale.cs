@@ -78,10 +78,14 @@ namespace UI
 
         private void LoadProducts(List<BE_Product> prdts)
         {
+            dgvProducts.Rows.Clear();
             if (prdts is null) MessageBox.Show("lista null");
 
             BindingList<BE_Product> p = new BindingList<BE_Product>(prdts);
-            dgvProducts.DataSource = p;
+            foreach (BE_Product item in p)
+            {
+                dgvProducts.Rows.Add(item.Id, item.Name, item.Brand.NameBrand, item.Category, item.Stock, item.Price);
+            }
 
             if (!dgvProducts.Columns.Contains("Amount"))
             {
@@ -114,17 +118,19 @@ namespace UI
             {
                 DataGridViewRow selectedRow = dgvProducts.SelectedRows[0];
 
+                BE_Product productSelected = products.Find(x => x.Id == int.Parse(selectedRow.Cells["IDProduct"].Value.ToString()));
 
-                var product = selectedRow.DataBoundItem as BE_Product;
+
+                //var product = selectedRow.DataBoundItem as BE_Product;
                 int cantidad = int.Parse(selectedRow.Cells["Amount"].Value?.ToString());
                 dgvProducts.SelectedRows[0].Cells["Amount"].Value = "";
 
                 try
                 {
-                    BLL_Sale.AddItem(product, cantidad);
+                    BLL_Sale.AddItem(productSelected, cantidad);
                     dgvCart.Rows.Clear();
                     BLL_Sale.newSale.ItemsProducts.ForEach(i => dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal));
-                    selectedRow.Cells["Stock"].Value = product.Stock - cantidad;
+                    selectedRow.Cells["stockProduct"].Value = productSelected.Stock - cantidad;
                     EnableRow(selectedRow);
                     FillCellsDGV(dgvCart);
                 }
@@ -147,15 +153,15 @@ namespace UI
                     try
                     {
                         int row = dgvCart.CurrentRow.Index;
-                        int itemID = int.Parse(dgvCart.Rows[row].Cells["IDItem"].Value.ToString());
+                        int itemID = int.Parse(dgvCart.Rows[row].Cells["IDProduct"].Value.ToString());
                         var item = BLL_Sale.RemoveItem(itemID);
 
                         foreach (DataGridViewRow dr in dgvProducts.Rows)
                         {
                             if (dr.Cells[1]?.Value?.ToString() == item.Product.Id.ToString())
                             {
-                                int currentStock = int.Parse(dr.Cells["Stock"].Value.ToString());
-                                dr.Cells["Stock"].Value = currentStock + item.Amount;
+                                int currentStock = int.Parse(dr.Cells["stockProduct"].Value.ToString());
+                                dr.Cells["stockProduct"].Value = currentStock + item.Amount;
                                 EnableRow(dr);
                                 break;
                             }
@@ -217,7 +223,6 @@ namespace UI
             }
         }
 
-        
         //Se Muestra el panel de confirmacion de venta
         private void buttonCerrarVenta_Click(object sender, EventArgs e)
         {
@@ -281,7 +286,6 @@ namespace UI
         {
             UpdateDetailsCart();
         }
-
         private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             UpdateDetailsCart();
@@ -300,13 +304,14 @@ namespace UI
 
         private void txtFilterName_TextChanged(object sender, EventArgs e)
         {
+            
             if (txtFilterName.Text != "")
             {
                 var prdtsFiltered = new List<BE_Product>();
 
                 string name = txtFilterName.Text;
                 prdtsFiltered = products.Where(p => p.Name.ToLower().Contains(name.ToLower()) ||
-                                           p.Brand.Contains(name.ToLower())).ToList();
+                                           p.Brand.NameBrand.Contains(name.ToLower())).ToList();
                 LoadProducts(prdtsFiltered);
             }
             else
@@ -330,8 +335,6 @@ namespace UI
             }
 
         }
-
-
 
         #region "Funcionales del Panel Cerrar Venta"
         private void btnAtras_Click(object sender, EventArgs e)
@@ -420,7 +423,6 @@ namespace UI
             }
         }
         #endregion
-
 
         public void Update(BE_Language language)
         {

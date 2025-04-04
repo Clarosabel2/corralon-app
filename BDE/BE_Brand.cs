@@ -19,6 +19,7 @@ namespace BDE
         {
             this.NameBrand = nombre;
         }
+        public BE_Brand() { }
 
         public int Id { get => id; set => id = value; }
         public string NameBrand { get => nameBrand; set => nameBrand = value; }

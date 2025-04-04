@@ -10,7 +10,7 @@ namespace DAL
 {
     public class DAL_Connection
     {
-        private readonly SqlConnection _connection = new SqlConnection("Data Source=ABEL_;Initial Catalog=corralondb;Integrated Security=True;");
+        private readonly SqlConnection _connection = new SqlConnection("Data Source=localhost,1433;Initial Catalog=corralondb;User ID=sa;Password=yourStrong#Password;");
         public SqlConnection Connection => _connection;
         public SqlConnection OpenConnection()
         {

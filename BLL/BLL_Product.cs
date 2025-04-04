@@ -11,9 +11,19 @@ namespace BLL
 {
     public static class BLL_Product
     {
+        public static void DeleteProductById(int productId)
+        {
+            DAL_Product.DeleteProductById(productId);
+        }
+
         public static DataTable GetCaterogyProducts()
         {
             return DAL_Product.GetCateogyProducts();
+        }
+
+        public static BE_Product GetProductById(int idprdt)
+        {
+            return DAL_Product.GetProductById(idprdt);
         }
 
         public static List<BE_Product> GetProducts()
@@ -21,10 +31,23 @@ namespace BLL
             return DAL_Product.GetProducts().AsEnumerable()
                 .Select(p => new BE_Product(p)).ToList();
         }
+
+        public static void SaveProduct(BE_Product p)
+        {
+            DAL_Product.SaveProduct(p);
+        }
+
         public static bool UpdateProducts(DataTable dt)
         {
-            
             return DAL_Product.UpdateProducts(dt);
+        }
+        public static void UpdateProduct(BE_Product p)
+        {
+            DAL_Product.UpdateProduct(p);
+        }
+        public static void UpdateStockById(int idProduct, int amount)
+        {
+            DAL_Product.UpdateStockById(idProduct, amount);
         }
     }
 }
