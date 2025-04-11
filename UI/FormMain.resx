@@ -130,7 +130,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="guna2ResizeBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1019, 830</value>
+    <value>1019, 601</value>
   </data>
   <data name="guna2ResizeBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -145,10 +145,10 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1312, 881</value>
+    <value>1312, 652</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>650, 650</value>
+    <value>650, 584</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -214,7 +214,7 @@
     <value>0, 0</value>
   </data>
   <data name="guna2CirclePictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1042, 853</value>
+    <value>1042, 624</value>
   </data>
   <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -241,7 +241,7 @@
     <value>270, 28</value>
   </data>
   <data name="panelInterface.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1042, 853</value>
+    <value>1042, 624</value>
   </data>
   <data name="panelInterface.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -274,7 +274,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 759</value>
+    <value>0, 530</value>
   </data>
   <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -313,7 +313,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnLogout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 806</value>
+    <value>0, 577</value>
   </data>
   <data name="btnLogout.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -883,7 +883,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="menuGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 641</value>
+    <value>267, 412</value>
   </data>
   <data name="menuGeneral.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -907,7 +907,7 @@
     <value>0, 28</value>
   </data>
   <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 853</value>
+    <value>270, 624</value>
   </data>
   <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -928,7 +928,7 @@
     <value>Top, Right</value>
   </data>
   <data name="nightControlBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1173, 0</value>
+    <value>1236, 0</value>
   </data>
   <data name="nightControlBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 31</value>
@@ -940,7 +940,7 @@
     <value>nightControlBox1</value>
   </data>
   <data name="&gt;&gt;nightControlBox1.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.NightControlBox, ReaLTaiizor, Version=3.8.0.5, Culture=neutral, PublicKeyToken=null</value>
+    <value>ReaLTaiizor.Controls.NightControlBox, ReaLTaiizor, Version=3.8.1.1, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;nightControlBox1.Parent" xml:space="preserve">
     <value>panelBarraTitulo</value>
@@ -1012,7 +1012,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelForms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1312, 881</value>
+    <value>1312, 652</value>
   </data>
   <data name="panelForms.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

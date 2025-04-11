@@ -16,21 +16,35 @@ namespace UI
     public partial class FormCreateEmployee : Form
     {
         private bool flagValidation = false;
-        FormEmployees form = new FormEmployees();
-        public FormCreateEmployee(FormEmployees fp = null)
+        bool isEdit = false;
+        public FormEmployeesPhoto formPre { get; set; }
+        public FormEmployeeDetails formEmpDatails { get; set; }
+
+        BE_Employee empEdit = new BE_Employee();
+        public FormCreateEmployee(BE_Employee emp = null)
         {
             InitializeComponent();
-            LoadData();
-            if (fp != null)
+            LoadData(emp);
+            if (emp != null)
             {
-                form = fp;
+                empEdit = emp;
+                isEdit = true;
             }
         }
-        private void LoadData()
+        private void LoadData(BE_Employee emp)
         {
             foreach (var item in Enum.GetValues(typeof(BE_Area)))
             {
                 cBAreas.Items.Add(item);
+            }
+            if (emp != null)
+            {
+                txtDni.Text = emp.Dni.ToString();
+                txtNombre.Text = emp.Name;
+                txtApellido.Text = emp.Lastname;
+                txtDomicilio.Text = emp.Address;
+                txtEmail.Text = emp.Email;
+                txtTelefono.Text = emp.NumPhone.ToString();
             }
         }
         #region "Validaciones"
@@ -84,30 +98,73 @@ namespace UI
             {
                 btnSaveEmployee.Enabled = true;
             }
+
+            if (isEdit) btnSaveEmployee.Enabled = true; btnSaveEmployee.Text = "Modificar";
         }
         #endregion
 
         private void btnSaveEmployee_Click(object sender, EventArgs e)
         {
             BE_Employee emp = new BE_Employee(
-                0,
+                isEdit ? empEdit.Id : 0,
                 int.Parse(txtDni.Text),
                 txtNombre.Text,
-                txtApellido.Text, txtDomicilio.Text, txtEmail.Text, int.Parse(txtTelefono.Text), 0.0, cBAreas.Text);
+                txtApellido.Text,
+                txtDomicilio.Text,
+                txtEmail.Text,
+                int.Parse(txtTelefono.Text),
+                0.0,
+                cBAreas.SelectedItem.ToString());
 
-            if (BLL_Employee.SaveEmployee(emp))
+            if (!isEdit)
             {
-                DialogResult r = MessageBox.Show("Se guardó el nuevo empleado exitosamente", "Aviso");
-                if (r == DialogResult.OK)
+                if (BLL_Employee.SaveEmployee(emp))
                 {
-                    form.LoadData();
-                    this.Close();
+                    DialogResult r = MessageBox.Show("Se guardó el nuevo empleado exitosamente", "Aviso");
+                    if (r == DialogResult.OK)
+                    {
+                        formPre.LoadData(BLL_Employee.GetAllEmployees());
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error al guardar el empleado", "Aviso");
                 }
             }
             else
             {
-                MessageBox.Show("Ocurrió un error al guardar el empleado", "Aviso");
+                if (BLL_Employee.UpdateEmployee(emp))
+                {
+                    DialogResult r = MessageBox.Show("Se modificaron los datos del empleado exitosamente", "Aviso");
+                    if (r == DialogResult.OK)
+                    {
+                        formEmpDatails.Refresh();
+                        formEmpDatails.LoadDataEmployee(emp);
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ocurrió un error al modificar el empleado", "Aviso");
+                }
             }
+        }
+
+        private void btnUploadPhoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Imagenes (*.jpg;*.jpeg;*.png)|*.jpg;*.jpeg;*.png";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(openFileDialog.FileName);
+            }
+        }
+
+        private void btnTakePhoto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

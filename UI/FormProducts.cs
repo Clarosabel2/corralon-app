@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BDE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,14 @@ namespace UI
 {
     public partial class FormProducts : Form
     {
+        List<BE_Product> products = new List<BE_Product>();
         public FormProducts()
         {
             InitializeComponent();
+            products = BLL_Product.GetProducts();
         }
 
-        public void LoadData()
+        public void LoadProductsIntoDGV(List<BE_Product> prdts = null)
         {
             dgvProducts.Columns.Clear();
             dgvProducts.Rows.Clear();
@@ -84,23 +87,21 @@ namespace UI
             dgvProducts.Columns.Add(btnDeleteCol);
             dgvProducts.Columns.Add(btnEditCol);
 
-            BLL_Product.GetProducts().ForEach(p => dgvProducts.Rows.Add(p.Id, p.Category, p.Brand.NameBrand, p.Name, p.Price, p.Stock));
+            prdts.ForEach(p => dgvProducts.Rows.Add(p.Id, p.Category, p.Brand.NameBrand, p.Name, p.Price, p.Stock));
+            lblCantProducts.Text = $"{(prdts.Count).ToString()}";
         }
         private void FormProducts_Load(object sender, EventArgs e)
         {
-            LoadData();
+            LoadProductsIntoDGV(products);
         }
 
         private void btnRegisterProduct_Click(object sender, EventArgs e)
         {
-            FormRegisterProduct fm = new FormRegisterProduct();
+            FormRegisterProduct fm = new FormRegisterProduct(0, this);
             fm.StartPosition = FormStartPosition.CenterScreen;
             fm.FormBorderStyle = FormBorderStyle.FixedDialog;
-
             fm.ShowDialog();
         }
-
-
 
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -109,7 +110,7 @@ namespace UI
             int productId = Convert.ToInt32(dgvProducts.Rows[e.RowIndex].Cells[0].Value);
             string productName = dgvProducts.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            // Clic en botón "Eliminar"
+            // Click en botón "Eliminar"
             if (e.ColumnIndex == dgvProducts.Columns["btnDelete"].Index)
             {
                 var result = MessageBox.Show($"¿Eliminar el producto ID: {productId} - {productName}?",
@@ -127,12 +128,26 @@ namespace UI
                     }
                 }
             }
-            // Clic en botón "Editar"
+            // Click en botón "Editar"
             else if (e.ColumnIndex == dgvProducts.Columns["btnEdit"].Index)
             {
                 FormRegisterProduct fm = new FormRegisterProduct(productId, this);
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.ShowDialog();
+            }
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string word = txtSearch.Text.Trim().ToLower();
+            List<BE_Product> prdtsFiltered = products.Where(p =>
+                p.Name.ToLower().Contains(word) ||
+                p.Brand.NameBrand.ToLower().Contains(word) ||
+                p.Category.ToLower().Contains(word)).ToList();
+            LoadProductsIntoDGV(prdtsFiltered);
+            if (word == String.Empty)
+            {
+                LoadProductsIntoDGV(products);
             }
         }
     }

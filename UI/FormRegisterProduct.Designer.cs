@@ -106,11 +106,11 @@
             // cbBrands
             // 
             this.cbBrands.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbBrands.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBrands.Font = new System.Drawing.Font("Century Gothic", 8.142858F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbBrands.FormattingEnabled = true;
             this.cbBrands.Location = new System.Drawing.Point(322, 10);
             this.cbBrands.Name = "cbBrands";
-            this.cbBrands.Size = new System.Drawing.Size(486, 32);
+            this.cbBrands.Size = new System.Drawing.Size(486, 30);
             this.cbBrands.TabIndex = 6;
             // 
             // cbCategoryProduct

@@ -14,31 +14,36 @@ namespace UI
 {
     public partial class FormCreateUser : Form
     {
-        public FormCreateUser()
+        BE_User newUser = new BE_User();
+        public FormCreateUser(BE_Employee emp = null)
         {
             InitializeComponent();
-            LoadData(); 
+            newUser.Emp = emp;
+            LoadDataEmployee(emp);
         }
 
-        private void LoadData()
+        private void LoadDataEmployee(BE_Employee e)
         {
-            BLL_Employee.GetAllEmployeesWithoutUser().ForEach(e => 
-                comboBoxEmployees.Items.Add(new KeyValuePair<BE_Employee, string>(e, $"{e.Lastname}, {e.Name}")));
-
-            comboBoxEmployees.DisplayMember = "Value";
-            comboBoxEmployees.ValueMember = "Key";
-            comboBoxEmployees.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            comboBoxEmployees.AutoCompleteSource = AutoCompleteSource.ListItems;
-
             foreach (var item in Enum.GetValues(typeof(BE_TypeUser)))
             {
                 comboBoxRols.Items.Add(item);
             }
+            txtEmployee.Text = $"{e.Name} {e.Lastname}";
+            txtUsername.Text = e.Dni.ToString();
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            
+            newUser.Username = txtUsername.Text;
+            newUser.Password = txtPassword.Text;
+            newUser.Rol = (BE_TypeUser)comboBoxRols.SelectedItem;
+
+            if (BLL_User.CreateUser(newUser))
+            {
+                DialogResult r = MessageBox.Show("User created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (r == DialogResult.OK) this.Close();
+            }
+
         }
     }
 }

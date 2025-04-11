@@ -100,7 +100,7 @@ namespace UI
             lblErrorMessage.Visible = false;
             if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
-                if (SessionManager.GetInstance.user.Status)
+                if (!SessionManager.GetInstance.user.Status)
                 {
                     lblErrorMessage.Visible = true;
                     lblErrorMessage.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];

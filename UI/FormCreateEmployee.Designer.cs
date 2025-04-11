@@ -43,15 +43,22 @@
             this.lblDni = new System.Windows.Forms.Label();
             this.lblAreas = new System.Windows.Forms.Label();
             this.cBAreas = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnUploadPhoto = new System.Windows.Forms.Button();
+            this.btnTakePhoto = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSaveEmployee
             // 
+            this.btnSaveEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveEmployee.Enabled = false;
             this.btnSaveEmployee.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.btnSaveEmployee.Location = new System.Drawing.Point(16, 218);
+            this.btnSaveEmployee.Location = new System.Drawing.Point(18, 282);
             this.btnSaveEmployee.Name = "btnSaveEmployee";
-            this.btnSaveEmployee.Size = new System.Drawing.Size(310, 37);
+            this.btnSaveEmployee.Size = new System.Drawing.Size(538, 37);
             this.btnSaveEmployee.TabIndex = 28;
             this.btnSaveEmployee.Text = "Guardar";
             this.btnSaveEmployee.UseVisualStyleBackColor = true;
@@ -59,8 +66,10 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtTelefono.Location = new System.Drawing.Point(100, 188);
+            this.txtTelefono.Location = new System.Drawing.Point(343, 212);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(226, 24);
             this.txtTelefono.TabIndex = 27;
@@ -71,7 +80,7 @@
             // 
             this.lblTelefono.AutoSize = true;
             this.lblTelefono.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblTelefono.Location = new System.Drawing.Point(12, 191);
+            this.lblTelefono.Location = new System.Drawing.Point(255, 217);
             this.lblTelefono.Name = "lblTelefono";
             this.lblTelefono.Size = new System.Drawing.Size(70, 19);
             this.lblTelefono.TabIndex = 26;
@@ -79,8 +88,10 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtEmail.Location = new System.Drawing.Point(100, 158);
+            this.txtEmail.Location = new System.Drawing.Point(343, 182);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(226, 24);
             this.txtEmail.TabIndex = 25;
@@ -91,7 +102,7 @@
             // 
             this.lblEmail.AutoSize = true;
             this.lblEmail.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblEmail.Location = new System.Drawing.Point(12, 161);
+            this.lblEmail.Location = new System.Drawing.Point(255, 185);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(50, 19);
             this.lblEmail.TabIndex = 24;
@@ -99,8 +110,10 @@
             // 
             // txtDomicilio
             // 
+            this.txtDomicilio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDomicilio.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtDomicilio.Location = new System.Drawing.Point(100, 128);
+            this.txtDomicilio.Location = new System.Drawing.Point(343, 152);
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(226, 24);
             this.txtDomicilio.TabIndex = 23;
@@ -110,7 +123,7 @@
             // 
             this.lblDomicilio.AutoSize = true;
             this.lblDomicilio.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblDomicilio.Location = new System.Drawing.Point(12, 131);
+            this.lblDomicilio.Location = new System.Drawing.Point(255, 155);
             this.lblDomicilio.Name = "lblDomicilio";
             this.lblDomicilio.Size = new System.Drawing.Size(75, 19);
             this.lblDomicilio.TabIndex = 22;
@@ -118,8 +131,10 @@
             // 
             // txtApellido
             // 
+            this.txtApellido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtApellido.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtApellido.Location = new System.Drawing.Point(100, 98);
+            this.txtApellido.Location = new System.Drawing.Point(343, 122);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(226, 24);
             this.txtApellido.TabIndex = 21;
@@ -129,7 +144,7 @@
             // 
             this.lblApellido.AutoSize = true;
             this.lblApellido.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblApellido.Location = new System.Drawing.Point(12, 101);
+            this.lblApellido.Location = new System.Drawing.Point(254, 125);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(69, 19);
             this.lblApellido.TabIndex = 20;
@@ -137,8 +152,10 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtNombre.Location = new System.Drawing.Point(100, 68);
+            this.txtNombre.Location = new System.Drawing.Point(343, 92);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(226, 24);
             this.txtNombre.TabIndex = 19;
@@ -148,7 +165,7 @@
             // 
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblNombre.Location = new System.Drawing.Point(12, 71);
+            this.lblNombre.Location = new System.Drawing.Point(255, 95);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(68, 19);
             this.lblNombre.TabIndex = 18;
@@ -156,8 +173,10 @@
             // 
             // txtDni
             // 
+            this.txtDni.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDni.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.txtDni.Location = new System.Drawing.Point(100, 6);
+            this.txtDni.Location = new System.Drawing.Point(343, 31);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(226, 24);
             this.txtDni.TabIndex = 17;
@@ -168,7 +187,7 @@
             // 
             this.lblDni.AutoSize = true;
             this.lblDni.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblDni.Location = new System.Drawing.Point(12, 9);
+            this.lblDni.Location = new System.Drawing.Point(254, 34);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(36, 19);
             this.lblDni.TabIndex = 16;
@@ -178,7 +197,7 @@
             // 
             this.lblAreas.AutoSize = true;
             this.lblAreas.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblAreas.Location = new System.Drawing.Point(12, 39);
+            this.lblAreas.Location = new System.Drawing.Point(255, 64);
             this.lblAreas.Name = "lblAreas";
             this.lblAreas.Size = new System.Drawing.Size(45, 19);
             this.lblAreas.TabIndex = 29;
@@ -186,19 +205,60 @@
             // 
             // cBAreas
             // 
+            this.cBAreas.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cBAreas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBAreas.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.cBAreas.FormattingEnabled = true;
-            this.cBAreas.Location = new System.Drawing.Point(100, 36);
+            this.cBAreas.Location = new System.Drawing.Point(343, 61);
             this.cBAreas.Name = "cBAreas";
             this.cBAreas.Size = new System.Drawing.Size(226, 25);
             this.cBAreas.TabIndex = 30;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::UI.Properties.Resources.user_photo_empty;
+            this.pictureBox1.Location = new System.Drawing.Point(18, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 230);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 31;
+            this.pictureBox1.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnUploadPhoto
+            // 
+            this.btnUploadPhoto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUploadPhoto.Location = new System.Drawing.Point(18, 252);
+            this.btnUploadPhoto.Name = "btnUploadPhoto";
+            this.btnUploadPhoto.Size = new System.Drawing.Size(110, 23);
+            this.btnUploadPhoto.TabIndex = 32;
+            this.btnUploadPhoto.Text = "Subir foto";
+            this.btnUploadPhoto.UseVisualStyleBackColor = true;
+            this.btnUploadPhoto.Click += new System.EventHandler(this.btnUploadPhoto_Click);
+            // 
+            // btnTakePhoto
+            // 
+            this.btnTakePhoto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTakePhoto.Location = new System.Drawing.Point(138, 252);
+            this.btnTakePhoto.Name = "btnTakePhoto";
+            this.btnTakePhoto.Size = new System.Drawing.Size(110, 23);
+            this.btnTakePhoto.TabIndex = 33;
+            this.btnTakePhoto.Text = "Tomar foto";
+            this.btnTakePhoto.UseVisualStyleBackColor = true;
+            this.btnTakePhoto.Click += new System.EventHandler(this.btnTakePhoto_Click);
             // 
             // FormCreateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(338, 263);
+            this.ClientSize = new System.Drawing.Size(580, 331);
+            this.Controls.Add(this.btnTakePhoto);
+            this.Controls.Add(this.btnUploadPhoto);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cBAreas);
             this.Controls.Add(this.lblAreas);
             this.Controls.Add(this.btnSaveEmployee);
@@ -217,6 +277,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "FormCreateEmployee";
             this.Text = "FormCreateEmployee";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -238,5 +299,9 @@
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.Label lblAreas;
         private System.Windows.Forms.ComboBox cBAreas;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnUploadPhoto;
+        private System.Windows.Forms.Button btnTakePhoto;
     }
 }

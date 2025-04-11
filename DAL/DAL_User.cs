@@ -18,7 +18,7 @@ namespace DAL
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
-            cmd.CommandText = @"UPDATE Usuarios SET estado = 1 WHERE username = @p_username;";
+            cmd.CommandText = @"UPDATE Usuarios SET estado = 0 WHERE username = @p_username;";
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.AddWithValue("@p_username", username);
             int rowsAffected = cmd.ExecuteNonQuery();
@@ -38,13 +38,52 @@ namespace DAL
             cmd.Connection = cnn.CloseConnection();
         }
 
+        public static bool CreateUser(BE_User newUser)
+        {
+            
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"sp_SaveNewUser";
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@p_id_Usuario", newUser.Emp.Id);
+            cmd.Parameters.AddWithValue("@p_id_Idioma", newUser.Language);
+            cmd.Parameters.AddWithValue("@p_name_Rol", newUser.Rol.ToString());
+            cmd.Parameters.AddWithValue("@p_username", newUser.Username);
+            cmd.Parameters.AddWithValue("@p_password", newUser.Password);
+
+            int rowsAffected = cmd.ExecuteNonQuery();
+            cmd.Connection = cnn.CloseConnection();
+
+            return rowsAffected > 0;
+        }
+
+        public static bool ExistUser(int id)
+        {
+            bool existeUsuario = false;
+            var cnn = new DAL_Connection();
+            using (var cmd = new SqlCommand($"SELECT IIF(EXISTS (\r\n  SELECT 1 FROM Usuarios u WHERE u.id_Usuario = @id\r\n), CAST(1 AS BIT), CAST(0 AS BIT)) AS Existe;", cnn.OpenConnection()))
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@id", id);
+                
+                var result = cmd.ExecuteScalar();
+                if (result != null && result != DBNull.Value)
+                {
+                    existeUsuario = Convert.ToBoolean(result);
+                }
+            }
+            return existeUsuario;
+        }
+
         public static DataTable GetAllUsers()
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand
             {
                 Connection = cnn.OpenConnection(),
-                CommandText = "SELECT u.id_Usuario AS ID,p.email AS Email,u.username as Username,p.nombre AS Nombre,p.apellido AS Apellido,r.rol AS Rol\r\nFROM Usuarios u INNER JOIN Empleados e on e.id_Empleado=u.id_Usuario INNER JOIN Personas p on p.id_Persona=u.id_Usuario INNER JOIN Roles r on r.id_Rol=u.id_Rol",
+                CommandText = "SELECT \r\n\tu.id_Usuario,\r\n\tp.email,\r\n\tu.username,\r\n\tu.[password],\r\n\tp.DNI,\r\n\tp.nombre,\r\n\tp.apellido,\r\n\tr.rol \r\nFROM Usuarios u \r\n\tINNER JOIN Empleados e on e.id_Empleado=u.id_Usuario \r\n\tINNER JOIN Personas p on p.id_Persona=u.id_Usuario \r\n\tINNER JOIN Roles r on r.id_Rol=u.id_Rol",
                 CommandType = CommandType.Text
             };
             var dataTable = new DataTable();

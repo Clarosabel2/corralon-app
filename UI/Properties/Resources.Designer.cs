@@ -223,6 +223,16 @@ namespace UI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_photo_empty {
+            get {
+                object obj = ResourceManager.GetObject("user-photo-empty", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_photo_profile {
             get {
                 object obj = ResourceManager.GetObject("user-photo-profile", resourceCulture);

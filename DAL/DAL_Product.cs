@@ -75,7 +75,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@description", "");
                 cmd.Parameters.AddWithValue("@stock", p.Stock);
                 cmd.Parameters.AddWithValue("@price", p.Price);
-                cmd.Parameters.AddWithValue("@id_marca", p.Brand);
+                cmd.Parameters.AddWithValue("@nombre_marca", p.Brand.NameBrand);
                 cmd.Parameters.AddWithValue("@id_categoria", p.Category);
 
                 cmd.ExecuteNonQuery();
@@ -126,7 +126,7 @@ namespace DAL
 
                 cmd.Parameters.AddWithValue("@p_id_producto", p.Id);
                 cmd.Parameters.AddWithValue("@p_id_marca", p.Brand.Id);
-                cmd.Parameters.AddWithValue("@p_categoria", p.Category);
+                cmd.Parameters.AddWithValue("@p_categoria", int.Parse(p.Category));
                 cmd.Parameters.AddWithValue("@p_nombre", p.Name);
                 cmd.Parameters.AddWithValue("@p_descripcion", p.Description);
                 cmd.Parameters.AddWithValue("@p_precio", p.Price);

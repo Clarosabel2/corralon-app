@@ -24,9 +24,37 @@ namespace BLL
             DAL_User.ChangeLanguageUser(language);
         }
 
-        public static DataTable GetAllUser()
+        public static bool CreateUser(BE_User newUser)
         {
-            return DAL_User.GetAllUsers();
+            newUser.Password = EncodeManager.HashValue(newUser.Password);
+            return DAL_User.CreateUser(newUser);
+        }
+
+        public static bool ExistUserById(int id)
+        {
+            return DAL_User.ExistUser(id);
+        }
+
+        public static List<BE_User> GetAllUser()
+        {
+            List<BE_User> users = new List<BE_User>();
+            foreach (DataRow r in DAL_User.GetAllUsers().Rows)
+            {
+                users.Add(new BE_User
+                {
+                    Emp = new BE_Employee
+                    {
+                        Id = Convert.ToInt32(r[0]),
+                        Dni = Convert.ToInt32(r[4].ToString()),
+                        Email = r[1].ToString(),
+                        Name = r[5].ToString(),
+                        Lastname = r[6].ToString(),
+                    },
+                    Username = r[2].ToString(),
+                    Rol = (BE_TypeUser)Enum.Parse(typeof(BE_TypeUser), r[7].ToString()),
+                });
+            }
+            return users;
         }
 
         public static DataTable GetUsersByProfile()

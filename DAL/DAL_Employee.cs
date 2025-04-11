@@ -76,6 +76,35 @@ namespace DAL
             cmd.CommandType = CommandType.StoredProcedure;
             return cmd.ExecuteNonQuery() > 0;
         }
+
+        public static bool UpdateEmployee(BE_Employee emp)
+        {
+            try
+            {
+                var cnn = new DAL_Connection();
+                using (var connection = cnn.OpenConnection())
+                using (var cmd = new SqlCommand("sp_UpdateEmployee", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@id_Persona", emp.Id);
+                    cmd.Parameters.AddWithValue("@DNI", emp.Dni);
+                    cmd.Parameters.AddWithValue("@nombre", emp.Name);
+                    cmd.Parameters.AddWithValue("@apellido", emp.Lastname);
+                    cmd.Parameters.AddWithValue("@email", emp.Email);
+                    cmd.Parameters.AddWithValue("@telefono", emp.NumPhone);
+                    cmd.Parameters.AddWithValue("@domicilio", emp.Address);
+                    cmd.Parameters.AddWithValue("@nombreArea", emp.Area);
+
+                    return cmd.ExecuteNonQuery() > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al actualizar empleado: " + ex.Message);
+                return false;
+            }
+        }
         private static BE_Employee InstanceEmployee(SqlDataReader dr)
         {
             return new BE_Employee(
@@ -89,5 +118,6 @@ namespace DAL
                              0.0,
                              dr.GetString(dr.GetOrdinal("nombreArea")));
         }
+        
     }
 }

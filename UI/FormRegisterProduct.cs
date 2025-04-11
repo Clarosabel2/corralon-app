@@ -17,18 +17,19 @@ namespace UI
 
         BE_Product product = new BE_Product();
         FormProducts fm = new FormProducts();
-        public bool ProductWasSaved { get; private set; } = false;
+        List<BE_Brand> brands = new List<BE_Brand>();
         bool isEdit = false;
         public FormRegisterProduct(int idprdt = 0, FormProducts fmPrdts = null)
         {
             InitializeComponent();
-            LoadData();
             fm = fmPrdts;
+            brands = BLL_Brand.GetAllBrands();
             if (idprdt != 0)
             {
                 isEdit = true;
                 LoadProductToEdit(idprdt);
             }
+            LoadData();
         }
 
         private void LoadProductToEdit(int id)
@@ -41,7 +42,6 @@ namespace UI
 
             cbBrands.SelectedIndex = cbBrands.FindStringExact(product.Brand.NameBrand);
             cbCategoryProduct.SelectedIndex = cbCategoryProduct.FindStringExact(product.Category);
-
         }
         private void LoadData()
         {
@@ -52,21 +52,39 @@ namespace UI
             cbCategoryProduct.DisplayMember = "nombreCategoria";
             cbCategoryProduct.ValueMember = "id_Categoria";
 
-            List<BE_Brand> brands = BLL_Brand.GetAllBrands();
-            cbBrands.DataSource = brands;
-            cbBrands.DisplayMember = "NameBrand";
-            cbBrands.ValueMember = "Id";
+            brands.ForEach(b => cbBrands.Items.Add(new KeyValuePair<BE_Brand, string>(b, $"{b.NameBrand}")));
+            cbBrands.DisplayMember = "Value";
+            cbBrands.ValueMember = "Key";
+            cbBrands.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            cbBrands.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            
+
         }
 
         private void btnSaveProduct_Click(object sender, EventArgs e)
         {
-            var b = new BE_Brand();
-            b.Id = int.Parse(cbBrands.SelectedValue.ToString());
-            b.NameBrand = cbBrands.SelectedText;
+            string inputBrand = cbBrands.Text.Trim();
+
+            /*var existingBrand = (cbBrands.DataSource as List<BE_Brand>)
+                .FirstOrDefault(brand => brand.NameBrand.Equals(inputBrand, 
+                    StringComparison.OrdinalIgnoreCase));*/
+
+            BE_Brand brandSelected = brands.FirstOrDefault(b =>
+                b.NameBrand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase));
+
+
+            if (brandSelected == null)
+            {
+                brandSelected = new BE_Brand();
+                brandSelected.NameBrand = inputBrand;
+                BLL_Brand.SaveBrand(brandSelected);
+
+            }
 
             product = new BE_Product(
                 (isEdit) ? product.Id : 0,
-                b,
+                brandSelected,
                 txtNameProduct.Text,
                 txtDescriptionProduct.Text,
                 cbCategoryProduct.SelectedValue.ToString(),
@@ -81,7 +99,7 @@ namespace UI
             {
                 BLL_Product.UpdateProduct(product);
             }
-            fm.LoadData();
+            fm.LoadProductsIntoDGV();
             this.Close();
         }
     }

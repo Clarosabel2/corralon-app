@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BDE;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -20,6 +21,20 @@ namespace DAL
                 ad.Fill(dt);
             }
             return dt;
+        }
+
+        public static void SaveBrand(BE_Brand b)
+        {
+            var cnn = new DAL_Connection();
+            using (var connection = cnn.OpenConnection())
+            {
+                SqlCommand cmd = new SqlCommand("INSERT INTO Marcas (marca) VALUES (@p_nombreMarca)", connection);
+                cmd.CommandType = CommandType.Text;
+
+                cmd.Parameters.AddWithValue("@p_nombreMarca", b.NameBrand);
+
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

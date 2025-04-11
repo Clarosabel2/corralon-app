@@ -22,13 +22,13 @@ namespace DAL
             {
                 cmd.Connection = cnn.OpenConnection();
                 cmd.CommandText = "sp_SaveClient";
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@dni", client.Dni);
                 cmd.Parameters.AddWithValue("@name", client.Name);
                 cmd.Parameters.AddWithValue("@lastname", client.Lastname);
                 cmd.Parameters.AddWithValue("@address ", client.Address);
                 cmd.Parameters.AddWithValue("@numphone", client.NumPhone);
                 cmd.Parameters.AddWithValue("@email", client.Email);
-                cmd.CommandType = CommandType.StoredProcedure;
                 return cmd.ExecuteNonQuery() > 0;
             }
             catch (SqlException ex)
@@ -89,6 +89,7 @@ namespace DAL
             }
             return clients;
         }
+
         private static BE_Client InstanceClient(SqlDataReader dr)
         {
             return new BE_Client(

@@ -33,5 +33,10 @@ namespace BLL
         {
             return DAL_Employee.SaveEmployee(bE_Employee);
         }
+
+        public static bool UpdateEmployee(BE_Employee empEdit)
+        {
+            return DAL_Employee.UpdateEmployee(empEdit);
+        }
     }
 }

@@ -25,5 +25,10 @@ namespace BLL
             }
             return brands;
         }
+
+        public static void SaveBrand(BE_Brand b)
+        {
+            DAL_Brand.SaveBrand(b);
+        }
     }
 }

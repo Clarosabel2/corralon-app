@@ -23,23 +23,36 @@ namespace UI
         public FormMain()
         {
             InitializeComponent();
-            //timerDateHour.Start();
+            EnableControls();
+            timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
-            LanguageManager.Attach(this);  
+            LanguageManager.Attach(this);
         }
-       
+
         private void EnableControls()
         {
+            if (SessionManager.GetInstance.user.Rol != BDE.BE_TypeUser.ADMIN)
+            {
+                btnEmployees.Visible = false;
+                btnProfiles.Visible = false;
+                btnReports.Visible = false;
+                btnManagerLanguages.Visible = false;
+                btnUsers.Visible = false;
+
+            }
             switch (SessionManager.GetInstance.user.Rol)
             {
                 case BDE.BE_TypeUser.ADMIN:
-
+                    /*btnProducts.Visible = false;
+                    btnOrders.Visible = false;
+                    btnCreateSale.Visible = false;*/
                     break;
                 case BDE.BE_TypeUser.SALESMAN:
-
+                    btnProducts.Visible = false;
+                    btnOrders.Visible = false;
                     break;
                 case BDE.BE_TypeUser.LOGISTICMAN:
-
+                    btnCreateSale.Visible = false;
                     break;
             }
         }
@@ -243,7 +256,8 @@ namespace UI
         }
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            OpenForms<FormEmployees>();
+            //OpenForms<FormEmployees>();
+            OpenForms<FormEmployeesPhoto>();
         }
         private void btnReports_Click(object sender, EventArgs e)
         {
@@ -262,5 +276,6 @@ namespace UI
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
+
     }
 }
