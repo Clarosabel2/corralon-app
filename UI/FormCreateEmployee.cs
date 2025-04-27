@@ -123,7 +123,7 @@ namespace UI
                     DialogResult r = MessageBox.Show("Se guardó el nuevo empleado exitosamente", "Aviso");
                     if (r == DialogResult.OK)
                     {
-                        formPre.LoadData(BLL_Employee.GetAllEmployees());
+                        formPre.ShowEmployees(BLL_Employee.GetAllEmployees());
                         this.Close();
                     }
                 }

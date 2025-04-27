@@ -13,7 +13,7 @@ namespace DAL
 {
     public static class DAL_User
     {
-        public static void BlockUser(string username)
+        public static void BlockUserByUsername(string username)
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
@@ -23,6 +23,18 @@ namespace DAL
             cmd.Parameters.AddWithValue("@p_username", username);
             int rowsAffected = cmd.ExecuteNonQuery();
             cmd.Connection = cnn.CloseConnection();
+        }
+        public static bool BlockUserById(int id)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"UPDATE Usuarios SET estado = 0 WHERE id_Usuario = @p_id;";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_id", id);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            cmd.Connection = cnn.CloseConnection();
+            return rowsAffected > 0;
         }
 
         public static void ChangeLanguageUser(BE_Language language)
@@ -38,9 +50,25 @@ namespace DAL
             cmd.Connection = cnn.CloseConnection();
         }
 
+        public static bool CheckStatusUser(int idUser)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"SELECT estado FROM Usuarios WHERE id_Usuario = @p_id_Usuario";
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.AddWithValue("@p_id_Usuario", idUser);
+
+            var result = cmd.ExecuteScalar();
+            cmd.Connection = cnn.CloseConnection();
+
+            return result != null && Convert.ToBoolean(result);
+        }
+
         public static bool CreateUser(BE_User newUser)
         {
-            
+
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
@@ -67,7 +95,7 @@ namespace DAL
             {
                 cmd.CommandType = CommandType.Text;
                 cmd.Parameters.AddWithValue("@id", id);
-                
+
                 var result = cmd.ExecuteScalar();
                 if (result != null && result != DBNull.Value)
                 {
@@ -200,6 +228,19 @@ namespace DAL
             {
                 return false;
             }
+        }
+
+        public static bool UnlockUserById(int id)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"UPDATE Usuarios SET estado = 1 WHERE id_Usuario = @p_id;";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_id", id);
+            int rowsAffected = cmd.ExecuteNonQuery();
+            cmd.Connection = cnn.CloseConnection();
+            return rowsAffected > 0;
         }
     }
 }

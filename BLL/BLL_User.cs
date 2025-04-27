@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,28 +14,6 @@ namespace BLL
 {
     public static class BLL_User
     {
-        public static void BlockUser(string username)
-        {
-            DAL_User.BlockUser(username);
-        }
-
-        public static void ChangeLanguageUser(BE_Language language)
-        {
-            SessionManager.GetInstance.user.Language = language;
-            DAL_User.ChangeLanguageUser(language);
-        }
-
-        public static bool CreateUser(BE_User newUser)
-        {
-            newUser.Password = EncodeManager.HashValue(newUser.Password);
-            return DAL_User.CreateUser(newUser);
-        }
-
-        public static bool ExistUserById(int id)
-        {
-            return DAL_User.ExistUser(id);
-        }
-
         public static List<BE_User> GetAllUser()
         {
             List<BE_User> users = new List<BE_User>();
@@ -57,11 +36,6 @@ namespace BLL
             return users;
         }
 
-        public static DataTable GetUsersByProfile()
-        {
-            return DAL_User.GetUserByProfile();
-        }
-
         public static bool UpdateUserData(BE_User user)
         {
             return DAL_User.UpdateUserData(user);
@@ -71,10 +45,49 @@ namespace BLL
         {
             DAL_User.UpdateUserPasswordById(EncodeManager.HashValue(password));
         }
+        public static bool CreateUser(BE_User newUser)
+        {
+            newUser.Password = EncodeManager.HashValue(newUser.Password);
+            return DAL_User.CreateUser(newUser);
+        }
+        public static void BlockUserByUsername(string username)
+        {
+            DAL_User.BlockUserByUsername(username);
+        }
+
+        public static void ChangeLanguageUser(BE_Language language)
+        {
+            SessionManager.GetInstance.user.Language = language;
+            DAL_User.ChangeLanguageUser(language);
+        }
+
+        public static bool ExistUserById(int id)
+        {
+            return DAL_User.ExistUser(id);
+        }
 
         public static bool ValidUser(string username, string password)
         {
             return DAL_User.ValidUser(username, password);
+        }
+
+        public static bool CheckStatusUser(int idUser)
+        {
+            if (DAL_User.CheckStatusUser(idUser))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool BlockUserById(int id)
+        {
+            return DAL_User.BlockUserById(id);
+        }
+
+        public static bool UnlockUserById(int id)
+        {
+            return DAL_User.UnlockUserById(id);
         }
     }
 }

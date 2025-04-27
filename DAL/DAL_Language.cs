@@ -45,7 +45,9 @@ namespace DAL
                     languages.Add(new BE_Language
                     {
                         Name = dr["nombreIdioma"].ToString(),
-                        IsDefault = Convert.ToBoolean(dr["default"].ToString())
+                        IsDefault = Convert.ToBoolean(dr["default"].ToString()),
+                        LanguageCode = dr["language_code"].ToString()
+
                     });
                 }
                 return languages;

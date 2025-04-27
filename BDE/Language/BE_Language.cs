@@ -9,6 +9,8 @@ namespace BDE.Language
     public class BE_Language
     {
         public string Name { get; set; }
-        public bool IsDefault {  get; set; }
+        public string LanguageCode { get; set; }
+        public bool IsDefault { get; set; }
+
     }
 }

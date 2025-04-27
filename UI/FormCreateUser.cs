@@ -14,36 +14,41 @@ namespace UI
 {
     public partial class FormCreateUser : Form
     {
-        BE_User newUser = new BE_User();
+        BE_Employee currentEmp = new BE_Employee();
+        public bool result { get; set; }
         public FormCreateUser(BE_Employee emp = null)
         {
             InitializeComponent();
-            newUser.Emp = emp;
-            LoadDataEmployee(emp);
+            LoadRols();
+            currentEmp = emp;
         }
 
-        private void LoadDataEmployee(BE_Employee e)
+        private void LoadRols()
         {
             foreach (var item in Enum.GetValues(typeof(BE_TypeUser)))
             {
                 comboBoxRols.Items.Add(item);
             }
-            txtEmployee.Text = $"{e.Name} {e.Lastname}";
-            txtUsername.Text = e.Dni.ToString();
+
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            newUser.Username = txtUsername.Text;
-            newUser.Password = txtPassword.Text;
+            BE_User newUser = new BE_User();
+            newUser.Emp = currentEmp;
+            newUser.Username = currentEmp.Dni.ToString();
+            newUser.Password = currentEmp.Dni.ToString();
             newUser.Rol = (BE_TypeUser)comboBoxRols.SelectedItem;
 
             if (BLL_User.CreateUser(newUser))
             {
-                DialogResult r = MessageBox.Show("User created successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (r == DialogResult.OK) this.Close();
+                result = true;
             }
-
+            else
+            {
+                result = false;
+            }
+            this.Close();
         }
     }
 }

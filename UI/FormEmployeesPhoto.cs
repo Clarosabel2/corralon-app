@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BLL;
 using Guna.UI2.WinForms;
+using SVC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,15 +21,12 @@ namespace UI
         public FormEmployeesPhoto()
         {
             InitializeComponent();
-            LoadData(employees);
-            txtSearch.PlaceholderText = "DNI, nombre, apellido ...";
-            txtSearch.PlaceholderForeColor = System.Drawing.Color.Gray;
-            cbAreas.DataSource = Enum.GetValues(typeof(BE_Area));
-
+            LoadDataInForm();
         }
-        public void LoadData(List<BE_Employee> emps)
+        public void ShowEmployees(List<BE_Employee> emps)
         {
             flowLayoutPanel1.Controls.Clear();
+            emps.Remove(emps.FirstOrDefault(e => e.Id == SessionManager.GetInstance.user.Emp.Id));
             foreach (BE_Employee emp in emps)
             {
                 var card = new Guna2Panel
@@ -59,31 +57,55 @@ namespace UI
                 var lblId = new Label
                 {
                     Text = $"{emp.Id}",
-                    Font = new Font("Segoe UI", 8),
+                    Font = new Font("Century Gothic", 8),
                     Location = new Point(220, 18),
                     AutoSize = true
                 };
                 var lblName = new Label
                 {
                     Text = $"{emp.Name} {emp.Lastname}",
-                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    Font = new Font("Century Gothic", 10, FontStyle.Bold),
                     Location = new Point(85, 15),
                     AutoSize = true
                 };
                 var lblDni = new Label
                 {
                     Text = $"DNI: {emp.Dni}",
-                    Font = new Font("Segoe UI", 10),
+                    Font = new Font("Century Gothic", 10),
                     Location = new Point(85, 35),
                     AutoSize = true
                 };
                 var lblArea = new Label
                 {
                     Text = $"Area: {emp.Area}",
-                    Font = new Font("Segoe UI", 9),
+                    Font = new Font("Century Gothic", 9),
                     Location = new Point(85, 55),
                     AutoSize = true
                 };
+                bool isUser = BLL_User.ExistUserById(emp.Id);
+                var lblUser = new Label
+                {
+                    Text = isUser ? "Usuario del sistema" : "No es usuario",
+                    Font = new Font("Century Gothic", 9),
+                    Location = new Point(85, 75), // un poco más abajo que el lblArea
+                    AutoSize = true
+                };
+                bool isBlock = false;
+                if (isUser)
+                {
+                    isBlock = BLL_User.CheckStatusUser(emp.Id);
+                    StringBuilder sb = new StringBuilder();
+
+                    var lblStatus = new Label
+                    {
+                        Text = isBlock ? "✅ Tiene acceso al sistema" : "❌ Usuario Bloqueado",
+                        ForeColor = isBlock ? Color.Green : Color.Red,
+                        Font = new Font("Century Gothic", 9),
+                        Location = new Point(20, 115),
+                        AutoSize = true,
+                    };
+                    card.Controls.Add(lblStatus);
+                }
 
                 // Eventos opcionales
                 card.Click += (s, e) =>
@@ -103,9 +125,17 @@ namespace UI
                 card.Controls.Add(lblDni);
                 card.Controls.Add(lblName);
                 card.Controls.Add(lblArea);
+                card.Controls.Add(lblUser);
 
                 flowLayoutPanel1.Controls.Add(card);
             }
+        }
+        public void LoadDataInForm()
+        {
+            txtSearch.PlaceholderText = "DNI, nombre, apellido ...";
+            txtSearch.PlaceholderForeColor = System.Drawing.Color.Gray;
+            cbAreas.DataSource = Enum.GetValues(typeof(BE_Area));
+            ShowEmployees(employees);
         }
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
@@ -118,11 +148,11 @@ namespace UI
 
             if (word != String.Empty)
             {
-                LoadData(empFiltered);
+                ShowEmployees(empFiltered);
             }
             else
             {
-                LoadData(employees);
+                ShowEmployees(employees);
             }
         }
 

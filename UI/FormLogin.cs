@@ -130,7 +130,7 @@ namespace UI
                     {
                         //bloquear cuenta
                         flagBlock = true;
-                        BLL_User.BlockUser(txtUser.Text);
+                        BLL_User.BlockUserByUsername(txtUser.Text);
                         lblErrorMessage.Visible = true;
                         lblErrorMessage.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     }

@@ -30,11 +30,11 @@
         {
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.cbAreas = new Guna.UI2.WinForms.Guna2ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnCreateEmployee = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 61);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(941, 444);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1149, 523);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -59,8 +59,20 @@
             this.panel1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(941, 61);
+            this.panel1.Size = new System.Drawing.Size(1149, 61);
             this.panel1.TabIndex = 2;
+            // 
+            // btnCreateEmployee
+            // 
+            this.btnCreateEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCreateEmployee.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateEmployee.Location = new System.Drawing.Point(948, 12);
+            this.btnCreateEmployee.Name = "btnCreateEmployee";
+            this.btnCreateEmployee.Size = new System.Drawing.Size(189, 36);
+            this.btnCreateEmployee.TabIndex = 4;
+            this.btnCreateEmployee.Text = "Registrar nuevo empleado";
+            this.btnCreateEmployee.UseVisualStyleBackColor = true;
+            this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
             // 
             // cbAreas
             // 
@@ -117,23 +129,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar:";
             // 
-            // btnCreateEmployee
-            // 
-            this.btnCreateEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateEmployee.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateEmployee.Location = new System.Drawing.Point(740, 12);
-            this.btnCreateEmployee.Name = "btnCreateEmployee";
-            this.btnCreateEmployee.Size = new System.Drawing.Size(189, 36);
-            this.btnCreateEmployee.TabIndex = 4;
-            this.btnCreateEmployee.Text = "Registrar nuevo empleado";
-            this.btnCreateEmployee.UseVisualStyleBackColor = true;
-            this.btnCreateEmployee.Click += new System.EventHandler(this.btnCreateEmployee_Click);
-            // 
             // FormEmployeesPhoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 505);
+            this.ClientSize = new System.Drawing.Size(1149, 584);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);

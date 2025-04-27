@@ -126,6 +126,7 @@
             this.LabelStatus.Size = new System.Drawing.Size(70, 24);
             this.LabelStatus.TabIndex = 7;
             this.LabelStatus.Text = "Estado:";
+            this.LabelStatus.Visible = false;
             // 
             // LabelAddress
             // 
@@ -145,6 +146,7 @@
             this.btnCreateUser.Name = "btnCreateUser";
             this.btnCreateUser.Size = new System.Drawing.Size(300, 23);
             this.btnCreateUser.TabIndex = 9;
+            this.btnCreateUser.Tag = "CreateUser";
             this.btnCreateUser.Text = "Crear cuenta para este empleado";
             this.btnCreateUser.UseVisualStyleBackColor = false;
             this.btnCreateUser.Click += new System.EventHandler(this.btnCreateUser_Click);
