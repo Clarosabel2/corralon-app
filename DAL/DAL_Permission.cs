@@ -1,17 +1,10 @@
 ﻿using BDE;
+using BDE.Composite;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SVC;
-using BDE.Composite;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting.Messaging;
-using System.Collections;
-using System.Configuration;
 
 namespace DAL
 {

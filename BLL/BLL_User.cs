@@ -82,8 +82,8 @@ namespace BLL
         {
             BE_User userLogin = DAL_User.ValidUser(username, EncodeManager.HashValue(password));
             SessionManager.Login(userLogin);
-            LanguageManager.CurrentLanguage = userLogin.Language;
-            //SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
+            //LanguageManager.CurrentLanguage = userLogin.Language;
+            SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
             return true;
         }
 

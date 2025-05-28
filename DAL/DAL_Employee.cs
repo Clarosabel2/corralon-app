@@ -1,13 +1,8 @@
-﻿using System;
+﻿using BDE;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SVC;
-using BDE;
-using System.Net;
+using System.Data.SqlClient;
 
 namespace DAL
 {

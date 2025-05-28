@@ -1,13 +1,8 @@
 ﻿using BDE;
-using SVC;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BDE.Language;
+using System;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace DAL
 {
@@ -148,7 +143,7 @@ namespace DAL
             try
             {
                 var cnn = new DAL_Connection();
-                using (var cmd = new SqlCommand($"UPDATE Personas SET nombre=@name, apellido=@lastname, email=@email WHERE id_Persona={SessionManager.GetInstance.user.Emp.Id}", cnn.OpenConnection()))
+                using (var cmd = new SqlCommand($"UPDATE Personas SET nombre=@name, apellido=@lastname, email=@email WHERE id_Persona={user.Emp.Id}", cnn.OpenConnection()))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@name", user.Emp.Name);
