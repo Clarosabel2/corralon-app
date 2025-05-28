@@ -12,5 +12,14 @@ namespace BDE.Language
         public string LanguageCode { get; set; }
         public bool IsDefault { get; set; }
 
+        public BE_Language() { }
+
+        public BE_Language(string name, string languageCode, bool isDefault)
+        {
+
+            Name = name;
+            LanguageCode = languageCode;
+            IsDefault = isDefault;
+        }
     }
 }

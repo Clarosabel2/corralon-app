@@ -13,15 +13,18 @@ namespace BLL
 {
     public class BLL_Employee
     {
-        public  static List<BE_Employee> GetAllEmployeesWithoutUser()
+        public static List<BE_Employee> GetAllEmployeesWithoutUser()
         {
             return DAL_Employee.GetAllEmployeesWithoutUser();
         }
 
         public static List<BE_Employee> GetAllEmployees()
         {
+            List<BE_Employee> emps = DAL_Employee.GetAllEmployees();
+            //Elimina el empleado que esta logeado
+            emps.Remove(emps.FirstOrDefault(e => e.Id == SessionManager.GetInstance.user.Emp.Id));
 
-            return DAL_Employee.GetAllEmployees();
+            return emps;
         }
 
         public static List<BE_Employee> GetEmployeesByArea(string area)

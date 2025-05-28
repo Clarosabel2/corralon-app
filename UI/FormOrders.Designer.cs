@@ -63,6 +63,7 @@
             // 
             this.btnDispatchOrder.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDispatchOrder.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDispatchOrder.Location = new System.Drawing.Point(689, 91);
             this.btnDispatchOrder.Name = "btnDispatchOrder";
             this.btnDispatchOrder.Size = new System.Drawing.Size(82, 68);
@@ -155,6 +156,7 @@
             // btnReportProblem
             // 
             this.btnReportProblem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReportProblem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportProblem.Location = new System.Drawing.Point(689, 167);
             this.btnReportProblem.Name = "btnReportProblem";
             this.btnReportProblem.Size = new System.Drawing.Size(82, 126);
@@ -165,6 +167,7 @@
             // btnMarkDelivered
             // 
             this.btnMarkDelivered.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnMarkDelivered.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarkDelivered.Location = new System.Drawing.Point(689, 41);
             this.btnMarkDelivered.Name = "btnMarkDelivered";
             this.btnMarkDelivered.Size = new System.Drawing.Size(82, 120);

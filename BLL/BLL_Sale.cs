@@ -48,7 +48,8 @@ namespace BLL
                 throw new Exception("La fecha de entrega no puede ser menor al actual");
             }
             newOrder.Invoice = newSale;
-            //Actuliza el stock de los productos por cada item de la venta
+
+            //Actualiza el stock de los productos por cada item de la venta
             newSale.ItemsProducts.ForEach(i => BLL_Product.UpdateStockById(i.Product.Id, i.Amount));
             DAL_Sale.SaveSale(newOrder);
         }

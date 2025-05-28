@@ -53,6 +53,7 @@
             this.btnClients = new System.Windows.Forms.Button();
             this.btnProfiles = new System.Windows.Forms.Button();
             this.btnManagerLanguages = new System.Windows.Forms.Button();
+            this.btnManageDB = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -199,6 +200,7 @@
             this.menuGeneral.Controls.Add(this.btnClients);
             this.menuGeneral.Controls.Add(this.btnProfiles);
             this.menuGeneral.Controls.Add(this.btnManagerLanguages);
+            this.menuGeneral.Controls.Add(this.btnManageDB);
             this.menuGeneral.Name = "menuGeneral";
             // 
             // btnProducts
@@ -330,6 +332,19 @@
             this.btnManagerLanguages.Name = "btnManagerLanguages";
             this.btnManagerLanguages.UseVisualStyleBackColor = false;
             this.btnManagerLanguages.Click += new System.EventHandler(this.btnManagerLanguages_Click);
+            // 
+            // btnManageDB
+            // 
+            resources.ApplyResources(this.btnManageDB, "btnManageDB");
+            this.btnManageDB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnManageDB.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnManageDB.FlatAppearance.BorderSize = 0;
+            this.btnManageDB.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnManageDB.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnManageDB.ForeColor = System.Drawing.Color.Silver;
+            this.btnManageDB.Name = "btnManageDB";
+            this.btnManageDB.UseVisualStyleBackColor = false;
+            this.btnManageDB.Click += new System.EventHandler(this.btnManageDB_Click);
             // 
             // panelBarraTitulo
             // 
@@ -465,5 +480,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporte3ToolStripMenuItem;
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnEmployees;
+        private System.Windows.Forms.Button btnManageDB;
     }
 }

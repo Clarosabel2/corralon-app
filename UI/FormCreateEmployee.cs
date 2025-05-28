@@ -29,6 +29,8 @@ namespace UI
             {
                 empEdit = emp;
                 isEdit = true;
+                btnSaveEmployee.Enabled = true;
+                btnSaveEmployee.Text = "Modificar";
             }
         }
         private void LoadData(BE_Employee emp)
@@ -99,7 +101,8 @@ namespace UI
                 btnSaveEmployee.Enabled = true;
             }
 
-            if (isEdit) btnSaveEmployee.Enabled = true; btnSaveEmployee.Text = "Modificar";
+
+            
         }
         #endregion
 

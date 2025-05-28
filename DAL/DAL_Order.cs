@@ -11,7 +11,7 @@ namespace DAL
 {
     public class DAL_Order
     {
-        public static void DepatchOrder(int id_invoice, BE_Employee dealer)
+        public static void DepatchOrder(int id_invoice, BE_Employee dealer, DateTime departureTime)
         {
             try
             {
@@ -19,11 +19,12 @@ namespace DAL
                 var cmd = new SqlCommand
                 {
                     Connection = cnn.OpenConnection(),
-                    CommandText = "UPDATE Pedidos SET id_Empleado=@p_idEmployee where id_Factura=@p_idInvoice",
+                    CommandText = "UPDATE Pedidos SET id_Empleado=@p_idEmployee, hora_salida=@p_departuraTime  where id_Factura=@p_idInvoice",
                     CommandType = CommandType.Text
                 };
                 cmd.Parameters.AddWithValue("@p_idInvoice", id_invoice);
                 cmd.Parameters.AddWithValue("@p_idEmployee", dealer.Id);
+                cmd.Parameters.AddWithValue("@p_departuraTime", departureTime);
                 cmd.ExecuteNonQuery();
 
             }

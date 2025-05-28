@@ -35,7 +35,7 @@ namespace UI
             try
             {
                 BLL_Order.DepatchOrder(_id_invoice, slt.Key);
-                frmOrders.LoadOrders();
+                frmOrders.LoadDataInDG();
                 this.Dispose();
             }
             catch (Exception ex)

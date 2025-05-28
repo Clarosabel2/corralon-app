@@ -19,14 +19,12 @@ namespace BDE
             this.status = false;
             this.invoice = invoice;
         }
-        public BE_Order(BE_Sale invoice)
+        public BE_Order(BE_Sale invoice, DateTime deliveryDate, bool status)
         {
-            this.invoice=invoice;
+            this.DeliveryDate = deliveryDate;
+            this.Status = status;
         }
-        public BE_Order()
-        {
-
-        }
+        public BE_Order() { }
         public BE_Employee Dealer { get => dealer; set => dealer = value; }
         public DateTime DeliveryDate { get => deliveryDate; set => deliveryDate = value; }
         public bool Status { get => status; set => status = value; }

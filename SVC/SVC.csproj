@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DatabaseService.cs" />
     <Compile Include="EncodeManager.cs" />
     <Compile Include="LanguageManager\IObserver.cs" />
     <Compile Include="LanguageManager\ISubject.cs" />
@@ -54,5 +55,6 @@
       <Name>BE</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,7 +36,8 @@ namespace UI
 
         private void FormCrearVenta_Load(object sender, EventArgs e)
         {
-
+            DPEntrega.Date = DateTime.Now;
+            
         }
         private void FormCrearVenta_Resize(object sender, EventArgs e)
         {
@@ -304,7 +305,7 @@ namespace UI
 
         private void txtFilterName_TextChanged(object sender, EventArgs e)
         {
-            
+
             if (txtFilterName.Text != "")
             {
                 var prdtsFiltered = new List<BE_Product>();

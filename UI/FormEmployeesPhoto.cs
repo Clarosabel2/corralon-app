@@ -26,7 +26,7 @@ namespace UI
         public void ShowEmployees(List<BE_Employee> emps)
         {
             flowLayoutPanel1.Controls.Clear();
-            emps.Remove(emps.FirstOrDefault(e => e.Id == SessionManager.GetInstance.user.Emp.Id));
+            
             foreach (BE_Employee emp in emps)
             {
                 var card = new Guna2Panel

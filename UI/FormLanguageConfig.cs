@@ -126,6 +126,8 @@ namespace UI
             Tuple<string, string, DataTable> translations
                = new Tuple<string, string, DataTable>
                (cBLanguages.Text, cBForms.Text, dgvTranslation.DataSource as DataTable);
+
+            // IDIOMA SELECCIONADO, FORMULARIO ACTUAL, DATATABLE CON TRADUCCIONES
             try
             {
                 if (BLL_Language.UpdateTranslations(translations))

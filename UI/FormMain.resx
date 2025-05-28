@@ -130,7 +130,7 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="guna2ResizeBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1019, 601</value>
+    <value>990, 713</value>
   </data>
   <data name="guna2ResizeBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>20, 20</value>
@@ -145,7 +145,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1312, 652</value>
+    <value>1283, 764</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>650, 584</value>
@@ -214,7 +214,7 @@
     <value>0, 0</value>
   </data>
   <data name="guna2CirclePictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1042, 624</value>
+    <value>1013, 736</value>
   </data>
   <data name="guna2CirclePictureBox1.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>CenterImage</value>
@@ -241,7 +241,7 @@
     <value>270, 28</value>
   </data>
   <data name="panelInterface.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1042, 624</value>
+    <value>1013, 736</value>
   </data>
   <data name="panelInterface.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -274,7 +274,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnHelp.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 530</value>
+    <value>0, 642</value>
   </data>
   <data name="btnHelp.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -313,7 +313,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnLogout.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 577</value>
+    <value>0, 689</value>
   </data>
   <data name="btnLogout.Size" type="System.Drawing.Size, System.Drawing">
     <value>270, 47</value>
@@ -873,6 +873,45 @@
   <data name="&gt;&gt;btnManagerLanguages.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="btnManageDB.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnManageDB.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnManageDB.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 12.75pt</value>
+  </data>
+  <data name="btnManageDB.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnManageDB.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnManageDB.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 390</value>
+  </data>
+  <data name="btnManageDB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 37</value>
+  </data>
+  <data name="btnManageDB.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="btnManageDB.Text" xml:space="preserve">
+    <value>Gestión de DB</value>
+  </data>
+  <data name="&gt;&gt;btnManageDB.Name" xml:space="preserve">
+    <value>btnManageDB</value>
+  </data>
+  <data name="&gt;&gt;btnManageDB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnManageDB.Parent" xml:space="preserve">
+    <value>menuGeneral</value>
+  </data>
+  <data name="&gt;&gt;btnManageDB.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
   <data name="menuGeneral.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
@@ -883,7 +922,7 @@
     <value>0, 0, 0, 0</value>
   </data>
   <data name="menuGeneral.Size" type="System.Drawing.Size, System.Drawing">
-    <value>267, 412</value>
+    <value>504, 524</value>
   </data>
   <data name="menuGeneral.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -907,7 +946,7 @@
     <value>0, 28</value>
   </data>
   <data name="panelMenu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>270, 624</value>
+    <value>270, 736</value>
   </data>
   <data name="panelMenu.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -928,7 +967,7 @@
     <value>Top, Right</value>
   </data>
   <data name="nightControlBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1236, 0</value>
+    <value>1191, 0</value>
   </data>
   <data name="nightControlBox1.Size" type="System.Drawing.Size, System.Drawing">
     <value>139, 31</value>
@@ -988,7 +1027,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelBarraTitulo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1312, 28</value>
+    <value>1283, 28</value>
   </data>
   <data name="panelBarraTitulo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1012,7 +1051,7 @@
     <value>0, 0</value>
   </data>
   <data name="panelForms.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1312, 652</value>
+    <value>1283, 764</value>
   </data>
   <data name="panelForms.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>

@@ -19,12 +19,6 @@ namespace BDE
             this.Area = area;
             this.salary = salario;
         }
-        public BE_Employee(SqlDataReader dr)
-            : base(dr)
-        {
-            this.area = dr.GetString(dr.GetOrdinal("nombreArea"));
-            this.salary = 0.0;
-        }
         public BE_Employee(string name, string lastname, string email) : base(name, lastname, email) { }
         public BE_Employee() : base() { }
 

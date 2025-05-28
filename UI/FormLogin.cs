@@ -18,10 +18,12 @@ namespace UI
 {
     public partial class FormLogin : Form, IObserver
     {
+        List<BE_Language> list = BLL_Language.GetLanguages();
         private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
         public FormLogin()
         {
             InitializeComponent();
+            btnChangeLenguage.Text = list[0].LanguageCode;
             lblErrorMessage.Visible = false;
             BLL_Language.LoadTranslations();
             LanguageManager.Attach(this);
@@ -53,7 +55,7 @@ namespace UI
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name]??"username";
+                txtUser.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtUser.Name] ?? "username";
             }
 
         }
@@ -73,7 +75,7 @@ namespace UI
             if (txtPsswrd.Text == "")
             {
                 txtPsswrd.PasswordChar = '\0';
-                txtPsswrd.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name]??"password";
+                txtPsswrd.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name][txtPsswrd.Name] ?? "password";
             }
         }
         private void checkBoxShowPassword_CheckedChanged(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace UI
                     txtPsswrd.PasswordChar = '*';
                 }
             }
-            
+
         }
         #endregion
 
@@ -147,20 +149,18 @@ namespace UI
             }
 
         }
-        private bool isEnglish = false;
+        private int iLen;
         private void btnChangeLenguage_Click(object sender, EventArgs e)
         {
-            lblErrorMessage.Visible = false;
-            if (isEnglish)
+            if (iLen != list.Count - 1)
             {
-                btnChangeLenguage.Text = "SP";
-                isEnglish = false;
+                iLen++;
             }
             else
             {
-                btnChangeLenguage.Text = "EN";
-                isEnglish = true;
+                iLen = 0;
             }
+            btnChangeLenguage.Text = list[iLen].LanguageCode;
         }
 
         public void Update(BE_Language language)

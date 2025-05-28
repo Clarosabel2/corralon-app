@@ -127,6 +127,12 @@
     <Compile Include="FormCreateUser.Designer.cs">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormDatabaseMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatabaseMaintenance.Designer.cs">
+      <DependentUpon>FormDatabaseMaintenance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatabaseMaintenance.resx">
+      <DependentUpon>FormDatabaseMaintenance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEmployeeDetails.resx">
       <DependentUpon>FormEmployeeDetails.cs</DependentUpon>

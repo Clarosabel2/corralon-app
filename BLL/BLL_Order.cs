@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace BLL
     {
         public static void DepatchOrder(int id_invoice, BE_Employee key)
         {
-            DAL_Order.DepatchOrder(id_invoice, key);
+            DAL_Order.DepatchOrder(id_invoice, key, DateTime.Now);
         }
 
         public static DataTable GetAllPendingOrders()
@@ -30,5 +31,6 @@ namespace BLL
         {
             DAL_Order.MarkDeliveredOrder(idInvoice);
         }
+
     }
 }

@@ -268,6 +268,10 @@ namespace UI
         {
             OpenForms<FormClients>();
         }
+        private void btnManageDB_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormDatabaseMaintenance>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {

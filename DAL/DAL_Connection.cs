@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,7 +11,11 @@ namespace DAL
 {
     public class DAL_Connection
     {
-        private readonly SqlConnection _connection = new SqlConnection("Data Source=localhost,1433;Initial Catalog=corralondb;User ID=sa;Password=yourStrong#Password;");
+        private readonly SqlConnection _connection = 
+            new SqlConnection(ConfigurationManager
+                .ConnectionStrings["df_database"]
+                .ConnectionString);
+
         public SqlConnection Connection => _connection;
         public SqlConnection OpenConnection()
         {

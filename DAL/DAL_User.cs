@@ -37,7 +37,7 @@ namespace DAL
             return rowsAffected > 0;
         }
 
-        public static void ChangeLanguageUser(BE_Language language)
+        public static void ChangeLanguageUser(BE_Language language, int idUser)
         {
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
@@ -45,7 +45,7 @@ namespace DAL
             cmd.CommandText = @"sp_ChangeLanguageUser";
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@p_language", language.Name);
-            cmd.Parameters.AddWithValue("@p_id_user", SessionManager.GetInstance.user.Emp.Id);
+            cmd.Parameters.AddWithValue("@p_id_user", idUser);
             int rowsAffected = cmd.ExecuteNonQuery();
             cmd.Connection = cnn.CloseConnection();
         }
@@ -156,10 +156,6 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@email", user.Emp.Email);
                     cmd.ExecuteNonQuery();
                 }
-                SessionManager.GetInstance.user.Emp.Name = user.Emp.Name;
-                SessionManager.GetInstance.user.Emp.Lastname = user.Emp.Lastname;
-                SessionManager.GetInstance.user.Emp.Email = user.Emp.Email;
-
                 return true;
             }
             catch (Exception ex)
@@ -169,34 +165,35 @@ namespace DAL
             }
         }
 
-        public static void UpdateUserPasswordById(string password)
+        public static bool UpdateUserPasswordByIdUser(string password, int idUser)
         {
             try
             {
                 var cnn = new DAL_Connection();
-                using (var cmd = new SqlCommand($"UPDATE Usuarios SET password=@newpass WHERE id_Usuario={SessionManager.GetInstance.user.Emp.Id}", cnn.OpenConnection()))
+                using (var cmd = new SqlCommand($"UPDATE Usuarios SET password=@newpass WHERE id_Usuario={idUser}", cnn.OpenConnection()))
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Parameters.AddWithValue("@newpass", password);
                     cmd.ExecuteNonQuery();
                 }
-                SessionManager.GetInstance.user.Password = password;
+                return true;
             }
             catch (Exception ex)
             {
+                return false;
                 throw new Exception(ex.Message);
             }
         }
 
-        public static bool ValidUser(string username, string password)
+        public static BE_User ValidUser(string username, string password)
         {
-            BE_User user;
+            BE_User user = new BE_User();
             var cnn = new DAL_Connection();
             var cmd = new SqlCommand();
             cmd.Connection = cnn.OpenConnection();
             cmd.CommandText = "sp_ValidUser";
             cmd.Parameters.AddWithValue("@p_username", username);
-            cmd.Parameters.AddWithValue("@p_password", EncodeManager.HashValue(password));
+            cmd.Parameters.AddWithValue("@p_password", password);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -218,16 +215,11 @@ namespace DAL
                              dr.GetInt32(dr.GetOrdinal("telefono")),
                              0.0,
                              dr.GetString(dr.GetOrdinal("nombreArea"))));
-
-                    SessionManager.Login(user);
-                    SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == dr.GetString(dr.GetOrdinal("nombreIdioma"))).Key;
+                    user.Language = DAL_Language.GetLanguage(dr.GetString(dr.GetOrdinal("nombreIdioma")));
+                    return user;
                 }
-                return true;
             }
-            else
-            {
-                return false;
-            }
+                return null;
         }
 
         public static bool UnlockUserById(int id)
