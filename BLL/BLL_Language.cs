@@ -101,7 +101,7 @@ namespace BLL
                         // IDIOMA SELECCIONADO, FORMULARIO ACTUAL, DATATABLE CON TRADUCCIONES
                         DAL_Language.UpdateTranslation(languageName, formName, controlName, translationValue);
                         anyChanges = true;
-                    }
+                    }   
                     else
                     {
                         // IDIOMA SELECCIONADO, FORMULARIO ACTUAL, DATATABLE CON TRADUCCIONES

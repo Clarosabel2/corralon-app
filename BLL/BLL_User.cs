@@ -1,4 +1,5 @@
 ﻿using BDE;
+using BDE.Enums;
 using BDE.Language;
 using DAL;
 using SVC;
@@ -81,9 +82,18 @@ namespace BLL
         public static bool ValidUser(string username, string password)
         {
             BE_User userLogin = DAL_User.ValidUser(username, EncodeManager.HashValue(password));
-            SessionManager.Login(userLogin);
-            //LanguageManager.CurrentLanguage = userLogin.Language;
-            SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
+
+            if (userLogin != null)
+            {
+                SessionManager.Login(userLogin);
+                SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
+                BLL_EventLog.LogEvent(
+                    new BE_Eventlog(
+                        userLogin.Emp.Id, 
+                        "User logged in", 
+                        BE_EventType.LOGIN, 
+                        BE_ActivityLevel.INFORMATION));
+            }
             return true;
         }
 
@@ -104,6 +114,17 @@ namespace BLL
         public static bool UnlockUserById(int id)
         {
             return DAL_User.UnlockUserById(id);
+        }
+
+        public static void Logout()
+        {
+            BLL_EventLog.LogEvent(new BE_Eventlog(
+                SessionManager.GetInstance.user.Emp.Id, 
+                "User logged out", 
+                BE_EventType.LOGOUT, 
+                BE_ActivityLevel.INFORMATION));
+
+            SessionManager.Logout();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -13,7 +14,7 @@ namespace SVC
         {
             try
             {
-                    
+                DAL_Backup.Backup(backupFilePath);
             }
             catch (Exception ex)
             {
@@ -24,11 +25,22 @@ namespace SVC
         {
             try
             {
-                
+                DAL_Backup.Restore(backupFilePath);
             }
             catch (Exception ex)
             {
                 throw new Exception("Error during database restore: " + ex.Message);
+            }
+        }
+        public void CheckDatabaseIntegrity()
+        {
+            try
+            {
+                Console.WriteLine("Database integrity check is not implemented yet.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error checking database integrity: " + ex.Message);
             }
         }
     }

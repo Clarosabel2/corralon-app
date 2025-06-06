@@ -215,9 +215,10 @@ namespace UI
                 MessageBox.Show(SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgLogout"], "Aviso",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+
             if (r == DialogResult.Yes)
             {
-                SessionManager.Logout();
+                BLL_User.Logout();
                 this.Close();
                 FormLogin frmLogin = new FormLogin();
                 frmLogin.ShowDialog();
@@ -275,6 +276,11 @@ namespace UI
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+            
+        }
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //BLL_User.Logout();
         }
         public void Update(BE_Language language)
         {

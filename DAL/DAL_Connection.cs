@@ -12,9 +12,7 @@ namespace DAL
     public class DAL_Connection
     {
         private readonly SqlConnection _connection = 
-            new SqlConnection(ConfigurationManager
-                .ConnectionStrings["df_database"]
-                .ConnectionString);
+            new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=corralondb;Integrated Security=True;TrustServerCertificate=True");
 
         public SqlConnection Connection => _connection;
         public SqlConnection OpenConnection()

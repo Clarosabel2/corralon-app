@@ -151,6 +151,7 @@ namespace UI
             this.btnExecuteBackup.Size = new System.Drawing.Size(200, 45);
             this.btnExecuteBackup.TabIndex = 4;
             this.btnExecuteBackup.Text = "REALIZAR BACKUP";
+            this.btnExecuteBackup.Click += new System.EventHandler(this.btnExecuteBackup_Click);
             // 
             // progressBarBackup
             // 
@@ -246,7 +247,7 @@ namespace UI
             this.tabIntegrity.Location = new System.Drawing.Point(4, 26);
             this.tabIntegrity.Name = "tabIntegrity";
             this.tabIntegrity.Padding = new System.Windows.Forms.Padding(15);
-            this.tabIntegrity.Size = new System.Drawing.Size(192, 70);
+            this.tabIntegrity.Size = new System.Drawing.Size(742, 520);
             this.tabIntegrity.TabIndex = 2;
             this.tabIntegrity.Text = "  INTEGRIDAD  ";
             // 
@@ -259,6 +260,7 @@ namespace UI
             this.btnCheckIntegrity.Size = new System.Drawing.Size(200, 45);
             this.btnCheckIntegrity.TabIndex = 0;
             this.btnCheckIntegrity.Text = "VERIFICAR INTEGRIDAD";
+            this.btnCheckIntegrity.Click += new System.EventHandler(this.btnCheckIntegrity_Click);
             // 
             // txtIntegrityResults
             // 

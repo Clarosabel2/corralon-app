@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SVC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +45,17 @@ namespace UI
                     txtRestoreFile.Text = openFileDialog.FileName;
                 }
             }
+        }
+
+        private void btnExecuteBackup_Click(object sender, EventArgs e)
+        {
+            DatabaseService ds = new DatabaseService();
+            ds.DoBackup(txtBackupPath.Text);
+        }
+
+        private void btnCheckIntegrity_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

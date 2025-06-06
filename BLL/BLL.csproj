@@ -44,6 +44,7 @@
     <Compile Include="BLL_Brand.cs" />
     <Compile Include="BLL_Client.cs" />
     <Compile Include="BLL_Employee.cs" />
+    <Compile Include="BLL_EventLog.cs" />
     <Compile Include="BLL_Invoice.cs" />
     <Compile Include="BLL_Language.cs" />
     <Compile Include="BLL_Order.cs" />

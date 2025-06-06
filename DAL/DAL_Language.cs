@@ -163,7 +163,6 @@ namespace DAL
             cmd.Parameters.AddWithValue("@p_language", languageName);
             cmd.Parameters.AddWithValue("@p_controlName", controlName);
             cmd.Parameters.AddWithValue("@p_formName", formName);
-
             cmd.ExecuteNonQuery();
         }
     }

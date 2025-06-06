@@ -214,7 +214,7 @@ namespace DAL
                     return user;
                 }
             }
-                return null;
+            return null;
         }
 
         public static bool UnlockUserById(int id)

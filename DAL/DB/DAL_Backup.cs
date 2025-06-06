@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -13,23 +14,15 @@ namespace DAL.DB
         public static void Backup(string backupFilePath)
         {
             string backupFileName = $"corralondb_{DateTime.Now:yyyyMMdd}.bak";
-            backupFilePath+= backupFileName;
+            backupFilePath = Path.Combine(backupFilePath, backupFileName);
             try
             {
-                string backupQuery = $@"
-                    BACKUP DATABASE [corralondb] 
-                    TO DISK = '{backupFilePath}' 
-                    WITH 
-                        NOFORMAT, 
-                        NOINIT, 
-                        NAME = 'corralondb-Full Database Backup - {DateTime.Now:yyyy-MM-dd}', 
-                        SKIP, 
-                        NOREWIND, 
-                        NOUNLOAD, 
-                        STATS = 10";
+                string backupQuery = $@"BACKUP DATABASE [corralondb] TO  DISK = N'{backupFilePath}' WITH NOFORMAT, NOINIT,  NAME = N'corralondb-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+
+
+                Console.WriteLine("Backup path: " + backupFilePath);
                 var cnn = new DAL_Connection();
                 using (var connection = cnn.OpenConnection())
-
                 using (var cmd = new SqlCommand(backupQuery, connection))
                 {
                     cmd.ExecuteNonQuery();
