@@ -82,7 +82,7 @@ namespace UI
             }
             if (checkBoxChangePassword.Checked)
             {
-                if (EncodeManager.CompareHash(txtCurrentPassword.Text, SessionManager.GetInstance.user.Password))
+                if (SHAHashHelper.CompareHash(txtCurrentPassword.Text, SessionManager.GetInstance.user.Password))
                 {
                     if (txtPassword.Text == txtConfirmPassword.Text)
                     {

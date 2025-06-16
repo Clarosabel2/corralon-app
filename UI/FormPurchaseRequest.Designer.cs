@@ -40,81 +40,85 @@
             // 
             this.dgvLowStockProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvLowStockProducts.ColumnHeadersHeight = 34;
-            this.dgvLowStockProducts.Location = new System.Drawing.Point(27, 23);
+            this.dgvLowStockProducts.Location = new System.Drawing.Point(13, 12);
             this.dgvLowStockProducts.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvLowStockProducts.MultiSelect = false;
             this.dgvLowStockProducts.Name = "dgvLowStockProducts";
             this.dgvLowStockProducts.ReadOnly = true;
             this.dgvLowStockProducts.RowHeadersWidth = 62;
+            this.dgvLowStockProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLowStockProducts.Size = new System.Drawing.Size(800, 345);
             this.dgvLowStockProducts.TabIndex = 0;
+            this.dgvLowStockProducts.SelectionChanged += new System.EventHandler(this.dgvLowStockProducts_SelectionChanged);
             // 
             // cbSuppliers
             // 
             this.cbSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSuppliers.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSuppliers.Location = new System.Drawing.Point(834, 34);
+            this.cbSuppliers.Location = new System.Drawing.Point(821, 12);
             this.cbSuppliers.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cbSuppliers.Name = "cbSuppliers";
-            this.cbSuppliers.Size = new System.Drawing.Size(416, 38);
+            this.cbSuppliers.Size = new System.Drawing.Size(416, 29);
             this.cbSuppliers.TabIndex = 1;
+            this.cbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cbSuppliers_SelectedIndexChanged);
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(928, 136);
+            this.lblEmail.Location = new System.Drawing.Point(924, 61);
             this.lblEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(17, 23);
+            this.lblEmail.Size = new System.Drawing.Size(14, 19);
             this.lblEmail.TabIndex = 3;
             this.lblEmail.Text = "-";
             // 
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(928, 170);
+            this.lblPhone.Location = new System.Drawing.Point(924, 95);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(17, 23);
+            this.lblPhone.Size = new System.Drawing.Size(14, 19);
             this.lblPhone.TabIndex = 5;
             this.lblPhone.Text = "-";
             // 
             // lblAddress
             // 
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(928, 205);
+            this.lblAddress.Location = new System.Drawing.Point(924, 130);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(17, 23);
+            this.lblAddress.Size = new System.Drawing.Size(14, 19);
             this.lblAddress.TabIndex = 7;
             this.lblAddress.Text = "-";
             // 
             // lblEmailTitle
             // 
             this.lblEmailTitle.AutoSize = true;
-            this.lblEmailTitle.Location = new System.Drawing.Point(834, 136);
+            this.lblEmailTitle.Location = new System.Drawing.Point(830, 61);
             this.lblEmailTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEmailTitle.Name = "lblEmailTitle";
-            this.lblEmailTitle.Size = new System.Drawing.Size(67, 23);
+            this.lblEmailTitle.Size = new System.Drawing.Size(50, 19);
             this.lblEmailTitle.TabIndex = 2;
             this.lblEmailTitle.Text = "Email:";
             // 
             // lblPhoneTitle
             // 
             this.lblPhoneTitle.AutoSize = true;
-            this.lblPhoneTitle.Location = new System.Drawing.Point(834, 170);
+            this.lblPhoneTitle.Location = new System.Drawing.Point(830, 95);
             this.lblPhoneTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhoneTitle.Name = "lblPhoneTitle";
-            this.lblPhoneTitle.Size = new System.Drawing.Size(77, 23);
+            this.lblPhoneTitle.Size = new System.Drawing.Size(57, 19);
             this.lblPhoneTitle.TabIndex = 4;
             this.lblPhoneTitle.Text = "Phone:";
             // 
             // lblAddressTitle
             // 
             this.lblAddressTitle.AutoSize = true;
-            this.lblAddressTitle.Location = new System.Drawing.Point(834, 205);
+            this.lblAddressTitle.Location = new System.Drawing.Point(830, 130);
             this.lblAddressTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddressTitle.Name = "lblAddressTitle";
-            this.lblAddressTitle.Size = new System.Drawing.Size(93, 23);
+            this.lblAddressTitle.Size = new System.Drawing.Size(65, 19);
             this.lblAddressTitle.TabIndex = 6;
             this.lblAddressTitle.Text = "Address:";
             // 
@@ -124,7 +128,7 @@
             this.btnRequestPurchase.Customization = "7e3t//Ly8v/r6+v/5ubm/+vr6//f39//p6en/zw8PP8UFBT/gICA/w==";
             this.btnRequestPurchase.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnRequestPurchase.Image = null;
-            this.btnRequestPurchase.Location = new System.Drawing.Point(834, 317);
+            this.btnRequestPurchase.Location = new System.Drawing.Point(834, 306);
             this.btnRequestPurchase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnRequestPurchase.Name = "btnRequestPurchase";
             this.btnRequestPurchase.NoRounding = false;
@@ -132,12 +136,13 @@
             this.btnRequestPurchase.TabIndex = 9;
             this.btnRequestPurchase.Text = "Request Purchase";
             this.btnRequestPurchase.Transparent = false;
+            this.btnRequestPurchase.Click += new System.EventHandler(this.btnRequestPurchase_Click);
             // 
             // FormPurchaseRequest
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1266, 395);
+            this.ClientSize = new System.Drawing.Size(1266, 372);
             this.Controls.Add(this.btnRequestPurchase);
             this.Controls.Add(this.dgvLowStockProducts);
             this.Controls.Add(this.cbSuppliers);

@@ -52,7 +52,7 @@ namespace BLL
 
         public static void UpdateUserPassword(string password)
         {
-            string newPassword = EncodeManager.HashValue(password);
+            string newPassword = SHAHashHelper.HashValue(password);
             if (DAL_User.UpdateUserPasswordByIdUser(newPassword, SessionManager.GetInstance.user.Emp.Id))
             {
                 SessionManager.GetInstance.user.Password = newPassword;
@@ -60,7 +60,7 @@ namespace BLL
         }
         public static bool CreateUser(BE_User newUser)
         {
-            newUser.Password = EncodeManager.HashValue(newUser.Password);
+            newUser.Password = SHAHashHelper.HashValue(newUser.Password);
             return DAL_User.CreateUser(newUser);
         }
         public static void BlockUserByUsername(string username)
@@ -81,7 +81,7 @@ namespace BLL
 
         public static bool ValidUser(string username, string password)
         {
-            BE_User userLogin = DAL_User.ValidUser(username, EncodeManager.HashValue(password));
+            BE_User userLogin = DAL_User.ValidUser(username, SHAHashHelper.HashValue(password));
 
             if (userLogin != null)
             {

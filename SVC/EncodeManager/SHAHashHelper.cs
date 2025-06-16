@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SVC
 {
-    public class EncodeManager
+    public class SHAHashHelper
     {
         public static string HashValue(string password)
         {
@@ -20,6 +20,8 @@ namespace SVC
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
             return sb.ToString();
         }
+
+
 
         public static bool CompareHash(string toHash, string hashed)
         {

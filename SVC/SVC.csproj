@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseService.cs" />
-    <Compile Include="EncodeManager.cs" />
+    <Compile Include="EmailService\EmailSender.cs" />
+    <Compile Include="EmailService\EmailSendException.cs" />
+    <Compile Include="EncodeManager\AESEncryptionHelper.cs" />
+    <Compile Include="EncodeManager\SHAHashHelper.cs" />
     <Compile Include="LanguageManager\IObserver.cs" />
     <Compile Include="LanguageManager\ISubject.cs" />
     <Compile Include="LanguageManager\LanguageManager.cs" />
