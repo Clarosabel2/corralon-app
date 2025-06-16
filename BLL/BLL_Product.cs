@@ -11,6 +11,8 @@ namespace BLL
 {
     public static class BLL_Product
     {
+        public static bool isLowStock = false;
+
         public static void DeleteProductById(int productId)
         {
             DAL_Product.DeleteProductById(productId);
@@ -28,8 +30,11 @@ namespace BLL
 
         public static List<BE_Product> GetProducts()
         {
-            return DAL_Product.GetProducts().AsEnumerable()
+            List<BE_Product> products = DAL_Product.GetProducts().AsEnumerable()
                 .Select(p => new BE_Product(p)).ToList();
+
+            isLowStock = products.Any(p => p.Stock <= 20);
+            return products;
         }
 
         public static void SaveProduct(BE_Product p)

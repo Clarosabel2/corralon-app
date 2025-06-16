@@ -9,10 +9,9 @@ namespace BDE.Enums
     public enum BE_ActivityLevel
     {
         INFORMATION = 1,
-        SUCCESS = 2,
-        WARNING = 3,
-        ERROR = 4,
-        CRITICAL = 5,
-        DANGER = 6
+        WARNING = 2,
+        DANGER = 3,
+        CRITICAL = 4,
+        SUCCESS = 5
     }
 }

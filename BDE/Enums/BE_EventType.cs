@@ -19,5 +19,6 @@ namespace BDE
         CREATE_PRODUCT = 9,
         CREATE_LANGUAGE = 10,
         DISPATCH_ORDER = 11,
+        CREATE_SUPPLIER = 12,
     }
 }

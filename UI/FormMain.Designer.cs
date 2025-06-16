@@ -54,6 +54,7 @@
             this.btnProfiles = new System.Windows.Forms.Button();
             this.btnManagerLanguages = new System.Windows.Forms.Button();
             this.btnManageDB = new System.Windows.Forms.Button();
+            this.btnBitacora = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -63,6 +64,7 @@
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSuppliers = new System.Windows.Forms.Button();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -201,6 +203,8 @@
             this.menuGeneral.Controls.Add(this.btnProfiles);
             this.menuGeneral.Controls.Add(this.btnManagerLanguages);
             this.menuGeneral.Controls.Add(this.btnManageDB);
+            this.menuGeneral.Controls.Add(this.btnBitacora);
+            this.menuGeneral.Controls.Add(this.btnSuppliers);
             this.menuGeneral.Name = "menuGeneral";
             // 
             // btnProducts
@@ -346,6 +350,19 @@
             this.btnManageDB.UseVisualStyleBackColor = false;
             this.btnManageDB.Click += new System.EventHandler(this.btnManageDB_Click);
             // 
+            // btnBitacora
+            // 
+            resources.ApplyResources(this.btnBitacora, "btnBitacora");
+            this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnBitacora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBitacora.FlatAppearance.BorderSize = 0;
+            this.btnBitacora.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnBitacora.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnBitacora.ForeColor = System.Drawing.Color.Silver;
+            this.btnBitacora.Name = "btnBitacora";
+            this.btnBitacora.UseVisualStyleBackColor = false;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
+            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(141)))));
@@ -392,6 +409,7 @@
             // 
             // dropdownMenuReports
             // 
+            this.dropdownMenuReports.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.dropdownMenuReports.IsMainMenu = false;
             this.dropdownMenuReports.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporte1ToolStripMenuItem,
@@ -417,6 +435,19 @@
             // 
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             resources.ApplyResources(this.reporte3ToolStripMenuItem, "reporte3ToolStripMenuItem");
+            // 
+            // btnSuppliers
+            // 
+            resources.ApplyResources(this.btnSuppliers, "btnSuppliers");
+            this.btnSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnSuppliers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuppliers.FlatAppearance.BorderSize = 0;
+            this.btnSuppliers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnSuppliers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnSuppliers.ForeColor = System.Drawing.Color.Silver;
+            this.btnSuppliers.Name = "btnSuppliers";
+            this.btnSuppliers.UseVisualStyleBackColor = false;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
             // FormMain
             // 
@@ -482,5 +513,7 @@
         private System.Windows.Forms.Button btnUsers;
         private System.Windows.Forms.Button btnEmployees;
         private System.Windows.Forms.Button btnManageDB;
+        private System.Windows.Forms.Button btnBitacora;
+        private System.Windows.Forms.Button btnSuppliers;
     }
 }

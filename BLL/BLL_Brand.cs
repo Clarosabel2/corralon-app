@@ -30,5 +30,17 @@ namespace BLL
         {
             DAL_Brand.SaveBrand(b);
         }
+
+        internal static List<BE_Brand> GetBrandsBySupplierId(int id)
+        {
+            return DAL_Brand.GetBrandsBySupplierId(id)
+                .AsEnumerable()
+                .Select(r => new BE_Brand
+            {
+                Id = Convert.ToInt32(r[0]),
+                NameBrand = r[1].ToString(),
+                Description = r[2].ToString()
+            }).ToList();
+        }
     }
 }

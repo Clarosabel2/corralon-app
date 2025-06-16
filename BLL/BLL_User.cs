@@ -87,12 +87,10 @@ namespace BLL
             {
                 SessionManager.Login(userLogin);
                 SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
-                BLL_EventLog.LogEvent(
-                    new BE_Eventlog(
-                        userLogin.Emp.Id, 
-                        "User logged in", 
-                        BE_EventType.LOGIN, 
-                        BE_ActivityLevel.INFORMATION));
+                //BLL_EventLog.LogEvent(
+                //        "User logged in",
+                //        BE_EventType.LOGIN,
+                //        BE_ActivityLevel.INFORMATION);
             }
             return true;
         }
@@ -118,12 +116,7 @@ namespace BLL
 
         public static void Logout()
         {
-            BLL_EventLog.LogEvent(new BE_Eventlog(
-                SessionManager.GetInstance.user.Emp.Id, 
-                "User logged out", 
-                BE_EventType.LOGOUT, 
-                BE_ActivityLevel.INFORMATION));
-
+            BLL_EventLog.LogEvent("User logged out", BE_EventType.LOGOUT, BE_ActivityLevel.INFORMATION);
             SessionManager.Logout();
         }
     }

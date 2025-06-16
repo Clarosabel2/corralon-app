@@ -203,6 +203,7 @@
     <Compile Include="DAL_Permission.cs" />
     <Compile Include="DAL_Product.cs" />
     <Compile Include="DAL_Sale.cs" />
+    <Compile Include="DAL_Supplier.cs" />
     <Compile Include="DAL_User.cs" />
     <Compile Include="DB\DAL_Backup.cs" />
     <Compile Include="DB\DAL_Integrity.cs" />

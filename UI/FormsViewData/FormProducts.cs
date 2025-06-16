@@ -15,10 +15,33 @@ namespace UI
     public partial class FormProducts : Form
     {
         List<BE_Product> products = new List<BE_Product>();
+        bool isLowStock = false;
         public FormProducts()
         {
             InitializeComponent();
             products = BLL_Product.GetProducts();
+            VerifyLowStock();
+        }
+
+        private void VerifyLowStock()
+        {
+            if (BLL_Product.isLowStock)
+            {
+                DialogResult result = MessageBox.Show(
+                    "Hay productos con stock insuficiente. ¿Desea solicitar compra?",
+                    "Stock Bajo",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    FormPurchaseRequest request = new FormPurchaseRequest(products.Where(p => p.Stock <= 20).ToList());
+                    request.StartPosition = FormStartPosition.CenterScreen;
+                    request.FormBorderStyle = FormBorderStyle.FixedDialog;
+                    request.ShowDialog();
+                }
+            }
         }
 
         public void LoadProductsIntoDGV(List<BE_Product> prdts = null)

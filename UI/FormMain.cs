@@ -15,6 +15,7 @@ using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.FormsViewData;
 
 namespace UI
 {
@@ -257,7 +258,6 @@ namespace UI
         }
         private void btnEmployees_Click(object sender, EventArgs e)
         {
-            //OpenForms<FormEmployees>();
             OpenForms<FormEmployeesPhoto>();
         }
         private void btnReports_Click(object sender, EventArgs e)
@@ -273,10 +273,18 @@ namespace UI
         {
             OpenForms<FormDatabaseMaintenance>();
         }
+        private void btnBitacora_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormBitacora>();
+        }
+        private void btnSuppliers_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormSuppliers>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
+
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
