@@ -2,15 +2,15 @@
 
 ## Descripción del Proyecto
 
-**corralon-app** es un sistema integral de gestión empresarial desarrollado en Windows Forms para operaciones de ferreterías y corralones. [1]  El sistema maneja funciones centrales del negocio incluyendo autenticación de usuarios, procesamiento de ventas, gestión de inventario, seguimiento de pedidos y relaciones con clientes a través de una arquitectura de capas bien definida. <cite/>
+**corralon-app** es un sistema integral de gestión empresarial desarrollado en Windows Forms para operaciones de ferreterías y corralones. El sistema maneja funciones centrales del negocio incluyendo autenticación de usuarios, procesamiento de ventas, gestión de inventario, seguimiento de pedidos y relaciones con clientes a través de una arquitectura de capas bien definida. <cite/>
 
 ## Arquitectura del Sistema
 
 El proyecto sigue un patrón de arquitectura de cinco capas con clara separación de responsabilidades:
 
-- **UI (Interfaz de Usuario)**: Capa de presentación con Windows Forms [2]
+- **UI (Interfaz de Usuario)**: Capa de presentación con Windows Forms
 - **BLL (Lógica de Negocio)**: Procesamiento y validación de reglas de negocio <cite/>
-- **DAL (Capa de Acceso a Datos)**: Persistencia de datos y operaciones SQL [3] 
+- **DAL (Capa de Acceso a Datos)**: Persistencia de datos y operaciones SQL  
 - **SVC (Servicios)**: Servicios transversales como seguridad y comunicación <cite/>
 - **BE (Entidades de Negocio)**: Estructuras de datos y entidades del dominio <cite/>
 
@@ -20,7 +20,7 @@ El proyecto sigue un patrón de arquitectura de cinco capas con clara separació
 - **SQL Server** (Base de datos `corralondb`) <cite/>
 - **Windows Forms** para la interfaz gráfica
 - **Guna.UI2** y **ReaLTaiizor** para componentes UI avanzados <cite/>
-- **DotNetEnv** para configuración de variables de entorno [5]
+- **DotNetEnv** para configuración de variables de entorno 
 
 ## Funcionalidades Principales
 
@@ -34,8 +34,8 @@ El proyecto sigue un patrón de arquitectura de cinco capas con clara separació
 - Gestión de clientes <cite/>
 
 ### Control de Inventario
-- Administración de productos [6]
-- Gestión de proveedores [7]
+- Administración de productos 
+- Gestión de proveedores
 - Seguimiento de stock <cite/>
 
 ### Características Adicionales
@@ -75,7 +75,7 @@ El sistema inicia con un formulario de login que autentica usuarios y establece 
 
 ## Contribución
 
-Este proyecto utiliza una arquitectura modular que facilita el mantenimiento y la extensión de funcionalidades. <cite/> Cada capa tiene responsabilidades bien definidas y dependencias claras entre los proyectos. [9]
+Este proyecto utiliza una arquitectura modular que facilita el mantenimiento y la extensión de funcionalidades. <cite/> Cada capa tiene responsabilidades bien definidas y dependencias claras entre los proyectos. 
 
 ## Notes
 
