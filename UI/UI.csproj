@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props"
+    Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -54,10 +55,12 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+    <Reference
+      Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+    <Reference
+      Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
@@ -65,25 +68,31 @@
       <HintPath>..\packages\ReaLTaiizor.3.8.1.1\lib\net48\ReaLTaiizor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+    <Reference
+      Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+    <Reference
+      Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference
+      Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference
+      Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>
+        ..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Security" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+    <Reference
+      Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
@@ -109,34 +118,34 @@
     <Compile Include="FormBitacora.Designer.cs">
       <DependentUpon>FormBitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterSupplier.cs">
+    <Compile Include="FormRegisterSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterSupplier.Designer.cs">
+    <Compile Include="FormRegisterSupplier.Designer.cs">
       <DependentUpon>FormRegisterSupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormClients.cs">
+    <Compile Include="FormClients.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormClients.Designer.cs">
+    <Compile Include="FormClients.Designer.cs">
       <DependentUpon>FormClients.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsRegister\FormCreateEmployee.cs">
+    <Compile Include="FormCreateEmployee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsRegister\FormCreateEmployee.Designer.cs">
+    <Compile Include="FormCreateEmployee.Designer.cs">
       <DependentUpon>FormCreateEmployee.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsSale\FormCreateSale.cs">
+    <Compile Include="FormCreateSale.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsSale\FormCreateSale.Designer.cs">
+    <Compile Include="FormCreateSale.Designer.cs">
       <DependentUpon>FormCreateSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsRegister\FormCreateUser.cs">
+    <Compile Include="FormCreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsRegister\FormCreateUser.Designer.cs">
+    <Compile Include="FormCreateUser.Designer.cs">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </Compile>
     <Compile Include="FormDatabaseMaintenance.cs">
@@ -145,16 +154,16 @@
     <Compile Include="FormDatabaseMaintenance.Designer.cs">
       <DependentUpon>FormDatabaseMaintenance.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormEmployeeDetails.cs">
+    <Compile Include="FormEmployeeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormEmployeeDetails.Designer.cs">
+    <Compile Include="FormEmployeeDetails.Designer.cs">
       <DependentUpon>FormEmployeeDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormEmployeesPhoto.cs">
+    <Compile Include="FormEmployeesPhoto.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormEmployeesPhoto.Designer.cs">
+    <Compile Include="FormEmployeesPhoto.Designer.cs">
       <DependentUpon>FormEmployeesPhoto.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLanguageConfig.cs">
@@ -181,22 +190,22 @@
     <Compile Include="FormManageProfile.Designer.cs">
       <DependentUpon>FormManageProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsSale\FormOrders.cs">
+    <Compile Include="FormOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsSale\FormOrders.Designer.cs">
+    <Compile Include="FormOrders.Designer.cs">
       <DependentUpon>FormOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsSale\FormPreShipOrder.cs">
+    <Compile Include="FormPreShipOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsSale\FormPreShipOrder.Designer.cs">
+    <Compile Include="FormPreShipOrder.Designer.cs">
       <DependentUpon>FormPreShipOrder.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormProducts.cs">
+    <Compile Include="FormProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormProducts.Designer.cs">
+    <Compile Include="FormProducts.Designer.cs">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProfiles.cs">
@@ -211,40 +220,40 @@
     <Compile Include="FormPurchaseRequest.Designer.cs">
       <DependentUpon>FormPurchaseRequest.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsUserAccount\FormRecoverPss.cs">
+    <Compile Include="FormRecoverPss.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsUserAccount\FormRecoverPss.Designer.cs">
+    <Compile Include="FormRecoverPss.Designer.cs">
       <DependentUpon>FormRecoverPss.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterClient.cs">
+    <Compile Include="FormRegisterClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterClient.Designer.cs">
+    <Compile Include="FormRegisterClient.Designer.cs">
       <DependentUpon>FormRegisterClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterProduct.cs">
+    <Compile Include="FormRegisterProduct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsRegister\FormRegisterProduct.Designer.cs">
+    <Compile Include="FormRegisterProduct.Designer.cs">
       <DependentUpon>FormRegisterProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsUserAccount\FormUserProfile.cs">
+    <Compile Include="FormUserProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsUserAccount\FormUserProfile.Designer.cs">
+    <Compile Include="FormUserProfile.Designer.cs">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormSuppliers.cs">
+    <Compile Include="FormSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormSuppliers.Designer.cs">
+    <Compile Include="FormSuppliers.Designer.cs">
       <DependentUpon>FormSuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormsViewData\FormUsers.cs">
+    <Compile Include="FormUsers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormsViewData\FormUsers.Designer.cs">
+    <Compile Include="FormUsers.Designer.cs">
       <DependentUpon>FormUsers.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -264,28 +273,28 @@
     <EmbeddedResource Include="FormBitacora.resx">
       <DependentUpon>FormBitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsRegister\FormRegisterSupplier.resx">
+    <EmbeddedResource Include="FormRegisterSupplier.resx">
       <DependentUpon>FormRegisterSupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormClients.resx">
+    <EmbeddedResource Include="FormClients.resx">
       <DependentUpon>FormClients.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsRegister\FormCreateEmployee.resx">
+    <EmbeddedResource Include="FormCreateEmployee.resx">
       <DependentUpon>FormCreateEmployee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsSale\FormCreateSale.resx">
+    <EmbeddedResource Include="FormCreateSale.resx">
       <DependentUpon>FormCreateSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsRegister\FormCreateUser.resx">
+    <EmbeddedResource Include="FormCreateUser.resx">
       <DependentUpon>FormCreateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormDatabaseMaintenance.resx">
       <DependentUpon>FormDatabaseMaintenance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormEmployeeDetails.resx">
+    <EmbeddedResource Include="FormEmployeeDetails.resx">
       <DependentUpon>FormEmployeeDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormEmployeesPhoto.resx">
+    <EmbeddedResource Include="FormEmployeesPhoto.resx">
       <DependentUpon>FormEmployeesPhoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLanguageConfig.resx">
@@ -300,13 +309,13 @@
     <EmbeddedResource Include="FormManageProfile.resx">
       <DependentUpon>FormManageProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsSale\FormOrders.resx">
+    <EmbeddedResource Include="FormOrders.resx">
       <DependentUpon>FormOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsSale\FormPreShipOrder.resx">
+    <EmbeddedResource Include="FormPreShipOrder.resx">
       <DependentUpon>FormPreShipOrder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormProducts.resx">
+    <EmbeddedResource Include="FormProducts.resx">
       <DependentUpon>FormProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProfiles.resx">
@@ -315,22 +324,22 @@
     <EmbeddedResource Include="FormPurchaseRequest.resx">
       <DependentUpon>FormPurchaseRequest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsUserAccount\FormRecoverPss.resx">
+    <EmbeddedResource Include="FormRecoverPss.resx">
       <DependentUpon>FormRecoverPss.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsRegister\FormRegisterClient.resx">
+    <EmbeddedResource Include="FormRegisterClient.resx">
       <DependentUpon>FormRegisterClient.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsRegister\FormRegisterProduct.resx">
+    <EmbeddedResource Include="FormRegisterProduct.resx">
       <DependentUpon>FormRegisterProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsUserAccount\FormUserProfile.resx">
+    <EmbeddedResource Include="FormUserProfile.resx">
       <DependentUpon>FormUserProfile.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormSuppliers.resx">
+    <EmbeddedResource Include="FormSuppliers.resx">
       <DependentUpon>FormSuppliers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormsViewData\FormUsers.resx">
+    <EmbeddedResource Include="FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
