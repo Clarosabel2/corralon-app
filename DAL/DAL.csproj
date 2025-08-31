@@ -198,6 +198,7 @@
     <Compile Include="DAL_Connection.cs" />
     <Compile Include="DAL_Employee.cs" />
     <Compile Include="DAL_Eventlog.cs" />
+    <Compile Include="DAL_Form.cs" />
     <Compile Include="DAL_Invoice.cs" />
     <Compile Include="DAL_Language.cs" />
     <Compile Include="DAL_Order.cs" />

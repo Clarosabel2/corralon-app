@@ -117,7 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <!--Form: Login-->
   <data name="FormLogin:lblSignIn" xml:space="preserve">
     <value />
   </data>
@@ -127,7 +126,6 @@
   <data name="FormLogin:txtPsswrd" xml:space="preserve">
     <value />
   </data>
-
   <data name="FormLogin:checkBoxShowPassword" xml:space="preserve">
     <value />
   </data>
@@ -143,7 +141,6 @@
   <data name="FormLogin:MsgBlockAccount" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Main-->
   <data name="FormMain:btnHelp" xml:space="preserve">
     <value />
   </data>
@@ -183,7 +180,6 @@
   <data name="FormMain:btnManagerLanguages" xml:space="preserve">
     <value />
   </data>
-  <!--Form: User Profile-->
   <data name="FormUserProfile:lblTitleForm" xml:space="preserve">
     <value />
   </data>
@@ -244,8 +240,6 @@
   <data name="FormUserProfile:lblEditMyDataTitle" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Products-->
-  <!--Elimimar-->
   <data name="FormProducts:button3" xml:space="preserve">
     <value />
   </data>
@@ -258,7 +252,6 @@
   <data name="FormProducts:groupBox1" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Create Sale-->
   <data name="FormCreateSale:gBFiltros" xml:space="preserve">
     <value />
   </data>
@@ -304,7 +297,6 @@
   <data name="FormCreateSale:btnGenerarFactura" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Orders-->
   <data name="FormOrders:btnReportProblem" xml:space="preserve">
     <value />
   </data>
@@ -326,7 +318,6 @@
   <data name="FormOrders:lblOrders" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Create User-->
   <data name="FormCreateUser:lblEmployees" xml:space="preserve">
     <value />
   </data>
@@ -342,7 +333,6 @@
   <data name="FormCreateUser:btnCreateUser" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Create Employee-->
   <data name="FormCreateEmployee:lblDni" xml:space="preserve">
     <value />
   </data>
@@ -367,7 +357,6 @@
   <data name="FormCreateEmployee:btnSaveEmployee" xml:space="preserve">
     <value />
   </data>
-  <!--Form: RegisterClient-->
   <data name="FormRegisterClient:lblDni" xml:space="preserve">
     <value />
   </data>
@@ -392,7 +381,6 @@
   <data name="FormRegisterClient:btnCancel" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Profiles-->
   <data name="FormProfiles:btnCreateProfile" xml:space="preserve">
     <value />
   </data>
@@ -405,7 +393,6 @@
   <data name="FormProfiles:lblUsers" xml:space="preserve">
     <value />
   </data>
-  <!--Form: Manage Profile-->
   <data name="FormManageProfile:lblNameFamily" xml:space="preserve">
     <value />
   </data>
@@ -424,7 +411,6 @@
   <data name="FormManageProfile:ButtonSaveFamily" xml:space="preserve">
     <value />
   </data>
-  <!--Form: LanguageConfig-->
   <data name="FormLanguageConfig:gBFilters" xml:space="preserve">
     <value />
   </data>
@@ -449,7 +435,6 @@
   <data name="FormLanguageConfig:btnUpdateTranlationsControls" xml:space="preserve">
     <value />
   </data>
-  <!--Form: PreShipOrder-->
   <data name="FormPreShipOrder:lblDealer" xml:space="preserve">
     <value />
   </data>
@@ -467,5 +452,14 @@
   </data>
   <data name="FormPreShipOrder:buttonDispatchOrder" xml:space="preserve">
     <value />
+  </data>
+  <data name="FormSuppliers:label1" xml:space="preserve">
+    <value>Suppliers</value>
+  </data>
+  <data name="FormSuppliers:btnRegisterSupplier" xml:space="preserve">
+    <value>Register Supplier</value>
+  </data>
+  <data name="FormSuppliers:lblBrands" xml:space="preserve">
+    <value>Brands of selected supplier:</value>
   </data>
 </root>

@@ -19,6 +19,7 @@ namespace UI.FormsViewData
         public FormSuppliers()
         {
             InitializeComponent();
+            ResxExporter.ExportControlsFormToResx(this);
         }
 
         private void SetupSupplierColumns()

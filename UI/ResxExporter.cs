@@ -6,55 +6,121 @@ using System.Resources;
 using System.Windows.Forms;
 using System.Reflection;
 using System.Linq;
+using BLL;
 
 namespace UI
 {
     internal class ResxExporter
     {
-        public static void ExportControlsToResx(Form form, string resxFilePath)
+        private static readonly string[] ResxFiles =
         {
-            Dictionary<string, string> existingResources = new Dictionary<string, string>();
+            @"../../Resources/ResourceForms.resx",
+            @"../../Resources/Resource1.resx",
+            @"../../Resources/ResourceControlsForms.resx"
+        };
 
-            if (File.Exists(resxFilePath))
+        public static void CreateResxFileIfNotExist()
+        {
+            foreach (string resxFile in ResxFiles)
             {
-                using (ResXResourceReader resxReader = new ResXResourceReader(resxFilePath))
+                if (!File.Exists(resxFile))
                 {
-                    foreach (DictionaryEntry entry in resxReader)
+                    using (var writer = new ResXResourceWriter(resxFile))
                     {
-                        string key = entry.Key.ToString();
+
+                    }
+                }
+            }
+        }
+        private static bool IsFormExistInResx(string formName)
+        {
+            var existingResources = new Dictionary<string, string>();
+            using (ResXResourceReader resxReader = new ResXResourceReader(ResxFiles[0]))
+            {
+                foreach (DictionaryEntry entry in resxReader)
+                {
+                    existingResources[entry.Key.ToString()] = entry.Value?.ToString() ?? "";
+                }
+            }
+            if (existingResources.ContainsKey(formName))
+            {
+                return true;
+            }
+            existingResources[formName] = "";
+            using (ResXResourceWriter writer = new ResXResourceWriter(ResxFiles[0]))
+            {
+                foreach (var kv in existingResources)
+                {
+                    writer.AddResource(kv.Key, kv.Value);
+                }
+            }
+            return false;
+
+        }
+
+        private static bool IsExportable(Control c) =>
+            c is Button ||
+            c is Label ||
+            c is GroupBox ||
+            c is LinkLabel ||
+            c is CheckBox ||
+            c is RadioButton
+            ;
+
+        public static void ExportControlsFormToResx(Form form)
+        {
+            //Esta escrito el form en el resx entonces los controles tambien
+            if (IsFormExistInResx(form.Name)) return;
+            string targetResx = ResxFiles[1];
+            var existing = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+
+
+            if (File.Exists(targetResx))
+            {
+                using (var reader = new ResXResourceReader(targetResx))
+                {
+                    // Opcional: reader.UseResXDataNodes = true;
+                    foreach (DictionaryEntry entry in reader)
+                    {
+                        string key = entry.Key?.ToString() ?? "";
                         string value = entry.Value?.ToString() ?? "";
-                        existingResources[key] = value;
+                        if (key.Length > 0) existing[key] = value;
                     }
                 }
             }
 
-            using (ResXResourceWriter resxWriter = new ResXResourceWriter(resxFilePath))
+            IEnumerable<Control> Walk(Control parent)
             {
-                void ProcessControls(Control parent)
+                foreach (Control child in parent.Controls)
                 {
-                    foreach (Control control in parent.Controls)
+                    yield return child;
+                    if (child.HasChildren)
                     {
-                        if (control is Button || control is Label || control is GroupBox || control is LinkLabel || control is CheckBox)
-                        {
-                            string controlInfo = $"{form.Name}:{control.Name}";
+                        foreach (var grand in Walk(child))
+                            yield return grand;
+                    }
+                }
+            }
 
-                            if (!existingResources.ContainsKey(controlInfo))
-                            {
-                                resxWriter.AddResource(controlInfo, "");
-                            }
-                        }
-                        if (control.HasChildren)
-                        {
-                            ProcessControls(control);
-                        }
+            using (var writer = new ResXResourceWriter(targetResx))
+            {
+                foreach (var kv in existing)
+                    writer.AddResource(kv.Key, kv.Value);
+
+                foreach (var c in Walk(form))
+                {
+                    if (!IsExportable(c)) continue;
+                    if (string.IsNullOrWhiteSpace(c.Name)) continue;
+
+                    string key = $"{form.Name}:{c.Name}";
+                    if (!existing.ContainsKey(key))
+                    {
+                        string value = c.Text?.ToString() ?? "";
+                        writer.AddResource(key, value);
                     }
                 }
 
-                foreach (var resource in existingResources)
-                {
-                    resxWriter.AddResource(resource.Key, resource.Value);
-                }
-                ProcessControls(form);
+                writer.Generate(); // opcional; using lo hace al Dispose
             }
         }
     }
