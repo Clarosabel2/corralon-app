@@ -1,13 +1,17 @@
 ﻿using DAL.DB;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SVC
 {
+    
+
     public class DatabaseService
     {
         public void DoBackup(string backupFilePath)
@@ -32,16 +36,7 @@ namespace SVC
                 throw new Exception("Error during database restore: " + ex.Message);
             }
         }
-        public void CheckDatabaseIntegrity()
-        {
-            try
-            {
-                Console.WriteLine("Database integrity check is not implemented yet.");
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Error checking database integrity: " + ex.Message);
-            }
-        }
+        
+
     }
 }

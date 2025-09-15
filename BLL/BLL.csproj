@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="BLL_Brand.cs" />
     <Compile Include="BLL_Client.cs" />
+    <Compile Include="BLL_DV_DB.cs" />
     <Compile Include="BLL_Employee.cs" />
     <Compile Include="BLL_EventLog.cs" />
     <Compile Include="BLL_Form.cs" />

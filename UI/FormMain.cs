@@ -21,6 +21,7 @@ namespace UI
 {
     public partial class FormMain : Form, IObserver
     {
+        private BLL_DV_DB bll_dv_db;
         public FormMain()
         {
             InitializeComponent();
@@ -28,6 +29,16 @@ namespace UI
             timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
             LanguageManager.Attach(this);
+            this.bll_dv_db = new BLL_DV_DB();
+            CheckIntegrityDatabase();
+        }
+
+        private void CheckIntegrityDatabase()
+        {
+            if (bll_dv_db.IsDVInconsistent)
+            {
+                OpenForms<FormDatabaseMaintenance>(bll_dv_db);
+            }
         }
 
         private void EnableControls()
@@ -159,7 +170,7 @@ namespace UI
             }
         }*/
         #endregion
-        private void OpenForms<MyForm>() where MyForm : Form, new()
+        private void OpenForms<TForm>(params object[] args) where TForm : Form
         {
             foreach (Form openForm in panelInterface.Controls.OfType<Form>())
             {
@@ -167,14 +178,13 @@ namespace UI
                 panelInterface.Controls.Remove(openForm);
             }
 
-            Form frm = new MyForm
-            {
-                TopLevel = false,
-                MinimizeBox = false,
-                MaximizeBox = false,
-                FormBorderStyle = FormBorderStyle.None,
-                Dock = DockStyle.Fill
-            };
+            var frm = (Form)Activator.CreateInstance(typeof(TForm), args);
+
+            frm.TopLevel = false;
+            frm.MinimizeBox = false;
+            frm.MaximizeBox = false;
+            frm.FormBorderStyle = FormBorderStyle.None;
+            frm.Dock = DockStyle.Fill;
 
             panelInterface.Controls.Add(frm);
             panelInterface.Tag = frm;
@@ -184,6 +194,7 @@ namespace UI
 
             frm.FormClosed += new FormClosedEventHandler(CloseForms);
         }
+
         private void CloseForms(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["FormUserProfile"] == null)
@@ -271,7 +282,7 @@ namespace UI
         }
         private void btnManageDB_Click(object sender, EventArgs e)
         {
-            OpenForms<FormDatabaseMaintenance>();
+            OpenForms<FormDatabaseMaintenance>("Hola");
         }
         private void btnBitacora_Click(object sender, EventArgs e)
         {
@@ -295,5 +306,9 @@ namespace UI
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }
 
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

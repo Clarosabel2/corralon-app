@@ -79,7 +79,6 @@ namespace UI
             {
                 using (var reader = new ResXResourceReader(targetResx))
                 {
-                    // Opcional: reader.UseResXDataNodes = true;
                     foreach (DictionaryEntry entry in reader)
                     {
                         string key = entry.Key?.ToString() ?? "";
@@ -119,8 +118,7 @@ namespace UI
                         writer.AddResource(key, value);
                     }
                 }
-
-                writer.Generate(); // opcional; using lo hace al Dispose
+                writer.Generate();
             }
         }
     }

@@ -63,13 +63,16 @@ namespace UI
             this.progressBarRestore = new System.Windows.Forms.ProgressBar();
             this.lblRestoreStatus = new System.Windows.Forms.Label();
             this.tabIntegrity = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCheckIntegrity = new System.Windows.Forms.Button();
+            this.btnRecalculateDV = new System.Windows.Forms.Button();
             this.txtIntegrityResults = new System.Windows.Forms.TextBox();
             this.lblIntegrityStatus = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabBackup.SuspendLayout();
             this.tabRestore.SuspendLayout();
             this.tabIntegrity.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -82,7 +85,7 @@ namespace UI
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(750, 550);
+            this.tabControl1.Size = new System.Drawing.Size(729, 675);
             this.tabControl1.TabIndex = 0;
             // 
             // tabBackup
@@ -97,7 +100,7 @@ namespace UI
             this.tabBackup.Location = new System.Drawing.Point(4, 26);
             this.tabBackup.Name = "tabBackup";
             this.tabBackup.Padding = new System.Windows.Forms.Padding(15);
-            this.tabBackup.Size = new System.Drawing.Size(742, 520);
+            this.tabBackup.Size = new System.Drawing.Size(721, 645);
             this.tabBackup.TabIndex = 0;
             this.tabBackup.Text = "  BACKUP  ";
             // 
@@ -180,7 +183,7 @@ namespace UI
             this.tabRestore.Location = new System.Drawing.Point(4, 26);
             this.tabRestore.Name = "tabRestore";
             this.tabRestore.Padding = new System.Windows.Forms.Padding(15);
-            this.tabRestore.Size = new System.Drawing.Size(742, 520);
+            this.tabRestore.Size = new System.Drawing.Size(612, 645);
             this.tabRestore.TabIndex = 1;
             this.tabRestore.Text = "  RESTAURAR  ";
             // 
@@ -241,36 +244,60 @@ namespace UI
             // 
             // tabIntegrity
             // 
-            this.tabIntegrity.Controls.Add(this.btnCheckIntegrity);
+            this.tabIntegrity.Controls.Add(this.flowLayoutPanel1);
             this.tabIntegrity.Controls.Add(this.txtIntegrityResults);
             this.tabIntegrity.Controls.Add(this.lblIntegrityStatus);
             this.tabIntegrity.Location = new System.Drawing.Point(4, 26);
             this.tabIntegrity.Name = "tabIntegrity";
             this.tabIntegrity.Padding = new System.Windows.Forms.Padding(15);
-            this.tabIntegrity.Size = new System.Drawing.Size(742, 520);
+            this.tabIntegrity.Size = new System.Drawing.Size(612, 645);
             this.tabIntegrity.TabIndex = 2;
             this.tabIntegrity.Text = "  INTEGRIDAD  ";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.Controls.Add(this.btnCheckIntegrity);
+            this.flowLayoutPanel1.Controls.Add(this.btnRecalculateDV);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 18);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(594, 56);
+            this.flowLayoutPanel1.TabIndex = 4;
             // 
             // btnCheckIntegrity
             // 
             this.btnCheckIntegrity.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.btnCheckIntegrity.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnCheckIntegrity.Location = new System.Drawing.Point(20, 20);
+            this.btnCheckIntegrity.Location = new System.Drawing.Point(3, 3);
             this.btnCheckIntegrity.Name = "btnCheckIntegrity";
             this.btnCheckIntegrity.Size = new System.Drawing.Size(200, 45);
             this.btnCheckIntegrity.TabIndex = 0;
             this.btnCheckIntegrity.Text = "VERIFICAR INTEGRIDAD";
             this.btnCheckIntegrity.Click += new System.EventHandler(this.btnCheckIntegrity_Click);
             // 
+            // btnRecalculateDV
+            // 
+            this.btnRecalculateDV.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnRecalculateDV.ForeColor = System.Drawing.Color.Black;
+            this.btnRecalculateDV.Location = new System.Drawing.Point(209, 3);
+            this.btnRecalculateDV.Name = "btnRecalculateDV";
+            this.btnRecalculateDV.Size = new System.Drawing.Size(200, 45);
+            this.btnRecalculateDV.TabIndex = 3;
+            this.btnRecalculateDV.Text = " RECALCULAR DV";
+            this.btnRecalculateDV.Click += new System.EventHandler(this.btnRecalculateDV_Click);
+            // 
             // txtIntegrityResults
             // 
+            this.txtIntegrityResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIntegrityResults.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.txtIntegrityResults.Location = new System.Drawing.Point(20, 80);
             this.txtIntegrityResults.Multiline = true;
             this.txtIntegrityResults.Name = "txtIntegrityResults";
             this.txtIntegrityResults.ReadOnly = true;
             this.txtIntegrityResults.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtIntegrityResults.Size = new System.Drawing.Size(660, 350);
+            this.txtIntegrityResults.Size = new System.Drawing.Size(582, 350);
             this.txtIntegrityResults.TabIndex = 1;
             // 
             // lblIntegrityStatus
@@ -284,7 +311,7 @@ namespace UI
             // 
             // FormDatabaseMaintenance
             // 
-            this.ClientSize = new System.Drawing.Size(750, 550);
+            this.ClientSize = new System.Drawing.Size(729, 675);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.MinimumSize = new System.Drawing.Size(600, 450);
@@ -298,8 +325,12 @@ namespace UI
             this.tabRestore.PerformLayout();
             this.tabIntegrity.ResumeLayout(false);
             this.tabIntegrity.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
+
+        private Button btnRecalculateDV;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

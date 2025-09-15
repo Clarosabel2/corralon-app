@@ -27,6 +27,7 @@ namespace UI
             lblErrorMessage.Visible = false;
             BLL_Language.LoadTranslations();
             LanguageManager.Attach(this);
+            //DatabaseService.CalculateAllDVH();
         }
         #region "Funcionalidades Visuales"
         private void btnClose_Click(object sender, EventArgs e)

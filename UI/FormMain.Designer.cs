@@ -55,6 +55,7 @@
             this.btnManagerLanguages = new System.Windows.Forms.Button();
             this.btnManageDB = new System.Windows.Forms.Button();
             this.btnBitacora = new System.Windows.Forms.Button();
+            this.btnSuppliers = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -64,7 +65,6 @@
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnSuppliers = new System.Windows.Forms.Button();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -131,6 +131,7 @@
             this.btnHelp.Image = global::UI.Properties.Resources.icons8_help_48;
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.UseVisualStyleBackColor = true;
+            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
             // btnLogout
             // 
@@ -363,6 +364,19 @@
             this.btnBitacora.UseVisualStyleBackColor = false;
             this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
+            // btnSuppliers
+            // 
+            resources.ApplyResources(this.btnSuppliers, "btnSuppliers");
+            this.btnSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnSuppliers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSuppliers.FlatAppearance.BorderSize = 0;
+            this.btnSuppliers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnSuppliers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnSuppliers.ForeColor = System.Drawing.Color.Silver;
+            this.btnSuppliers.Name = "btnSuppliers";
+            this.btnSuppliers.UseVisualStyleBackColor = false;
+            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
+            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(141)))));
@@ -435,19 +449,6 @@
             // 
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             resources.ApplyResources(this.reporte3ToolStripMenuItem, "reporte3ToolStripMenuItem");
-            // 
-            // btnSuppliers
-            // 
-            resources.ApplyResources(this.btnSuppliers, "btnSuppliers");
-            this.btnSuppliers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.btnSuppliers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSuppliers.FlatAppearance.BorderSize = 0;
-            this.btnSuppliers.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnSuppliers.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnSuppliers.ForeColor = System.Drawing.Color.Silver;
-            this.btnSuppliers.Name = "btnSuppliers";
-            this.btnSuppliers.UseVisualStyleBackColor = false;
-            this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
             // FormMain
             // 

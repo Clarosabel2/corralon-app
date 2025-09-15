@@ -1,4 +1,5 @@
-﻿using SVC;
+﻿using BLL;
+using SVC;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,9 +14,21 @@ namespace UI
 {
     public partial class FormDatabaseMaintenance : Form
     {
-        public FormDatabaseMaintenance()
+        public FormDatabaseMaintenance(BLL_DV_DB dv = null)
         {
             InitializeComponent();
+            if (dv != null)
+            {
+                btnRecalculateDV.Visible = true;
+                btnCheckIntegrity.Visible = false;
+                tabControl1.SelectedIndex = 2;
+                foreach (var m in dv.LastMismatches
+                    .OrderBy(x => x.TableName)
+                    .ThenBy(x => x.RowKey))
+                {
+                    txtIntegrityResults.Text = $"⚠️ Inconsistencias DVH encontradas: - {m.Kind} | Table: {m.TableName} | RowKey={m.RowKey}";
+                }
+            }
         }
 
         private void btnBrowseBackupPath_Click(object sender, EventArgs e)
@@ -23,7 +36,7 @@ namespace UI
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
                 folderDialog.Description = "Seleccionar carpeta para guardar el backup";
-                folderDialog.SelectedPath = txtBackupPath.Text; // Ruta actual como predeterminada
+                folderDialog.SelectedPath = txtBackupPath.Text;
 
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -54,6 +67,11 @@ namespace UI
         }
 
         private void btnCheckIntegrity_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRecalculateDV_Click(object sender, EventArgs e)
         {
 
         }
