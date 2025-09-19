@@ -65,6 +65,7 @@
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAuditChanges = new System.Windows.Forms.Button();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -206,6 +207,7 @@
             this.menuGeneral.Controls.Add(this.btnManageDB);
             this.menuGeneral.Controls.Add(this.btnBitacora);
             this.menuGeneral.Controls.Add(this.btnSuppliers);
+            this.menuGeneral.Controls.Add(this.btnAuditChanges);
             this.menuGeneral.Name = "menuGeneral";
             // 
             // btnProducts
@@ -450,6 +452,19 @@
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             resources.ApplyResources(this.reporte3ToolStripMenuItem, "reporte3ToolStripMenuItem");
             // 
+            // btnAuditChanges
+            // 
+            resources.ApplyResources(this.btnAuditChanges, "btnAuditChanges");
+            this.btnAuditChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnAuditChanges.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuditChanges.FlatAppearance.BorderSize = 0;
+            this.btnAuditChanges.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnAuditChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAuditChanges.ForeColor = System.Drawing.Color.Silver;
+            this.btnAuditChanges.Name = "btnAuditChanges";
+            this.btnAuditChanges.UseVisualStyleBackColor = false;
+            this.btnAuditChanges.Click += new System.EventHandler(this.btnAuditChanges_Click);
+            // 
             // FormMain
             // 
             resources.ApplyResources(this, "$this");
@@ -516,5 +531,6 @@
         private System.Windows.Forms.Button btnManageDB;
         private System.Windows.Forms.Button btnBitacora;
         private System.Windows.Forms.Button btnSuppliers;
+        private System.Windows.Forms.Button btnAuditChanges;
     }
 }

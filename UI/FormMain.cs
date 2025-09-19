@@ -292,6 +292,10 @@ namespace UI
         {
             OpenForms<FormSuppliers>();
         }
+        private void btnAuditChanges_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormAuditChanges>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -310,5 +314,7 @@ namespace UI
         {
 
         }
+
+        
     }
 }

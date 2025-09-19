@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BE_Area.cs" />
+    <Compile Include="BE_AuditChange.cs" />
     <Compile Include="BE_Client.cs" />
     <Compile Include="BE_Brand.cs" />
     <Compile Include="BE_DvhMismatch.cs" />

@@ -104,6 +104,12 @@
     </Compile>
     <Compile Include="Controls\MenuColorTable.cs" />
     <Compile Include="Controls\MenuRenderer.cs" />
+    <Compile Include="FormAuditChanges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuditChanges.Designer.cs">
+      <DependentUpon>FormAuditChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBitacora.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     </Compile>
     <Compile Include="ResxExporter.cs" />
     <Compile Include="UITranslator.cs" />
+    <EmbeddedResource Include="FormAuditChanges.resx">
+      <DependentUpon>FormAuditChanges.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBitacora.resx">
       <DependentUpon>FormBitacora.cs</DependentUpon>
     </EmbeddedResource>

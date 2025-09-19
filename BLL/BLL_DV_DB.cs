@@ -11,14 +11,15 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL
-{
+{       
     public class BLL_DV_DB
     {
         public bool IsDVInconsistent { get; private set; } = false;
-        public List<DvhMismatch> LastMismatches { get; private set; } = new List<DvhMismatch>();
+        public List<DvhMismatch> LastMismatches { get; private set; }
         public BLL_DV_DB()
         {
-            CheckDatabaseIntegrity();
+            this.LastMismatches = new List<DvhMismatch>();
+            this.IsDVInconsistent = CheckDatabaseIntegrity();
         }
         public bool CheckDatabaseIntegrity()
         {
@@ -29,17 +30,18 @@ namespace BLL
                 this.LastMismatches = mismatches;
                 if (ok)
                 {
-                    return this.IsDVInconsistent = false;
+                    return false;
                 }
             }
             catch (Exception ex)
             {
                 throw new Exception("Error checking database integrity: " + ex.Message, ex);
             }
-            return this.IsDVInconsistent = true;
+            return true;
         }
+        #region DVH
 
-        public bool VerifyIntegrityDVH(out List<DvhMismatch> mismatches)
+        private bool VerifyIntegrityDVH(out List<DvhMismatch> mismatches)
         {
             mismatches = new List<DvhMismatch>();
             var dvhTable = DAL_Integrity.GetDataTable("tb_DVH");
@@ -93,12 +95,11 @@ namespace BLL
                     }
                 }
             }
-            
+
             return mismatches.Count == 0;
         }
 
-
-        public void CalculateAllDVH()
+        public void CalculateDVHDatabase()
         {
             foreach (var table in DAL_Integrity
                 .GetTablesExistingDB()
@@ -135,5 +136,11 @@ namespace BLL
             }
             return rowHashes;
         }
+
+        #endregion
+        #region DVV
+
+
+        #endregion
     }
 }

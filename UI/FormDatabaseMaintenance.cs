@@ -26,7 +26,8 @@ namespace UI
                     .OrderBy(x => x.TableName)
                     .ThenBy(x => x.RowKey))
                 {
-                    txtIntegrityResults.Text = $"⚠️ Inconsistencias DVH encontradas: - {m.Kind} | Table: {m.TableName} | RowKey={m.RowKey}";
+                    txtIntegrityResults.Text = 
+                        $"⚠️ Inconsistencias DVH encontradas: - {m.Kind} | Table: {m.TableName} | RowKey={m.RowKey}";
                 }
             }
         }

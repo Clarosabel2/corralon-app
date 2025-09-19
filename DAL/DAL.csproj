@@ -192,6 +192,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>corralondbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DAL_AuditChange.cs" />
     <Compile Include="DAL_Brand.cs" />
     <Compile Include="DAL_Client.cs" />
     <Compile Include="DAL_Config.cs" />
