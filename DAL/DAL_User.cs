@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BDE.Language;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -180,7 +181,43 @@ namespace DAL
             }
         }
 
-        public static BE_User ValidUser(string username, string password)
+        public static bool ValidUser(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+                return false;
+
+            const string sql = @"
+                SELECT TOP(1) 1
+                FROM dbo.Usuarios
+                WHERE UserName = @u AND [Password] = @p;"; // <-- cambia a tus nombres reales
+
+            var cnn = new DAL_Connection();
+            try
+            {
+                using (var cmd = new SqlCommand(sql, cnn.Connection))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add("@u", SqlDbType.NVarChar, 100).Value = username.Trim();
+                    cmd.Parameters.Add("@p", SqlDbType.NVarChar, 256).Value = password;
+
+                    cnn.Connection.Open();
+                    object result = cmd.ExecuteScalar();
+                    return result != null && result != DBNull.Value; // true si encontró fila
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                if (cnn.Connection.State != ConnectionState.Closed)
+                    cnn.Connection.Close();
+            }
+        }
+
+
+        public static BE_User GetDataUser(string username, string password)
         {
             BE_User user = new BE_User();
             var cnn = new DAL_Connection();

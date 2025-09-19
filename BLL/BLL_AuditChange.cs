@@ -11,9 +11,9 @@ namespace BLL
 {
     public static class BLL_AuditChange
     {
-        public static bool RestoreAuditValue(string tableName, string keyColumn, string rowId, string columnName, int auditId)
+        public static bool RestoreAuditValue(BE_AuditChange audit)
         {
-            return DAL_AuditChange.RestoreValue(tableName, keyColumn, rowId, columnName, auditId);
+            return DAL_AuditChange.RestoreValue(audit);
         }
 
         public static List<BE_AuditChange> GetAuditChanges()
@@ -28,6 +28,7 @@ namespace BLL
                     AuditID = row.Field<int>("AuditID"),
                     TableName = row.Field<string>("TableName") ?? string.Empty,
                     ColumnName = row.Field<string>("ColumnName") ?? string.Empty,
+                    Operation = MapOperation(row.Field<string>("Operation")),
                     RowKey = row.Field<string>("RowKey") ?? string.Empty,
                     OldValue = row.IsNull("OldValue") ? null : row["OldValue"].ToString(),
                     NewValue = row.IsNull("NewValue") ? null : row["NewValue"].ToString(),
@@ -40,5 +41,30 @@ namespace BLL
 
             return list;
         }
+
+        private static string MapOperation(string raw)
+        {
+            if (raw == null) return string.Empty;
+
+            switch (raw.Trim().ToUpperInvariant())
+            {
+                case "U":
+                case "UPDATE":
+                    return "UPDATE";
+
+                case "C":
+                case "I":
+                case "INSERT":
+                    return "CREATE";
+
+                case "D":
+                case "DELETE":
+                    return "DELETE";
+
+                default:
+                    return raw;
+            }
+        }
+
     }
 }

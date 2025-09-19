@@ -23,7 +23,7 @@ namespace DAL
             return dt;
         }
 
-        public static bool RestoreValue(string tableName, string keyColumn, string rowId, string columnName, int auditId)
+        public static bool RestoreValue(BE_AuditChange audit)
         {
             var cnn = new DAL_Connection();
             try
@@ -31,12 +31,11 @@ namespace DAL
                 using (var cmd = new SqlCommand("dbo.sp_AuditRestore_Simple_ByAuditID", cnn.Connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@TableName", tableName);
-                    cmd.Parameters.AddWithValue("@KeyColumn", keyColumn);
-                    cmd.Parameters.AddWithValue("@RowId", rowId ?? (object)DBNull.Value);
-                    cmd.Parameters.AddWithValue("@ColumnName", columnName);
-                    cmd.Parameters.AddWithValue("@AuditID", auditId);
+                        
+                    cmd.Parameters.AddWithValue("@AuditID", audit.AuditID);
+                    cmd.Parameters.AddWithValue("@TableName", audit.TableName);
+                    cmd.Parameters.AddWithValue("@ColumnName", audit.ColumnName);
+                    cmd.Parameters.AddWithValue("@RowId", audit.RowKey ?? (object)DBNull.Value);
 
                     cnn.Connection.Open();
                     using (var rdr = cmd.ExecuteReader(CommandBehavior.SingleRow))

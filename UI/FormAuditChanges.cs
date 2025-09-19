@@ -120,7 +120,6 @@ namespace UI
         private void LoadDataAuditChanges()
         {
             var data = BLL_AuditChange.GetAuditChanges();
-
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = data;
         }
@@ -156,19 +155,14 @@ namespace UI
                 MessageBox.Show("Selecciona un registro.");
                 return;
             }
-
-            string keyColumn = "IdUsuario"; // Ajustá según la tabla
-
-            MessageBox.Show(
-                $"AuditID: {audit.AuditID}\n" +
-                $"Tabla: {audit.TableName}\n" +
-                $"Columna: {audit.ColumnName}\n" +
-                $"RowKey: {audit.RowKey}\n" +
-                $"KeyColumn: {keyColumn}",
-                "Datos seleccionados",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information
-            );
+            if (!BLL_AuditChange.RestoreAuditValue(audit)) {
+                MessageBox.Show("No se pudo restaurar el valor.");
+            }
+            else
+            {
+                MessageBox.Show("Valor restaurado correctamente.");
+                LoadDataAuditChanges();
+            }
         }
     }
 }

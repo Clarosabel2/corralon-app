@@ -81,17 +81,22 @@ namespace BLL
 
         public static bool ValidUser(string username, string password)
         {
-            BE_User userLogin = DAL_User.ValidUser(username, SHAHashHelper.HashValue(password));
-
-            if (userLogin != null)
+            string passwordHashed = SHAHashHelper.HashValue(password);
+            if (!DAL_User.ValidUser(username, passwordHashed))
             {
-                SessionManager.Login(userLogin);
-                SessionManager.GetInstance.user.Language = SessionManager.translations.FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
-                //BLL_EventLog.LogEvent(
-                //        "User logged in",
-                //        BE_EventType.LOGIN,
-                //        BE_ActivityLevel.INFORMATION);
+                return false;
             }
+
+            BE_User userLogin = DAL_User.GetDataUser(username, passwordHashed);
+            SessionManager.Login(userLogin);
+            SessionManager.GetInstance.user.Language =
+                SessionManager.translations
+                .FirstOrDefault(l => l.Key.Name == userLogin.Language.Name).Key;
+            //BLL_EventLog.LogEvent(
+            //        "User logged in",
+            //        BE_EventType.LOGIN,
+            //        BE_ActivityLevel.INFORMATION);
+
             return true;
         }
 

@@ -99,7 +99,6 @@ namespace UI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //Por ahora 
             lblErrorMessage.Visible = false;
             if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
             {
