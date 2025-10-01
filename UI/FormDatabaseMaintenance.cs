@@ -14,11 +14,13 @@ namespace UI
 {
     public partial class FormDatabaseMaintenance : Form
     {
+        private BLL_DV_DB _dbIntegrityService;
         public FormDatabaseMaintenance(BLL_DV_DB dv = null)
         {
             InitializeComponent();
             if (dv != null)
             {
+                this._dbIntegrityService = dv;
                 btnRecalculateDV.Visible = true;
                 btnCheckIntegrity.Visible = false;
                 tabControl1.SelectedIndex = 2;
@@ -74,7 +76,7 @@ namespace UI
 
         private void btnRecalculateDV_Click(object sender, EventArgs e)
         {
-
+            _dbIntegrityService.RecalculateDV();
         }
     }
 }

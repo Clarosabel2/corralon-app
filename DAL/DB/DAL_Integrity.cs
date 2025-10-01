@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,56 +11,9 @@ namespace DAL.DB
 {
     public class DAL_Integrity
     {
-        public static DataTable GetHashedTable(string tableToHash)
-        {
-            DataTable hashedTable = new DataTable();
+        
 
-            return hashedTable;
-        }
-
-        public static DataTable GetDataTable(string table)
-        {
-            DAL_Connection ocnn = new DAL_Connection();
-            DataTable dt = new DataTable();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {table}", ocnn.Connection);
-            sqlDataAdapter.Fill(dt);
-            return dt;
-        }
-
-        public static List<string> GetTablesExistingDB()
-        {
-            DAL_Connection ocnn = new DAL_Connection();
-            DataTable dt = new DataTable();
-
-            string query = @"
-                SELECT name 
-                FROM sys.tables 
-                WHERE name NOT IN ('sysdiagrams', 'tb_DVV', 'tb_DVH')";
-
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, ocnn.Connection);
-            sqlDataAdapter.Fill(dt);
-
-            List<string> tables = new List<string>();
-            foreach (DataRow row in dt.Rows)
-            {
-                tables.Add(row["name"].ToString());
-            }
-
-            return tables;
-        }
-
-        public static void RecalculateTables((string, string) tablePairs)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception($"Error recalculating tables {tablePairs.Item1} and {tablePairs.Item2}: {ex.Message}");
-            }
-        }
-
+        #region "DVH"
         public static void SaveDVHTable(string table, Dictionary<string, string> rowHashes)
         {
             DAL_Connection ocnn = new DAL_Connection();
@@ -71,7 +25,7 @@ namespace DAL.DB
                     deleteCmd.Parameters.AddWithValue("@table", table);
                     deleteCmd.ExecuteNonQuery();
                 }
-                
+
                 foreach (var kvp in rowHashes)
                 {
                     using (var insertCmd = new SqlCommand(
@@ -88,6 +42,52 @@ namespace DAL.DB
                 }
             }
         }
+
+        public static bool UpdateRowHashedFromTable(string table, string rowId, string hash)
+        {
+            DAL_Connection ocnn = new DAL_Connection();
+            using (var conn = ocnn.Connection)
+            {
+                conn.Open();
+                using (var updateCmd = new SqlCommand("UPDATE tb_DVH SET hash_dvh = @hash WHERE [table] = @table AND id_reg = @idRow", conn))
+                {
+                    updateCmd.Parameters.AddWithValue("@table", table);
+                    updateCmd.Parameters.AddWithValue("@idRow", rowId);
+                    updateCmd.Parameters.AddWithValue("@hash", hash);
+
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+        }
+        #endregion
+
+        #region "DVV"
+        public static Dictionary<string, string> GetDVVColumn()
+        {
+
+            return null;
+        }
+        public static void CalculateDVV(string table = "")
+        {
+            if (table != string.Empty)
+            {
+                // Calculate DVV for specific table
+                return;
+            }
+            // Calculate DVV for all tables
+            List<string> tables = DAL_Utility.GetTablesExistingDB().ToList();
+            foreach (string tbl in tables)
+            {
+                DataTable currentTbData = DAL_Utility.GetDataTable(tbl);
+                List<string> pkColumns = DAL_Utility.GetPrimaryKeyTable(tbl);
+
+            }
+
+
+        }
+        #endregion
+
 
     }
 }

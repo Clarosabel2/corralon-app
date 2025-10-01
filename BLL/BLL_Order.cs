@@ -27,7 +27,7 @@ namespace BLL
             return DAL_Order.GetOrdersDispatched();
         }
 
-        public static void MarkDeliveredOrder(int idInvoice)
+        public static void  MarkDeliveredOrder(int idInvoice)
         {
             DAL_Order.MarkDeliveredOrder(idInvoice);
         }

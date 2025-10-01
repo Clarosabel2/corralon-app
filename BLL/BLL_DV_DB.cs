@@ -4,6 +4,7 @@ using SVC;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -11,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL
-{       
+{
     public class BLL_DV_DB
     {
         public bool IsDVInconsistent { get; private set; } = false;
@@ -44,9 +45,9 @@ namespace BLL
         private bool VerifyIntegrityDVH(out List<DvhMismatch> mismatches)
         {
             mismatches = new List<DvhMismatch>();
-            var dvhTable = DAL_Integrity.GetDataTable("tb_DVH");
+            var dvhTable = DAL_Utility.GetDataTable("tb_DVH");
 
-            foreach (var table in DAL_Integrity
+            foreach (var table in DAL_Utility
                      .GetTablesExistingDB())
             {
 
@@ -101,7 +102,7 @@ namespace BLL
 
         public void CalculateDVHDatabase()
         {
-            foreach (var table in DAL_Integrity
+            foreach (var table in DAL_Utility
                 .GetTablesExistingDB()
                 .ToList())
             {
@@ -111,7 +112,7 @@ namespace BLL
 
         private Dictionary<string, string> GetValuesDVHForTable(string table)
         {
-            DataTable dt = DAL_Integrity.GetDataTable(table);
+            DataTable dt = DAL_Utility.GetDataTable(table);
             var rowHashes = new Dictionary<string, string>();
 
             foreach (DataRow row in dt.Rows)
@@ -137,9 +138,16 @@ namespace BLL
             return rowHashes;
         }
 
+        public void RecalculateDV()
+        {
+            //public string TableName { get; set; }
+            //public string RowKey { get; set; }
+            //public string Kind { get; set; }
+            this.LastMismatches.ForEach(m => DAL_Integrity.UpdateRowHashedFromTable(m.TableName,m.RowKey));
+        }
+
         #endregion
         #region DVV
-
 
         #endregion
     }

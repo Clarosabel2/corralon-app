@@ -12,7 +12,6 @@ namespace BLL
     public static class BLL_Product
     {
         public static bool isLowStock = false;
-
         public static void DeleteProductById(int productId)
         {
             DAL_Product.DeleteProductById(productId);
@@ -40,11 +39,6 @@ namespace BLL
         public static void SaveProduct(BE_Product p)
         {
             DAL_Product.SaveProduct(p);
-        }
-
-        public static bool UpdateProducts(DataTable dt)
-        {
-            return DAL_Product.UpdateProducts(dt);
         }
         public static void UpdateProduct(BE_Product p)
         {

@@ -189,7 +189,7 @@ namespace DAL
             const string sql = @"
                 SELECT TOP(1) 1
                 FROM dbo.Usuarios
-                WHERE UserName = @u AND [Password] = @p;"; // <-- cambia a tus nombres reales
+                WHERE UserName = @u AND [Password] = @p;";
 
             var cnn = new DAL_Connection();
             try

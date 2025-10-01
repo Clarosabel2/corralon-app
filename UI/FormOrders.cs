@@ -44,7 +44,6 @@ namespace UI
             dgvOrdersShipped.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             
         }
-
         public void LoadDataInDG()
         {
             dgvOrders.Rows.Clear();
@@ -91,6 +90,11 @@ namespace UI
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void btnReportProblem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -39,10 +39,6 @@ namespace DAL
             return table;
 
         }
-        public static bool UpdateProducts(DataTable dt)
-        {
-            return true;
-        }
 
         public static void DeleteProductById(int idProduct)
         {
