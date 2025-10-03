@@ -29,7 +29,7 @@ namespace BLL
         {
             try
             {
-                var ok = VerifyIntegrityDVH() && VerifyIntegrityDVV();
+                bool ok =VerifyIntegrityDVH() && VerifyIntegrityDVV();
                 if (ok)
                 {
                     return false;
@@ -40,7 +40,6 @@ namespace BLL
                 throw new Exception("Error checking database integrity: " + ex.Message, ex);
             }
             return true;
-
         }
 
         private bool VerifyIntegrityDVV()

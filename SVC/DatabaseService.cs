@@ -12,11 +12,11 @@ namespace SVC
 {
     public class DatabaseService
     {
-        public void DoBackup(string backupFilePath)
+        public void DoBackup()
         {
             try
             {
-                DAL_Backup.Backup(backupFilePath);
+                DAL_Backup.Backup();
             }
             catch (Exception ex)
             {

@@ -11,10 +11,22 @@ namespace DAL.DB
 {
     public static class DAL_Backup
     {
-        public static void Backup(string backupFilePath)
+        private static string appRoot = AppDomain.CurrentDomain.BaseDirectory;
+        private static string backupFolder = Path.Combine(appRoot, "Backups");
+        private static void CheckDirectoryBackups()
         {
-            string backupFileName = $"corralondb_{DateTime.Now:yyyyMMdd}.bak";
-            backupFilePath = Path.Combine(backupFilePath, backupFileName);
+            if (!Directory.Exists(backupFolder))
+            {
+                Directory.CreateDirectory(backupFolder);
+            }
+        }
+        public static void Backup()
+        {
+            CheckDirectoryBackups();
+
+            string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+            string backupFileName = $"corralondb_full_{timestamp}.bak";
+            string backupFilePath = Path.Combine(backupFolder, backupFileName);
             try
             {
                 string backupQuery = $@"BACKUP DATABASE [corralondb] TO  DISK = N'{backupFilePath}' WITH NOFORMAT, NOINIT,  NAME = N'corralondb-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
@@ -27,6 +39,7 @@ namespace DAL.DB
                 {
                     cmd.ExecuteNonQuery();
                 }
+                System.Diagnostics.Process.Start("explorer.exe", backupFolder);
 
             }
             catch (Exception ex)
