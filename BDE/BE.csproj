@@ -47,7 +47,7 @@
     <Compile Include="BE_AuditChange.cs" />
     <Compile Include="BE_Client.cs" />
     <Compile Include="BE_Brand.cs" />
-    <Compile Include="BE_DvhMismatch.cs" />
+    <Compile Include="BE_DvMismatch.cs" />
     <Compile Include="BE_Supplier.cs" />
     <Compile Include="Enums\BE_ActivityLevel.cs" />
     <Compile Include="Enums\BE_EventType.cs" />

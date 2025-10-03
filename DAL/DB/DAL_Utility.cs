@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,10 +15,15 @@ namespace DAL.DB
         {
             DAL_Connection ocnn = new DAL_Connection();
             DataTable dt = new DataTable();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {table}", ocnn.Connection);
-            sqlDataAdapter.Fill(dt);
+
+            using (SqlDataAdapter sqlDataAdapter = new SqlDataAdapter($"SELECT * FROM {table}", ocnn.Connection))
+            {
+                sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                sqlDataAdapter.Fill(dt);
+            }
             return dt;
         }
+
 
         public static List<string> GetTablesExistingDB()
         {
@@ -80,5 +86,49 @@ namespace DAL.DB
             }
             return pkColumns;
         }
+
+        public static DataRow GetRowById(string table, string idRow)
+        {
+            DAL_Connection ocnn = new DAL_Connection();
+            try
+            {
+                string pkTable = GetPrimaryKeyTable(table)[0];
+                string query = $@"
+                                SELECT TOP 1 *
+                                FROM [{table}] 
+                                WHERE [{pkTable}] = @IdRow";
+
+                using (var cmd = new SqlCommand(query, ocnn.Connection))
+                {
+                    cmd.Parameters.AddWithValue("@IdRow", idRow);
+                    ocnn.Connection.Open();
+
+                    using (var adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dataTable = new DataTable();
+                        adapter.Fill(dataTable);
+
+                        if (dataTable.Rows.Count > 0)
+                        {
+                            return dataTable.Rows[0];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error retrieving row: {ex.Message}");
+            }
+            finally
+            {
+                if (ocnn.Connection.State == ConnectionState.Open)
+                {
+                    ocnn.Connection.Close();
+                }
+            }
+
+            return null;
+        }
+
     }
 }

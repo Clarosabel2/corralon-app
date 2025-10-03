@@ -1,9 +1,11 @@
 ﻿using BDE;
+using DAL;
 using DAL.DB;
 using SVC;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Net;
@@ -16,19 +18,18 @@ namespace BLL
     public class BLL_DV_DB
     {
         public bool IsDVInconsistent { get; private set; } = false;
-        public List<DvhMismatch> LastMismatches { get; private set; }
+        private static DataTable dtCurrent { get; set; }
+        public List<DvMismatch> LastMismatches { get; private set; }
         public BLL_DV_DB()
         {
-            this.LastMismatches = new List<DvhMismatch>();
+            this.LastMismatches = new List<DvMismatch>();
             this.IsDVInconsistent = CheckDatabaseIntegrity();
         }
         public bool CheckDatabaseIntegrity()
         {
             try
             {
-                List<DvhMismatch> mismatches;
-                var ok = VerifyIntegrityDVH(out mismatches);
-                this.LastMismatches = mismatches;
+                var ok = VerifyIntegrityDVH() && VerifyIntegrityDVV();
                 if (ok)
                 {
                     return false;
@@ -39,27 +40,46 @@ namespace BLL
                 throw new Exception("Error checking database integrity: " + ex.Message, ex);
             }
             return true;
+
+        }
+
+        private bool VerifyIntegrityDVV()
+        {
+            this.LastMismatches.RemoveAll(m => m.DvKind == DvKind.DVV);
+            return true;
         }
         #region DVH
 
-        private bool VerifyIntegrityDVH(out List<DvhMismatch> mismatches)
+        /// <summary>
+        /// Verifica la integridad horizontal (DVH) de las tablas auditadas que poseen clave primaria (PK).
+        /// Para cada tabla, recalcula el DVH de cada fila y lo compara contra el valor almacenado en tb_DVH,
+        /// detectando filas sin registro de DVH, diferencias de hash y registros huérfanos en tb_DVH.
+        /// </summary>
+        /// <returns>
+        /// true si no se detectan discrepancias de DVH; false si existe al menos una inconsistencia.
+        /// </returns>
+        /// <remarks>
+        /// Requiere que la tabla de control tb_DVH contenga las columnas: table, id_reg y hash_dvh.
+        /// Solo se consideran tablas con PK para poder identificar unívocamente cada fila.
+        /// </remarks>
+        private bool VerifyIntegrityDVH()
         {
-            mismatches = new List<DvhMismatch>();
+            this.LastMismatches.RemoveAll(m => m.DvKind == DvKind.DVH);
             var dvhTable = DAL_Utility.GetDataTable("tb_DVH");
-
             foreach (var table in DAL_Utility
                      .GetTablesExistingDB())
             {
+                var recalculated = GetValuesDVHForDataTable(DAL_Utility.GetDataTable(table));
 
-                var recalculated = GetValuesDVHForTable(table);
                 var storedForTable = dvhTable.Rows
                     .Cast<DataRow>()
-                    .Where(r => string.Equals(Convert.ToString(r["table"]), table, StringComparison.OrdinalIgnoreCase))
-                    .ToDictionary(
-                        r => Convert.ToString(r["id_reg"]),
-                        r => Convert.ToString(r["hash_dvh"]),
-                        StringComparer.Ordinal
-                    );
+                    .Where(
+                        r => string.Equals(Convert.ToString(r["table"]), table, StringComparison.OrdinalIgnoreCase))
+                        .ToDictionary(
+                            r => Convert.ToString(r["id_reg"]),
+                            r => Convert.ToString(r["hash_dvh"]),
+                            StringComparer.Ordinal
+                        );
 
                 foreach (var kvp in recalculated)
                 {
@@ -67,37 +87,44 @@ namespace BLL
                     var recalcDvh = kvp.Value;
 
                     string storedDvh;
+
+                    // Si NO existe el id_reg en tb_DVH -> falta registrar el DVH (inserción sin auditoría)
                     if (!storedForTable.TryGetValue(rowKey, out storedDvh))
                     {
-                        mismatches.Add(new DvhMismatch(
+                        this.LastMismatches.Add(new DvMismatch(
                             table,
                             rowKey,
-                            "MISSING_IN_DVH"
+                            DvErrorKind.MISSING_HASH,
+                            DvKind.DVH
                         ));
                     }
+                    // Si existe, pero el hash no coincide -> datos alterados sin actualizar DVH
                     else if (!string.Equals(storedDvh, recalcDvh, StringComparison.OrdinalIgnoreCase))
                     {
-                        mismatches.Add(new DvhMismatch(
+                        this.LastMismatches.Add(new DvMismatch(
                             table,
                             rowKey,
-                            "DIFF"
+                            DvErrorKind.DIFF_HASH,
+                            DvKind.DVH
                         ));
                     }
                 }
+                // --- CRUCE 2: Detectar DVH “huérfanos” (están en tb_DVH pero no existen ya en la tabla real) ---
                 foreach (var stored in storedForTable)
                 {
+                    // Si una clave de tb_DVH no se encontró en el recalculado -> no existe la fila real
                     if (!recalculated.ContainsKey(stored.Key))
                     {
-                        mismatches.Add(new DvhMismatch(
+                        this.LastMismatches.Add(new DvMismatch(
                             table,
                             null,
-                            "ORPHAN_IN_DVH"
+                            DvErrorKind.ORPHAN_HASH,
+                            DvKind.DVH
                         ));
                     }
                 }
             }
-
-            return mismatches.Count == 0;
+            return this.LastMismatches.Count == 0;
         }
 
         public void CalculateDVHDatabase()
@@ -106,20 +133,25 @@ namespace BLL
                 .GetTablesExistingDB()
                 .ToList())
             {
-                DAL_Integrity.SaveDVHTable(table, GetValuesDVHForTable(table));
+                DataTable dt = DAL_Utility.GetDataTable(table);
+                DAL_Integrity.SaveDVHTable(table, GetValuesDVHForDataTable(dt));
             }
         }
 
-        private Dictionary<string, string> GetValuesDVHForTable(string table)
+        /// <summary>
+        /// Esta funcion permite obtener los hashes de una tabla
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns>Retorna los Hashes DVH de una DataTable otorgada.</returns>
+        private Dictionary<string, string> GetValuesDVHForDataTable(DataTable table)
         {
-            DataTable dt = DAL_Utility.GetDataTable(table);
             var rowHashes = new Dictionary<string, string>();
 
-            foreach (DataRow row in dt.Rows)
+            foreach (DataRow row in table.Rows)
             {
                 string regToHashed = "";
 
-                for (int i = 0; i < dt.Columns.Count; i++)
+                for (int i = 0; i < table.Columns.Count; i++)
                 {
                     if (row[i] != DBNull.Value)
                     {
@@ -140,12 +172,64 @@ namespace BLL
 
         public void RecalculateDV()
         {
-            //public string TableName { get; set; }
-            //public string RowKey { get; set; }
-            //public string Kind { get; set; }
-            this.LastMismatches.ForEach(m => DAL_Integrity.UpdateRowHashedFromTable(m.TableName,m.RowKey));
-        }
+            var dvhMismatches = new List<DvMismatch>();
+            var dvvMismatches = new List<DvMismatch>();
 
+            foreach (var m in this.LastMismatches ?? Enumerable.Empty<DvMismatch>())
+            {
+                if (m.DvKind == DvKind.DVH) dvhMismatches.Add(m);
+                else if (m.DvKind == DvKind.DVV) dvvMismatches.Add(m);
+            }
+
+            if (dvhMismatches.Count > 0)
+            {
+                foreach (DvMismatch m in dvhMismatches)
+                {
+                    DataRow r = DAL_Utility.GetRowById(m.TableName, m.RowKey);
+                    string hashRecalculated = SHAHashHelper.HashValue(ConcatDataRow(r));
+                    try
+                    {
+                        switch (m.KindError)
+                        {
+                            case DvErrorKind.DIFF_HASH:
+                                DAL_Integrity.UpdateRowHashInDvhTable(m.TableName, m.RowKey, hashRecalculated);
+                                break;
+                            case DvErrorKind.MISSING_HASH:
+                                break;
+                            case DvErrorKind.ORPHAN_HASH:
+                                break;
+                        }
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+            }
+
+            if (dvvMismatches.Count > 0)
+            {
+
+            }
+
+        }
+        private string ConcatDataRow(DataRow r)
+        {
+            string regSum = string.Empty;
+            for (int i = 0; i < r.Table.Columns.Count; i++)
+            {
+                if (r[i] != DBNull.Value)
+                {
+                    regSum += r[i].ToString();
+                }
+                else
+                {
+                    regSum += "<NULL>";
+                }
+            }
+            return regSum;
+        }
         #endregion
         #region DVV
 

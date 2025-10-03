@@ -21,7 +21,7 @@ namespace UI
 {
     public partial class FormMain : Form, IObserver
     {
-        private BLL_DV_DB bll_dv_db;
+        private BLL_DV_DB _dvService;
         public FormMain()
         {
             InitializeComponent();
@@ -29,15 +29,15 @@ namespace UI
             timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
             LanguageManager.Attach(this);
-            this.bll_dv_db = new BLL_DV_DB();
+            this._dvService = new BLL_DV_DB();
             CheckIntegrityDatabase();
         }
 
         private void CheckIntegrityDatabase()
         {
-            if (bll_dv_db.IsDVInconsistent)
+            if (_dvService.IsDVInconsistent)
             {
-                OpenForms<FormDatabaseMaintenance>(bll_dv_db);
+                OpenForms<FormDatabaseMaintenance>(_dvService);
             }
         }
 

@@ -11,8 +11,6 @@ namespace DAL.DB
 {
     public class DAL_Integrity
     {
-        
-
         #region "DVH"
         public static void SaveDVHTable(string table, Dictionary<string, string> rowHashes)
         {
@@ -43,7 +41,7 @@ namespace DAL.DB
             }
         }
 
-        public static bool UpdateRowHashedFromTable(string table, string rowId, string hash)
+        public static bool UpdateRowHashInDvhTable(string table, string rowId, string hash)
         {
             DAL_Connection ocnn = new DAL_Connection();
             using (var conn = ocnn.Connection)

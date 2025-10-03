@@ -28,6 +28,7 @@ namespace UI
             BLL_Language.LoadTranslations();
             LanguageManager.Attach(this);
             //DatabaseService.CalculateAllDVH();
+            //MessageBox.Show(BLL_DV_DB.GetConcatRow("Areas", "2"));
         }
         #region "Funcionalidades Visuales"
         private void btnClose_Click(object sender, EventArgs e)

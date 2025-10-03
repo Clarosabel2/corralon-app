@@ -24,12 +24,17 @@ namespace UI
                 btnRecalculateDV.Visible = true;
                 btnCheckIntegrity.Visible = false;
                 tabControl1.SelectedIndex = 2;
-                foreach (var m in dv.LastMismatches
-                    .OrderBy(x => x.TableName)
-                    .ThenBy(x => x.RowKey))
+                listBoxIntegrityResults.Items.Clear();
+                listBoxIntegrityResults.Items.Add("⚠️ Inconsistencias DVH encontradas:");
+                listBoxIntegrityResults.Font = new Font("Consolas", 10); // Fuente monoespaciada
+
+                listBoxIntegrityResults.Items.Add("Tipo DV\tError\tTable\tRowKey");
+
+                foreach (var m in dv.LastMismatches)
                 {
-                    txtIntegrityResults.Text = 
-                        $"⚠️ Inconsistencias DVH encontradas: - {m.Kind} | Table: {m.TableName} | RowKey={m.RowKey}";
+                    listBoxIntegrityResults.Items.Add(
+                        $"{m.DvKind}\t{m.KindError}\t{m.TableName}\t{m.RowKey}"
+                    );
                 }
             }
         }

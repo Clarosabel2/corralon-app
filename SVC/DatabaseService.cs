@@ -10,8 +10,6 @@ using System.Threading.Tasks;
 
 namespace SVC
 {
-    
-
     public class DatabaseService
     {
         public void DoBackup(string backupFilePath)
