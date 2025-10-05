@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -19,6 +20,7 @@ namespace UI
         public FormPurchaseRequest(List<BE_Product> productsWithLowStock)
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvLowStockProducts);
             LoadProductsIntoDGV(productsWithLowStock);
         }
 

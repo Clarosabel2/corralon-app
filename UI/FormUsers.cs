@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -16,6 +17,7 @@ namespace UI
         public FormUsers()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvUsers);
             LoadUsers();
         }
 

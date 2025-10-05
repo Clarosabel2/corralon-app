@@ -25,7 +25,12 @@ namespace UI
                 this._dbIntegrityService = dv;
                 ConfigMsgIntegrity();
             }
+            else
+            {
+                this._dbIntegrityService = new BLL_DV_DB();
+            }
         }
+
 
         private void ConfigMsgIntegrity()
         {
@@ -83,7 +88,7 @@ namespace UI
 
         private void btnCheckIntegrity_Click(object sender, EventArgs e)
         {
-
+            ConfigMsgIntegrity();
         }
 
         private void btnRecalculateDV_Click(object sender, EventArgs e)
@@ -112,11 +117,8 @@ namespace UI
                     "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Obtener el path del backup seleccionado
             string backupPath = selectedRow.Cells["FullPath"].Value.ToString();
 
-            // Confirmación antes de restaurar
             DialogResult dr = MessageBox.Show(
                 $"¿Está seguro de restaurar este backup?\n\n{backupPath}",
                 "Confirmar Restore",
@@ -127,6 +129,8 @@ namespace UI
             {
                 try
                 {
+                    DatabaseService ds = new DatabaseService();
+                    ds.DoRestore(backupPath);
                     MessageBox.Show("Restauración realizada con éxito.",
                         "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -149,7 +153,7 @@ namespace UI
 
             dgvFileBackups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFileBackups.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            
+
             dgvFileBackups.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dgvFileBackups.Columns[0].Width = 80;
 
@@ -171,10 +175,10 @@ namespace UI
 
             var dt = new DataTable();
             dt.Columns.Add("File", typeof(string));
-            dt.Columns.Add("Size", typeof(string));           
-            dt.Columns.Add("Date", typeof(string));           
-            dt.Columns.Add("FullPath", typeof(string));       
-            dt.Columns.Add("SortDate", typeof(DateTime));     
+            dt.Columns.Add("Size", typeof(string));
+            dt.Columns.Add("Date", typeof(string));
+            dt.Columns.Add("FullPath", typeof(string));
+            dt.Columns.Add("SortDate", typeof(DateTime));
 
             var files = Directory.GetFiles(backupFolder, "*.bak", SearchOption.TopDirectoryOnly);
 
@@ -236,6 +240,11 @@ namespace UI
                 len /= 1024.0;
             }
             return $"{len:0.##} {sizes[order]}";
+        }
+
+        private void btnRecalculateAllDV_Click(object sender, EventArgs e)
+        {
+            _dbIntegrityService.CalculateDVHDatabase();
         }
     }
 }

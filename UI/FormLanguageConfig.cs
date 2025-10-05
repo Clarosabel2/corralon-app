@@ -17,6 +17,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -25,6 +26,7 @@ namespace UI
         public FormLanguageConfig()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(dgvTranslation);
             LoadAllForms();
             dgvTranslation.DataSource = GetContolsWithTranslations();
         }

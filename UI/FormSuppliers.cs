@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 using UI.FormsRegister;
 
 namespace UI.FormsViewData
@@ -19,6 +20,8 @@ namespace UI.FormsViewData
         public FormSuppliers()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvSuppliers);
+            ApplyStyleCommon.DGVStyle(this.dgvBrands);
             ResxExporter.ExportControlsFormToResx(this);
         }
 

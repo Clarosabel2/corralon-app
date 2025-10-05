@@ -50,6 +50,7 @@ namespace UI
             this.progressBarBackup = new System.Windows.Forms.ProgressBar();
             this.lblBackupStatus = new System.Windows.Forms.Label();
             this.tabRestore = new System.Windows.Forms.TabPage();
+            this.dgvFileBackups = new System.Windows.Forms.DataGridView();
             this.btnExecuteRestore = new System.Windows.Forms.Button();
             this.progressBarRestore = new System.Windows.Forms.ProgressBar();
             this.lblRestoreStatus = new System.Windows.Forms.Label();
@@ -58,14 +59,14 @@ namespace UI
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnCheckIntegrity = new System.Windows.Forms.Button();
             this.btnRecalculateDV = new System.Windows.Forms.Button();
+            this.btnRecalculateAllDV = new System.Windows.Forms.Button();
             this.lblIntegrityStatus = new System.Windows.Forms.Label();
-            this.dgvFileBackups = new System.Windows.Forms.DataGridView();
             this.tabControlFormDM.SuspendLayout();
             this.tabBackup.SuspendLayout();
             this.tabRestore.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFileBackups)).BeginInit();
             this.tabIntegrity.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFileBackups)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlFormDM
@@ -94,7 +95,7 @@ namespace UI
             this.tabBackup.Location = new System.Drawing.Point(4, 26);
             this.tabBackup.Name = "tabBackup";
             this.tabBackup.Padding = new System.Windows.Forms.Padding(15);
-            this.tabBackup.Size = new System.Drawing.Size(1037, 780);
+            this.tabBackup.Size = new System.Drawing.Size(1072, 730);
             this.tabBackup.TabIndex = 0;
             this.tabBackup.Text = "  BACKUP  ";
             // 
@@ -179,6 +180,19 @@ namespace UI
             this.tabRestore.TabIndex = 1;
             this.tabRestore.Text = "  RESTAURAR  ";
             // 
+            // dgvFileBackups
+            // 
+            this.dgvFileBackups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFileBackups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFileBackups.Location = new System.Drawing.Point(18, 69);
+            this.dgvFileBackups.Name = "dgvFileBackups";
+            this.dgvFileBackups.RowHeadersWidth = 72;
+            this.dgvFileBackups.RowTemplate.Height = 31;
+            this.dgvFileBackups.Size = new System.Drawing.Size(1036, 532);
+            this.dgvFileBackups.TabIndex = 6;
+            // 
             // btnExecuteRestore
             // 
             this.btnExecuteRestore.Font = new System.Drawing.Font("Century Gothic", 10F);
@@ -229,7 +243,7 @@ namespace UI
             this.listBoxIntegrityResults.ItemHeight = 17;
             this.listBoxIntegrityResults.Location = new System.Drawing.Point(11, 80);
             this.listBoxIntegrityResults.Name = "listBoxIntegrityResults";
-            this.listBoxIntegrityResults.Size = new System.Drawing.Size(1053, 293);
+            this.listBoxIntegrityResults.Size = new System.Drawing.Size(1053, 242);
             this.listBoxIntegrityResults.TabIndex = 5;
             // 
             // flowLayoutPanel1
@@ -238,6 +252,7 @@ namespace UI
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.Controls.Add(this.btnCheckIntegrity);
             this.flowLayoutPanel1.Controls.Add(this.btnRecalculateDV);
+            this.flowLayoutPanel1.Controls.Add(this.btnRecalculateAllDV);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(8, 18);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1054, 56);
@@ -256,14 +271,26 @@ namespace UI
             // 
             // btnRecalculateDV
             // 
-            this.btnRecalculateDV.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnRecalculateDV.Font = new System.Drawing.Font("Century Gothic", 9F);
             this.btnRecalculateDV.ForeColor = System.Drawing.Color.Black;
             this.btnRecalculateDV.Location = new System.Drawing.Point(209, 3);
             this.btnRecalculateDV.Name = "btnRecalculateDV";
             this.btnRecalculateDV.Size = new System.Drawing.Size(200, 45);
             this.btnRecalculateDV.TabIndex = 3;
-            this.btnRecalculateDV.Text = " RECALCULAR DV";
+            this.btnRecalculateDV.Text = "    RECALCULAR\r\nINCONSISTENCIAS";
+            this.btnRecalculateDV.Visible = false;
             this.btnRecalculateDV.Click += new System.EventHandler(this.btnRecalculateDV_Click);
+            // 
+            // btnRecalculateAllDV
+            // 
+            this.btnRecalculateAllDV.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.btnRecalculateAllDV.ForeColor = System.Drawing.Color.Black;
+            this.btnRecalculateAllDV.Location = new System.Drawing.Point(415, 3);
+            this.btnRecalculateAllDV.Name = "btnRecalculateAllDV";
+            this.btnRecalculateAllDV.Size = new System.Drawing.Size(200, 45);
+            this.btnRecalculateAllDV.TabIndex = 4;
+            this.btnRecalculateAllDV.Text = " RECALCULAR DV";
+            this.btnRecalculateAllDV.Click += new System.EventHandler(this.btnRecalculateAllDV_Click);
             // 
             // lblIntegrityStatus
             // 
@@ -273,18 +300,6 @@ namespace UI
             this.lblIntegrityStatus.Size = new System.Drawing.Size(660, 40);
             this.lblIntegrityStatus.TabIndex = 2;
             this.lblIntegrityStatus.Text = "Presione el botón para verificar la integridad de la base de datos";
-            // 
-            // dgvFileBackups
-            // 
-            this.dgvFileBackups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFileBackups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFileBackups.Location = new System.Drawing.Point(18, 69);
-            this.dgvFileBackups.Name = "dgvFileBackups";
-            this.dgvFileBackups.RowTemplate.Height = 31;
-            this.dgvFileBackups.Size = new System.Drawing.Size(1036, 532);
-            this.dgvFileBackups.TabIndex = 6;
             // 
             // FormDatabaseMaintenance
             // 
@@ -299,9 +314,9 @@ namespace UI
             this.tabBackup.ResumeLayout(false);
             this.tabBackup.PerformLayout();
             this.tabRestore.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFileBackups)).EndInit();
             this.tabIntegrity.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvFileBackups)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -310,5 +325,6 @@ namespace UI
         private FlowLayoutPanel flowLayoutPanel1;
         private ListBox listBoxIntegrityResults;
         private DataGridView dgvFileBackups;
+        private Button btnRecalculateAllDV;
     }
 }

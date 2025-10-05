@@ -5,14 +5,13 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Panel panelFiltros;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox cbUsuarios;
+        private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label lblDesde;
-        private System.Windows.Forms.DateTimePicker dtpDesde;
+        private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label lblHasta;
-        private System.Windows.Forms.DateTimePicker dtpHasta;
+        private System.Windows.Forms.DateTimePicker dtpUntil;
         private System.Windows.Forms.Label lblEvento;
-        private System.Windows.Forms.ComboBox cbEvento;
-        private System.Windows.Forms.Button btnFiltrar;
+        private System.Windows.Forms.ComboBox cbEvents;
         private System.Windows.Forms.DataGridView dgvBitacora;
 
         protected override void Dispose(bool disposing)
@@ -25,16 +24,18 @@
         private void InitializeComponent()
         {
             this.panelFiltros = new System.Windows.Forms.Panel();
+            this.lblSubtitle = new System.Windows.Forms.Label();
+            this.lblTitleForm = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cbUsuarios = new System.Windows.Forms.ComboBox();
+            this.cbUsers = new System.Windows.Forms.ComboBox();
             this.lblDesde = new System.Windows.Forms.Label();
-            this.dtpDesde = new System.Windows.Forms.DateTimePicker();
+            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.lblHasta = new System.Windows.Forms.Label();
-            this.dtpHasta = new System.Windows.Forms.DateTimePicker();
+            this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.lblEvento = new System.Windows.Forms.Label();
-            this.cbEvento = new System.Windows.Forms.ComboBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cbEvents = new System.Windows.Forms.ComboBox();
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
+            this.btnFilterBitacora = new UI.Controls.ButtonDefault();
             this.panelFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.SuspendLayout();
@@ -42,100 +43,132 @@
             // panelFiltros
             // 
             this.panelFiltros.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.panelFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelFiltros.Controls.Add(this.lblSubtitle);
+            this.panelFiltros.Controls.Add(this.lblTitleForm);
+            this.panelFiltros.Controls.Add(this.btnFilterBitacora);
             this.panelFiltros.Controls.Add(this.lblUsuario);
-            this.panelFiltros.Controls.Add(this.cbUsuarios);
+            this.panelFiltros.Controls.Add(this.cbUsers);
             this.panelFiltros.Controls.Add(this.lblDesde);
-            this.panelFiltros.Controls.Add(this.dtpDesde);
+            this.panelFiltros.Controls.Add(this.dtpFrom);
             this.panelFiltros.Controls.Add(this.lblHasta);
-            this.panelFiltros.Controls.Add(this.dtpHasta);
+            this.panelFiltros.Controls.Add(this.dtpUntil);
             this.panelFiltros.Controls.Add(this.lblEvento);
-            this.panelFiltros.Controls.Add(this.cbEvento);
-            this.panelFiltros.Controls.Add(this.btnFiltrar);
-            this.panelFiltros.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelFiltros.Controls.Add(this.cbEvents);
+            this.panelFiltros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelFiltros.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelFiltros.Location = new System.Drawing.Point(0, 0);
+            this.panelFiltros.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.panelFiltros.Name = "panelFiltros";
-            this.panelFiltros.Padding = new System.Windows.Forms.Padding(10);
-            this.panelFiltros.Size = new System.Drawing.Size(244, 832);
+            this.panelFiltros.Padding = new System.Windows.Forms.Padding(1, 2, 1, 2);
+            this.panelFiltros.Size = new System.Drawing.Size(722, 173);
             this.panelFiltros.TabIndex = 1;
+            // 
+            // lblSubtitle
+            // 
+            this.lblSubtitle.AutoSize = true;
+            this.lblSubtitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubtitle.Location = new System.Drawing.Point(11, 46);
+            this.lblSubtitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSubtitle.Name = "lblSubtitle";
+            this.lblSubtitle.Size = new System.Drawing.Size(78, 30);
+            this.lblSubtitle.TabIndex = 10;
+            this.lblSubtitle.Text = "Filtros";
+            // 
+            // lblTitleForm
+            // 
+            this.lblTitleForm.AutoSize = true;
+            this.lblTitleForm.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleForm.Location = new System.Drawing.Point(1, 2);
+            this.lblTitleForm.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitleForm.Name = "lblTitleForm";
+            this.lblTitleForm.Size = new System.Drawing.Size(168, 44);
+            this.lblTitleForm.TabIndex = 9;
+            this.lblTitleForm.Text = "Bitacora";
             // 
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(10, 20);
+            this.lblUsuario.Location = new System.Drawing.Point(300, 85);
+            this.lblUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.lblUsuario.Name = "lblUsuario";
-            this.lblUsuario.Size = new System.Drawing.Size(68, 20);
+            this.lblUsuario.Size = new System.Drawing.Size(80, 22);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario:";
             // 
-            // cbUsuarios
+            // cbUsers
             // 
-            this.cbUsuarios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUsuarios.Location = new System.Drawing.Point(10, 45);
-            this.cbUsuarios.Name = "cbUsuarios";
-            this.cbUsuarios.Size = new System.Drawing.Size(220, 28);
-            this.cbUsuarios.TabIndex = 1;
+            this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbUsers.Location = new System.Drawing.Point(304, 108);
+            this.cbUsers.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.cbUsers.Name = "cbUsers";
+            this.cbUsers.Size = new System.Drawing.Size(136, 28);
+            this.cbUsers.TabIndex = 1;
+            this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
             // 
             // lblDesde
             // 
             this.lblDesde.AutoSize = true;
-            this.lblDesde.Location = new System.Drawing.Point(10, 90);
+            this.lblDesde.Location = new System.Drawing.Point(12, 87);
+            this.lblDesde.Margin = new System.Windows.Forms.Padding(0);
             this.lblDesde.Name = "lblDesde";
-            this.lblDesde.Size = new System.Drawing.Size(60, 20);
+            this.lblDesde.Size = new System.Drawing.Size(73, 22);
             this.lblDesde.TabIndex = 2;
             this.lblDesde.Text = "Desde:";
             // 
-            // dtpDesde
+            // dtpFrom
             // 
-            this.dtpDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDesde.Location = new System.Drawing.Point(10, 115);
-            this.dtpDesde.Name = "dtpDesde";
-            this.dtpDesde.Size = new System.Drawing.Size(220, 26);
-            this.dtpDesde.TabIndex = 3;
+            this.dtpFrom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFrom.Location = new System.Drawing.Point(9, 110);
+            this.dtpFrom.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.dtpFrom.Name = "dtpFrom";
+            this.dtpFrom.Size = new System.Drawing.Size(136, 26);
+            this.dtpFrom.TabIndex = 3;
+            this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
             // 
             // lblHasta
             // 
             this.lblHasta.AutoSize = true;
-            this.lblHasta.Location = new System.Drawing.Point(10, 160);
+            this.lblHasta.Location = new System.Drawing.Point(152, 87);
+            this.lblHasta.Margin = new System.Windows.Forms.Padding(0);
             this.lblHasta.Name = "lblHasta";
-            this.lblHasta.Size = new System.Drawing.Size(56, 20);
+            this.lblHasta.Size = new System.Drawing.Size(68, 22);
             this.lblHasta.TabIndex = 4;
             this.lblHasta.Text = "Hasta:";
             // 
-            // dtpHasta
+            // dtpUntil
             // 
-            this.dtpHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHasta.Location = new System.Drawing.Point(10, 185);
-            this.dtpHasta.Name = "dtpHasta";
-            this.dtpHasta.Size = new System.Drawing.Size(220, 26);
-            this.dtpHasta.TabIndex = 5;
+            this.dtpUntil.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.dtpUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpUntil.Location = new System.Drawing.Point(156, 110);
+            this.dtpUntil.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.dtpUntil.Name = "dtpUntil";
+            this.dtpUntil.Size = new System.Drawing.Size(136, 26);
+            this.dtpUntil.TabIndex = 5;
+            this.dtpUntil.ValueChanged += new System.EventHandler(this.dtpUntil_ValueChanged);
             // 
             // lblEvento
             // 
             this.lblEvento.AutoSize = true;
-            this.lblEvento.Location = new System.Drawing.Point(10, 230);
+            this.lblEvento.Location = new System.Drawing.Point(447, 85);
+            this.lblEvento.Margin = new System.Windows.Forms.Padding(0);
             this.lblEvento.Name = "lblEvento";
-            this.lblEvento.Size = new System.Drawing.Size(63, 20);
+            this.lblEvento.Size = new System.Drawing.Size(81, 22);
             this.lblEvento.TabIndex = 6;
             this.lblEvento.Text = "Evento:";
             // 
-            // cbEvento
+            // cbEvents
             // 
-            this.cbEvento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEvento.Location = new System.Drawing.Point(10, 255);
-            this.cbEvento.Name = "cbEvento";
-            this.cbEvento.Size = new System.Drawing.Size(220, 28);
-            this.cbEvento.TabIndex = 7;
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFiltrar.Location = new System.Drawing.Point(10, 310);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(220, 35);
-            this.btnFiltrar.TabIndex = 8;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = false;
+            this.cbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEvents.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEvents.Location = new System.Drawing.Point(451, 108);
+            this.cbEvents.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.cbEvents.Name = "cbEvents";
+            this.cbEvents.Size = new System.Drawing.Size(136, 28);
+            this.cbEvents.TabIndex = 7;
+            this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
             // 
             // dgvBitacora
             // 
@@ -144,20 +177,39 @@
             this.dgvBitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBitacora.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvBitacora.Location = new System.Drawing.Point(244, 0);
+            this.dgvBitacora.Location = new System.Drawing.Point(0, 173);
+            this.dgvBitacora.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.dgvBitacora.Name = "dgvBitacora";
             this.dgvBitacora.ReadOnly = true;
             this.dgvBitacora.RowHeadersWidth = 62;
-            this.dgvBitacora.Size = new System.Drawing.Size(1000, 832);
+            this.dgvBitacora.Size = new System.Drawing.Size(722, 393);
             this.dgvBitacora.TabIndex = 0;
+            // 
+            // btnFilterBitacora
+            // 
+            this.btnFilterBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
+            this.btnFilterBitacora.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnFilterBitacora.FlatAppearance.BorderSize = 0;
+            this.btnFilterBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilterBitacora.Font = new System.Drawing.Font("Century Gothic", 10.5F, System.Drawing.FontStyle.Bold);
+            this.btnFilterBitacora.ForeColor = System.Drawing.Color.White;
+            this.btnFilterBitacora.Location = new System.Drawing.Point(604, 97);
+            this.btnFilterBitacora.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
+            this.btnFilterBitacora.Name = "btnFilterBitacora";
+            this.btnFilterBitacora.Size = new System.Drawing.Size(108, 48);
+            this.btnFilterBitacora.TabIndex = 8;
+            this.btnFilterBitacora.Text = "Filtrar";
+            this.btnFilterBitacora.UseVisualStyleBackColor = false;
+            this.btnFilterBitacora.Click += new System.EventHandler(this.btnFilterBitacora_Click);
             // 
             // FormBitacora
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1244, 832);
+            this.ClientSize = new System.Drawing.Size(722, 566);
             this.Controls.Add(this.dgvBitacora);
             this.Controls.Add(this.panelFiltros);
+            this.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.Name = "FormBitacora";
             this.Text = "Bitácora de Eventos";
             this.Load += new System.EventHandler(this.FormBitacora_Load);
@@ -167,5 +219,9 @@
             this.ResumeLayout(false);
 
         }
+
+        private Controls.ButtonDefault btnFilterBitacora;
+        private System.Windows.Forms.Label lblTitleForm;
+        private System.Windows.Forms.Label lblSubtitle;
     }
 }

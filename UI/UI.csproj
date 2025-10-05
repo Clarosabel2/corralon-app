@@ -53,6 +53,9 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.2.2.5\lib\AForge.dll</HintPath>
@@ -99,6 +102,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="common\Styles\ApplyStyleCommon.cs" />
+    <Compile Include="common\Styles\DefaultColors.cs" />
+    <Compile Include="Controls\ButtonDefault.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\DropdownMenu.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -361,6 +369,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ResourceForms.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

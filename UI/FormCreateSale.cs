@@ -14,6 +14,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
@@ -24,6 +25,8 @@ namespace UI
         public FormCreateSale()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvProducts);
+            ApplyStyleCommon.DGVStyle(this.dgvCart);
             LoadTypesProducts();
             BLL_Sale.CreateSale();
             LoadProducts(products);

@@ -282,7 +282,7 @@ namespace UI
         }
         private void btnManageDB_Click(object sender, EventArgs e)
         {
-            OpenForms<FormDatabaseMaintenance>("Hola");
+            OpenForms<FormDatabaseMaintenance>((BLL_DV_DB)null);
         }
         private void btnBitacora_Click(object sender, EventArgs e)
         {
@@ -303,7 +303,7 @@ namespace UI
         }
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //BLL_User.Logout();
+            
         }
         public void Update(BE_Language language)
         {

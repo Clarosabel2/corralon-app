@@ -16,21 +16,106 @@ namespace UI
     {
 
         BE_Product product = new BE_Product();
-        FormProducts fm = new FormProducts();
+        FormProducts fm;
         List<BE_Brand> brands = new List<BE_Brand>();
         bool isEdit = false;
         public FormRegisterProduct(int idprdt = 0, FormProducts fmPrdts = null)
         {
             InitializeComponent();
-            fm = fmPrdts;
+            ApplyModernStyle();
+            this.fm = fmPrdts;
             brands = BLL_Brand.GetAllBrands();
+            LoadData();
             if (idprdt != 0)
             {
                 isEdit = true;
+                this.Text = "Editar Producto";
                 LoadProductToEdit(idprdt);
             }
-            LoadData();
         }
+
+        private void ApplyModernStyle()
+        {
+            // ===== Paleta
+            Color Primary = ColorTranslator.FromHtml("#06406A");
+            Color PrimaryMid = ColorTranslator.FromHtml("#0A5C99");
+            Color BgForm = ColorTranslator.FromHtml("#F5F7FA");
+            Color TextPrimary = ColorTranslator.FromHtml("#1F2937");
+            Color TextMuted = ColorTranslator.FromHtml("#6B7280");
+            Color LineColor = ColorTranslator.FromHtml("#D9E2EC");
+
+            // ===== Form
+            this.BackColor = BgForm;
+            this.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+
+            // ===== Labels (alineación y color)
+            Label[] labels = { lblBrand, lblCategory, lblNameProduct, lblDescriptionProduct, lblPrice, lblStockAvailable };
+            foreach (var lb in labels)
+            {
+                lb.ForeColor = TextPrimary;
+                lb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+            }
+
+            // ===== ComboBoxes
+            ComboBox[] combos = { cbBrands, cbCategoryProduct };
+            foreach (var cb in combos)
+            {
+                cb.FlatStyle = FlatStyle.Flat;
+                cb.BackColor = Color.White;
+                cb.ForeColor = TextPrimary;
+                cb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+                cb.IntegralHeight = false;
+                cb.MaxDropDownItems = 8;
+            }
+
+            // ===== TextBoxes con estilo "subrayado"
+            TextBox[] tbs = { txtNameProduct, txtDescriptionProduct, txtPriceProduct, txtStockAvailibleProduct };
+            foreach (var tb in tbs)
+            {
+                tb.BorderStyle = BorderStyle.None;          // sin borde
+                tb.BackColor = Color.White;
+                tb.ForeColor = TextPrimary;
+                tb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+                tb.Multiline = false;
+                tb.Height = 24;
+
+                // Línea inferior (como Material Design)
+                var underline = new Panel
+                {
+                    Height = 1,
+                    Dock = DockStyle.Bottom,
+                    BackColor = LineColor
+                };
+                tb.Parent.Controls.Add(underline);
+                underline.BringToFront();
+
+                // Hover/focus: línea azul
+                tb.Enter += (s, e) => underline.BackColor = PrimaryMid;
+                tb.Leave += (s, e) => underline.BackColor = LineColor;
+            }
+
+            // ===== Botón primario moderno
+            btnSaveProduct.FlatStyle = FlatStyle.Flat;
+            btnSaveProduct.FlatAppearance.BorderSize = 0;
+            btnSaveProduct.BackColor = Primary;
+            btnSaveProduct.ForeColor = Color.White;
+            btnSaveProduct.Font = new Font("Century Gothic", 10.5f, FontStyle.Bold);
+            btnSaveProduct.Height = 44;
+            btnSaveProduct.Width = 180;
+            btnSaveProduct.Text = "Guardar";
+            btnSaveProduct.Cursor = Cursors.Hand;
+            btnSaveProduct.FlatAppearance.MouseOverBackColor = PrimaryMid;
+
+            // Ubicación más lógica (centro inferior)
+            btnSaveProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSaveProduct.Location = new Point(this.ClientSize.Width - btnSaveProduct.Width - 24,
+                                                this.ClientSize.Height - btnSaveProduct.Height - 24);
+
+            // ===== Sugerencia de layout (opcional, pero ayuda mucho):
+            // Usa un TableLayoutPanel de 2 columnas (labels/inputs) con Padding=24 y RowPadding=10
+            // para que todo quede alineado y responsivo al redimensionar.
+        }
+
 
         private void LoadProductToEdit(int id)
         {
@@ -57,9 +142,6 @@ namespace UI
             cbBrands.ValueMember = "Key";
             cbBrands.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             cbBrands.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            
-
         }
 
         private void btnSaveProduct_Click(object sender, EventArgs e)

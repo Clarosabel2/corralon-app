@@ -21,12 +21,12 @@ namespace BLL
 
         public static void LogEvent(string message, BE_EventType eventType, BE_ActivityLevel activity)
         {
-            //BE_Eventlog newEvent = new BE_Eventlog(
-            //    SessionManager.GetInstance.user.Emp.Id,
-            //    message, eventType, activity);
+            BE_Eventlog newEvent = new BE_Eventlog(
+                SessionManager.GetInstance.user.Emp.Id,
+                message, eventType, activity);
 
-            //Console.WriteLine($"Event logged: {message}");
-            //DAL_Eventlog.RegisterEventLog(newEvent);
+            Console.WriteLine($"Event logged: {message}");
+            DAL_Eventlog.RegisterEventLog(newEvent);
         }
 
     }

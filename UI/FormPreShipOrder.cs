@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -19,6 +20,7 @@ namespace UI
         public FormPreShipOrder(int idInvoice, FormOrders f)
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvDetailsOrder);
             frmOrders = f;
             _id_invoice = idInvoice;
             dgvDetailsOrder.DataSource = BLL_Sale.GetProductsByIdInvoice(idInvoice);

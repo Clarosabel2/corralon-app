@@ -33,7 +33,7 @@ namespace DAL.DB
             string query = @"
                 SELECT name 
                 FROM sys.tables 
-                WHERE name NOT IN ('sysdiagrams', 'tb_DVV', 'tb_DVH')";
+                WHERE name NOT IN ('sysdiagrams', 'tb_DVV', 'tb_DVH','tb_AuditChanges','tb_EventLog','tb_EventLogActivity')";
 
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(query, ocnn.Connection);
             sqlDataAdapter.Fill(dt);

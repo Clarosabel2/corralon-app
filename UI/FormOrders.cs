@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -16,6 +17,8 @@ namespace UI
         public FormOrders()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvOrders);
+            ApplyStyleCommon.DGVStyle(this.dgvOrdersShipped);
             LoadColumns();
             LoadDataInDG();
         }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -17,6 +18,7 @@ namespace UI
         public FormAuditChanges()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dataGridView1);
         }
 
         private void ConfigDataGriedView()

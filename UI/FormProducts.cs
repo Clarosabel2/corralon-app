@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Styles;
 
 namespace UI
 {
@@ -19,8 +20,9 @@ namespace UI
         public FormProducts()
         {
             InitializeComponent();
+            ApplyStyleCommon.DGVStyle(this.dgvProducts);
             products = BLL_Product.GetProducts();
-            VerifyLowStock();
+            //VerifyLowStock();
         }
 
         private void VerifyLowStock()
@@ -46,8 +48,10 @@ namespace UI
 
         public void LoadProductsIntoDGV(List<BE_Product> prdts = null)
         {
+            dgvProducts.DataSource= null;
             dgvProducts.Columns.Clear();
             dgvProducts.Rows.Clear();
+            if (prdts == null) prdts = products;
             DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
             col1.HeaderText = "ID";
             col1.Name = "productId";

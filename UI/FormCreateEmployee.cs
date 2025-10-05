@@ -18,6 +18,7 @@ namespace UI
         public FormCreateEmployee(BE_Employee emp = null)
         {
             InitializeComponent();
+            ApplyModernEmployeeStyle();
             LoadData(emp);
             if (emp != null)
             {
@@ -27,6 +28,119 @@ namespace UI
                 btnSaveEmployee.Text = "Modificar";
             }
         }
+
+        private void ApplyModernEmployeeStyle()
+        {
+            // ===== Paleta
+            Color Primary = ColorTranslator.FromHtml("#06406A");
+            Color PrimaryMid = ColorTranslator.FromHtml("#0A5C99");
+            Color BgForm = ColorTranslator.FromHtml("#F5F7FA");
+            Color TextPrimary = ColorTranslator.FromHtml("#1F2937");
+            Color TextMuted = ColorTranslator.FromHtml("#6B7280");
+            Color LineColor = ColorTranslator.FromHtml("#D9E2EC");
+
+            // ===== Form
+            this.BackColor = BgForm;
+            this.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+            this.Text = "Nuevo empleado";
+            this.FormBorderStyle = FormBorderStyle.FixedDialog; // más limpio
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            // ===== Labels
+            Label[] labels = { lblDni, lblNombre, lblApellido, lblDomicilio, lblEmail, lblTelefono, lblAreas };
+            foreach (var lb in labels)
+            {
+                lb.ForeColor = TextPrimary;
+                lb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+            }
+
+            // ===== Combo Areas
+            cBAreas.FlatStyle = FlatStyle.Flat;
+            cBAreas.BackColor = Color.White;
+            cBAreas.ForeColor = TextPrimary;
+            cBAreas.IntegralHeight = false;
+            cBAreas.MaxDropDownItems = 8;
+
+            // ===== TextBoxes con estilo subrayado
+            TextBox[] tbs = { txtDni, txtNombre, txtApellido, txtDomicilio, txtEmail, txtTelefono };
+            foreach (var tb in tbs)
+            {
+                tb.BorderStyle = BorderStyle.None;
+                tb.BackColor = Color.White;
+                tb.ForeColor = TextPrimary;
+                tb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+                tb.Margin = new Padding(0);
+                tb.Height = 24;
+
+                var underline = new Panel { Height = 1, Dock = DockStyle.Bottom, BackColor = LineColor };
+                tb.Parent.Controls.Add(underline);
+                underline.BringToFront();
+                tb.Enter += (s, e) => underline.BackColor = PrimaryMid;
+                tb.Leave += (s, e) => underline.BackColor = LineColor;
+            }
+
+            // ===== Botón principal
+            StylePrimaryButton(btnSaveEmployee, Primary, PrimaryMid);
+            this.AcceptButton = btnSaveEmployee; // Enter = Guardar
+
+            // ===== Botones secundarios (foto)
+            StyleSecondaryButton(btnUploadPhoto, Primary, PrimaryMid);
+            StyleSecondaryButton(btnTakePhoto, Primary, PrimaryMid);
+
+            // ===== Foto redondeada y borde suave
+            MakeRoundPicture(pictureBox1, 12, LineColor);
+
+            // ===== OpenFileDialog
+            openFileDialog1.Title = "Seleccionar foto…";
+            openFileDialog1.Filter = "Imágenes|*.jpg;*.jpeg;*.png;*.bmp|Todos los archivos|*.*";
+        }
+
+        // --- Helpers de estilo ---
+        private void StylePrimaryButton(Button b, Color baseColor, Color hover)
+        {
+            b.FlatStyle = FlatStyle.Flat;
+            b.FlatAppearance.BorderSize = 0;
+            b.BackColor = baseColor;
+            b.ForeColor = Color.White;
+            b.Font = new Font("Century Gothic", 10.5f, FontStyle.Bold);
+            b.Height = 40;
+            b.Cursor = Cursors.Hand;
+            b.FlatAppearance.MouseOverBackColor = hover;
+        }
+
+        private void StyleSecondaryButton(Button b, Color baseColor, Color hover)
+        {
+            b.FlatStyle = FlatStyle.Flat;
+            b.FlatAppearance.BorderSize = 1;
+            b.FlatAppearance.BorderColor = baseColor;
+            b.BackColor = Color.Transparent;
+            b.ForeColor = baseColor;
+            b.Cursor = Cursors.Hand;
+            b.FlatAppearance.MouseOverBackColor = Color.FromArgb(18, ColorTranslator.FromHtml("#06406A").R,
+                                                                   ColorTranslator.FromHtml("#06406A").G,
+                                                                   ColorTranslator.FromHtml("#06406A").B);
+        }
+
+        private void MakeRoundPicture(PictureBox pb, int radius, Color border)
+        {
+            pb.BackColor = Color.White;
+            pb.Padding = new Padding(0);
+            using (var path = new System.Drawing.Drawing2D.GraphicsPath())
+            {
+                path.AddArc(0, 0, radius, radius, 180, 90);
+                path.AddArc(pb.Width - radius - 1, 0, radius, radius, 270, 90);
+                path.AddArc(pb.Width - radius - 1, pb.Height - radius - 1, radius, radius, 0, 90);
+                path.AddArc(0, pb.Height - radius - 1, radius, radius, 90, 90);
+                path.CloseAllFigures();
+                pb.Region = new Region(path);
+            }
+            pb.Paint += (s, e) =>
+            {
+                using (var p = new Pen(border, 1)) e.Graphics.DrawRectangle(p, 0, 0, pb.Width - 1, pb.Height - 1);
+            };
+        }
+
         private void LoadData(BE_Employee emp)
         {
             foreach (var item in Enum.GetValues(typeof(BE_Area)))
