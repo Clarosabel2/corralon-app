@@ -1,4 +1,5 @@
 ﻿using BDE;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -66,6 +67,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@price", p.Price);
                 cmd.Parameters.AddWithValue("@nombre_marca", p.Brand.NameBrand);
                 cmd.Parameters.AddWithValue("@id_categoria", p.Category);
+                cmd.Parameters.AddWithValue("@image_path", p.ImagePath);
 
                 cmd.ExecuteNonQuery();
             }
@@ -97,7 +99,9 @@ namespace DAL
                                 Id = reader.GetInt32(5),
                                 NameBrand = reader.GetString(6)
                             },
-                            Category = reader.GetString(7)
+                            Category = reader.GetString(7),
+                            MinStock = reader.GetInt32(8),
+                            ImagePath = reader.IsDBNull(9) ? "" : reader.GetString(9)
                         };
                     }
                 }
@@ -120,8 +124,29 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@p_descripcion", p.Description);
                 cmd.Parameters.AddWithValue("@p_precio", p.Price);
                 cmd.Parameters.AddWithValue("@p_stock", p.Stock);
+                cmd.Parameters.AddWithValue("@p_min_stock", p.MinStock);
+                cmd.Parameters.AddWithValue("@p_img_path", p.ImagePath);
 
                 cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static string GetCategoryById(int idCategory)
+        {
+            var cnn = new DAL_Connection();
+            using (var connection = cnn.OpenConnection())
+            using (var cmd = new SqlCommand(
+                @"SELECT nombreCategoria 
+                  FROM dbo.Categorias 
+                  WHERE id_Categoria = @id", connection))
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add("@id", SqlDbType.Int).Value = idCategory;
+
+                object result = cmd.ExecuteScalar();
+                return (result == null || result == DBNull.Value)
+                    ? null
+                    : Convert.ToString(result);
             }
         }
     }

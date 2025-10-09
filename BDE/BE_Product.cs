@@ -18,9 +18,10 @@ namespace BDE
         private int stock;
         private double price;
         private bool isDelete;
-        private string imagePath= "C:/Users/abel_/Source/Repos/corralon-app/UI/bin/Debug/Media/Products/loma_negra_Loma_Negra_1.png";
+        private int minStock;
+        private string imagePath;
 
-        public BE_Product(int id, BE_Brand marca,string nombre, string descripcion, string categoria, double precio, int stock)
+        public BE_Product(int id, BE_Brand marca, string nombre, string descripcion, string categoria, double precio, int stock)
         {
             this.Id = id;
             this.Brand = marca;
@@ -33,11 +34,14 @@ namespace BDE
         public BE_Product(DataRow r)
         {
             this.Id = r.Field<int>("id_Producto");
-            this.Brand = new BE_Brand(r.Field<string>("marca"));
             this.Name = r.Field<string>("nombre");
-            this.Price = r.Field<double>("precio");
-            this.Category = r.Field<string>("nombreCategoria");
+            this.Description = r.Field<string>("descripcion");
+            this.price = r.Field<double>("precio");
             this.Stock = r.Field<int>("stock");
+            this.Brand = new BE_Brand(r.Field<string>("marca"));
+            this.Category = r.Field<string>("nombreCategoria");
+            this.MinStock = r.Field<int>("stock_minimo");
+            this.ImagePath = r.Field<string>("img_path") ?? "";
         }
         public BE_Product() { }
 
@@ -49,5 +53,6 @@ namespace BDE
         public string Category { get => category; set => category = value; }
         public BE_Brand Brand { get => brand; set => brand = value; }
         public string ImagePath { get => imagePath; set => imagePath = value; }
+        public int MinStock { get => minStock; set => minStock = value; }
     }
 }

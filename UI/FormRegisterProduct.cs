@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.common.Utils;
 
 namespace UI
 {
@@ -42,9 +43,12 @@ namespace UI
             txtDescriptionProduct.Text = product.Description;
             txtPriceProduct.Text = product.Price.ToString();
             txtStockAvailibleProduct.Text = product.Stock.ToString();
+            txtMinStock.Text = product.MinStock.ToString();
 
             cbBrands.SelectedIndex = cbBrands.FindStringExact(product.Brand.NameBrand);
             cbCategoryProduct.SelectedIndex = cbCategoryProduct.FindStringExact(product.Category);
+
+            pictureBoxImgProduct.Image = ImageLoader.LoadSafe(product.ImagePath);
         }
         private void LoadData()
         {
@@ -133,7 +137,7 @@ namespace UI
                     cbCategoryProduct.SelectedValue.ToString(),
                     double.Parse(txtPriceProduct.Text),
                     int.Parse(txtStockAvailibleProduct.Text));
-
+                product.MinStock = int.Parse(txtMinStock.Text);
                 product.ImagePath = _imagePath;
 
                 if (!isEdit)
@@ -149,7 +153,7 @@ namespace UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al guardar el producto. Verifique los datos ingresados. "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al guardar el producto. Verifique los datos ingresados. " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private string _imagePath = null;
@@ -163,7 +167,7 @@ namespace UI
                 {
                     pictureBoxImgProduct.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBoxImgProduct.Image = Image.FromFile(ofd.FileName);
-                    _imagePath = ofd.FileName;  
+                    _imagePath = ofd.FileName;
                 }
                 btnDeleteImgProduct.Enabled = true;
             }
@@ -172,7 +176,7 @@ namespace UI
         private void btnDeleteImgProduct_Click(object sender, EventArgs e)
         {
             pictureBoxImgProduct.Image = Properties.Resources.img_icon;
-            _imagePath = null;  
+            _imagePath = null;
             // Opcional: deshabilitar el botón hasta que carguen otra
             btnDeleteImgProduct.Enabled = false;
         }

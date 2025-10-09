@@ -52,7 +52,7 @@ namespace UI
             this.txtSearch.Location = new System.Drawing.Point(119, 15);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(815, 31);
+            this.txtSearch.Size = new System.Drawing.Size(815, 42);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -91,12 +91,13 @@ namespace UI
             this.label1.Location = new System.Drawing.Point(15, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 27);
+            this.label1.Size = new System.Drawing.Size(135, 40);
             this.label1.TabIndex = 5;
             this.label1.Text = "Buscar:";
             // 
             // dgvProducts
             // 
+            this.dgvProducts.AllowUserToAddRows = false;
             this.dgvProducts.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -152,7 +153,7 @@ namespace UI
             this.lblCantProducts.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCantProducts.Location = new System.Drawing.Point(271, 19);
             this.lblCantProducts.Name = "lblCantProducts";
-            this.lblCantProducts.Size = new System.Drawing.Size(21, 22);
+            this.lblCantProducts.Size = new System.Drawing.Size(31, 36);
             this.lblCantProducts.TabIndex = 1;
             this.lblCantProducts.Text = "0";
             // 
@@ -162,7 +163,7 @@ namespace UI
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 18);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 23);
+            this.label2.Size = new System.Drawing.Size(349, 36);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cantidad de Productos:";
             // 
