@@ -33,7 +33,7 @@ namespace UI.FormsViewData
             this.dgvSuppliers = new System.Windows.Forms.DataGridView();
             this.dgvBrands = new System.Windows.Forms.DataGridView();
             this.lblBrands = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitleForm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppliers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBrands)).BeginInit();
             this.SuspendLayout();
@@ -90,23 +90,23 @@ namespace UI.FormsViewData
             this.lblBrands.TabIndex = 4;
             this.lblBrands.Text = "Brands of selected supplier:";
             // 
-            // label1
+            // lblTitleForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(97, 24);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Suppliers";
+            this.lblTitleForm.AutoSize = true;
+            this.lblTitleForm.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleForm.Location = new System.Drawing.Point(1, 17);
+            this.lblTitleForm.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitleForm.Name = "lblTitleForm";
+            this.lblTitleForm.Size = new System.Drawing.Size(128, 33);
+            this.lblTitleForm.TabIndex = 6;
+            this.lblTitleForm.Text = "Suppliers";
             // 
             // FormSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1372, 931);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitleForm);
             this.Controls.Add(this.btnRegisterSupplier);
             this.Controls.Add(this.dgvSuppliers);
             this.Controls.Add(this.lblBrands);
@@ -125,6 +125,6 @@ namespace UI.FormsViewData
 
         #endregion
 
-        private Label label1;
+        private Label lblTitleForm;
     }
 }

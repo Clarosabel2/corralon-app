@@ -13,19 +13,17 @@ namespace UI.common.Styles
     {
         public static void DGVStyle(DataGridView dgv)
         {
-            // ===== Header moderno =====
             dgv.EnableHeadersVisualStyles = false;
-            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 11f, FontStyle.Bold);
+            dgv.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 18f, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.BackColor = DefaultColors.Primary;
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dgv.ColumnHeadersDefaultCellStyle.Padding = new Padding(12, 10, 12, 10);
             dgv.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dgv.ColumnHeadersHeight = 42; // más alto, aireado
+            dgv.ColumnHeadersHeight = 50;
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
 
-            // ===== Celdas limpias =====
-            dgv.DefaultCellStyle.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
+            dgv.DefaultCellStyle.Font = new Font("Century Gothic", 15f, FontStyle.Regular);
             dgv.DefaultCellStyle.BackColor = Color.White;
             dgv.DefaultCellStyle.ForeColor = Color.Black;
             dgv.DefaultCellStyle.SelectionBackColor = DefaultColors.PrimaryMid;
@@ -47,6 +45,7 @@ namespace UI.common.Styles
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.MultiSelect = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv.AllowUserToResizeRows = false;
             foreach (DataGridViewColumn c in dgv.Columns)
             {
                 c.DefaultCellStyle.WrapMode = DataGridViewTriState.False;
@@ -65,6 +64,8 @@ namespace UI.common.Styles
                 }
             }
         }
+
+        
 
         public static void ButtonStyle(Button btn)
         {

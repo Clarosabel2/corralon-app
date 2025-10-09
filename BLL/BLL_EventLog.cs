@@ -16,6 +16,14 @@ namespace BLL
         public static DataTable LoadEventlogs()
         {
             DataTable dt = DAL_Eventlog.GetEventLogs();
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row["eventTime"] != DBNull.Value)
+                {
+                    TimeSpan hora = (TimeSpan)row["eventTime"];
+                    row["eventTime"] = new TimeSpan(hora.Hours, hora.Minutes, hora.Seconds);
+                }
+            }
             return dt;
         }
 

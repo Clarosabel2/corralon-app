@@ -5,11 +5,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.common.Styles;
+using UI.common.Utils;
 
 namespace UI
 {
@@ -46,76 +48,175 @@ namespace UI
             }
         }
 
+        void TuneImageColumn(DataGridView dgv, string imgColName, int size = 96)
+        {
+            // 1) Columna de imagen
+            var col = (DataGridViewImageColumn)dgv.Columns[imgColName];
+            col.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.None; // ancho fijo
+            col.Width = size;                                // p.ej. 72/96/120
+
+            // 2) Filas altas
+            dgv.RowTemplate.Height = size;
+            dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            foreach (DataGridViewRow r in dgv.Rows) r.Height = size; // para las ya cargadas
+        }
+
+
         public void LoadProductsIntoDGV(List<BE_Product> prdts = null)
         {
-            dgvProducts.DataSource= null;
+            dgvProducts.DataSource = null;
             dgvProducts.Columns.Clear();
             dgvProducts.Rows.Clear();
             if (prdts == null) prdts = products;
-            DataGridViewTextBoxColumn col1 = new DataGridViewTextBoxColumn();
-            col1.HeaderText = "ID";
-            col1.Name = "productId";
-            col1.DataPropertyName = "Id";
-            col1.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "ID", "productId",
+                DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
-            DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
-            col2.HeaderText = "Categoria";
-            col2.Name = "productCategory";
-            col2.DataPropertyName = "Categoria";
-            col2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col2.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(
+                new DataGridViewImageColumn(), "Imag", "imgProduct",
+                DataGridViewAutoSizeColumnMode.None, dgvProducts,
+                null,       // ← dinámica
+                DataGridViewImageCellLayout.Zoom,
+                96);
+            dgvProducts.RowTemplate.Height = 96;
 
-            DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
-            col3.HeaderText = "Marca";
-            col3.Name = "productBrand";
-            col3.DataPropertyName = "Brand";
-            col3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col3.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "Categoria", "productCategory",
+                DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
-            DataGridViewTextBoxColumn col4 = new DataGridViewTextBoxColumn();
-            col4.HeaderText = "Nombre del Producto";
-            col4.Name = "product";
-            col4.DataPropertyName = "Name";
-            col4.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col4.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "Marca", "productBrand",
+                DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
-            DataGridViewTextBoxColumn col5 = new DataGridViewTextBoxColumn();
-            col5.HeaderText = "Precio";
-            col5.Name = "productPrice";
-            col5.DataPropertyName = "Price";
-            col5.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col5.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "Producto", "productName",
+                DataGridViewAutoSizeColumnMode.Fill, dgvProducts);
 
-            DataGridViewTextBoxColumn col6 = new DataGridViewTextBoxColumn();
-            col6.HeaderText = "Stock";
-            col6.Name = "productStock";
-            col6.DataPropertyName = "Stock";
-            col6.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            col6.ReadOnly = true;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "Precio", "productPrice",
+                DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
-            DataGridViewImageColumn btnDeleteCol = new DataGridViewImageColumn();
-            btnDeleteCol.HeaderText = "Acciones";
-            //btnDeleteCol.Text = "Eliminar";
-            btnDeleteCol.Image = Properties.Resources.delete_icon_circle;
-            btnDeleteCol.Name = "btnDelete";
-            btnDeleteCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            DataGridViewImageColumn btnEditCol = new DataGridViewImageColumn();
-            btnEditCol.HeaderText = " ";
-            btnEditCol.Image = Properties.Resources.edit_icon_circle;
-            btnEditCol.Name = "btnEdit";
-            btnEditCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            DGVHelper.AddNewDGVColumnToDGV(new DataGridViewTextBoxColumn(),
+                "Stock", "productStock",
+                DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
-            dgvProducts.Columns.Add(col1);
-            dgvProducts.Columns.Add(col2);
-            dgvProducts.Columns.Add(col3);
-            dgvProducts.Columns.Add(col4);
-            dgvProducts.Columns.Add(col5);
-            dgvProducts.Columns.Add(col6);
-            dgvProducts.Columns.Add(btnDeleteCol);
-            dgvProducts.Columns.Add(btnEditCol);
+            DGVHelper.AddNewDGVColumnToDGV(
+                new DataGridViewImageColumn(), "Acciones", "btnDelete",
+                DataGridViewAutoSizeColumnMode.None, dgvProducts,
+                staticImageIfImageCol: Properties.Resources.delete_icon_circle,
+                layout: DataGridViewImageCellLayout.Zoom,
+                fixedWidth: 70);
 
-            prdts.ForEach(p => dgvProducts.Rows.Add(p.Id, p.Category, p.Brand.NameBrand, p.Name, p.Price, p.Stock));
+            DGVHelper.AddNewDGVColumnToDGV(
+                new DataGridViewImageColumn(), "", "btnEdit",
+                DataGridViewAutoSizeColumnMode.None, dgvProducts,
+                staticImageIfImageCol: Properties.Resources.edit_icon_circle,
+                layout: DataGridViewImageCellLayout.Zoom,
+                fixedWidth: 70);
+
+            #region
+            //DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
+            //DataGridViewTextBoxColumn colId = new DataGridViewTextBoxColumn();
+            //colId.HeaderText = "ID";
+            //colId.Name = "productId";
+            //colId.DataPropertyName = "Id";
+            //colId.ReadOnly = true;
+            //colId.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+
+            //DataGridViewTextBoxColumn colCategory = new DataGridViewTextBoxColumn();
+            //colCategory.HeaderText = "Categoria";
+            //colCategory.Name = "productCategory";
+            //colCategory.DataPropertyName = "Categoria";
+            //colCategory.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //colCategory.ReadOnly = true;
+
+            //DataGridViewTextBoxColumn colBrand = new DataGridViewTextBoxColumn();
+            //colBrand.HeaderText = "Marca";
+            //colBrand.Name = "productBrand";
+            //colBrand.DataPropertyName = "Brand";
+            //colBrand.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //colBrand.ReadOnly = true;
+
+            //DataGridViewTextBoxColumn colNameProducts = new DataGridViewTextBoxColumn();
+            //colNameProducts.HeaderText = "Nombre del Producto";
+            //colNameProducts.Name = "product";
+            //colNameProducts.DataPropertyName = "Name";
+            //colNameProducts.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //colNameProducts.ReadOnly = true;
+
+            //DataGridViewTextBoxColumn colPrice = new DataGridViewTextBoxColumn();
+            //colPrice.HeaderText = "Precio";
+            //colPrice.Name = "productPrice";
+            //colPrice.DataPropertyName = "Price";
+            //colPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //colPrice.ReadOnly = true;
+
+            //DataGridViewTextBoxColumn colStock = new DataGridViewTextBoxColumn();
+            //colStock.HeaderText = "Stock";
+            //colStock.Name = "productStock";
+            //colStock.DataPropertyName = "Stock";
+            //colStock.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            //colStock.ReadOnly = true;
+
+
+
+            //DataGridViewImageColumn colProductImage = new DataGridViewImageColumn();
+            //colProductImage.HeaderText = "Image";
+            //colProductImage.Name = "imgProduct";
+            //colProductImage.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            //dgvProducts.Columns.Add(colId);
+            //dgvProducts.Columns.Add(colProductImage);
+            //dgvProducts.Columns.Add(colCategory);
+            //dgvProducts.Columns.Add(colBrand);
+            //dgvProducts.Columns.Add(colNameProducts);
+            //dgvProducts.Columns.Add(colPrice);
+            //dgvProducts.Columns.Add(colStock);
+
+            //            Image imageIfImageCol = null,
+            //DataGridViewImageCellLayout? dgvImageCellLayout = null,
+            //DataGridViewImageColumn btnDeleteCol = new DataGridViewImageColumn();
+            //ConfigButtonActionDGV(btnDeleteCol, Properties.Resources.delete_icon_circle, "btnDelete");
+
+            //dgvProducts.Columns.Add(btnDeleteCol);
+
+            //DataGridViewImageColumn btnEditCol = new DataGridViewImageColumn();
+            //ConfigButtonActionDGV(btnEditCol, Properties.Resources.edit_icon_circle, "btnEdit");
+
+            //dgvProducts.Columns.Add(btnEditCol);
+            #endregion
+
+
+            foreach (var p in prdts)
+            {
+             
+                var img = ImageLoader.LoadSafe(p.ImagePath) ?? Properties.Resources.img_icon;
+                dgvProducts.Rows.Add(
+                    p.Id,                       // ID
+                    img,
+                    p.Category,
+                    p.Brand.NameBrand,
+                    p.Name,
+                    p.Price,
+                    p.Stock,
+                    null,                       // btnDelete → usa Image de la columna
+                    null                        // btnEdit   → usa Image de la columna
+                );
+            }
+            TuneImageColumn(dgvProducts, "imgProduct", 96);
             lblCantProducts.Text = $"{(prdts.Count).ToString()}";
+        }
+        private void ConfigButtonActionDGV(DataGridViewImageColumn dgvBtn, Image img, string name)
+        {
+            dgvBtn.HeaderText = "";
+            //dgvBtn.Text = "Eliminar";
+            dgvBtn.Image = img;
+            dgvBtn.Name = name;
+            dgvBtn.ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvBtn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dgvBtn.Width = 70;
         }
         private void FormProducts_Load(object sender, EventArgs e)
         {

@@ -5,7 +5,6 @@
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Panel panelFiltros;
         private System.Windows.Forms.Label lblUsuario;
-        private System.Windows.Forms.ComboBox cbUsers;
         private System.Windows.Forms.Label lblDesde;
         private System.Windows.Forms.DateTimePicker dtpFrom;
         private System.Windows.Forms.Label lblHasta;
@@ -27,13 +26,13 @@
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.lblTitleForm = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
-            this.cbUsers = new System.Windows.Forms.ComboBox();
             this.lblDesde = new System.Windows.Forms.Label();
             this.dtpFrom = new System.Windows.Forms.DateTimePicker();
             this.lblHasta = new System.Windows.Forms.Label();
             this.dtpUntil = new System.Windows.Forms.DateTimePicker();
             this.lblEvento = new System.Windows.Forms.Label();
             this.cbEvents = new System.Windows.Forms.ComboBox();
+            this.txtSearchUsername = new System.Windows.Forms.TextBox();
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
             this.btnFilterBitacora = new UI.Controls.ButtonDefault();
             this.panelFiltros.SuspendLayout();
@@ -48,13 +47,13 @@
             this.panelFiltros.Controls.Add(this.lblTitleForm);
             this.panelFiltros.Controls.Add(this.btnFilterBitacora);
             this.panelFiltros.Controls.Add(this.lblUsuario);
-            this.panelFiltros.Controls.Add(this.cbUsers);
             this.panelFiltros.Controls.Add(this.lblDesde);
             this.panelFiltros.Controls.Add(this.dtpFrom);
             this.panelFiltros.Controls.Add(this.lblHasta);
             this.panelFiltros.Controls.Add(this.dtpUntil);
             this.panelFiltros.Controls.Add(this.lblEvento);
             this.panelFiltros.Controls.Add(this.cbEvents);
+            this.panelFiltros.Controls.Add(this.txtSearchUsername);
             this.panelFiltros.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelFiltros.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelFiltros.Location = new System.Drawing.Point(0, 0);
@@ -89,23 +88,12 @@
             // lblUsuario
             // 
             this.lblUsuario.AutoSize = true;
-            this.lblUsuario.Location = new System.Drawing.Point(300, 85);
+            this.lblUsuario.Location = new System.Drawing.Point(300, 87);
             this.lblUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.lblUsuario.Name = "lblUsuario";
             this.lblUsuario.Size = new System.Drawing.Size(80, 22);
             this.lblUsuario.TabIndex = 0;
             this.lblUsuario.Text = "Usuario:";
-            // 
-            // cbUsers
-            // 
-            this.cbUsers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUsers.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbUsers.Location = new System.Drawing.Point(304, 108);
-            this.cbUsers.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
-            this.cbUsers.Name = "cbUsers";
-            this.cbUsers.Size = new System.Drawing.Size(136, 28);
-            this.cbUsers.TabIndex = 1;
-            this.cbUsers.SelectedIndexChanged += new System.EventHandler(this.cbUsers_SelectedIndexChanged);
             // 
             // lblDesde
             // 
@@ -121,7 +109,7 @@
             // 
             this.dtpFrom.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFrom.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFrom.Location = new System.Drawing.Point(9, 110);
+            this.dtpFrom.Location = new System.Drawing.Point(9, 113);
             this.dtpFrom.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.dtpFrom.Name = "dtpFrom";
             this.dtpFrom.Size = new System.Drawing.Size(136, 26);
@@ -142,7 +130,7 @@
             // 
             this.dtpUntil.Font = new System.Drawing.Font("Century Gothic", 11.25F);
             this.dtpUntil.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpUntil.Location = new System.Drawing.Point(156, 110);
+            this.dtpUntil.Location = new System.Drawing.Point(156, 113);
             this.dtpUntil.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.dtpUntil.Name = "dtpUntil";
             this.dtpUntil.Size = new System.Drawing.Size(136, 26);
@@ -152,7 +140,7 @@
             // lblEvento
             // 
             this.lblEvento.AutoSize = true;
-            this.lblEvento.Location = new System.Drawing.Point(447, 85);
+            this.lblEvento.Location = new System.Drawing.Point(447, 87);
             this.lblEvento.Margin = new System.Windows.Forms.Padding(0);
             this.lblEvento.Name = "lblEvento";
             this.lblEvento.Size = new System.Drawing.Size(81, 22);
@@ -162,13 +150,22 @@
             // cbEvents
             // 
             this.cbEvents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEvents.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEvents.Location = new System.Drawing.Point(451, 108);
+            this.cbEvents.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEvents.Location = new System.Drawing.Point(451, 113);
             this.cbEvents.Margin = new System.Windows.Forms.Padding(0, 1, 0, 1);
             this.cbEvents.Name = "cbEvents";
-            this.cbEvents.Size = new System.Drawing.Size(136, 28);
+            this.cbEvents.Size = new System.Drawing.Size(136, 25);
             this.cbEvents.TabIndex = 7;
             this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
+            // 
+            // txtSearchUsername
+            // 
+            this.txtSearchUsername.Font = new System.Drawing.Font("Century Gothic", 11.25F);
+            this.txtSearchUsername.Location = new System.Drawing.Point(304, 113);
+            this.txtSearchUsername.Name = "txtSearchUsername";
+            this.txtSearchUsername.Size = new System.Drawing.Size(136, 26);
+            this.txtSearchUsername.TabIndex = 11;
+            this.txtSearchUsername.TextChanged += new System.EventHandler(this.txtSeachUsername_TextChanged);
             // 
             // dgvBitacora
             // 
@@ -223,5 +220,6 @@
         private Controls.ButtonDefault btnFilterBitacora;
         private System.Windows.Forms.Label lblTitleForm;
         private System.Windows.Forms.Label lblSubtitle;
+        private System.Windows.Forms.TextBox txtSearchUsername;
     }
 }

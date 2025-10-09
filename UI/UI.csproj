@@ -104,6 +104,8 @@
   <ItemGroup>
     <Compile Include="common\Styles\ApplyStyleCommon.cs" />
     <Compile Include="common\Styles\DefaultColors.cs" />
+    <Compile Include="common\Utils\DGVHelper.cs" />
+    <Compile Include="common\Utils\ImageLoader.cs" />
     <Compile Include="Controls\ButtonDefault.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -463,6 +465,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user-photo-empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\img-icon.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

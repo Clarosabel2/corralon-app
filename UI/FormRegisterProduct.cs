@@ -22,7 +22,6 @@ namespace UI
         public FormRegisterProduct(int idprdt = 0, FormProducts fmPrdts = null)
         {
             InitializeComponent();
-            ApplyModernStyle();
             this.fm = fmPrdts;
             brands = BLL_Brand.GetAllBrands();
             LoadData();
@@ -34,87 +33,6 @@ namespace UI
             }
         }
 
-        private void ApplyModernStyle()
-        {
-            // ===== Paleta
-            Color Primary = ColorTranslator.FromHtml("#06406A");
-            Color PrimaryMid = ColorTranslator.FromHtml("#0A5C99");
-            Color BgForm = ColorTranslator.FromHtml("#F5F7FA");
-            Color TextPrimary = ColorTranslator.FromHtml("#1F2937");
-            Color TextMuted = ColorTranslator.FromHtml("#6B7280");
-            Color LineColor = ColorTranslator.FromHtml("#D9E2EC");
-
-            // ===== Form
-            this.BackColor = BgForm;
-            this.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
-
-            // ===== Labels (alineación y color)
-            Label[] labels = { lblBrand, lblCategory, lblNameProduct, lblDescriptionProduct, lblPrice, lblStockAvailable };
-            foreach (var lb in labels)
-            {
-                lb.ForeColor = TextPrimary;
-                lb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
-            }
-
-            // ===== ComboBoxes
-            ComboBox[] combos = { cbBrands, cbCategoryProduct };
-            foreach (var cb in combos)
-            {
-                cb.FlatStyle = FlatStyle.Flat;
-                cb.BackColor = Color.White;
-                cb.ForeColor = TextPrimary;
-                cb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
-                cb.IntegralHeight = false;
-                cb.MaxDropDownItems = 8;
-            }
-
-            // ===== TextBoxes con estilo "subrayado"
-            TextBox[] tbs = { txtNameProduct, txtDescriptionProduct, txtPriceProduct, txtStockAvailibleProduct };
-            foreach (var tb in tbs)
-            {
-                tb.BorderStyle = BorderStyle.None;          // sin borde
-                tb.BackColor = Color.White;
-                tb.ForeColor = TextPrimary;
-                tb.Font = new Font("Century Gothic", 10.5f, FontStyle.Regular);
-                tb.Multiline = false;
-                tb.Height = 24;
-
-                // Línea inferior (como Material Design)
-                var underline = new Panel
-                {
-                    Height = 1,
-                    Dock = DockStyle.Bottom,
-                    BackColor = LineColor
-                };
-                tb.Parent.Controls.Add(underline);
-                underline.BringToFront();
-
-                // Hover/focus: línea azul
-                tb.Enter += (s, e) => underline.BackColor = PrimaryMid;
-                tb.Leave += (s, e) => underline.BackColor = LineColor;
-            }
-
-            // ===== Botón primario moderno
-            btnSaveProduct.FlatStyle = FlatStyle.Flat;
-            btnSaveProduct.FlatAppearance.BorderSize = 0;
-            btnSaveProduct.BackColor = Primary;
-            btnSaveProduct.ForeColor = Color.White;
-            btnSaveProduct.Font = new Font("Century Gothic", 10.5f, FontStyle.Bold);
-            btnSaveProduct.Height = 44;
-            btnSaveProduct.Width = 180;
-            btnSaveProduct.Text = "Guardar";
-            btnSaveProduct.Cursor = Cursors.Hand;
-            btnSaveProduct.FlatAppearance.MouseOverBackColor = PrimaryMid;
-
-            // Ubicación más lógica (centro inferior)
-            btnSaveProduct.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSaveProduct.Location = new Point(this.ClientSize.Width - btnSaveProduct.Width - 24,
-                                                this.ClientSize.Height - btnSaveProduct.Height - 24);
-
-            // ===== Sugerencia de layout (opcional, pero ayuda mucho):
-            // Usa un TableLayoutPanel de 2 columnas (labels/inputs) con Padding=24 y RowPadding=10
-            // para que todo quede alineado y responsivo al redimensionar.
-        }
 
 
         private void LoadProductToEdit(int id)
@@ -173,6 +91,8 @@ namespace UI
                 double.Parse(txtPriceProduct.Text),
                 int.Parse(txtStockAvailibleProduct.Text));
 
+            product.ImagePath = _imagePath;
+
             if (!isEdit)
             {
                 BLL_Product.SaveProduct(product);
@@ -183,6 +103,78 @@ namespace UI
             }
             fm.LoadProductsIntoDGV();
             this.Close();
+        }
+
+        private void btnSaveProduct_Click_1(object sender, EventArgs e)
+        {
+            string inputBrand = cbBrands.Text.Trim();
+
+            /*var existingBrand = (cbBrands.DataSource as List<BE_Brand>)
+                .FirstOrDefault(brand => brand.NameBrand.Equals(inputBrand, 
+                    StringComparison.OrdinalIgnoreCase));*/
+
+            BE_Brand brandSelected = brands.FirstOrDefault(b =>
+                b.NameBrand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase));
+
+
+            if (brandSelected == null)
+            {
+                brandSelected = new BE_Brand();
+                brandSelected.NameBrand = inputBrand;
+                BLL_Brand.SaveBrand(brandSelected);
+            }
+            try
+            {
+                product = new BE_Product(
+                    (isEdit) ? product.Id : 0,
+                    brandSelected,
+                    txtNameProduct.Text,
+                    txtDescriptionProduct.Text,
+                    cbCategoryProduct.SelectedValue.ToString(),
+                    double.Parse(txtPriceProduct.Text),
+                    int.Parse(txtStockAvailibleProduct.Text));
+
+                product.ImagePath = _imagePath;
+
+                if (!isEdit)
+                {
+                    BLL_Product.SaveProduct(product);
+                }
+                else
+                {
+                    BLL_Product.UpdateProduct(product);
+                }
+                fm.LoadProductsIntoDGV();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el producto. Verifique los datos ingresados. "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private string _imagePath = null;
+        private void btnLoadImgProduct_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Title = "Seleccionar imagen de producto";
+                ofd.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    pictureBoxImgProduct.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBoxImgProduct.Image = Image.FromFile(ofd.FileName);
+                    _imagePath = ofd.FileName;  
+                }
+                btnDeleteImgProduct.Enabled = true;
+            }
+        }
+
+        private void btnDeleteImgProduct_Click(object sender, EventArgs e)
+        {
+            pictureBoxImgProduct.Image = Properties.Resources.img_icon;
+            _imagePath = null;  
+            // Opcional: deshabilitar el botón hasta que carguen otra
+            btnDeleteImgProduct.Enabled = false;
         }
     }
 }

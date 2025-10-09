@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DatabaseService.cs" />
+    <Compile Include="DirectoryManager.cs" />
     <Compile Include="EmailService\EmailSender.cs" />
     <Compile Include="EmailService\EmailSendException.cs" />
     <Compile Include="EncodeManager\AESEncryptionHelper.cs" />

@@ -121,8 +121,14 @@
   <data name="manager_icon_150030" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\manager_icon_150030.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-help-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-help-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="close-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="user-photo-empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user-photo-empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="employee-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\employee-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,17 +154,14 @@
   <data name="icons8-logout-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-logout-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="shop_store_business_sale_supermarket_icon_175937" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\shop_store_business_sale_supermarket_icon_175937.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="marca-de-la-cruz" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\marca-de-la-cruz.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-add-shopping-cart-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-add-shopping-cart-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-help-48" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-help-48.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="shop_store_business_sale_supermarket_icon_175937" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\shop_store_business_sale_supermarket_icon_175937.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_icon_circle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-icon-circle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -169,7 +172,7 @@
   <data name="icons8-close-window-20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-close-window-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="user-photo-empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\user-photo-empty.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="img-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\img-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

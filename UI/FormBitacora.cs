@@ -1,9 +1,11 @@
-﻿using BLL;
+﻿using BDE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -24,15 +26,11 @@ namespace UI
         public FormBitacora()
         {
             InitializeComponent();
-            _dtBitacora = BLL_EventLog.LoadEventlogs();
             ApplyStyleCommon.DGVStyle(this.dgvBitacora);
         }
-        private DateTime GetFirstDateTimeBitacora=> _dtBitacora.AsEnumerable()
-            .Min(r => r.Field<DateTime>("eventDate"));
-        private void FormBitacora_Load(object sender, EventArgs e)
+        #region Configs
+        private void ConfigDataPickers()
         {
-            this.dgvBitacora.DataSource = _dtBitacora;
-
             dtpFrom.Value = GetFirstDateTimeBitacora;
             dtpUntil.Value = DateTime.Now.Date;
 
@@ -45,43 +43,81 @@ namespace UI
             dtpUntil.Format = DateTimePickerFormat.Custom;
             dtpUntil.CustomFormat = "dd/MM/yyyy";
         }
-
-        private void btnFilterBitacora_Click(object sender, EventArgs e)
+        private void ConfigComboBoxes()
         {
+            BE_EventType[] eventTypes = (BE_EventType[])Enum.GetValues(typeof(BE_EventType));
+            cbEvents.DataSource = eventTypes.ToList();
 
         }
-        private void FilterByDateTime(DateTime from, DateTime until)
+        
+        private DateTime GetFirstDateTimeBitacora => _dtBitacora.AsEnumerable()
+            .Min(r => r.Field<DateTime>("eventDate"));
+
+        #endregion
+
+        private void FormBitacora_Load(object sender, EventArgs e)
+        {   
+            this._dtBitacora = BLL_EventLog.LoadEventlogs();
+            this.dgvBitacora.DataSource = _dtBitacora;
+            ConfigDataPickers();
+            ConfigComboBoxes();
+        }
+
+        private static string ToUSDate(DateTime d) => d.ToString("MM'/'dd'/'yyyy", CultureInfo.InvariantCulture);
+        
+
+        private void FilterBitacora() 
         {
-            this.from = from;
-            this.until = until;
-            dgvBitacora.DataSource = null;
-            string query = $"eventDate >= #{this.from:yyyy-MM-dd}# AND eventDate <= #{this.until:yyyy-MM-dd}#";
-            DataRow[] filasFiltradas = _dtBitacora.Select(
-                query
-            );
+            if (_dtBitacora == null) return;
+
+            
+            DateTime fromDate = dtpFrom.Value.Date;
+            DateTime untilExclusive = dtpUntil.Value.Date.AddDays(1);
+
+            string typedUser = (txtSearchUsername?.Text ?? "").Trim();
+            
+            var conditions = new List<string>
+            {
+                $"eventDate >= #{ToUSDate(fromDate)}#",
+                $"eventDate < #{ToUSDate(untilExclusive)}#"
+            };
+
+            if (!string.IsNullOrWhiteSpace(typedUser))
+            {
+                string safe = typedUser.Replace("'", "''");
+                conditions.Add($"username LIKE '%{safe}%'");
+            }
+            string query = string.Join(" AND ", conditions);
+
+            DataRow[] rows = _dtBitacora.Select(query);
+
             DataTable dtFiltrado = _dtBitacora.Clone();
-            foreach (DataRow row in filasFiltradas)
-                dtFiltrado.ImportRow(row);
+            foreach (DataRow r in rows) dtFiltrado.ImportRow(r);
+
             dgvBitacora.DataSource = dtFiltrado;
         }
 
         private void dtpFrom_ValueChanged(object sender, EventArgs e)
         {
-            
-            FilterByDateTime(dtpFrom.Value.Date, dtpUntil.Value.Date.AddDays(1).AddTicks(-1));
+            FilterBitacora();
         }
 
         private void dtpUntil_ValueChanged(object sender, EventArgs e)
         {
-            FilterByDateTime(dtpFrom.Value.Date, dtpUntil.Value.Date.AddDays(1).AddTicks(-1));
-        }
-
-        private void cbUsers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            FilterBitacora();
         }
 
         private void cbEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtSeachUsername_TextChanged(object sender, EventArgs e)
+        {
+            FilterBitacora();
+        }
+
+        private void btnFilterBitacora_Click(object sender, EventArgs e)
         {
 
         }

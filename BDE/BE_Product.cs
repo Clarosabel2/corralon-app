@@ -18,6 +18,7 @@ namespace BDE
         private int stock;
         private double price;
         private bool isDelete;
+        private string imagePath= "C:/Users/abel_/Source/Repos/corralon-app/UI/bin/Debug/Media/Products/loma_negra_Loma_Negra_1.png";
 
         public BE_Product(int id, BE_Brand marca,string nombre, string descripcion, string categoria, double precio, int stock)
         {
@@ -47,5 +48,6 @@ namespace BDE
         public int Stock { get => stock; set => stock = value; }
         public string Category { get => category; set => category = value; }
         public BE_Brand Brand { get => brand; set => brand = value; }
+        public string ImagePath { get => imagePath; set => imagePath = value; }
     }
 }
