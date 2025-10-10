@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -145,6 +146,7 @@ namespace UI
                 row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
                 BLL_Sale.CurrentSale.CalculateTotal();
                 UpdateDetailsCart();
+                RefreshDgvProductsStock(item.Product, item.Amount);
             }
         }
 
@@ -251,6 +253,8 @@ namespace UI
                     // Si querés actualizar precio por cambios dinámicos:
                     // item.Product.Price = product.Price;
 
+                    RefreshDgvProductsStock(item.Product, item.Amount);
+
                     var row = dgvProductsCart.Rows[idxExist.Value];
                     row.Cells["colPrice"].Value = "$ " + item.Product.Price;
                     row.Cells["colQuantity"].Value = item.Amount;
@@ -273,6 +277,8 @@ namespace UI
                     BLL_Sale.AddItem(product, 1);
                     var added = sale.ItemsProducts.First(i => i.Product.Id == id);
 
+                    RefreshDgvProductsStock(product, added.Amount);
+
                     dgvProductsCart.Rows.Add(
                         added.Id,
                         ImageLoader.LoadSafe(added.Product.ImagePath) ?? Properties.Resources.img_icon,
@@ -294,7 +300,16 @@ namespace UI
             BLL_Sale.CurrentSale.CalculateTotal();
             UpdateDetailsCart();
         }
-
+        private void RefreshDgvProductsStock(BE_Product product, int quantity)
+        {
+            foreach (DataGridViewRow r in dgvProducts.Rows)
+            {
+                if (int.TryParse(r.Cells["IDProduct"].Value?.ToString(), out var idValue) && idValue == product.Id)
+                {
+                    r.Cells["stockProduct"].Value = product.Stock - quantity;
+                }
+            }
+        }
         private void LoadProducts(List<BE_Product> prdts)
         {
             dgvProducts.Rows.Clear();
