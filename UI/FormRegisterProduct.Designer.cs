@@ -41,6 +41,8 @@
             this.txtPriceProduct = new System.Windows.Forms.TextBox();
             this.txtStockAvailibleProduct = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelDataProduct = new System.Windows.Forms.TableLayoutPanel();
+            this.txtMinStock = new System.Windows.Forms.TextBox();
+            this.lblTitleMinStock = new System.Windows.Forms.Label();
             this.tableLayoutPanelForm = new System.Windows.Forms.TableLayoutPanel();
             this.panelPictureProduct = new System.Windows.Forms.Panel();
             this.flowLayoutPanelButtons = new System.Windows.Forms.FlowLayoutPanel();
@@ -48,8 +50,6 @@
             this.btnDeleteImgProduct = new System.Windows.Forms.Button();
             this.pictureBoxImgProduct = new System.Windows.Forms.PictureBox();
             this.btnSaveProduct = new UI.Controls.ButtonDefault();
-            this.lblTitleMinStock = new System.Windows.Forms.Label();
-            this.txtMinStock = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelDataProduct.SuspendLayout();
             this.tableLayoutPanelForm.SuspendLayout();
             this.panelPictureProduct.SuspendLayout();
@@ -194,7 +194,7 @@
             this.tableLayoutPanelDataProduct.Controls.Add(this.cbCategoryProduct, 1, 2);
             this.tableLayoutPanelDataProduct.Controls.Add(this.txtNameProduct, 1, 0);
             this.tableLayoutPanelDataProduct.Location = new System.Drawing.Point(542, 4);
-            this.tableLayoutPanelDataProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanelDataProduct.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelDataProduct.Name = "tableLayoutPanelDataProduct";
             this.tableLayoutPanelDataProduct.RowCount = 7;
             this.tableLayoutPanelDataProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -207,6 +207,25 @@
             this.tableLayoutPanelDataProduct.Size = new System.Drawing.Size(530, 368);
             this.tableLayoutPanelDataProduct.TabIndex = 13;
             // 
+            // txtMinStock
+            // 
+            this.txtMinStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMinStock.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.txtMinStock.Location = new System.Drawing.Point(269, 345);
+            this.txtMinStock.Name = "txtMinStock";
+            this.txtMinStock.Size = new System.Drawing.Size(258, 33);
+            this.txtMinStock.TabIndex = 13;
+            // 
+            // lblTitleMinStock
+            // 
+            this.lblTitleMinStock.AutoSize = true;
+            this.lblTitleMinStock.Font = new System.Drawing.Font("Century Gothic", 10.25F);
+            this.lblTitleMinStock.Location = new System.Drawing.Point(3, 342);
+            this.lblTitleMinStock.Name = "lblTitleMinStock";
+            this.lblTitleMinStock.Size = new System.Drawing.Size(145, 24);
+            this.lblTitleMinStock.TabIndex = 12;
+            this.lblTitleMinStock.Text = "Minimo Stock";
+            // 
             // tableLayoutPanelForm
             // 
             this.tableLayoutPanelForm.ColumnCount = 2;
@@ -216,7 +235,7 @@
             this.tableLayoutPanelForm.Controls.Add(this.panelPictureProduct, 0, 0);
             this.tableLayoutPanelForm.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanelForm.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanelForm.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanelForm.Name = "tableLayoutPanelForm";
             this.tableLayoutPanelForm.RowCount = 1;
             this.tableLayoutPanelForm.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -229,7 +248,7 @@
             this.panelPictureProduct.Controls.Add(this.pictureBoxImgProduct);
             this.panelPictureProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPictureProduct.Location = new System.Drawing.Point(4, 4);
-            this.panelPictureProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPictureProduct.Margin = new System.Windows.Forms.Padding(4);
             this.panelPictureProduct.Name = "panelPictureProduct";
             this.panelPictureProduct.Size = new System.Drawing.Size(530, 372);
             this.panelPictureProduct.TabIndex = 14;
@@ -239,7 +258,7 @@
             this.flowLayoutPanelButtons.Controls.Add(this.btnLoadImgProduct);
             this.flowLayoutPanelButtons.Controls.Add(this.btnDeleteImgProduct);
             this.flowLayoutPanelButtons.Location = new System.Drawing.Point(105, 290);
-            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanelButtons.Margin = new System.Windows.Forms.Padding(4);
             this.flowLayoutPanelButtons.Name = "flowLayoutPanelButtons";
             this.flowLayoutPanelButtons.Size = new System.Drawing.Size(338, 63);
             this.flowLayoutPanelButtons.TabIndex = 3;
@@ -249,7 +268,7 @@
             this.btnLoadImgProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLoadImgProduct.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoadImgProduct.Location = new System.Drawing.Point(4, 4);
-            this.btnLoadImgProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLoadImgProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnLoadImgProduct.Name = "btnLoadImgProduct";
             this.btnLoadImgProduct.Size = new System.Drawing.Size(165, 58);
             this.btnLoadImgProduct.TabIndex = 1;
@@ -262,7 +281,7 @@
             this.btnDeleteImgProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDeleteImgProduct.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.btnDeleteImgProduct.Location = new System.Drawing.Point(177, 4);
-            this.btnDeleteImgProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeleteImgProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteImgProduct.Name = "btnDeleteImgProduct";
             this.btnDeleteImgProduct.Size = new System.Drawing.Size(146, 58);
             this.btnDeleteImgProduct.TabIndex = 2;
@@ -274,7 +293,7 @@
             // 
             this.pictureBoxImgProduct.Image = global::UI.Properties.Resources.img_icon;
             this.pictureBoxImgProduct.Location = new System.Drawing.Point(132, 42);
-            this.pictureBoxImgProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBoxImgProduct.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxImgProduct.Name = "pictureBoxImgProduct";
             this.pictureBoxImgProduct.Size = new System.Drawing.Size(280, 240);
             this.pictureBoxImgProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -291,32 +310,13 @@
             this.btnSaveProduct.Font = new System.Drawing.Font("Century Gothic", 10.5F, System.Drawing.FontStyle.Bold);
             this.btnSaveProduct.ForeColor = System.Drawing.Color.White;
             this.btnSaveProduct.Location = new System.Drawing.Point(0, 388);
-            this.btnSaveProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSaveProduct.Margin = new System.Windows.Forms.Padding(4);
             this.btnSaveProduct.Name = "btnSaveProduct";
             this.btnSaveProduct.Size = new System.Drawing.Size(1077, 54);
             this.btnSaveProduct.TabIndex = 4;
             this.btnSaveProduct.Text = "Guardar";
             this.btnSaveProduct.UseVisualStyleBackColor = false;
             this.btnSaveProduct.Click += new System.EventHandler(this.btnSaveProduct_Click_1);
-            // 
-            // lblTitleMinStock
-            // 
-            this.lblTitleMinStock.AutoSize = true;
-            this.lblTitleMinStock.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.lblTitleMinStock.Location = new System.Drawing.Point(3, 342);
-            this.lblTitleMinStock.Name = "lblTitleMinStock";
-            this.lblTitleMinStock.Size = new System.Drawing.Size(145, 24);
-            this.lblTitleMinStock.TabIndex = 12;
-            this.lblTitleMinStock.Text = "Minimo Stock";
-            // 
-            // txtMinStock
-            // 
-            this.txtMinStock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMinStock.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.txtMinStock.Location = new System.Drawing.Point(269, 345);
-            this.txtMinStock.Name = "txtMinStock";
-            this.txtMinStock.Size = new System.Drawing.Size(258, 33);
-            this.txtMinStock.TabIndex = 13;
             // 
             // FormRegisterProduct
             // 

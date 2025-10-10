@@ -34,8 +34,6 @@ namespace UI
             }
         }
 
-
-
         private void LoadProductToEdit(int id)
         {
             product = BLL_Product.GetProductById(id);
@@ -48,7 +46,7 @@ namespace UI
             cbBrands.SelectedIndex = cbBrands.FindStringExact(product.Brand.NameBrand);
             cbCategoryProduct.SelectedIndex = cbCategoryProduct.FindStringExact(product.Category);
 
-            pictureBoxImgProduct.Image = ImageLoader.LoadSafe(product.ImagePath);
+            pictureBoxImgProduct.Image = ImageLoader.LoadSafe(product.ImagePath) ?? Properties.Resources.img_icon;
         }
         private void LoadData()
         {

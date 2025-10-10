@@ -16,38 +16,42 @@ namespace BDE
         public BE_Item(int id, BE_Product product, int amount)
         {
             this.Id = id;
-            this.Product = product;
+            this.Product = product ?? throw new ArgumentNullException(nameof(product));
             this.Amount = amount;
-            CheckAvailability();
         }
 
         public BE_Item() { }
 
-        public int Id { get => id; set => id = value; }
-        public BE_Product Product { get => product; set => product = value; }
+        public int Id
+        {
+            get => id;
+            set => id = value;
+        }
+
+        public BE_Product Product
+        {
+            get => product;
+            set => product = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
         public int Amount
         {
             get => amount;
             set
             {
                 if (value <= 0)
-                {
-                    throw new Exception("La cantidad debe ser mayor a cero");
-                }
+                    throw new ArgumentOutOfRangeException(nameof(value), "La cantidad debe ser mayor a cero");
+
+                if (Product == null)
+                    throw new InvalidOperationException("Debe asignar un producto antes de la cantidad");
+
+                if (value > Product.Stock)
+                    throw new InvalidOperationException("No hay stock suficiente para la cantidad requerida.");
+
                 amount = value;
-
-                this.subtotal = this.Amount * this.Product.Price;
+                subtotal = Product.Price * amount;
             }
         }
-        public double Subtotal { get => subtotal; set => subtotal = value;
-        }
-
-        public void CheckAvailability()
-        {
-            if (this.Amount > this.Product.Stock)
-            {
-                throw new InvalidOperationException("No hay stock suficiente para la cantidad requerida.");
-            }
-        }
+        public double Subtotal => subtotal;
     }
 }

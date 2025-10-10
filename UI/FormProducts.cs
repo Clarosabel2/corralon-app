@@ -74,7 +74,7 @@ namespace UI
                 DataGridViewAutoSizeColumnMode.DisplayedCells, dgvProducts);
 
             DGVHelper.AddNewDGVColumnToDGV(
-                new DataGridViewImageColumn(), "Imag", "imgProduct",
+                new DataGridViewImageColumn(), "", "imgProduct",
                 DataGridViewAutoSizeColumnMode.None, dgvProducts,
                 null,       // ← dinámica
                 DataGridViewImageCellLayout.Zoom,
@@ -206,17 +206,6 @@ namespace UI
             }
             TuneImageColumn(dgvProducts, "imgProduct", 96);
             lblCantProducts.Text = $"{(prdts.Count).ToString()}";
-        }
-        private void ConfigButtonActionDGV(DataGridViewImageColumn dgvBtn, Image img, string name)
-        {
-            dgvBtn.HeaderText = "";
-            //dgvBtn.Text = "Eliminar";
-            dgvBtn.Image = img;
-            dgvBtn.Name = name;
-            dgvBtn.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            dgvBtn.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgvBtn.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dgvBtn.Width = 70;
         }
         private void FormProducts_Load(object sender, EventArgs e)
         {

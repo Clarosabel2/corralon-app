@@ -115,40 +115,6 @@ namespace UI
             dgvProductsCart.CellEndEdit += DgvProductsCart_CellEndEdit;
             dgvProductsCart.CellMouseEnter += dgvProductsCart_CellMouseEnter;
             dgvProductsCart.EditMode = DataGridViewEditMode.EditOnEnter;
-
-            //DataGridViewImageColumn btnDeleteCol = new DataGridViewImageColumn();
-            //btnDeleteCol.HeaderText = "";
-            ////btnDeleteCol.Text = "Eliminar";
-            //btnDeleteCol.Image = Properties.Resources.delete_icon_circle;
-            //btnDeleteCol.Name = "btnDelete";
-            //btnDeleteCol.ImageLayout = DataGridViewImageCellLayout.Zoom;
-            //btnDeleteCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //btnDeleteCol.DefaultCellStyle.NullValue = null;
-
-            //if (dgvProductsCart.Columns.Count == 0)
-            //{
-            //    int idx = dgvProductsCart.Columns.Add("colId", "Id");
-            //    var col = dgvProductsCart.Columns[idx];
-            //    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //    col.Width = 60;
-            //    dgvProductsCart.Columns.Add("colImg", " ");
-            //    dgvProductsCart.Columns.Add("colName", "Nombre");
-            //    dgvProductsCart.Columns.Add("colPrice", "Precio unitario");
-            //    dgvProductsCart.Columns.Add("colSubtotal", "Subtotal");
-            //    dgvProductsCart.Columns.Add("colQuantity", "Cantidad");
-            //    dgvProductsCart.Columns.Add(btnDeleteCol);
-
-            //    dgvProductsCart.Columns["colPrice"].ReadOnly = true;
-            //    dgvProductsCart.Columns["colSubtotal"].ReadOnly = true;
-            //    dgvProductsCart.Columns["colId"].ReadOnly = true;
-            //    dgvProductsCart.Columns["colName"].ReadOnly = true;
-            //    dgvProductsCart.Columns["colPrice"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //    dgvProductsCart.Columns["colSubtotal"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //    dgvProductsCart.Columns["colId"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //    dgvProductsCart.Columns["colName"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //    dgvProductsCart.Columns["colImg"].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            //    dgvProductsCart.Columns["colImg"].Width = 60;
-            //}
         }
 
         private void dgvProductsCart_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
@@ -158,7 +124,28 @@ namespace UI
 
         private void DgvProductsCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex >= 0 && dgvProductsCart.Columns[e.ColumnIndex].Name == "colQuantity")
+            {
+                DataGridViewRow row = dgvProductsCart.Rows[e.RowIndex];
 
+                int? idxExist = int.TryParse(row.Cells["colId"].Value?.ToString(), out int idExist) ? idExist : (int?)null;
+
+                var item = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(i => i.Id == idxExist);
+
+
+                int quantity = 0;
+                int.TryParse(row.Cells["colQuantity"].Value?.ToString(), out quantity);
+
+                checked
+                {
+                    item.Amount = quantity;
+                }
+                row.Cells["colPrice"].Value = "$ " + item.Product.Price;
+                row.Cells["colQuantity"].Value = item.Amount;
+                row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
+                BLL_Sale.CurrentSale.CalculateTotal();
+                UpdateDetailsCart();
+            }
         }
 
         private Point _dragStartPoint;
@@ -182,11 +169,10 @@ namespace UI
             if (e.Button != MouseButtons.Left) return;
             if (_dragRowIndex < 0) return;
 
-            // umbral estándar
             var dragRect = new Rectangle(
                 _dragStartPoint.X - SystemInformation.DragSize.Width / 2,
                 _dragStartPoint.Y - SystemInformation.DragSize.Height / 2,
-                SystemInformation.DragSize.Height, // ancho alto del rectángulo
+                SystemInformation.DragSize.Height,
                 SystemInformation.DragSize.Height
             );
             if (dragRect.Contains(e.Location)) return;
@@ -194,27 +180,14 @@ namespace UI
             var row = dgvProducts.Rows[_dragRowIndex];
             if (row.IsNewRow) return;
 
-            // Mapeo: Id(0), Name(1), Brand(2), Category(3), Stock(4), Price(5)
             if (!int.TryParse(row.Cells[0].Value?.ToString(), out int id)) return;
 
-            // Si querés leer campos visibles (opcional, solo informativos aquí)
-            string nombre = row.Cells[1].Value?.ToString() ?? string.Empty; // Name está en 1
-            decimal precio = 0m;
-            decimal.TryParse(row.Cells[5].Value?.ToString(),
-                System.Globalization.NumberStyles.Any,
-                System.Globalization.CultureInfo.CurrentCulture, out precio);
-
-            // Buscar el BE_Product original por Id
             var product = _listProducts?.FirstOrDefault(p => p.Id == id);
             if (product == null) return;
 
-            // Si tu BE_Product ya tiene ImagePath, no lo saques de la grilla
-            // string imgPath = product.ImagePath;
-
-            // Preparar el payload del drag: enviamos el BE_Product completo
             var data = new DataObject();
-            data.SetData(typeof(BE_Product), product);  // formato fuerte por tipo
-            data.SetData(PRODUCT_FORMAT, product);      // tu formato custom, por compatibilidad
+            data.SetData(typeof(BE_Product), product);
+            data.SetData(PRODUCT_FORMAT, product);
 
             dgvProducts.DoDragDrop(data, DragDropEffects.Copy);
         }
@@ -229,22 +202,26 @@ namespace UI
 
         private void DgvProductsCart_DragDrop(object sender, DragEventArgs e)
         {
+            // 1) Obtener el producto del Drag&Drop
             BE_Product product = null;
 
             if (e.Data.GetDataPresent(typeof(BE_Product)))
                 product = e.Data.GetData(typeof(BE_Product)) as BE_Product;
-
             else if (e.Data.GetDataPresent(PRODUCT_FORMAT))
                 product = e.Data.GetData(PRODUCT_FORMAT) as BE_Product;
 
             if (product == null) return;
 
-            int id = product.Id;
-            string nombre = product.Name;              // ajusta si tu propiedad se llama distinto (e.g. ProductName)
-            double precio = product.Price;        // ajusta si tu propiedad se llama distinto (e.g. Price)
-            string imgPath = product.ImagePath;        // ajusta si tu propiedad se llama distinto (o si tienes Image en memoria)
+            var sale = BLL_Sale.CurrentSale;
+            if (sale is null)
+            {
+                MessageBox.Show("No hay una venta activa.");
+                return;
+            }
 
-            // 2) Si ya existe en el carrito -> sumar cantidad
+            int id = product.Id;
+
+            // 2) Buscar si ya existe una fila con ese producto
             int? idxExist = null;
             for (int i = 0; i < dgvProductsCart.Rows.Count; i++)
             {
@@ -258,44 +235,66 @@ namespace UI
                 }
             }
 
-            if (idxExist.HasValue)
+            // 3) Buscar el ítem correspondiente en el modelo (si existe)
+            var item = sale.ItemsProducts.FirstOrDefault(i => i.Id == id);
+
+            if (item != null && idxExist.HasValue)
             {
-                var r = dgvProductsCart.Rows[idxExist.Value];
+                // Ya estaba en el carrito → sumo 1 en el modelo y reflejo
+                try
+                {
+                    checked
+                    {
+                        item.Amount = item.Amount + 1; // valida stock en BE_Item
+                    }
 
-                int cant = 0;
-                int.TryParse(r.Cells["colQuantity"].Value?.ToString(), out cant);
-                cant = Math.Max(0, cant) + 1;
+                    // Si querés actualizar precio por cambios dinámicos:
+                    // item.Product.Price = product.Price;
 
-                r.Cells["colPrice"].Value = precio; // por si el precio puede variar
-                r.Cells["colSubtotal"].Value = precio * cant;
-                r.Cells["colQuantity"].Value = cant;
+                    var row = dgvProductsCart.Rows[idxExist.Value];
+                    row.Cells["colPrice"].Value = "$ " + item.Product.Price;
+                    row.Cells["colQuantity"].Value = item.Amount;
+                    row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
+
+                    // (Opcional si agregaste colItemId)
+                    // row.Cells["colItemId"].Value = item.Id;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "No se pudo actualizar la cantidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // No tocar la grilla si falló
+                }
             }
             else
             {
-                //int idx = dgvProductsCart.Rows.Add();
-                //var r = dgvProductsCart.Rows[idx];
-                //r.Cells["colId"].Value = id;
-                //r.Cells["colImg"].Value = ImageLoader.LoadSafe(imgPath);
-                //r.Cells["colName"].Value = nombre;
-                //r.Cells["colPrice"].Value = precio;
-                //r.Cells["colQuantity"].Value = 1;
-                //r.Cells["colSubtotal"].Value = precio * 1;
-                //dgvProductsCart.Rows.Add();
-                // colDelete: ya lo agregaste manualmente (no hace falta setear aquí)
-                dgvProductsCart.Rows.Add(
-                    product.Id,                                        // colId
-                    ImageLoader.LoadSafe(product.ImagePath) ?? Properties.Resources.img_icon, // colImg
-                    product.Name,                                    // colName
-                    product.Price,                                    // colPrice
-                    product.Price * 1                       ,          // colSubtotal
-                    1                                        // colQuantity
-                                                               // colDelete ya está como botón, no lo seteás
-                );
-            }
+                // No existía en el carrito → creo ítem en el modelo y agrego fila nueva
+                try
+                {
+                    BLL_Sale.AddItem(product, 1);
+                    var added = sale.ItemsProducts.First(i => i.Product.Id == id);
 
-            // (Opcional) Si tenés un cálculo de total general:
-            // RecalcCartTotals();
+                    dgvProductsCart.Rows.Add(
+                        added.Id,
+                        ImageLoader.LoadSafe(added.Product.ImagePath) ?? Properties.Resources.img_icon,
+                        added.Product.Name,
+                        "$ " + added.Product.Price,
+                        "$ " + added.Subtotal,
+                        added.Amount
+                    );
+
+                    // (Opcional: setear colItemId si la tenés)
+                    // var newRow = dgvProductsCart.Rows[dgvProductsCart.Rows.Count - 1];
+                    // newRow.Cells["colItemId"].Value = added.Id;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "No se pudo agregar el producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            BLL_Sale.CurrentSale.CalculateTotal();
+            UpdateDetailsCart();
         }
+
         private void LoadProducts(List<BE_Product> prdts)
         {
             dgvProducts.Rows.Clear();
@@ -310,142 +309,11 @@ namespace UI
                     item.Brand.NameBrand,
                     item.Name,
                     item.Stock,
-                    item.Price);
-            }
-
-            //if (!dgvProducts.Columns.Contains("Amount"))
-            //{
-            //    DataGridViewTextBoxColumn amountColumn = new DataGridViewTextBoxColumn();
-            //    amountColumn.Name = "Amount";
-            //    amountColumn.HeaderText = "Amount";
-            //    amountColumn.ReadOnly = false;
-            //    amountColumn.ValueType = typeof(int);
-            //    dgvProducts.Columns.Add(amountColumn);
-            //}
-            //FillCellsDGV(dgvProducts);
-        }
-
-        private void FillCellsDGV(DataGridView dgv)
-        {
-            foreach (DataGridViewColumn columna in dgv.Columns)
-            {
-                if (columna.Name != "Amount")
-                {
-                    columna.ReadOnly = true;
-                }
-                columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    "$ " + item.Price
+                    );
             }
         }
         #endregion
-        //Ya no estaria en uso
-        //private void btnAgregarCarrito_Click(object sender, EventArgs e)
-        //{
-        //    if (dgvProducts.SelectedRows.Count > 0)
-        //    {
-        //        DataGridViewRow selectedRow = dgvProducts.SelectedRows[0];
-
-        //        BE_Product productSelected = _listProducts.Find(x => x.Id == int.Parse(selectedRow.Cells["IDProduct"].Value.ToString()));
-        //        //var product = selectedRow.DataBoundItem as BE_Product;
-        //        int cantidad = int.Parse(selectedRow.Cells["Amount"].Value?.ToString());
-        //        dgvProducts.SelectedRows[0].Cells["Amount"].Value = "";
-
-        //        try
-        //        {
-        //            BLL_Sale.AddItem(productSelected, cantidad);
-        //            dgvCart.Rows.Clear();
-        //            BLL_Sale.newSale.ItemsProducts.ForEach(i => dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal));
-        //            selectedRow.Cells["stockProduct"].Value = productSelected.Stock - cantidad;
-        //            EnableRow(selectedRow);
-        //            FillCellsDGV(dgvCart);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message.ToString());
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Debes Seleccionar un Producto.");
-        //    }
-        //}
-        //private void btnRemoveItem_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (dgvCart.SelectedRows.Count > 0)
-        //        {
-        //            try
-        //            {
-        //                int row = dgvCart.CurrentRow.Index;
-        //                int itemID = int.Parse(dgvCart.Rows[row].Cells["IDProduct"].Value.ToString());
-        //                var item = BLL_Sale.RemoveItem(itemID);
-
-        //                foreach (DataGridViewRow dr in dgvProducts.Rows)
-        //                {
-        //                    if (dr.Cells[1]?.Value?.ToString() == item.Product.Id.ToString())
-        //                    {
-        //                        int currentStock = int.Parse(dr.Cells["stockProduct"].Value.ToString());
-        //                        dr.Cells["stockProduct"].Value = currentStock + item.Amount;
-        //                        EnableRow(dr);
-        //                        break;
-        //                    }
-
-        //                }
-
-        //            }
-        //            catch (Exception ex)
-        //            {
-        //                MessageBox.Show("No hay productos para eliminar");
-        //            }
-
-        //            dgvCart.Rows.Clear();
-
-        //            foreach (var i in BLL_Sale.newSale.ItemsProducts)
-        //            {
-        //                dgvCart.Rows.Add(i.Id, i.Product.Name, i.Amount, i.Subtotal);
-        //            }
-
-        //            FillCellsDGV(dgvCart);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Seleccione un producto para eliminar.");
-        //        }
-
-        //    }
-        //    catch (Exception ex) { }
-        //}
-
-        private void EnableRow(DataGridViewRow row)
-        {
-            bool isRowReadOnly = true;
-            foreach (DataGridViewCell cell in row.Cells)
-            {
-                if (!cell.ReadOnly)
-                {
-                    isRowReadOnly = false;
-                    break;
-                }
-            }
-
-            if (!isRowReadOnly)
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.ReadOnly = true;
-                    cell.Style.BackColor = Color.LightGray;
-                }
-            }
-            else
-            {
-                foreach (DataGridViewCell cell in row.Cells)
-                {
-                    cell.ReadOnly = false;
-                    cell.Style.BackColor = Color.White;
-                }
-
-            }
-        }
 
         //Se Muestra el panel de confirmacion de venta
         private void buttonCerrarVenta_Click(object sender, EventArgs e)
@@ -482,7 +350,7 @@ namespace UI
         {
             //if (previousSelectedRow != null)
             //{
-            //    previousSelectedRow.Cells["Amount"].Value = "";
+            //    previousSelectedRow.Cells["colQuantity"].Value = "";
             //}
             //if (dgvProducts.SelectedRows.Count > 0)
             //{
@@ -495,15 +363,15 @@ namespace UI
         }
         private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
-            {
-                int? amount = e.Value as int?;
-                if (amount.HasValue && amount.Value == 0)
-                {
-                    e.Value = "";
-                    e.FormattingApplied = true;
-                }
-            }
+            //if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
+            //{
+            //    int? amount = e.Value as int?;
+            //    if (amount.HasValue && amount.Value == 0)
+            //    {
+            //        e.Value = "";
+            //        e.FormattingApplied = true;
+            //    }
+            //}
         }
 
         private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -516,10 +384,10 @@ namespace UI
         }
         private void UpdateDetailsCart()
         {
-            double totalCartValue = BLL_Sale.newSale.Total;
+            double totalCartValue = BLL_Sale.CurrentSale.Total;
             lblTotal.Text = "$ " + totalCartValue.ToString();
-            lblItemsTotal.Text = (dgvCart.RowCount - 1).ToString();
-            if (dgvCart.RowCount == 0)
+            lblItemsTotal.Text = (dgvProductsCart.RowCount).ToString();
+            if (dgvProductsCart.RowCount == 0)
             {
                 buttonCerrarVenta.Enabled = false;
             }
@@ -622,9 +490,9 @@ namespace UI
         }
         private void btnGenerarFactura_Click(object sender, EventArgs e)
         {
-            BLL_Sale.newSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            BLL_Sale.newSale.Status = checkBoxPaid.Checked;
-            BLL_Sale.newOrder.DeliveryDate = DPEntrega.Date;
+            BLL_Sale.CurrentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
+            BLL_Sale.CurrentSale.Status = checkBoxPaid.Checked;
+            BLL_Sale.CurrentOrder.DeliveryDate = DPEntrega.Date;
             try
             {
                 try

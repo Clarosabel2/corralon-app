@@ -14,44 +14,53 @@ namespace BLL
 {
     public static class BLL_Sale
     {
-        public static BE_Order newOrder = new BE_Order();
-        public static BE_Sale newSale { get; set; }
-        private static int _idItem = 1;
+        public static BE_Order CurrentOrder { get; private set; }
+        public static BE_Sale CurrentSale { get; private set; }
+        private static int _nextItemId;
 
         public static void CreateSale()
         {
-            newSale = new BE_Sale();
-            newSale.Saleman = SessionManager.GetInstance.user.Emp;
+            CurrentSale = new BE_Sale
+            {
+                Saleman = SessionManager.GetInstance.user?.Emp
+                          ?? throw new InvalidOperationException("No hay vendedor en sesión")
+            };
+
+            CurrentOrder = new BE_Order();
+            _nextItemId = 1;
         }
         public static void AddItem(BE_Product product, int quantity)
         {
-            var item = new BE_Item(_idItem, product, quantity);
-            newSale.AddItem(item);
-            _idItem++;
+            if (CurrentSale is null) throw new InvalidOperationException("No hay venta activa");
+            if (product is null) throw new ArgumentNullException(nameof(product));
+            if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "La cantidad debe ser > 0");
+
+            var item = new BE_Item(_nextItemId++, product, quantity);
+            CurrentSale.AddItem(item);
         }
+
         public static BE_Item RemoveItem(int idItem)
         {
-            var item = newSale.ItemsProducts.FirstOrDefault(i => i.Id == idItem);
-            newSale.RemoveItem(newSale.ItemsProducts.FirstOrDefault(i => i.Id == idItem));
-            _idItem--;
+            var item = CurrentSale.ItemsProducts.FirstOrDefault(i => i.Id == idItem);
+            CurrentSale.RemoveItem(CurrentSale.ItemsProducts.FirstOrDefault(i => i.Id == idItem));
+            _nextItemId--;
             return item;
         }
         public static BE_Client AddClient(string dniClient)
         {
-            newSale.Client = BLL_Client.GetClientByDNI(dniClient);
-            return newSale.Client;
+            CurrentSale.Client = BLL_Client.GetClientByDNI(dniClient);
+            return CurrentSale.Client;
         }
         public static void SaveInvoice()
         {
-            if (newOrder.DeliveryDate < DateTime.Today)
+            if (CurrentOrder.DeliveryDate < DateTime.Today)
             {
                 throw new Exception("La fecha de entrega no puede ser menor al actual");
             }
-            newOrder.Invoice = newSale;
-
+            CurrentOrder.Invoice = CurrentSale;
             //Actualiza el stock de los productos por cada item de la venta
-            newSale.ItemsProducts.ForEach(i => BLL_Product.UpdateStockById(i.Product.Id, i.Amount));
-            DAL_Sale.SaveSale(newOrder);
+            CurrentSale.ItemsProducts.ForEach(i => BLL_Product.UpdateStockById(i.Product.Id, i.Amount));
+            DAL_Sale.SaveSale(CurrentOrder);
         }
         public static DataTable GetProductsByIdInvoice(int idInvoice)
         {

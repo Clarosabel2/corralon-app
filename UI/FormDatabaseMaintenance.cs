@@ -176,7 +176,7 @@ namespace UI
             var dt = new DataTable();
             dt.Columns.Add("File", typeof(string));
             dt.Columns.Add("Size", typeof(string));
-            dt.Columns.Add("Date", typeof(string));
+            dt.Columns.Add("IssueDate", typeof(string));
             dt.Columns.Add("FullPath", typeof(string));
             dt.Columns.Add("SortDate", typeof(DateTime));
 
@@ -192,7 +192,7 @@ namespace UI
                 var row = dt.NewRow();
                 row["File"] = fi.Name;
                 row["Size"] = HumanSize(fi.Length);
-                row["Date"] = fechaNombre.Length > 0 ? fechaNombre : fi.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss");
+                row["IssueDate"] = fechaNombre.Length > 0 ? fechaNombre : fi.LastWriteTime.ToString("yyyy-MM-dd HH:mm:ss");
                 row["FullPath"] = fi.FullName;
                 row["SortDate"] = fechaParsed;
                 dt.Rows.Add(row);
