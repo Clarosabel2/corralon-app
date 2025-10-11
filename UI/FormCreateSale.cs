@@ -137,16 +137,24 @@ namespace UI
                 int quantity = 0;
                 int.TryParse(row.Cells["colQuantity"].Value?.ToString(), out quantity);
 
-                checked
+                try
                 {
-                    item.Amount = quantity;
+                    checked
+                    {
+                        item.Amount = quantity;
+                    }
+                    row.Cells["colPrice"].Value = "$ " + item.Product.Price;
+                    row.Cells["colQuantity"].Value = item.Amount;
+                    row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
+                    BLL_Sale.CurrentSale.CalculateTotal();
+                    UpdateDetailsCart();
+                    RefreshDgvProductsStock(item.Product, item.Amount);
+
                 }
-                row.Cells["colPrice"].Value = "$ " + item.Product.Price;
-                row.Cells["colQuantity"].Value = item.Amount;
-                row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
-                BLL_Sale.CurrentSale.CalculateTotal();
-                UpdateDetailsCart();
-                RefreshDgvProductsStock(item.Product, item.Amount);
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.TargetSite.ToString());
+                }
             }
         }
 
@@ -204,7 +212,6 @@ namespace UI
 
         private void DgvProductsCart_DragDrop(object sender, DragEventArgs e)
         {
-            // 1) Obtener el producto del Drag&Drop
             BE_Product product = null;
 
             if (e.Data.GetDataPresent(typeof(BE_Product)))
@@ -222,8 +229,6 @@ namespace UI
             }
 
             int id = product.Id;
-
-            // 2) Buscar si ya existe una fila con ese producto
             int? idxExist = null;
             for (int i = 0; i < dgvProductsCart.Rows.Count; i++)
             {
@@ -236,42 +241,29 @@ namespace UI
                     break;
                 }
             }
-
-            // 3) Buscar el ítem correspondiente en el modelo (si existe)
             var item = sale.ItemsProducts.FirstOrDefault(i => i.Id == id);
-
             if (item != null && idxExist.HasValue)
             {
-                // Ya estaba en el carrito → sumo 1 en el modelo y reflejo
                 try
                 {
                     checked
                     {
-                        item.Amount = item.Amount + 1; // valida stock en BE_Item
+                        item.Amount = item.Amount + 1;
                     }
-
-                    // Si querés actualizar precio por cambios dinámicos:
-                    // item.Product.Price = product.Price;
-
                     RefreshDgvProductsStock(item.Product, item.Amount);
 
                     var row = dgvProductsCart.Rows[idxExist.Value];
                     row.Cells["colPrice"].Value = "$ " + item.Product.Price;
                     row.Cells["colQuantity"].Value = item.Amount;
                     row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
-
-                    // (Opcional si agregaste colItemId)
-                    // row.Cells["colItemId"].Value = item.Id;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "No se pudo actualizar la cantidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    // No tocar la grilla si falló
                 }
             }
             else
             {
-                // No existía en el carrito → creo ítem en el modelo y agrego fila nueva
                 try
                 {
                     BLL_Sale.AddItem(product, 1);
@@ -287,10 +279,6 @@ namespace UI
                         "$ " + added.Subtotal,
                         added.Amount
                     );
-
-                    // (Opcional: setear colItemId si la tenés)
-                    // var newRow = dgvProductsCart.Rows[dgvProductsCart.Rows.Count - 1];
-                    // newRow.Cells["colItemId"].Value = added.Id;
                 }
                 catch (Exception ex)
                 {

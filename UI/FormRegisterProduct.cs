@@ -15,7 +15,6 @@ namespace UI
 {
     public partial class FormRegisterProduct : Form
     {
-
         BE_Product product = new BE_Product();
         FormProducts fm;
         List<BE_Brand> brands = new List<BE_Brand>();
@@ -101,15 +100,16 @@ namespace UI
             }
             else
             {
-                BLL_Product.UpdateProduct(product);
+                //BLL_Product.UpdateProduct(product);
             }
-            fm.LoadProductsIntoDGV();
+            fm.LoadProductsIntoDGV(BLL_Product.GetProducts());
             this.Close();
         }
 
         private void btnSaveProduct_Click_1(object sender, EventArgs e)
         {
             string inputBrand = cbBrands.Text.Trim();
+            BE_Product currentProduct = new BE_Product();
 
             /*var existingBrand = (cbBrands.DataSource as List<BE_Brand>)
                 .FirstOrDefault(brand => brand.NameBrand.Equals(inputBrand, 
@@ -127,7 +127,8 @@ namespace UI
             }
             try
             {
-                product = new BE_Product(
+
+                currentProduct = new BE_Product(
                     (isEdit) ? product.Id : 0,
                     brandSelected,
                     txtNameProduct.Text,
@@ -135,8 +136,9 @@ namespace UI
                     cbCategoryProduct.SelectedValue.ToString(),
                     double.Parse(txtPriceProduct.Text),
                     int.Parse(txtStockAvailibleProduct.Text));
-                product.MinStock = int.Parse(txtMinStock.Text);
-                product.ImagePath = _imagePath;
+                currentProduct.MinStock = int.Parse(txtMinStock.Text);
+                currentProduct.ImagePath = _imagePath ?? product.ImagePath;
+
 
                 if (!isEdit)
                 {
@@ -144,9 +146,9 @@ namespace UI
                 }
                 else
                 {
-                    BLL_Product.UpdateProduct(product);
+                    BLL_Product.UpdateProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
                 }
-                fm.LoadProductsIntoDGV();
+                fm.LoadProductsIntoDGV(BLL_Product.GetProducts());
                 this.Close();
             }
             catch (Exception ex)

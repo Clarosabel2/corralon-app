@@ -27,6 +27,11 @@ namespace UI
             //VerifyLowStock();
         }
 
+        private void FormProducts_Load(object sender, EventArgs e)
+        {
+            LoadProductsIntoDGV(products);
+        }
+
         private void VerifyLowStock()
         {
             if (BLL_Product.isLowStock)
@@ -76,7 +81,7 @@ namespace UI
             DGVHelper.AddNewDGVColumnToDGV(
                 new DataGridViewImageColumn(), "", "imgProduct",
                 DataGridViewAutoSizeColumnMode.None, dgvProducts,
-                null,       // ← dinámica
+                null,
                 DataGridViewImageCellLayout.Zoom,
                 96);
             dgvProducts.RowTemplate.Height = 96;
@@ -192,25 +197,28 @@ namespace UI
             {
              
                 var img = ImageLoader.LoadSafe(p.ImagePath) ?? Properties.Resources.img_icon;
-                dgvProducts.Rows.Add(
-                    p.Id,                       // ID
+                int rowIndex = dgvProducts.Rows.Add(
+                    p.Id,
                     img,
                     p.Category,
                     p.Brand.NameBrand,
                     p.Name,
                     p.Price,
                     p.Stock,
-                    null,                       // btnDelete → usa Image de la columna
-                    null                        // btnEdit   → usa Image de la columna
+                    null,
+                    null
                 );
+                if (p.Stock <= p.MinStock)
+                {
+                    DataGridViewRow row = dgvProducts.Rows[rowIndex];
+                    row.DefaultCellStyle.BackColor = Color.DarkOrange;
+                    row.DefaultCellStyle.ForeColor = Color.White;
+                }
             }
             TuneImageColumn(dgvProducts, "imgProduct", 96);
             lblCantProducts.Text = $"{(prdts.Count).ToString()}";
         }
-        private void FormProducts_Load(object sender, EventArgs e)
-        {
-            LoadProductsIntoDGV(products);
-        }
+        
 
         private void btnRegisterProduct_Click(object sender, EventArgs e)
         {

@@ -59,9 +59,12 @@ namespace BLL
                 return null;
             return DAL_Product.GetCategoryById(id);
         }
-        public static void UpdateProduct(BE_Product p)      
+        public static void UpdateProduct(BE_Product p, bool flag)      
         {
-            p.ImagePath = SaveImgToRepository(p.ImagePath, BuildFileNameProduct(p));
+            if (flag)
+            {
+                p.ImagePath = SaveImgToRepository(p.ImagePath, BuildFileNameProduct(p));
+            }
             DAL_Product.UpdateProduct(p);
         }
         public static void UpdateStockById(int idProduct, int quantity)
