@@ -92,10 +92,10 @@ namespace UI
             this.tabBackup.Controls.Add(this.btnExecuteBackup);
             this.tabBackup.Controls.Add(this.progressBarBackup);
             this.tabBackup.Controls.Add(this.lblBackupStatus);
-            this.tabBackup.Location = new System.Drawing.Point(4, 26);
+            this.tabBackup.Location = new System.Drawing.Point(4, 32);
             this.tabBackup.Name = "tabBackup";
             this.tabBackup.Padding = new System.Windows.Forms.Padding(15);
-            this.tabBackup.Size = new System.Drawing.Size(1072, 730);
+            this.tabBackup.Size = new System.Drawing.Size(1072, 724);
             this.tabBackup.TabIndex = 0;
             this.tabBackup.Text = "  BACKUP  ";
             // 
@@ -104,7 +104,7 @@ namespace UI
             this.txtBackupPath.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.txtBackupPath.Location = new System.Drawing.Point(20, 20);
             this.txtBackupPath.Name = "txtBackupPath";
-            this.txtBackupPath.Size = new System.Drawing.Size(550, 24);
+            this.txtBackupPath.Size = new System.Drawing.Size(550, 32);
             this.txtBackupPath.TabIndex = 0;
             this.txtBackupPath.Text = "C:\\Backups\\";
             // 
@@ -173,10 +173,10 @@ namespace UI
             this.tabRestore.Controls.Add(this.btnExecuteRestore);
             this.tabRestore.Controls.Add(this.progressBarRestore);
             this.tabRestore.Controls.Add(this.lblRestoreStatus);
-            this.tabRestore.Location = new System.Drawing.Point(4, 26);
+            this.tabRestore.Location = new System.Drawing.Point(4, 32);
             this.tabRestore.Name = "tabRestore";
             this.tabRestore.Padding = new System.Windows.Forms.Padding(15);
-            this.tabRestore.Size = new System.Drawing.Size(1072, 730);
+            this.tabRestore.Size = new System.Drawing.Size(1072, 724);
             this.tabRestore.TabIndex = 1;
             this.tabRestore.Text = "  RESTAURAR  ";
             // 
@@ -190,7 +190,7 @@ namespace UI
             this.dgvFileBackups.Name = "dgvFileBackups";
             this.dgvFileBackups.RowHeadersWidth = 72;
             this.dgvFileBackups.RowTemplate.Height = 31;
-            this.dgvFileBackups.Size = new System.Drawing.Size(1036, 532);
+            this.dgvFileBackups.Size = new System.Drawing.Size(1036, 526);
             this.dgvFileBackups.TabIndex = 6;
             // 
             // btnExecuteRestore
@@ -207,7 +207,7 @@ namespace UI
             // progressBarRestore
             // 
             this.progressBarRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.progressBarRestore.Location = new System.Drawing.Point(18, 607);
+            this.progressBarRestore.Location = new System.Drawing.Point(18, 601);
             this.progressBarRestore.Name = "progressBarRestore";
             this.progressBarRestore.Size = new System.Drawing.Size(660, 30);
             this.progressBarRestore.TabIndex = 4;
@@ -216,7 +216,7 @@ namespace UI
             // 
             this.lblRestoreStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblRestoreStatus.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.lblRestoreStatus.Location = new System.Drawing.Point(18, 646);
+            this.lblRestoreStatus.Location = new System.Drawing.Point(18, 640);
             this.lblRestoreStatus.Name = "lblRestoreStatus";
             this.lblRestoreStatus.Size = new System.Drawing.Size(660, 40);
             this.lblRestoreStatus.TabIndex = 5;
@@ -227,10 +227,10 @@ namespace UI
             this.tabIntegrity.Controls.Add(this.listBoxIntegrityResults);
             this.tabIntegrity.Controls.Add(this.flowLayoutPanel1);
             this.tabIntegrity.Controls.Add(this.lblIntegrityStatus);
-            this.tabIntegrity.Location = new System.Drawing.Point(4, 26);
+            this.tabIntegrity.Location = new System.Drawing.Point(4, 32);
             this.tabIntegrity.Name = "tabIntegrity";
             this.tabIntegrity.Padding = new System.Windows.Forms.Padding(15);
-            this.tabIntegrity.Size = new System.Drawing.Size(1072, 730);
+            this.tabIntegrity.Size = new System.Drawing.Size(1072, 724);
             this.tabIntegrity.TabIndex = 2;
             this.tabIntegrity.Text = "  INTEGRIDAD  ";
             // 
@@ -240,10 +240,10 @@ namespace UI
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxIntegrityResults.FormattingEnabled = true;
-            this.listBoxIntegrityResults.ItemHeight = 17;
+            this.listBoxIntegrityResults.ItemHeight = 23;
             this.listBoxIntegrityResults.Location = new System.Drawing.Point(11, 80);
             this.listBoxIntegrityResults.Name = "listBoxIntegrityResults";
-            this.listBoxIntegrityResults.Size = new System.Drawing.Size(1053, 242);
+            this.listBoxIntegrityResults.Size = new System.Drawing.Size(1053, 211);
             this.listBoxIntegrityResults.TabIndex = 5;
             // 
             // flowLayoutPanel1

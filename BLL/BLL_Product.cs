@@ -65,7 +65,11 @@ namespace BLL
             {
                 p.ImagePath = SaveImgToRepository(p.ImagePath, BuildFileNameProduct(p));
             }
-            DAL_Product.UpdateProduct(p);
+            if (DAL_Product.UpdateProduct(p))
+            {
+                BLL_DV_DB dvhService = new BLL_DV_DB();
+                dvhService.RecalculateDV();
+            }
         }
         public static void UpdateStockById(int idProduct, int quantity)
         {

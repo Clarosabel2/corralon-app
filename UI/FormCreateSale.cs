@@ -17,7 +17,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.common.Styles;
 using UI.common.Utils;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI
 {
@@ -114,13 +113,7 @@ namespace UI
 
 
             dgvProductsCart.CellEndEdit += DgvProductsCart_CellEndEdit;
-            dgvProductsCart.CellMouseEnter += dgvProductsCart_CellMouseEnter;
             dgvProductsCart.EditMode = DataGridViewEditMode.EditOnEnter;
-        }
-
-        private void dgvProductsCart_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void DgvProductsCart_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -132,7 +125,6 @@ namespace UI
                 int? idxExist = int.TryParse(row.Cells["colId"].Value?.ToString(), out int idExist) ? idExist : (int?)null;
 
                 var item = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(i => i.Id == idxExist);
-
 
                 int quantity = 0;
                 int.TryParse(row.Cells["colQuantity"].Value?.ToString(), out quantity);
@@ -192,19 +184,32 @@ namespace UI
 
             if (!int.TryParse(row.Cells[0].Value?.ToString(), out int id)) return;
 
-            var product = _listProducts?.FirstOrDefault(p => p.Id == id);
-            if (product == null) return;
+            //BE_Item item = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(i => i.Product.Id == id);
+
+            //var product = _listProducts?.FirstOrDefault(p => p.Id == id);
+            //if (product == null) return;
+
+            //var data = new DataObject();
+            //data.SetData(typeof(BE_Product), product);
+            //data.SetData(PRODUCT_FORMAT, product);
+            //dgvProducts.DoDragDrop(data, DragDropEffects.Copy);
+
+            int productId = _listProducts.FirstOrDefault(p => p.Id == id).Id;
 
             var data = new DataObject();
-            data.SetData(typeof(BE_Product), product);
-            data.SetData(PRODUCT_FORMAT, product);
-
+            data.SetData(typeof(int), productId);
+            //data.SetData(PRODUCT_FORMAT, productId);
             dgvProducts.DoDragDrop(data, DragDropEffects.Copy);
+
         }
 
         private void DgvProductsCart_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(typeof(BE_Product)) || e.Data.GetDataPresent(PRODUCT_FORMAT))
+            //if (e.Data.GetDataPresent(typeof(BE_Product)) || e.Data.GetDataPresent(PRODUCT_FORMAT))
+            //    e.Effect = DragDropEffects.Copy;
+            //else
+            //    e.Effect = DragDropEffects.None;
+            if (e.Data.GetDataPresent(typeof(int)))
                 e.Effect = DragDropEffects.Copy;
             else
                 e.Effect = DragDropEffects.None;
@@ -212,79 +217,52 @@ namespace UI
 
         private void DgvProductsCart_DragDrop(object sender, DragEventArgs e)
         {
-            BE_Product product = null;
-
-            if (e.Data.GetDataPresent(typeof(BE_Product)))
-                product = e.Data.GetData(typeof(BE_Product)) as BE_Product;
-            else if (e.Data.GetDataPresent(PRODUCT_FORMAT))
-                product = e.Data.GetData(PRODUCT_FORMAT) as BE_Product;
-
-            if (product == null) return;
-
-            var sale = BLL_Sale.CurrentSale;
-            if (sale is null)
-            {
-                MessageBox.Show("No hay una venta activa.");
-                return;
-            }
-
-            int id = product.Id;
-            int? idxExist = null;
-            for (int i = 0; i < dgvProductsCart.Rows.Count; i++)
-            {
-                var r = dgvProductsCart.Rows[i];
-                if (r.IsNewRow) continue;
-
-                if (int.TryParse(r.Cells["colId"].Value?.ToString(), out int idExist) && idExist == id)
-                {
-                    idxExist = i;
-                    break;
-                }
-            }
-            var item = sale.ItemsProducts.FirstOrDefault(i => i.Id == id);
-            if (item != null && idxExist.HasValue)
+            int productId = 0;
+            if (e.Data.GetDataPresent(typeof(int)))
+                productId = (int)e.Data.GetData(typeof(int));
+            BE_Item itemCart = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(item => item.Product.Id == productId);
+            if (itemCart != null)
             {
                 try
                 {
                     checked
                     {
-                        item.Amount = item.Amount + 1;
+                        itemCart.Amount = itemCart.Amount + 1;
                     }
-                    RefreshDgvProductsStock(item.Product, item.Amount);
+                    RefreshDgvProductsStock(itemCart.Product, itemCart.Amount);
 
-                    var row = dgvProductsCart.Rows[idxExist.Value];
-                    row.Cells["colPrice"].Value = "$ " + item.Product.Price;
-                    row.Cells["colQuantity"].Value = item.Amount;
-                    row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
+                    var row = dgvProductsCart.Rows[itemCart.Id - 1];
+                    row.Cells["colPrice"].Value = "$ " + itemCart.Product.Price;
+                    row.Cells["colQuantity"].Value = itemCart.Amount;
+                    row.Cells["colSubtotal"].Value = "$ " + itemCart.Subtotal;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "No se pudo actualizar la cantidad", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                return;
             }
-            else
+
+            try
             {
-                try
-                {
-                    BLL_Sale.AddItem(product, 1);
-                    var added = sale.ItemsProducts.First(i => i.Product.Id == id);
+                BE_Product product = _listProducts.FirstOrDefault(p => p.Id == productId);
+                var added = BLL_Sale.AddItem(product, 1);
+                RefreshDgvProductsStock(product, added.Amount);
 
-                    RefreshDgvProductsStock(product, added.Amount);
-
-                    dgvProductsCart.Rows.Add(
-                        added.Id,
-                        ImageLoader.LoadSafe(added.Product.ImagePath) ?? Properties.Resources.img_icon,
-                        added.Product.Name,
-                        "$ " + added.Product.Price,
-                        "$ " + added.Subtotal,
-                        added.Amount
-                    );
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "No se pudo agregar el producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                dgvProductsCart.Rows.Add(
+                    added.Id,
+                    ImageLoader.LoadSafe(added.Product.ImagePath) ?? Properties.Resources.img_icon,
+                    added.Product.Name,
+                    "$ " + added.Product.Price,
+                    "$ " + added.Subtotal,
+                    added.Amount
+                );
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "No se pudo agregar el producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             BLL_Sale.CurrentSale.CalculateTotal();
             UpdateDetailsCart();
         }
@@ -328,19 +306,23 @@ namespace UI
             }
             else
             {
-                panelFinVenta.Visible = true;
-                panelFinVenta.BringToFront();
-                cBTypesInvoice.DataSource = BLL_Invoice.GetTypesInvoice();
-                cBTypesInvoice.DisplayMember = "tipo";
-                cBTypesInvoice.ValueMember = "id_Tipo";
-                RecolatePanel();
-                foreach (Control control in this.Controls)
-                {
-                    if (control != panelFinVenta && control.Parent != panelFinVenta)
-                    {
-                        control.Enabled = false;
-                    }
-                }
+                //panelFinVenta.Visible = true;
+                //panelFinVenta.BringToFront();
+                //cBTypesInvoice.DataSource = BLL_Invoice.GetTypesInvoice();
+                //cBTypesInvoice.DisplayMember = "tipo";
+                //cBTypesInvoice.ValueMember = "id_Tipo";
+                //RecolatePanel();
+                //foreach (Control control in this.Controls)
+                //{
+                //    if (control != panelFinVenta && control.Parent != panelFinVenta)
+                //    {
+                //        control.Enabled = false;
+                //    }
+                //}
+                FormFinalizeSale fm = new FormFinalizeSale();
+                fm.StartPosition = FormStartPosition.CenterScreen;
+                fm.FormBorderStyle = FormBorderStyle.None;
+                fm.ShowDialog(this);
             }
 
         }

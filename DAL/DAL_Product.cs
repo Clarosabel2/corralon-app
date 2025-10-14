@@ -1,4 +1,5 @@
 ﻿using BDE;
+using DAL.DB;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -109,7 +110,7 @@ namespace DAL
             return p;
         }
 
-        public static void UpdateProduct(BE_Product p)
+        public static bool UpdateProduct(BE_Product p)
         {
             var cnn = new DAL_Connection();
             using (var connection = cnn.OpenConnection())
@@ -127,7 +128,8 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@p_min_stock", p.MinStock);
                 cmd.Parameters.AddWithValue("@p_img_path", p.ImagePath);
 
-                cmd.ExecuteNonQuery();
+                return cmd.ExecuteNonQuery() > 0;
+                
             }
         }
 

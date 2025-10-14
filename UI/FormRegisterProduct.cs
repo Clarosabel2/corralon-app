@@ -63,49 +63,6 @@ namespace UI
             cbBrands.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
-        private void btnSaveProduct_Click(object sender, EventArgs e)
-        {
-            string inputBrand = cbBrands.Text.Trim();
-
-            /*var existingBrand = (cbBrands.DataSource as List<BE_Brand>)
-                .FirstOrDefault(brand => brand.NameBrand.Equals(inputBrand, 
-                    StringComparison.OrdinalIgnoreCase));*/
-
-            BE_Brand brandSelected = brands.FirstOrDefault(b =>
-                b.NameBrand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase));
-
-
-            if (brandSelected == null)
-            {
-                brandSelected = new BE_Brand();
-                brandSelected.NameBrand = inputBrand;
-                BLL_Brand.SaveBrand(brandSelected);
-
-            }
-
-            product = new BE_Product(
-                (isEdit) ? product.Id : 0,
-                brandSelected,
-                txtNameProduct.Text,
-                txtDescriptionProduct.Text,
-                cbCategoryProduct.SelectedValue.ToString(),
-                double.Parse(txtPriceProduct.Text),
-                int.Parse(txtStockAvailibleProduct.Text));
-
-            product.ImagePath = _imagePath;
-
-            if (!isEdit)
-            {
-                BLL_Product.SaveProduct(product);
-            }
-            else
-            {
-                //BLL_Product.UpdateProduct(product);
-            }
-            fm.LoadProductsIntoDGV(BLL_Product.GetProducts());
-            this.Close();
-        }
-
         private void btnSaveProduct_Click_1(object sender, EventArgs e)
         {
             string inputBrand = cbBrands.Text.Trim();

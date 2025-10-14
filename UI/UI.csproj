@@ -126,6 +126,12 @@
     <Compile Include="FormBitacora.Designer.cs">
       <DependentUpon>FormBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFinalizeSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFinalizeSale.Designer.cs">
+      <DependentUpon>FormFinalizeSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRegisterSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,6 +289,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormBitacora.resx">
       <DependentUpon>FormBitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFinalizeSale.resx">
+      <DependentUpon>FormFinalizeSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegisterSupplier.resx">
       <DependentUpon>FormRegisterSupplier.cs</DependentUpon>

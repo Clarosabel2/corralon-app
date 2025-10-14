@@ -29,14 +29,17 @@ namespace BLL
             CurrentOrder = new BE_Order();
             _nextItemId = 1;
         }
-        public static void AddItem(BE_Product product, int quantity)
+        public static BE_Item AddItem(BE_Product product, int quantity)
         {
             if (CurrentSale is null) throw new InvalidOperationException("No hay venta activa");
             if (product is null) throw new ArgumentNullException(nameof(product));
             if (quantity <= 0) throw new ArgumentOutOfRangeException(nameof(quantity), "La cantidad debe ser > 0");
 
-            var item = new BE_Item(_nextItemId++, product, quantity);
+            var item = new BE_Item(_nextItemId, product, quantity);
             CurrentSale.AddItem(item);
+            _nextItemId++;
+
+            return item;
         }
 
         public static BE_Item RemoveItem(int idItem)
