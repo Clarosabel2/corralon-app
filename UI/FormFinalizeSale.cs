@@ -118,5 +118,40 @@ namespace UI
         {
             flpNotifyChks.Enabled = true;
         }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            BLL_Sale.CurrentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
+            BLL_Sale.CurrentSale.Status = true;
+            BLL_Sale.CurrentOrder.DeliveryDate = dtpDeliveryDate.Value;
+            try
+            {
+                try
+                {
+                    BLL_Sale.SaveInvoice();
+                    DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (r == DialogResult.OK) this.Dispose();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar la factura:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                this.Close();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtDNIClient_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

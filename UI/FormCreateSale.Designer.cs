@@ -31,22 +31,6 @@
             this.lblCatogory = new System.Windows.Forms.Label();
             this.lblTitleCart = new System.Windows.Forms.Label();
             this.cBTipoProductos = new System.Windows.Forms.ComboBox();
-            this.panelFinVenta = new System.Windows.Forms.Panel();
-            this.checkBoxPaid = new System.Windows.Forms.CheckBox();
-            this.cBTypesInvoice = new System.Windows.Forms.ComboBox();
-            this.lblTypeInvoice = new System.Windows.Forms.Label();
-            this.dgvCart = new System.Windows.Forms.DataGridView();
-            this.IDItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subtotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnAtras = new System.Windows.Forms.Button();
-            this.txtBClienteDNI = new System.Windows.Forms.TextBox();
-            this.lblEstadoCliente = new System.Windows.Forms.Label();
-            this.btnGenerarFactura = new System.Windows.Forms.Button();
-            this.lblDeliveryDate = new System.Windows.Forms.Label();
-            this.DPEntrega = new ReaLTaiizor.Controls.HopeDatePicker();
-            this.lblInsertDniClient = new System.Windows.Forms.Label();
             this.dgvProducts = new System.Windows.Forms.DataGridView();
             this.IDProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImageProduct = new System.Windows.Forms.DataGridViewImageColumn();
@@ -74,8 +58,6 @@
             this.colQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeleteCol = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanelDGV = new System.Windows.Forms.TableLayoutPanel();
-            this.panelFinVenta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.gbDetailsCart.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -118,217 +100,6 @@
             this.cBTipoProductos.TabIndex = 10;
             this.cBTipoProductos.SelectedIndexChanged += new System.EventHandler(this.cBTipoProductos_SelectedIndexChanged);
             // 
-            // panelFinVenta
-            // 
-            this.panelFinVenta.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panelFinVenta.Controls.Add(this.checkBoxPaid);
-            this.panelFinVenta.Controls.Add(this.cBTypesInvoice);
-            this.panelFinVenta.Controls.Add(this.lblTypeInvoice);
-            this.panelFinVenta.Controls.Add(this.dgvCart);
-            this.panelFinVenta.Controls.Add(this.btnAtras);
-            this.panelFinVenta.Controls.Add(this.txtBClienteDNI);
-            this.panelFinVenta.Controls.Add(this.lblEstadoCliente);
-            this.panelFinVenta.Controls.Add(this.btnGenerarFactura);
-            this.panelFinVenta.Controls.Add(this.lblDeliveryDate);
-            this.panelFinVenta.Controls.Add(this.DPEntrega);
-            this.panelFinVenta.Controls.Add(this.lblInsertDniClient);
-            this.panelFinVenta.Location = new System.Drawing.Point(598, 129);
-            this.panelFinVenta.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.panelFinVenta.Name = "panelFinVenta";
-            this.panelFinVenta.Size = new System.Drawing.Size(434, 489);
-            this.panelFinVenta.TabIndex = 13;
-            this.panelFinVenta.Visible = false;
-            // 
-            // checkBoxPaid
-            // 
-            this.checkBoxPaid.AutoSize = true;
-            this.checkBoxPaid.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.checkBoxPaid.Location = new System.Drawing.Point(3, 209);
-            this.checkBoxPaid.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.checkBoxPaid.Name = "checkBoxPaid";
-            this.checkBoxPaid.Size = new System.Drawing.Size(114, 20);
-            this.checkBoxPaid.TabIndex = 12;
-            this.checkBoxPaid.Text = "Marcar Pagado";
-            this.checkBoxPaid.UseVisualStyleBackColor = true;
-            // 
-            // cBTypesInvoice
-            // 
-            this.cBTypesInvoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cBTypesInvoice.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.cBTypesInvoice.FormattingEnabled = true;
-            this.cBTypesInvoice.Location = new System.Drawing.Point(19, 44);
-            this.cBTypesInvoice.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.cBTypesInvoice.Name = "cBTypesInvoice";
-            this.cBTypesInvoice.Size = new System.Drawing.Size(23, 24);
-            this.cBTypesInvoice.TabIndex = 10;
-            // 
-            // lblTypeInvoice
-            // 
-            this.lblTypeInvoice.AutoSize = true;
-            this.lblTypeInvoice.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTypeInvoice.Location = new System.Drawing.Point(2, 45);
-            this.lblTypeInvoice.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblTypeInvoice.Name = "lblTypeInvoice";
-            this.lblTypeInvoice.Size = new System.Drawing.Size(77, 16);
-            this.lblTypeInvoice.TabIndex = 9;
-            this.lblTypeInvoice.Text = "Tipo Factura:";
-            // 
-            // dgvCart
-            // 
-            this.dgvCart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IDItem,
-            this.ProductName,
-            this.Amount,
-            this.Subtotal});
-            this.dgvCart.Location = new System.Drawing.Point(35, 153);
-            this.dgvCart.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.dgvCart.Name = "dgvCart";
-            this.dgvCart.RowHeadersWidth = 72;
-            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCart.Size = new System.Drawing.Size(385, 285);
-            this.dgvCart.TabIndex = 15;
-            this.dgvCart.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvCart_RowsAdded);
-            this.dgvCart.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvCart_RowsRemoved);
-            // 
-            // IDItem
-            // 
-            this.IDItem.HeaderText = "ID";
-            this.IDItem.MinimumWidth = 9;
-            this.IDItem.Name = "IDItem";
-            this.IDItem.Width = 175;
-            // 
-            // ProductName
-            // 
-            this.ProductName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ProductName.HeaderText = "Product";
-            this.ProductName.MinimumWidth = 9;
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Amount
-            // 
-            this.Amount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Amount.HeaderText = "Amount";
-            this.Amount.MinimumWidth = 9;
-            this.Amount.Name = "Amount";
-            this.Amount.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            this.Subtotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Subtotal.HeaderText = "Subtotal";
-            this.Subtotal.MinimumWidth = 9;
-            this.Subtotal.Name = "Subtotal";
-            this.Subtotal.ReadOnly = true;
-            // 
-            // btnAtras
-            // 
-            this.btnAtras.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnAtras.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAtras.Location = new System.Drawing.Point(1, 2);
-            this.btnAtras.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.btnAtras.Name = "btnAtras";
-            this.btnAtras.Size = new System.Drawing.Size(10, 13);
-            this.btnAtras.TabIndex = 8;
-            this.btnAtras.Text = "<---";
-            this.btnAtras.UseVisualStyleBackColor = false;
-            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
-            // 
-            // txtBClienteDNI
-            // 
-            this.txtBClienteDNI.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBClienteDNI.Location = new System.Drawing.Point(1, 24);
-            this.txtBClienteDNI.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.txtBClienteDNI.MaxLength = 8;
-            this.txtBClienteDNI.Multiline = true;
-            this.txtBClienteDNI.Name = "txtBClienteDNI";
-            this.txtBClienteDNI.Size = new System.Drawing.Size(41, 16);
-            this.txtBClienteDNI.TabIndex = 7;
-            this.txtBClienteDNI.TextChanged += new System.EventHandler(this.txtBClienteDNI_TextChanged);
-            this.txtBClienteDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBClienteDNI_KeyPress);
-            // 
-            // lblEstadoCliente
-            // 
-            this.lblEstadoCliente.AutoSize = true;
-            this.lblEstadoCliente.ForeColor = System.Drawing.Color.Green;
-            this.lblEstadoCliente.Location = new System.Drawing.Point(40, 32);
-            this.lblEstadoCliente.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblEstadoCliente.Name = "lblEstadoCliente";
-            this.lblEstadoCliente.Size = new System.Drawing.Size(0, 13);
-            this.lblEstadoCliente.TabIndex = 6;
-            // 
-            // btnGenerarFactura
-            // 
-            this.btnGenerarFactura.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnGenerarFactura.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnGenerarFactura.Enabled = false;
-            this.btnGenerarFactura.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerarFactura.Location = new System.Drawing.Point(0, 465);
-            this.btnGenerarFactura.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.btnGenerarFactura.Name = "btnGenerarFactura";
-            this.btnGenerarFactura.Size = new System.Drawing.Size(434, 24);
-            this.btnGenerarFactura.TabIndex = 5;
-            this.btnGenerarFactura.Text = "Generar Factura";
-            this.btnGenerarFactura.UseVisualStyleBackColor = false;
-            this.btnGenerarFactura.Click += new System.EventHandler(this.btnGenerarFactura_Click);
-            // 
-            // lblDeliveryDate
-            // 
-            this.lblDeliveryDate.AutoSize = true;
-            this.lblDeliveryDate.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDeliveryDate.Location = new System.Drawing.Point(2, 62);
-            this.lblDeliveryDate.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblDeliveryDate.Name = "lblDeliveryDate";
-            this.lblDeliveryDate.Size = new System.Drawing.Size(99, 16);
-            this.lblDeliveryDate.TabIndex = 4;
-            this.lblDeliveryDate.Text = "Fecha A Entregar";
-            // 
-            // DPEntrega
-            // 
-            this.DPEntrega.BackColor = System.Drawing.Color.White;
-            this.DPEntrega.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DPEntrega.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(223)))), ((int)(((byte)(230)))));
-            this.DPEntrega.Date = new System.DateTime(2024, 10, 4, 0, 0, 0, 0);
-            this.DPEntrega.DayNames = "LMMJVSD";
-            this.DPEntrega.DaysTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(98)))), ((int)(((byte)(102)))));
-            this.DPEntrega.DayTextColorA = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.DPEntrega.DayTextColorB = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(147)))), ((int)(((byte)(153)))));
-            this.DPEntrega.HeaderFormat = "{0} Año - {1} Mes";
-            this.DPEntrega.HeaderTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(49)))), ((int)(((byte)(51)))));
-            this.DPEntrega.HeadLineColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(231)))), ((int)(((byte)(237)))));
-            this.DPEntrega.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(245)))));
-            this.DPEntrega.Location = new System.Drawing.Point(12, 76);
-            this.DPEntrega.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.DPEntrega.Name = "DPEntrega";
-            this.DPEntrega.NMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.DPEntrega.NMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.DPEntrega.NYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.DPEntrega.NYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.DPEntrega.PMColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.DPEntrega.PMHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.DPEntrega.PYColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(196)))), ((int)(((byte)(204)))));
-            this.DPEntrega.PYHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.DPEntrega.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(158)))), ((int)(((byte)(255)))));
-            this.DPEntrega.SelectedTextColor = System.Drawing.Color.White;
-            this.DPEntrega.Size = new System.Drawing.Size(250, 270);
-            this.DPEntrega.TabIndex = 3;
-            this.DPEntrega.ValueTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(133)))), ((int)(((byte)(228)))));
-            // 
-            // lblInsertDniClient
-            // 
-            this.lblInsertDniClient.AutoSize = true;
-            this.lblInsertDniClient.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInsertDniClient.Location = new System.Drawing.Point(2, 16);
-            this.lblInsertDniClient.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this.lblInsertDniClient.Name = "lblInsertDniClient";
-            this.lblInsertDniClient.Size = new System.Drawing.Size(121, 16);
-            this.lblInsertDniClient.TabIndex = 0;
-            this.lblInsertDniClient.Text = "Ingrese DNI del Client";
-            // 
             // dgvProducts
             // 
             this.dgvProducts.AllowUserToAddRows = false;
@@ -351,9 +122,7 @@
             this.dgvProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProducts.Size = new System.Drawing.Size(542, 583);
             this.dgvProducts.TabIndex = 14;
-            this.dgvProducts.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvProducts_CellFormatting);
             this.dgvProducts.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvProducts_DataError);
-            this.dgvProducts.SelectionChanged += new System.EventHandler(this.dgvProducts_SelectionChanged);
             // 
             // IDProduct
             // 
@@ -668,18 +437,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1089, 672);
-            this.Controls.Add(this.panelFinVenta);
             this.Controls.Add(this.tableLayoutPanelDGV);
             this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             this.Name = "FormCreateSale";
             this.Text = "FormCreateSale";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormCreateSale_FormClosed);
-            this.Load += new System.EventHandler(this.FormCrearVenta_Load);
-            this.ResizeEnd += new System.EventHandler(this.FormCrearVenta_ResizeEnd);
-            this.Resize += new System.EventHandler(this.FormCrearVenta_Resize);
-            this.panelFinVenta.ResumeLayout(false);
-            this.panelFinVenta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.gbDetailsCart.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -698,16 +460,7 @@
         private System.Windows.Forms.Label lblCatogory;
         private System.Windows.Forms.Label lblTitleCart;
         private System.Windows.Forms.ComboBox cBTipoProductos;
-        private System.Windows.Forms.Panel panelFinVenta;
-        private System.Windows.Forms.Label lblInsertDniClient;
-        private System.Windows.Forms.Label lblDeliveryDate;
-        private ReaLTaiizor.Controls.HopeDatePicker DPEntrega;
-        private System.Windows.Forms.Button btnGenerarFactura;
-        private System.Windows.Forms.Label lblEstadoCliente;
         private System.Windows.Forms.DataGridView dgvProducts;
-        private System.Windows.Forms.DataGridView dgvCart;
-        private System.Windows.Forms.TextBox txtBClienteDNI;
-        private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.GroupBox gbDetailsCart;
         private System.Windows.Forms.Label lblItemsTotal;
         private System.Windows.Forms.Label label9;
@@ -716,13 +469,6 @@
         private System.Windows.Forms.GroupBox gBFiltros;
         private System.Windows.Forms.Label lblBrandName;
         private System.Windows.Forms.TextBox txtFilterName;
-        private System.Windows.Forms.ComboBox cBTypesInvoice;
-        private System.Windows.Forms.Label lblTypeInvoice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IDItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subtotal;
-        private System.Windows.Forms.CheckBox checkBoxPaid;
         private System.Windows.Forms.Label lblTitleProducts;
         private System.Windows.Forms.DataGridView dgvProductsCart;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDGV;

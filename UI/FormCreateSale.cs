@@ -36,37 +36,6 @@ namespace UI
             LanguageManager.Attach(this);
         }
 
-        #region "Funciones Visuales"
-
-
-
-        private void FormCrearVenta_Load(object sender, EventArgs e)
-        {
-            DPEntrega.Date = DateTime.Now;
-
-        }
-        private void FormCrearVenta_Resize(object sender, EventArgs e)
-        {
-            if (this.WindowState != FormWindowState.Minimized)
-            {
-                RecolatePanel();
-            }
-        }
-
-        private void FormCrearVenta_ResizeEnd(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Normal)
-            {
-                RecolatePanel();
-            }
-        }
-
-        private void RecolatePanel()
-        {
-            panelFinVenta.Location =
-                new Point((this.ClientSize.Width - panelFinVenta.Width) / 2, (this.ClientSize.Height - panelFinVenta.Height) / 2);
-        }
-        #endregion
 
         #region "Funciones Carga de Datos a DGV"
         private void ConfigFilters()
@@ -184,31 +153,16 @@ namespace UI
 
             if (!int.TryParse(row.Cells[0].Value?.ToString(), out int id)) return;
 
-            //BE_Item item = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(i => i.Product.Id == id);
-
-            //var product = _listProducts?.FirstOrDefault(p => p.Id == id);
-            //if (product == null) return;
-
-            //var data = new DataObject();
-            //data.SetData(typeof(BE_Product), product);
-            //data.SetData(PRODUCT_FORMAT, product);
-            //dgvProducts.DoDragDrop(data, DragDropEffects.Copy);
-
             int productId = _listProducts.FirstOrDefault(p => p.Id == id).Id;
 
             var data = new DataObject();
             data.SetData(typeof(int), productId);
-            //data.SetData(PRODUCT_FORMAT, productId);
             dgvProducts.DoDragDrop(data, DragDropEffects.Copy);
 
         }
 
         private void DgvProductsCart_DragEnter(object sender, DragEventArgs e)
         {
-            //if (e.Data.GetDataPresent(typeof(BE_Product)) || e.Data.GetDataPresent(PRODUCT_FORMAT))
-            //    e.Effect = DragDropEffects.Copy;
-            //else
-            //    e.Effect = DragDropEffects.None;
             if (e.Data.GetDataPresent(typeof(int)))
                 e.Effect = DragDropEffects.Copy;
             else
@@ -296,29 +250,15 @@ namespace UI
         }
         #endregion
 
-        //Se Muestra el panel de confirmacion de venta
         private void buttonCerrarVenta_Click(object sender, EventArgs e)
         {
-            if (dgvCart.Rows.Count == 0)
+            if (dgvProductsCart.Rows.Count == 0)
             {
                 MessageBox.Show("No hay productos en el carrito. No se puede cerrar.");
 
             }
             else
             {
-                //panelFinVenta.Visible = true;
-                //panelFinVenta.BringToFront();
-                //cBTypesInvoice.DataSource = BLL_Invoice.GetTypesInvoice();
-                //cBTypesInvoice.DisplayMember = "tipo";
-                //cBTypesInvoice.ValueMember = "id_Tipo";
-                //RecolatePanel();
-                //foreach (Control control in this.Controls)
-                //{
-                //    if (control != panelFinVenta && control.Parent != panelFinVenta)
-                //    {
-                //        control.Enabled = false;
-                //    }
-                //}
                 FormFinalizeSale fm = new FormFinalizeSale();
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.FormBorderStyle = FormBorderStyle.None;
@@ -331,42 +271,7 @@ namespace UI
             e.ThrowException = false;
         }
         private DataGridViewRow previousSelectedRow;
-        private void dgvProducts_SelectionChanged(object sender, EventArgs e)
-        {
-            //if (previousSelectedRow != null)
-            //{
-            //    previousSelectedRow.Cells["colQuantity"].Value = "";
-            //}
-            //if (dgvProducts.SelectedRows.Count > 0)
-            //{
-            //    previousSelectedRow = dgvProducts.SelectedRows[0];
-            //}
-            //else
-            //{
-            //    previousSelectedRow = null;
-            //}
-        }
-        private void dgvProducts_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //if (dgvProducts.Columns[e.ColumnIndex].Name == "Amount")
-            //{
-            //    int? amount = e.Value as int?;
-            //    if (amount.HasValue && amount.Value == 0)
-            //    {
-            //        e.Value = "";
-            //        e.FormattingApplied = true;
-            //    }
-            //}
-        }
-
-        private void dgvCart_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            UpdateDetailsCart();
-        }
-        private void dgvCart_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
-        {
-            UpdateDetailsCart();
-        }
+       
         private void UpdateDetailsCart()
         {
             double totalCartValue = BLL_Sale.CurrentSale.Total;
@@ -381,7 +286,6 @@ namespace UI
 
         private void txtFilterName_TextChanged(object sender, EventArgs e)
         {
-
             if (txtFilterName.Text != "")
             {
                 var prdtsFiltered = new List<BE_Product>();
@@ -412,94 +316,6 @@ namespace UI
             }
 
         }
-
-        #region "Funcionales del Panel Cerrar Venta"
-        private void btnAtras_Click(object sender, EventArgs e)
-        {
-            panelFinVenta.Visible = false;
-            foreach (Control control in this.Controls)
-            {
-                if (control != panelFinVenta && control.Parent != panelFinVenta)
-                {
-                    control.Enabled = true;
-                }
-            }
-        }
-
-        private void txtBClienteDNI_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void txtBClienteDNI_TextChanged(object sender, EventArgs e)
-        {
-            var dni = txtBClienteDNI.Text;
-            txtBClienteDNI.BackColor = SystemColors.Window;
-            if (txtBClienteDNI.Text.Length >= 8)
-            {
-                var client = BLL_Sale.AddClient(dni);
-                if (client != null)
-                {
-                    btnGenerarFactura.Enabled = true;
-                    txtBClienteDNI.BackColor = Color.GreenYellow;
-                    lblEstadoCliente.Text = client.Name + " " + client.Lastname;
-                }
-                else
-                {
-                    txtBClienteDNI.BackColor = Color.Red;
-
-                    DialogResult r =
-                        MessageBox.Show($"El cliente con DNI {dni} no esta registrado. Desea registrar el cliente?", "Aviso"
-                        , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                    if (r == DialogResult.Yes)
-                    {
-                        txtBClienteDNI.Text = "";
-                        FormRegisterClient f = new FormRegisterClient();
-                        f.TopLevel = false;
-                        this.Controls.Add(f);
-                        f.BringToFront();
-                        f.txtDni.Text = dni;
-                        f.Show();
-                    }
-                }
-            }
-            else
-            {
-                lblEstadoCliente.Text = "";
-                btnGenerarFactura.Enabled = false;
-            }
-
-        }
-        private void btnGenerarFactura_Click(object sender, EventArgs e)
-        {
-            BLL_Sale.CurrentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            BLL_Sale.CurrentSale.Status = checkBoxPaid.Checked;
-            BLL_Sale.CurrentOrder.DeliveryDate = DPEntrega.Date;
-            try
-            {
-                try
-                {
-                    BLL_Sale.SaveInvoice();
-                    DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (r == DialogResult.OK) this.Dispose();
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al guardar la factura:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        #endregion
 
         public void Update(BE_Language language)
         {

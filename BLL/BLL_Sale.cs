@@ -64,6 +64,7 @@ namespace BLL
             //Actualiza el stock de los productos por cada item de la venta
             CurrentSale.ItemsProducts.ForEach(i => BLL_Product.UpdateStockById(i.Product.Id, i.Amount));
             DAL_Sale.SaveSale(CurrentOrder);
+            CurrentSale = null;
         }
         public static DataTable GetProductsByIdInvoice(int idInvoice)
         {
