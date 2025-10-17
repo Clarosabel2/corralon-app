@@ -64,17 +64,20 @@ namespace DAL
                 var cmd = new SqlCommand
                 {
                     Connection = cnn.OpenConnection(),
-                    CommandText = "UPDATE Pedidos SET estado=1 WHERE id_Factura=@p_idInvoice",
+                    CommandText = "UPDATE Pedidos SET estado = 1, hora_llegada = @hora_llegada WHERE id_Factura = @p_idInvoice",
                     CommandType = CommandType.Text
                 };
-                cmd.Parameters.AddWithValue("@p_idInvoice", idInvoice);
-                cmd.ExecuteNonQuery();
 
+                cmd.Parameters.AddWithValue("@hora_llegada", DateTime.Now);
+                cmd.Parameters.AddWithValue("@p_idInvoice", idInvoice);
+
+                cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
+
         }
     }
 }

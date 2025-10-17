@@ -1,4 +1,5 @@
 ﻿using BDE;
+using BLL.Mappers;
 using DAL;
 using SVC;
 using System;
@@ -66,9 +67,16 @@ namespace BLL
             DAL_Sale.SaveSale(CurrentOrder);
             CurrentSale = null;
         }
-        public static DataTable GetProductsByIdInvoice(int idInvoice)
+        public static List<BE_Item> GetProductsByIdInvoice(int idInvoice)
         {
-            return DAL_Sale.GetProductsByIdInvoice(idInvoice);
+            List<BE_Item> items = new List<BE_Item>();
+            int i = 1;
+            foreach (DataRow item in DAL_Sale.GetProductsByIdInvoice(idInvoice).Rows)
+            {
+                items.Add(new BE_Item(i, ProductMapper.FromDataRow(item), int.Parse(item["cantidad"].ToString())));
+                i++;
+            }
+            return items;
         }
     }
 }

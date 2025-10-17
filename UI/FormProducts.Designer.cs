@@ -41,15 +41,19 @@ namespace UI
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblCantProducts = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.panel2.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(119, 15);
+            this.txtSearch.Location = new System.Drawing.Point(153, 21);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(6);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(815, 42);
@@ -61,10 +65,10 @@ namespace UI
             this.btnRegisterProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRegisterProduct.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegisterProduct.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegisterProduct.Location = new System.Drawing.Point(1200, 15);
-            this.btnRegisterProduct.Margin = new System.Windows.Forms.Padding(6);
+            this.btnRegisterProduct.Location = new System.Drawing.Point(980, 25);
+            this.btnRegisterProduct.Margin = new System.Windows.Forms.Padding(6, 10, 6, 10);
             this.btnRegisterProduct.Name = "btnRegisterProduct";
-            this.btnRegisterProduct.Size = new System.Drawing.Size(290, 31);
+            this.btnRegisterProduct.Size = new System.Drawing.Size(290, 42);
             this.btnRegisterProduct.TabIndex = 4;
             this.btnRegisterProduct.Text = "Registrar nuevo producto";
             this.btnRegisterProduct.UseVisualStyleBackColor = true;
@@ -73,9 +77,7 @@ namespace UI
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.btnRegisterProduct);
+            this.panel1.Controls.Add(this.flowLayoutPanel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(6);
@@ -88,7 +90,7 @@ namespace UI
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 16.75F);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Location = new System.Drawing.Point(6, 15);
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 40);
@@ -138,8 +140,7 @@ namespace UI
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.panel2.Controls.Add(this.lblCantProducts);
-            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.flowLayoutPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 862);
             this.panel2.Margin = new System.Windows.Forms.Padding(6);
@@ -151,7 +152,7 @@ namespace UI
             // 
             this.lblCantProducts.AutoSize = true;
             this.lblCantProducts.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantProducts.Location = new System.Drawing.Point(271, 19);
+            this.lblCantProducts.Location = new System.Drawing.Point(358, 15);
             this.lblCantProducts.Name = "lblCantProducts";
             this.lblCantProducts.Size = new System.Drawing.Size(31, 36);
             this.lblCantProducts.TabIndex = 1;
@@ -161,11 +162,34 @@ namespace UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 18);
+            this.label2.Location = new System.Drawing.Point(3, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(349, 36);
             this.label2.TabIndex = 0;
             this.label2.Text = "Cantidad de Productos:";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.label2);
+            this.flowLayoutPanel1.Controls.Add(this.lblCantProducts);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1496, 67);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Controls.Add(this.label1);
+            this.flowLayoutPanel2.Controls.Add(this.txtSearch);
+            this.flowLayoutPanel2.Controls.Add(this.btnRegisterProduct);
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 15, 0, 15);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1496, 70);
+            this.flowLayoutPanel2.TabIndex = 0;
             // 
             // FormProducts
             // 
@@ -179,10 +203,12 @@ namespace UI
             this.Text = "FormProducts";
             this.Load += new System.EventHandler(this.FormProducts_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -196,5 +222,7 @@ namespace UI
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblCantProducts;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

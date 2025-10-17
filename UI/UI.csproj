@@ -270,6 +270,12 @@
     <Compile Include="FormUsers.Designer.cs">
       <DependentUpon>FormUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVehicles.Designer.cs">
+      <DependentUpon>FormVehicles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource1.Designer.cs">
@@ -361,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormUsers.resx">
       <DependentUpon>FormUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVehicles.resx">
+      <DependentUpon>FormVehicles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

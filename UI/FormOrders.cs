@@ -25,6 +25,13 @@ namespace UI
 
         private void LoadColumns()
         {
+            dgvOrders.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 14f, FontStyle.Bold);
+            dgvOrders.DefaultCellStyle.Font = new Font("Century Gothic", 11f, FontStyle.Regular);
+
+
+            dgvOrdersShipped.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 14f, FontStyle.Bold);
+            dgvOrdersShipped.DefaultCellStyle.Font = new Font("Century Gothic", 11f, FontStyle.Regular);
+
             dgvOrders.Columns.Clear();
 
             dgvOrders.Columns.Add("id", "ID Pedido");
@@ -69,7 +76,7 @@ namespace UI
             {
                 FormPreShipOrder frm = new FormPreShipOrder(Convert.ToInt32(dgvOrders.SelectedRows[0].Cells[0].Value.ToString()), this);
                 frm.StartPosition = FormStartPosition.CenterScreen;
-                frm.ShowDialog();
+                frm.ShowDialog(this);
             }
             else
             {

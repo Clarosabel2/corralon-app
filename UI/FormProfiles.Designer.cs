@@ -55,7 +55,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(12, 83);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(245, 490);
+            this.treeView1.Size = new System.Drawing.Size(245, 824);
             this.treeView1.TabIndex = 3;
             // 
             // cBProfiles
@@ -82,7 +82,7 @@
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.ReadOnly = true;
             this.dgvUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUsers.Size = new System.Drawing.Size(495, 490);
+            this.dgvUsers.Size = new System.Drawing.Size(1428, 824);
             this.dgvUsers.TabIndex = 5;
             // 
             // lblUsers
@@ -99,7 +99,7 @@
             // 
             this.btnConfigureProfile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnConfigureProfile.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigureProfile.Location = new System.Drawing.Point(12, 579);
+            this.btnConfigureProfile.Location = new System.Drawing.Point(12, 913);
             this.btnConfigureProfile.Name = "btnConfigureProfile";
             this.btnConfigureProfile.Size = new System.Drawing.Size(126, 33);
             this.btnConfigureProfile.TabIndex = 7;
@@ -122,7 +122,7 @@
             // 
             this.btnDeleteFamily.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnDeleteFamily.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteFamily.Location = new System.Drawing.Point(144, 579);
+            this.btnDeleteFamily.Location = new System.Drawing.Point(144, 913);
             this.btnDeleteFamily.Name = "btnDeleteFamily";
             this.btnDeleteFamily.Size = new System.Drawing.Size(113, 33);
             this.btnDeleteFamily.TabIndex = 9;
@@ -134,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(790, 624);
+            this.ClientSize = new System.Drawing.Size(1723, 958);
             this.Controls.Add(this.btnDeleteFamily);
             this.Controls.Add(this.btnCreateProfile);
             this.Controls.Add(this.btnConfigureProfile);
