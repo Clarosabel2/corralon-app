@@ -23,10 +23,34 @@ namespace BDE
             this.IssueDate = DateTime.Now;
             this.ItemsProducts = new List<BE_Item>();
         }
+
+        
         public BE_Sale()
         {
             this.IssueDate = DateTime.Now;
             this.ItemsProducts = new List<BE_Item>();
+        }
+
+        public BE_Sale(
+            int id,
+            char typeInvoice,
+            DateTime issueDate,
+            BE_Client client,
+            BE_Employee saleman,
+            List<BE_Item> itemsProducts,
+            double total,
+            bool status
+            )
+        {
+            this.Id = id;
+            this.TypeInvoice = typeInvoice;
+            this.IssueDate = issueDate;
+            this.ItemsProducts = itemsProducts;
+            this.Total = total;
+            this.Status = status;
+            this.Saleman = saleman;
+            this.Client = client;
+
         }
 
         public int Id { get => id; set => id = value; }

@@ -1,4 +1,5 @@
 ﻿using BDE;
+using BLL.Mappers;
 using DAL;
 using System;
 using System.Collections.Generic;
@@ -30,6 +31,17 @@ namespace BLL
         public static void  MarkDeliveredOrder(int idInvoice)
         {
             DAL_Order.MarkDeliveredOrder(idInvoice);
+        }
+
+        public static List<BE_Order> GetOrdersFinalized()
+        {
+            List<BE_Order> orders = new List<BE_Order>();
+            DataTable table = DAL_Order.GetOrdersFinalized();
+            foreach (DataRow r in table.Rows)
+            {
+                orders.Add(OrderMapper.FromDataRow(r));
+            }
+            return orders;
         }
 
     }

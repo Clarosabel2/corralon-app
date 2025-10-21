@@ -12,6 +12,47 @@ namespace DAL
 {
     public class DAL_Sale : DAL_Connection
     {
+        public static DataRow GetInvoiceById(int idInvoice)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand
+            {
+                Connection = cnn.OpenConnection(),
+                CommandText = "SELECT * FROM Facturas WHERE id_Factura = @p_idFactura",
+                CommandType = CommandType.Text
+            };
+            cmd.Parameters.AddWithValue("@p_idFactura", idInvoice);
+
+            DataTable dataTable = new DataTable();
+
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.HasRows)
+                    {
+                        dataTable.Load(reader);
+                    }
+                }
+
+                if (dataTable.Rows.Count > 0)
+                {
+                    return dataTable.Rows[0];
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener la factura por ID: " + ex.Message, ex);
+            }
+            finally
+            {
+                cnn.CloseConnection();
+            }
+        }
+
+
         public static DataTable GetProductsByIdInvoice(int idInvoice)
         {
             var cnn = new DAL_Connection();
@@ -42,7 +83,6 @@ namespace DAL
             {
                 cnn.CloseConnection();
             }
-
             return dataTable;
         }
 

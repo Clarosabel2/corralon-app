@@ -59,7 +59,7 @@ namespace DAL
             cmd.Connection = cnn.OpenConnection();
             cmd.CommandText = "SELECT * FROM Personas p WHERE p.id_Persona=@p_id_client;";
             cmd.Parameters.AddWithValue("@p_id_client", idClient);
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.Text;
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows && dr.Read())
             {

@@ -78,5 +78,10 @@ namespace BLL
             }
             return items;
         }
+
+        internal static BE_Sale GetInvoiceById(int id)
+        {
+            return SaleMapper.FromDataRow(DAL_Sale.GetInvoiceById(id));
+        }
     }
 }

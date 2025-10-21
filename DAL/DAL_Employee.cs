@@ -100,8 +100,29 @@ namespace DAL
                 return false;
             }
         }
+        public static BE_Employee GetEmployeeById(int idEmp)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"select * from Empleados e LEFT JOIN  Personas p
+                                ON e.id_Empleado = p.id_Persona
+                                WHERE id_Empleado = @p_idEmp";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_idEmp", idEmp);
+            SqlDataReader dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                return InstanceEmployee(dr);
+            }
+            return null;
+        }
         private static BE_Employee InstanceEmployee(SqlDataReader dr)
         {
+            string nombreArea = ColumnExists(dr, "nombreArea") && !dr.IsDBNull(dr.GetOrdinal("nombreArea"))
+                    ? dr.GetString(dr.GetOrdinal("nombreArea"))
+                    : string.Empty; // o null, según tu modelo
+
             return new BE_Employee(
                              dr.GetInt32(dr.GetOrdinal("id_Persona")),
                              dr.GetInt32(dr.GetOrdinal("DNI")),
@@ -111,8 +132,18 @@ namespace DAL
                              dr.GetString(dr.GetOrdinal("email")),
                              dr.GetInt32(dr.GetOrdinal("telefono")),
                              0.0,
-                             dr.GetString(dr.GetOrdinal("nombreArea")));
+                             nombreArea);
         }
-        
+
+        private static bool ColumnExists(SqlDataReader reader, string columnName)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
+        }
+
     }
 }

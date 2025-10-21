@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using BDE;
+using BLL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ namespace UI
             InitializeComponent();
             ApplyStyleCommon.DGVStyle(this.dgvOrders);
             ApplyStyleCommon.DGVStyle(this.dgvOrdersShipped);
+            ApplyStyleCommon.DGVStyle(this.dgvOrdersHistory);
             LoadColumns();
             LoadDataInDG();
         }
@@ -31,6 +33,9 @@ namespace UI
 
             dgvOrdersShipped.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 14f, FontStyle.Bold);
             dgvOrdersShipped.DefaultCellStyle.Font = new Font("Century Gothic", 11f, FontStyle.Regular);
+
+            dgvOrdersHistory.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 14f, FontStyle.Bold);
+            dgvOrdersHistory.DefaultCellStyle.Font = new Font("Century Gothic", 11f, FontStyle.Regular);
 
             dgvOrders.Columns.Clear();
 
@@ -52,7 +57,7 @@ namespace UI
             dgvOrdersShipped.Columns.Add("departureTime", "Horario de Salida");
 
             dgvOrdersShipped.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            
+
         }
         public void LoadDataInDG()
         {
@@ -68,6 +73,18 @@ namespace UI
             {
                 dgvOrdersShipped.Rows.Add(r[0], r[1], r[2], r[3], r[4], Convert.ToDateTime(r[5]).ToString("HH:mm:ss"));
             }
+
+            BLL_Order.GetOrdersFinalized().ForEach(d =>
+            {
+                dgvOrdersHistory.Rows.Add(
+                    d.Invoice.Id,
+                    d.Invoice.Client.Lastname + ", " + d.Invoice.Client.Name,
+                    d.Invoice.IssueDate.ToString("dd/MM/yyyy"),
+                    d.DeliveryDate.ToString("dd/MM/yyyy"),
+                    d.DepartureDate.ToString("HH:mm"),
+                    d.ArrivalDate.ToString("HH:mm"),
+                    d.Dealer.Lastname + ", " + d.Dealer.Name);
+            });
         }
 
         private void btnDispatchOrder_Click(object sender, EventArgs e)
@@ -105,6 +122,32 @@ namespace UI
         private void btnReportProblem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvOrdersHistory_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvOrdersHistory.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightBlue;
+                dgvOrdersHistory.Cursor = Cursors.Hand;
+            }
+        }
+
+        private void dgvOrdersHistory_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                // Restaurar el color original
+                dgvOrdersHistory.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                dgvOrdersHistory.Cursor = Cursors.Default;
+            }
+        }
+
+        private void dgvOrdersHistory_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return;
+            var row = dgvOrdersHistory.Rows[e.RowIndex];
+            int idInvoice = Convert.ToInt32(row.Cells[0].Value.ToString());
         }
     }
 }

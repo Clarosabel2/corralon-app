@@ -41,5 +41,10 @@ namespace BLL
         {
             return DAL_Employee.UpdateEmployee(empEdit);
         }
+
+        public static BE_Employee GetEmployeeById(int idEmp)
+        {
+            return DAL_Employee.GetEmployeeById(idEmp);
+        }
     }
 }

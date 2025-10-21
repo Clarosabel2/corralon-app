@@ -79,5 +79,16 @@ namespace DAL
             }
 
         }
+        public static DataTable GetOrdersFinalized()
+        {
+            var cnn = new DAL_Connection();
+            DataTable table = new DataTable();
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Pedidos where estado=@p_status"
+                , cnn.Connection);
+            adapter.SelectCommand.CommandType = CommandType.Text;
+            adapter.SelectCommand.Parameters.AddWithValue("@p_status", 1);
+            adapter.Fill(table);
+            return table;
+        }
     }
 }

@@ -57,7 +57,9 @@
     <Compile Include="BLL_Supplier.cs" />
     <Compile Include="BLL_User.cs" />
     <Compile Include="Mappers\ClientMapper.cs" />
+    <Compile Include="Mappers\OrderMapper.cs" />
     <Compile Include="Mappers\ProductMapper.cs" />
+    <Compile Include="Mappers\SaleMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
