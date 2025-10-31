@@ -63,12 +63,13 @@ namespace DAL
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.AddWithValue("@name", p.Name);
-                cmd.Parameters.AddWithValue("@description", "");
+                cmd.Parameters.AddWithValue("@description", p.Description ?? "");
                 cmd.Parameters.AddWithValue("@stock", p.Stock);
+                cmd.Parameters.AddWithValue("@min_stock", p.MinStock);
                 cmd.Parameters.AddWithValue("@price", p.Price);
                 cmd.Parameters.AddWithValue("@nombre_marca", p.Brand.NameBrand);
                 cmd.Parameters.AddWithValue("@id_categoria", p.Category);
-                cmd.Parameters.AddWithValue("@image_path", p.ImagePath);
+                cmd.Parameters.AddWithValue("@img_path", p.ImagePath);
 
                 cmd.ExecuteNonQuery();
             }
@@ -129,7 +130,7 @@ namespace DAL
                 cmd.Parameters.AddWithValue("@p_img_path", p.ImagePath);
 
                 return cmd.ExecuteNonQuery() > 0;
-                
+
             }
         }
 

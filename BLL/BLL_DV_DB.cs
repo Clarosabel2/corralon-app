@@ -127,7 +127,7 @@ namespace BLL
         }
 
         public void CalculateDVHDatabase()
-        {
+         {
             foreach (var table in DAL_Utility
                 .GetTablesExistingDB()
                 .ToList())

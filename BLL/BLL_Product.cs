@@ -45,11 +45,6 @@ namespace BLL
             return products;
         }
 
-        public static void SaveProduct(BE_Product p)
-        {
-            p.ImagePath = SaveImgToRepository(p.ImagePath, BuildFileNameProduct(p));
-            DAL_Product.SaveProduct(p);
-        }
 
         public static string GetCategoryProductById(string idCategory)
         {
@@ -58,6 +53,16 @@ namespace BLL
             if (!int.TryParse(idCategory, out int id))
                 return null;
             return DAL_Product.GetCategoryById(id);
+        }
+        public static void SaveProduct(BE_Product p, bool flag)
+        {
+            if (flag)
+            {
+                p.ImagePath = SaveImgToRepository(p.ImagePath, BuildFileNameProduct(p));
+            }
+            DAL_Product.SaveProduct(p);
+            BLL_DV_DB dvhService = new BLL_DV_DB();
+            dvhService.RecalculateDV();
         }
         public static void UpdateProduct(BE_Product p, bool flag)      
         {

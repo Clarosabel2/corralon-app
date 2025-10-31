@@ -71,19 +71,26 @@ namespace UI
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonDefault1 = new UI.Controls.ButtonDefault();
             this.tableLayoutPanel14 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label8 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
@@ -93,13 +100,6 @@ namespace UI
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.flowLayoutPanel10 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.buttonDefault1 = new UI.Controls.ButtonDefault();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -121,6 +121,7 @@ namespace UI
             this.flowLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel10.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.flowLayoutPanel6.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
@@ -129,7 +130,6 @@ namespace UI
             this.flowLayoutPanel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
-            this.flowLayoutPanel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -526,13 +526,16 @@ namespace UI
             this.colIdInvoice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.colIdInvoice.Frozen = true;
             this.colIdInvoice.HeaderText = "ID";
+            this.colIdInvoice.MinimumWidth = 8;
             this.colIdInvoice.Name = "colIdInvoice";
             this.colIdInvoice.ReadOnly = true;
+            this.colIdInvoice.Width = 150;
             // 
             // colDNIClient
             // 
             this.colDNIClient.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDNIClient.HeaderText = "Cliente";
+            this.colDNIClient.MinimumWidth = 8;
             this.colDNIClient.Name = "colDNIClient";
             this.colDNIClient.ReadOnly = true;
             // 
@@ -540,6 +543,7 @@ namespace UI
             // 
             this.colIssueDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colIssueDate.HeaderText = "Fecha Emision";
+            this.colIssueDate.MinimumWidth = 8;
             this.colIssueDate.Name = "colIssueDate";
             this.colIssueDate.ReadOnly = true;
             this.colIssueDate.Width = 124;
@@ -548,6 +552,7 @@ namespace UI
             // 
             this.colDeliveryDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colDeliveryDate.HeaderText = "Fecha Entrega";
+            this.colDeliveryDate.MinimumWidth = 8;
             this.colDeliveryDate.Name = "colDeliveryDate";
             this.colDeliveryDate.ReadOnly = true;
             this.colDeliveryDate.Width = 126;
@@ -556,6 +561,7 @@ namespace UI
             // 
             this.colDepartureDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colDepartureDate.HeaderText = "Hora Salida";
+            this.colDepartureDate.MinimumWidth = 8;
             this.colDepartureDate.Name = "colDepartureDate";
             this.colDepartureDate.ReadOnly = true;
             this.colDepartureDate.Width = 107;
@@ -564,6 +570,7 @@ namespace UI
             // 
             this.colArrivalDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.colArrivalDate.HeaderText = "Hora Entrega";
+            this.colArrivalDate.MinimumWidth = 8;
             this.colArrivalDate.Name = "colArrivalDate";
             this.colArrivalDate.ReadOnly = true;
             this.colArrivalDate.Width = 118;
@@ -572,6 +579,7 @@ namespace UI
             // 
             this.colDealer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colDealer.HeaderText = "Chofer";
+            this.colDealer.MinimumWidth = 8;
             this.colDealer.Name = "colDealer";
             this.colDealer.ReadOnly = true;
             // 
@@ -620,6 +628,24 @@ namespace UI
             this.button1.Text = "Borrar Filtros";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // buttonDefault1
+            // 
+            this.buttonDefault1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
+            this.buttonDefault1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonDefault1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDefault1.FlatAppearance.BorderSize = 0;
+            this.buttonDefault1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDefault1.Font = new System.Drawing.Font("Century Gothic", 10.5F, System.Drawing.FontStyle.Bold);
+            this.buttonDefault1.ForeColor = System.Drawing.Color.Transparent;
+            this.buttonDefault1.Image = global::UI.Properties.Resources._1077991;
+            this.buttonDefault1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonDefault1.Location = new System.Drawing.Point(287, 3);
+            this.buttonDefault1.Name = "buttonDefault1";
+            this.buttonDefault1.Size = new System.Drawing.Size(279, 39);
+            this.buttonDefault1.TabIndex = 1;
+            this.buttonDefault1.Text = "Aplicar";
+            this.buttonDefault1.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel14
             // 
             this.tableLayoutPanel14.ColumnCount = 2;
@@ -654,6 +680,15 @@ namespace UI
             this.label11.TabIndex = 0;
             this.label11.Text = "Medio de pago:";
             // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(119, 0);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(156, 25);
+            this.comboBox2.TabIndex = 2;
+            // 
             // flowLayoutPanel8
             // 
             this.flowLayoutPanel8.Controls.Add(this.label10);
@@ -663,6 +698,23 @@ namespace UI
             this.flowLayoutPanel8.Name = "flowLayoutPanel8";
             this.flowLayoutPanel8.Size = new System.Drawing.Size(278, 38);
             this.flowLayoutPanel8.TabIndex = 1;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 17);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Vendedor:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(82, 0);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(196, 23);
+            this.textBox4.TabIndex = 2;
             // 
             // tableLayoutPanel13
             // 
@@ -688,23 +740,50 @@ namespace UI
             this.flowLayoutPanel7.Size = new System.Drawing.Size(278, 38);
             this.flowLayoutPanel7.TabIndex = 1;
             // 
-            // label9
+            // label8
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 17);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Nº Pedido";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Cliente";
             // 
-            // textBox2
+            // textBox3
             // 
-            this.textBox2.Location = new System.Drawing.Point(0, 10);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(450, 23);
-            this.textBox2.TabIndex = 1;
+            this.textBox3.Location = new System.Drawing.Point(60, 0);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(198, 23);
+            this.textBox3.TabIndex = 1;
+            // 
+            // flowLayoutPanel10
+            // 
+            this.flowLayoutPanel10.Controls.Add(this.label7);
+            this.flowLayoutPanel10.Controls.Add(this.comboBox1);
+            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel10.Location = new System.Drawing.Point(287, 3);
+            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
+            this.flowLayoutPanel10.Size = new System.Drawing.Size(279, 38);
+            this.flowLayoutPanel10.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(3, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 17);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Estado:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(62, 0);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(196, 25);
+            this.comboBox1.TabIndex = 1;
             // 
             // tableLayoutPanel11
             // 
@@ -730,14 +809,13 @@ namespace UI
             this.flowLayoutPanel6.Size = new System.Drawing.Size(474, 39);
             this.flowLayoutPanel6.TabIndex = 2;
             // 
-            // label8
+            // textBox2
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Cliente";
+            this.textBox2.Location = new System.Drawing.Point(0, 10);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(450, 23);
+            this.textBox2.TabIndex = 1;
             // 
             // flowLayoutPanel5
             // 
@@ -749,14 +827,15 @@ namespace UI
             this.flowLayoutPanel5.Size = new System.Drawing.Size(83, 39);
             this.flowLayoutPanel5.TabIndex = 1;
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Estado:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(3, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 17);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Nº Pedido";
             // 
             // tableLayoutPanel9
             // 
@@ -851,77 +930,6 @@ namespace UI
             this.tableLayoutPanel7.Size = new System.Drawing.Size(1218, 977);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(62, 0);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(196, 25);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(60, 0);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(198, 23);
-            this.textBox3.TabIndex = 1;
-            // 
-            // flowLayoutPanel10
-            // 
-            this.flowLayoutPanel10.Controls.Add(this.label7);
-            this.flowLayoutPanel10.Controls.Add(this.comboBox1);
-            this.flowLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel10.Location = new System.Drawing.Point(287, 3);
-            this.flowLayoutPanel10.Name = "flowLayoutPanel10";
-            this.flowLayoutPanel10.Size = new System.Drawing.Size(279, 38);
-            this.flowLayoutPanel10.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 17);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Vendedor:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(82, 0);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(196, 23);
-            this.textBox4.TabIndex = 2;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(119, 0);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(156, 25);
-            this.comboBox2.TabIndex = 2;
-            // 
-            // buttonDefault1
-            // 
-            this.buttonDefault1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
-            this.buttonDefault1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonDefault1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDefault1.FlatAppearance.BorderSize = 0;
-            this.buttonDefault1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDefault1.Font = new System.Drawing.Font("Century Gothic", 10.5F, System.Drawing.FontStyle.Bold);
-            this.buttonDefault1.ForeColor = System.Drawing.Color.Transparent;
-            this.buttonDefault1.Image = global::UI.Properties.Resources._1077991;
-            this.buttonDefault1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonDefault1.Location = new System.Drawing.Point(287, 3);
-            this.buttonDefault1.Name = "buttonDefault1";
-            this.buttonDefault1.Size = new System.Drawing.Size(279, 39);
-            this.buttonDefault1.TabIndex = 1;
-            this.buttonDefault1.Text = "Aplicar";
-            this.buttonDefault1.UseVisualStyleBackColor = false;
-            // 
             // FormOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -960,6 +968,8 @@ namespace UI
             this.tableLayoutPanel13.ResumeLayout(false);
             this.flowLayoutPanel7.ResumeLayout(false);
             this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel10.ResumeLayout(false);
+            this.flowLayoutPanel10.PerformLayout();
             this.tableLayoutPanel11.ResumeLayout(false);
             this.flowLayoutPanel6.ResumeLayout(false);
             this.flowLayoutPanel6.PerformLayout();
@@ -972,8 +982,6 @@ namespace UI
             this.flowLayoutPanel3.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.flowLayoutPanel10.ResumeLayout(false);
-            this.flowLayoutPanel10.PerformLayout();
             this.ResumeLayout(false);
 
         }

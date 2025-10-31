@@ -99,7 +99,7 @@ namespace UI
 
                 if (!isEdit)
                 {
-                    BLL_Product.SaveProduct(product);
+                    BLL_Product.SaveProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
                 }
                 else
                 {

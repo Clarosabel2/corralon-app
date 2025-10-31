@@ -187,6 +187,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="corralondbDataSet.cs">
+      <DependentUpon>corralondbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="corralondbDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

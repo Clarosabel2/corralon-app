@@ -123,7 +123,7 @@ namespace UI
             this.tblCustomer.Controls.Add(this.lblCustomerNotes, 0, 3);
             this.tblCustomer.Controls.Add(this.txtCustomerNotes, 1, 3);
             this.tblCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblCustomer.Location = new System.Drawing.Point(8, 30);
+            this.tblCustomer.Location = new System.Drawing.Point(8, 23);
             this.tblCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.tblCustomer.Name = "tblCustomer";
             this.tblCustomer.Padding = new System.Windows.Forms.Padding(4);
@@ -132,17 +132,17 @@ namespace UI
             this.tblCustomer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblCustomer.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblCustomer.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblCustomer.Size = new System.Drawing.Size(643, 149);
+            this.tblCustomer.Size = new System.Drawing.Size(643, 156);
             this.tblCustomer.TabIndex = 0;
             // 
             // lblFullName
             // 
             this.lblFullName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblFullName.AutoSize = true;
-            this.lblFullName.Location = new System.Drawing.Point(8, 4);
+            this.lblFullName.Location = new System.Drawing.Point(8, 10);
             this.lblFullName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFullName.Name = "lblFullName";
-            this.lblFullName.Size = new System.Drawing.Size(96, 42);
+            this.lblFullName.Size = new System.Drawing.Size(108, 16);
             this.lblFullName.TabIndex = 0;
             this.lblFullName.Text = "Nombre completo:";
             // 
@@ -154,17 +154,17 @@ namespace UI
             this.txtFullName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.ReadOnly = true;
-            this.txtFullName.Size = new System.Drawing.Size(469, 28);
+            this.txtFullName.Size = new System.Drawing.Size(469, 21);
             this.txtFullName.TabIndex = 1;
             // 
             // lblAddress
             // 
             this.lblAddress.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAddress.AutoSize = true;
-            this.lblAddress.Location = new System.Drawing.Point(8, 53);
+            this.lblAddress.Location = new System.Drawing.Point(8, 39);
             this.lblAddress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(88, 21);
+            this.lblAddress.Size = new System.Drawing.Size(57, 16);
             this.lblAddress.TabIndex = 2;
             this.lblAddress.Text = "Domicilio:";
             // 
@@ -172,40 +172,40 @@ namespace UI
             // 
             this.tblCustomer.SetColumnSpan(this.txtAddress, 3);
             this.txtAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAddress.Location = new System.Drawing.Point(166, 50);
+            this.txtAddress.Location = new System.Drawing.Point(166, 37);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(469, 28);
+            this.txtAddress.Size = new System.Drawing.Size(469, 21);
             this.txtAddress.TabIndex = 3;
             // 
             // lblPhone
             // 
             this.lblPhone.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(8, 89);
+            this.lblPhone.Location = new System.Drawing.Point(8, 68);
             this.lblPhone.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(85, 21);
+            this.lblPhone.Size = new System.Drawing.Size(55, 16);
             this.lblPhone.TabIndex = 4;
             this.lblPhone.Text = "Teléfono:";
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(166, 86);
+            this.txtPhone.Location = new System.Drawing.Point(166, 66);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.ReadOnly = true;
-            this.txtPhone.Size = new System.Drawing.Size(141, 28);
+            this.txtPhone.Size = new System.Drawing.Size(141, 21);
             this.txtPhone.TabIndex = 5;
             // 
             // lblCustomerNotes
             // 
             this.lblCustomerNotes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCustomerNotes.AutoSize = true;
-            this.lblCustomerNotes.Location = new System.Drawing.Point(8, 140);
+            this.lblCustomerNotes.Location = new System.Drawing.Point(8, 116);
             this.lblCustomerNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCustomerNotes.Name = "lblCustomerNotes";
-            this.lblCustomerNotes.Size = new System.Drawing.Size(141, 21);
+            this.lblCustomerNotes.Size = new System.Drawing.Size(92, 16);
             this.lblCustomerNotes.TabIndex = 6;
             this.lblCustomerNotes.Text = "Observaciones:";
             // 
@@ -213,7 +213,7 @@ namespace UI
             // 
             this.tblCustomer.SetColumnSpan(this.txtCustomerNotes, 3);
             this.txtCustomerNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtCustomerNotes.Location = new System.Drawing.Point(166, 122);
+            this.txtCustomerNotes.Location = new System.Drawing.Point(166, 95);
             this.txtCustomerNotes.Margin = new System.Windows.Forms.Padding(4);
             this.txtCustomerNotes.Multiline = true;
             this.txtCustomerNotes.Name = "txtCustomerNotes";
@@ -247,7 +247,7 @@ namespace UI
             this.tblAssignee.Controls.Add(this.chkCashOnDelivery, 2, 2);
             this.tblAssignee.Controls.Add(this.chkFragile, 2, 3);
             this.tblAssignee.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tblAssignee.Location = new System.Drawing.Point(8, 30);
+            this.tblAssignee.Location = new System.Drawing.Point(8, 23);
             this.tblAssignee.Margin = new System.Windows.Forms.Padding(4);
             this.tblAssignee.Name = "tblAssignee";
             this.tblAssignee.Padding = new System.Windows.Forms.Padding(4);
@@ -257,7 +257,7 @@ namespace UI
             this.tblAssignee.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblAssignee.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblAssignee.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblAssignee.Size = new System.Drawing.Size(421, 149);
+            this.tblAssignee.Size = new System.Drawing.Size(421, 156);
             this.tblAssignee.TabIndex = 0;
             // 
             // lblAvailable
@@ -266,7 +266,7 @@ namespace UI
             this.lblAvailable.Location = new System.Drawing.Point(8, 4);
             this.lblAvailable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvailable.Name = "lblAvailable";
-            this.lblAvailable.Size = new System.Drawing.Size(107, 21);
+            this.lblAvailable.Size = new System.Drawing.Size(69, 16);
             this.lblAvailable.TabIndex = 0;
             this.lblAvailable.Text = "Disponibles:";
             // 
@@ -274,12 +274,12 @@ namespace UI
             // 
             this.lstDealers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstDealers.FormattingEnabled = true;
-            this.lstDealers.ItemHeight = 21;
-            this.lstDealers.Location = new System.Drawing.Point(8, 50);
+            this.lstDealers.ItemHeight = 16;
+            this.lstDealers.Location = new System.Drawing.Point(8, 24);
             this.lstDealers.Margin = new System.Windows.Forms.Padding(4);
             this.lstDealers.Name = "lstDealers";
             this.tblAssignee.SetRowSpan(this.lstDealers, 4);
-            this.lstDealers.Size = new System.Drawing.Size(155, 144);
+            this.lstDealers.Size = new System.Drawing.Size(154, 144);
             this.lstDealers.TabIndex = 1;
             // 
             // pnlAssignButtons
@@ -289,10 +289,10 @@ namespace UI
             this.pnlAssignButtons.Controls.Add(this.btnAssign);
             this.pnlAssignButtons.Controls.Add(this.btnUnassign);
             this.pnlAssignButtons.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.pnlAssignButtons.Location = new System.Drawing.Point(171, 50);
+            this.pnlAssignButtons.Location = new System.Drawing.Point(170, 24);
             this.pnlAssignButtons.Margin = new System.Windows.Forms.Padding(4);
             this.pnlAssignButtons.Name = "pnlAssignButtons";
-            this.pnlAssignButtons.Size = new System.Drawing.Size(107, 78);
+            this.pnlAssignButtons.Size = new System.Drawing.Size(110, 84);
             this.pnlAssignButtons.TabIndex = 2;
             // 
             // btnAssign
@@ -301,7 +301,7 @@ namespace UI
             this.btnAssign.Location = new System.Drawing.Point(4, 4);
             this.btnAssign.Margin = new System.Windows.Forms.Padding(4);
             this.btnAssign.Name = "btnAssign";
-            this.btnAssign.Size = new System.Drawing.Size(99, 31);
+            this.btnAssign.Size = new System.Drawing.Size(102, 34);
             this.btnAssign.TabIndex = 0;
             this.btnAssign.Text = "Asignar ▶";
             this.btnAssign.UseVisualStyleBackColor = true;
@@ -310,10 +310,10 @@ namespace UI
             // btnUnassign
             // 
             this.btnUnassign.AutoSize = true;
-            this.btnUnassign.Location = new System.Drawing.Point(4, 43);
+            this.btnUnassign.Location = new System.Drawing.Point(4, 46);
             this.btnUnassign.Margin = new System.Windows.Forms.Padding(4);
             this.btnUnassign.Name = "btnUnassign";
-            this.btnUnassign.Size = new System.Drawing.Size(90, 31);
+            this.btnUnassign.Size = new System.Drawing.Size(90, 34);
             this.btnUnassign.TabIndex = 1;
             this.btnUnassign.Text = "◀ Quitar";
             this.btnUnassign.UseVisualStyleBackColor = true;
@@ -322,30 +322,30 @@ namespace UI
             // lblAssignedDealer
             // 
             this.lblAssignedDealer.AutoSize = true;
-            this.lblAssignedDealer.Location = new System.Drawing.Point(286, 4);
+            this.lblAssignedDealer.Location = new System.Drawing.Point(288, 4);
             this.lblAssignedDealer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAssignedDealer.Name = "lblAssignedDealer";
-            this.lblAssignedDealer.Size = new System.Drawing.Size(103, 42);
+            this.lblAssignedDealer.Size = new System.Drawing.Size(121, 16);
             this.lblAssignedDealer.TabIndex = 3;
             this.lblAssignedDealer.Text = "Repartidor asignado:";
             // 
             // txtAssignedDealer
             // 
             this.txtAssignedDealer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtAssignedDealer.Location = new System.Drawing.Point(286, 50);
+            this.txtAssignedDealer.Location = new System.Drawing.Point(288, 24);
             this.txtAssignedDealer.Margin = new System.Windows.Forms.Padding(4);
             this.txtAssignedDealer.Name = "txtAssignedDealer";
             this.txtAssignedDealer.ReadOnly = true;
-            this.txtAssignedDealer.Size = new System.Drawing.Size(127, 28);
+            this.txtAssignedDealer.Size = new System.Drawing.Size(125, 21);
             this.txtAssignedDealer.TabIndex = 4;
             // 
             // chkCashOnDelivery
             // 
             this.chkCashOnDelivery.AutoSize = true;
-            this.chkCashOnDelivery.Location = new System.Drawing.Point(286, 136);
+            this.chkCashOnDelivery.Location = new System.Drawing.Point(288, 116);
             this.chkCashOnDelivery.Margin = new System.Windows.Forms.Padding(4);
             this.chkCashOnDelivery.Name = "chkCashOnDelivery";
-            this.chkCashOnDelivery.Size = new System.Drawing.Size(127, 25);
+            this.chkCashOnDelivery.Size = new System.Drawing.Size(122, 20);
             this.chkCashOnDelivery.TabIndex = 5;
             this.chkCashOnDelivery.Text = "Contra reembolso";
             this.chkCashOnDelivery.UseVisualStyleBackColor = true;
@@ -353,10 +353,10 @@ namespace UI
             // chkFragile
             // 
             this.chkFragile.AutoSize = true;
-            this.chkFragile.Location = new System.Drawing.Point(286, 169);
+            this.chkFragile.Location = new System.Drawing.Point(288, 144);
             this.chkFragile.Margin = new System.Windows.Forms.Padding(4);
             this.chkFragile.Name = "chkFragile";
-            this.chkFragile.Size = new System.Drawing.Size(78, 25);
+            this.chkFragile.Size = new System.Drawing.Size(53, 20);
             this.chkFragile.TabIndex = 6;
             this.chkFragile.Text = "Frágil";
             this.chkFragile.UseVisualStyleBackColor = true;
@@ -387,7 +387,7 @@ namespace UI
             this.colQuantity,
             this.colNotes});
             this.dgvItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvItems.Location = new System.Drawing.Point(8, 30);
+            this.dgvItems.Location = new System.Drawing.Point(8, 23);
             this.dgvItems.Margin = new System.Windows.Forms.Padding(4);
             this.dgvItems.MultiSelect = false;
             this.dgvItems.Name = "dgvItems";
@@ -395,7 +395,7 @@ namespace UI
             this.dgvItems.RowHeadersVisible = false;
             this.dgvItems.RowHeadersWidth = 62;
             this.dgvItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvItems.Size = new System.Drawing.Size(1088, 513);
+            this.dgvItems.Size = new System.Drawing.Size(1088, 520);
             this.dgvItems.TabIndex = 0;
             // 
             // colSku
@@ -463,7 +463,7 @@ namespace UI
             this.btnClose.Location = new System.Drawing.Point(1012, 8);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 31);
+            this.btnClose.Size = new System.Drawing.Size(80, 34);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = true;
@@ -472,10 +472,10 @@ namespace UI
             // btnPrint
             // 
             this.btnPrint.AutoSize = true;
-            this.btnPrint.Location = new System.Drawing.Point(806, 8);
+            this.btnPrint.Location = new System.Drawing.Point(803, 8);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(4);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(198, 31);
+            this.btnPrint.Size = new System.Drawing.Size(201, 34);
             this.btnPrint.TabIndex = 2;
             this.btnPrint.Text = "Imprimir Hoja de Ruta";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -483,10 +483,10 @@ namespace UI
             // btnValidate
             // 
             this.btnValidate.AutoSize = true;
-            this.btnValidate.Location = new System.Drawing.Point(718, 8);
+            this.btnValidate.Location = new System.Drawing.Point(715, 8);
             this.btnValidate.Margin = new System.Windows.Forms.Padding(4);
             this.btnValidate.Name = "btnValidate";
-            this.btnValidate.Size = new System.Drawing.Size(80, 31);
+            this.btnValidate.Size = new System.Drawing.Size(80, 34);
             this.btnValidate.TabIndex = 1;
             this.btnValidate.Text = "Validar";
             this.btnValidate.UseVisualStyleBackColor = true;
@@ -494,10 +494,10 @@ namespace UI
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(619, 8);
+            this.btnSave.Location = new System.Drawing.Point(616, 8);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(91, 31);
+            this.btnSave.Size = new System.Drawing.Size(91, 34);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Guardar";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -505,7 +505,7 @@ namespace UI
             // 
             // FormPreShipOrder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1128, 826);
             this.Controls.Add(this.tblRoot);

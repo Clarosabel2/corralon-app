@@ -15,9 +15,11 @@ namespace UI
 {
     public partial class FormOrders : Form
     {
+        private List<BE_Order> ordersFinalized;
         public FormOrders()
         {
             InitializeComponent();
+            ordersFinalized = new List<BE_Order>();
             ApplyStyleCommon.DGVStyle(this.dgvOrders);
             ApplyStyleCommon.DGVStyle(this.dgvOrdersShipped);
             ApplyStyleCommon.DGVStyle(this.dgvOrdersHistory);
@@ -74,7 +76,8 @@ namespace UI
                 dgvOrdersShipped.Rows.Add(r[0], r[1], r[2], r[3], r[4], Convert.ToDateTime(r[5]).ToString("HH:mm:ss"));
             }
 
-            BLL_Order.GetOrdersFinalized().ForEach(d =>
+            ordersFinalized = BLL_Order.GetOrdersFinalized();
+            ordersFinalized.ForEach(d =>
             {
                 dgvOrdersHistory.Rows.Add(
                     d.Invoice.Id,
@@ -86,6 +89,7 @@ namespace UI
                     d.Dealer.Lastname + ", " + d.Dealer.Name);
             });
         }
+
 
         private void btnDispatchOrder_Click(object sender, EventArgs e)
         {
@@ -148,6 +152,9 @@ namespace UI
             if (e.RowIndex < 0) return;
             var row = dgvOrdersHistory.Rows[e.RowIndex];
             int idInvoice = Convert.ToInt32(row.Cells[0].Value.ToString());
+            FormOrderDetail frm = new FormOrderDetail(ordersFinalized.FirstOrDefault(o => o.Invoice.Id == idInvoice));
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
         }
     }
 }
