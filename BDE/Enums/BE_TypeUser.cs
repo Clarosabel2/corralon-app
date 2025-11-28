@@ -11,5 +11,6 @@ namespace BDE
         ADMIN,
         SALESMAN,
         LOGISTICMAN,
+        MECHANICMAN
     }
 }

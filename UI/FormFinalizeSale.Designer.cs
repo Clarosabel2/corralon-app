@@ -136,7 +136,7 @@ namespace UI
             this.tlpRoot.Controls.Add(this.pnlActions, 0, 2);
             this.tlpRoot.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpRoot.Location = new System.Drawing.Point(0, 0);
-            this.tlpRoot.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpRoot.Margin = new System.Windows.Forms.Padding(2);
             this.tlpRoot.Name = "tlpRoot";
             this.tlpRoot.RowCount = 3;
             this.tlpRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.070492F));
@@ -151,7 +151,7 @@ namespace UI
             this.lblHeader.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHeader.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
             this.lblHeader.Location = new System.Drawing.Point(7, 7);
-            this.lblHeader.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.lblHeader.Margin = new System.Windows.Forms.Padding(7);
             this.lblHeader.Name = "lblHeader";
             this.lblHeader.Size = new System.Drawing.Size(1148, 49);
             this.lblHeader.TabIndex = 0;
@@ -166,7 +166,7 @@ namespace UI
             this.tlpContent.Controls.Add(this.tlpRight, 1, 0);
             this.tlpContent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpContent.Location = new System.Drawing.Point(2, 65);
-            this.tlpContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpContent.Margin = new System.Windows.Forms.Padding(2);
             this.tlpContent.Name = "tlpContent";
             this.tlpContent.RowCount = 1;
             this.tlpContent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -183,7 +183,7 @@ namespace UI
             this.tlpLeft.Controls.Add(this.grpObservaciones, 0, 2);
             this.tlpLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpLeft.Location = new System.Drawing.Point(2, 2);
-            this.tlpLeft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpLeft.Margin = new System.Windows.Forms.Padding(2);
             this.tlpLeft.Name = "tlpLeft";
             this.tlpLeft.RowCount = 3;
             this.tlpLeft.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -199,9 +199,9 @@ namespace UI
             this.grpCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpCliente.Location = new System.Drawing.Point(2, 2);
-            this.grpCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpCliente.Margin = new System.Windows.Forms.Padding(2);
             this.grpCliente.Name = "grpCliente";
-            this.grpCliente.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpCliente.Padding = new System.Windows.Forms.Padding(7);
             this.grpCliente.Size = new System.Drawing.Size(686, 64);
             this.grpCliente.TabIndex = 0;
             this.grpCliente.TabStop = false;
@@ -227,7 +227,7 @@ namespace UI
             this.tlpCliente.Controls.Add(this.txtDNIClient, 1, 0);
             this.tlpCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpCliente.Location = new System.Drawing.Point(7, 27);
-            this.tlpCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpCliente.Margin = new System.Windows.Forms.Padding(2);
             this.tlpCliente.Name = "tlpCliente";
             this.tlpCliente.RowCount = 1;
             this.tlpCliente.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -238,7 +238,7 @@ namespace UI
             // 
             this.txtDNIClient.Dock = System.Windows.Forms.DockStyle.Right;
             this.txtDNIClient.Location = new System.Drawing.Point(49, 2);
-            this.txtDNIClient.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDNIClient.Margin = new System.Windows.Forms.Padding(2);
             this.txtDNIClient.Name = "txtDNIClient";
             this.txtDNIClient.Size = new System.Drawing.Size(621, 27);
             this.txtDNIClient.TabIndex = 1;
@@ -251,9 +251,9 @@ namespace UI
             this.grpEntrega.Controls.Add(this.tlpEntrega);
             this.grpEntrega.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpEntrega.Location = new System.Drawing.Point(2, 70);
-            this.grpEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.grpEntrega.Name = "grpEntrega";
-            this.grpEntrega.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpEntrega.Padding = new System.Windows.Forms.Padding(7);
             this.grpEntrega.Size = new System.Drawing.Size(686, 443);
             this.grpEntrega.TabIndex = 1;
             this.grpEntrega.TabStop = false;
@@ -281,7 +281,7 @@ namespace UI
             this.tlpEntrega.Controls.Add(this.flpNotifyChks, 1, 5);
             this.tlpEntrega.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpEntrega.Location = new System.Drawing.Point(7, 27);
-            this.tlpEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.tlpEntrega.Name = "tlpEntrega";
             this.tlpEntrega.RowCount = 7;
             this.tlpEntrega.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -323,7 +323,7 @@ namespace UI
             this.pnlModoEntrega.Controls.Add(this.rbEnvioDomicilio);
             this.pnlModoEntrega.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlModoEntrega.Location = new System.Drawing.Point(136, 2);
-            this.pnlModoEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlModoEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.pnlModoEntrega.Name = "pnlModoEntrega";
             this.pnlModoEntrega.Size = new System.Drawing.Size(534, 29);
             this.pnlModoEntrega.TabIndex = 1;
@@ -333,7 +333,7 @@ namespace UI
             this.rbRetiroLocal.AutoSize = true;
             this.rbRetiroLocal.Checked = true;
             this.rbRetiroLocal.Location = new System.Drawing.Point(2, 2);
-            this.rbRetiroLocal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbRetiroLocal.Margin = new System.Windows.Forms.Padding(2);
             this.rbRetiroLocal.Name = "rbRetiroLocal";
             this.rbRetiroLocal.Size = new System.Drawing.Size(114, 25);
             this.rbRetiroLocal.TabIndex = 0;
@@ -346,7 +346,7 @@ namespace UI
             // 
             this.rbEnvioDomicilio.AutoSize = true;
             this.rbEnvioDomicilio.Location = new System.Drawing.Point(120, 2);
-            this.rbEnvioDomicilio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbEnvioDomicilio.Margin = new System.Windows.Forms.Padding(2);
             this.rbEnvioDomicilio.Name = "rbEnvioDomicilio";
             this.rbEnvioDomicilio.Size = new System.Drawing.Size(157, 25);
             this.rbEnvioDomicilio.TabIndex = 1;
@@ -369,7 +369,7 @@ namespace UI
             // 
             this.dtpDeliveryDate.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtpDeliveryDate.Location = new System.Drawing.Point(136, 35);
-            this.dtpDeliveryDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDeliveryDate.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDeliveryDate.Name = "dtpDeliveryDate";
             this.dtpDeliveryDate.Size = new System.Drawing.Size(414, 27);
             this.dtpDeliveryDate.TabIndex = 3;
@@ -391,7 +391,7 @@ namespace UI
             this.dtpDeliveryHour.Dock = System.Windows.Forms.DockStyle.Left;
             this.dtpDeliveryHour.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtpDeliveryHour.Location = new System.Drawing.Point(136, 66);
-            this.dtpDeliveryHour.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtpDeliveryHour.Margin = new System.Windows.Forms.Padding(2);
             this.dtpDeliveryHour.Name = "dtpDeliveryHour";
             this.dtpDeliveryHour.ShowUpDown = true;
             this.dtpDeliveryHour.Size = new System.Drawing.Size(116, 27);
@@ -412,7 +412,7 @@ namespace UI
             // 
             this.txtDireccionEntrega.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDireccionEntrega.Location = new System.Drawing.Point(136, 97);
-            this.txtDireccionEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDireccionEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.txtDireccionEntrega.Name = "txtDireccionEntrega";
             this.txtDireccionEntrega.Size = new System.Drawing.Size(534, 27);
             this.txtDireccionEntrega.TabIndex = 7;
@@ -434,7 +434,7 @@ namespace UI
             this.nudCostoEnvio.Dock = System.Windows.Forms.DockStyle.Left;
             this.nudCostoEnvio.Enabled = false;
             this.nudCostoEnvio.Location = new System.Drawing.Point(136, 128);
-            this.nudCostoEnvio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudCostoEnvio.Margin = new System.Windows.Forms.Padding(2);
             this.nudCostoEnvio.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -460,7 +460,7 @@ namespace UI
             // 
             this.txtObservacionesEntrega.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtObservacionesEntrega.Location = new System.Drawing.Point(136, 201);
-            this.txtObservacionesEntrega.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtObservacionesEntrega.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservacionesEntrega.Multiline = true;
             this.txtObservacionesEntrega.Name = "txtObservacionesEntrega";
             this.txtObservacionesEntrega.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -482,7 +482,7 @@ namespace UI
             // 
             this.chkNotifyWhatsapp.AutoSize = true;
             this.chkNotifyWhatsapp.Location = new System.Drawing.Point(2, 2);
-            this.chkNotifyWhatsapp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkNotifyWhatsapp.Margin = new System.Windows.Forms.Padding(2);
             this.chkNotifyWhatsapp.Name = "chkNotifyWhatsapp";
             this.chkNotifyWhatsapp.Size = new System.Drawing.Size(113, 25);
             this.chkNotifyWhatsapp.TabIndex = 10;
@@ -493,7 +493,7 @@ namespace UI
             // 
             this.chkNotifyEmail.AutoSize = true;
             this.chkNotifyEmail.Location = new System.Drawing.Point(119, 2);
-            this.chkNotifyEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkNotifyEmail.Margin = new System.Windows.Forms.Padding(2);
             this.chkNotifyEmail.Name = "chkNotifyEmail";
             this.chkNotifyEmail.Size = new System.Drawing.Size(70, 25);
             this.chkNotifyEmail.TabIndex = 11;
@@ -505,9 +505,9 @@ namespace UI
             this.grpObservaciones.Controls.Add(this.txtObservaciones);
             this.grpObservaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpObservaciones.Location = new System.Drawing.Point(2, 517);
-            this.grpObservaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpObservaciones.Margin = new System.Windows.Forms.Padding(2);
             this.grpObservaciones.Name = "grpObservaciones";
-            this.grpObservaciones.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpObservaciones.Padding = new System.Windows.Forms.Padding(7);
             this.grpObservaciones.Size = new System.Drawing.Size(686, 256);
             this.grpObservaciones.TabIndex = 2;
             this.grpObservaciones.TabStop = false;
@@ -517,7 +517,7 @@ namespace UI
             // 
             this.txtObservaciones.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtObservaciones.Location = new System.Drawing.Point(7, 27);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(2);
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -534,7 +534,7 @@ namespace UI
             this.tlpRight.Controls.Add(this.grpResumen, 0, 2);
             this.tlpRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpRight.Location = new System.Drawing.Point(696, 2);
-            this.tlpRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpRight.Margin = new System.Windows.Forms.Padding(2);
             this.tlpRight.Name = "tlpRight";
             this.tlpRight.RowCount = 3;
             this.tlpRight.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -548,9 +548,9 @@ namespace UI
             this.grpComprobante.Controls.Add(this.tlpComprobante);
             this.grpComprobante.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpComprobante.Location = new System.Drawing.Point(2, 2);
-            this.grpComprobante.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpComprobante.Margin = new System.Windows.Forms.Padding(2);
             this.grpComprobante.Name = "grpComprobante";
-            this.grpComprobante.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpComprobante.Padding = new System.Windows.Forms.Padding(7);
             this.grpComprobante.Size = new System.Drawing.Size(456, 129);
             this.grpComprobante.TabIndex = 0;
             this.grpComprobante.TabStop = false;
@@ -570,7 +570,7 @@ namespace UI
             this.tlpComprobante.Controls.Add(this.txtNroComprobante, 1, 2);
             this.tlpComprobante.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpComprobante.Location = new System.Drawing.Point(7, 27);
-            this.tlpComprobante.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpComprobante.Margin = new System.Windows.Forms.Padding(2);
             this.tlpComprobante.Name = "tlpComprobante";
             this.tlpComprobante.RowCount = 3;
             this.tlpComprobante.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -596,7 +596,7 @@ namespace UI
             this.cBTypesInvoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBTypesInvoice.FormattingEnabled = true;
             this.cBTypesInvoice.Location = new System.Drawing.Point(152, 2);
-            this.cBTypesInvoice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cBTypesInvoice.Margin = new System.Windows.Forms.Padding(2);
             this.cBTypesInvoice.Name = "cBTypesInvoice";
             this.cBTypesInvoice.Size = new System.Drawing.Size(288, 29);
             this.cBTypesInvoice.TabIndex = 1;
@@ -616,7 +616,7 @@ namespace UI
             // 
             this.txtPtoVta.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPtoVta.Location = new System.Drawing.Point(152, 35);
-            this.txtPtoVta.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPtoVta.Margin = new System.Windows.Forms.Padding(2);
             this.txtPtoVta.Name = "txtPtoVta";
             this.txtPtoVta.ReadOnly = true;
             this.txtPtoVta.Size = new System.Drawing.Size(288, 27);
@@ -637,7 +637,7 @@ namespace UI
             // 
             this.txtNroComprobante.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNroComprobante.Location = new System.Drawing.Point(152, 66);
-            this.txtNroComprobante.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNroComprobante.Margin = new System.Windows.Forms.Padding(2);
             this.txtNroComprobante.Name = "txtNroComprobante";
             this.txtNroComprobante.ReadOnly = true;
             this.txtNroComprobante.Size = new System.Drawing.Size(288, 27);
@@ -648,9 +648,9 @@ namespace UI
             this.grpPago.Controls.Add(this.tlpPago);
             this.grpPago.Dock = System.Windows.Forms.DockStyle.Top;
             this.grpPago.Location = new System.Drawing.Point(2, 135);
-            this.grpPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpPago.Margin = new System.Windows.Forms.Padding(2);
             this.grpPago.Name = "grpPago";
-            this.grpPago.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpPago.Padding = new System.Windows.Forms.Padding(7);
             this.grpPago.Size = new System.Drawing.Size(456, 309);
             this.grpPago.TabIndex = 1;
             this.grpPago.TabStop = false;
@@ -680,7 +680,7 @@ namespace UI
             this.tlpPago.Controls.Add(this.nudRecargoPorc, 1, 8);
             this.tlpPago.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpPago.Location = new System.Drawing.Point(7, 27);
-            this.tlpPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpPago.Margin = new System.Windows.Forms.Padding(2);
             this.tlpPago.Name = "tlpPago";
             this.tlpPago.RowCount = 9;
             this.tlpPago.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -715,7 +715,7 @@ namespace UI
             "Efectivo",
             "Tarjeta"});
             this.cmbFormaPago.Location = new System.Drawing.Point(180, 2);
-            this.cmbFormaPago.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbFormaPago.Margin = new System.Windows.Forms.Padding(2);
             this.cmbFormaPago.Name = "cmbFormaPago";
             this.cmbFormaPago.Size = new System.Drawing.Size(260, 29);
             this.cmbFormaPago.TabIndex = 1;
@@ -735,7 +735,7 @@ namespace UI
             // 
             this.txtUltimos4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtUltimos4.Location = new System.Drawing.Point(180, 35);
-            this.txtUltimos4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUltimos4.Margin = new System.Windows.Forms.Padding(2);
             this.txtUltimos4.MaxLength = 4;
             this.txtUltimos4.Name = "txtUltimos4";
             this.txtUltimos4.Size = new System.Drawing.Size(260, 27);
@@ -771,7 +771,7 @@ namespace UI
             "11",
             "12"});
             this.cmbCuotas.Location = new System.Drawing.Point(180, 66);
-            this.cmbCuotas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbCuotas.Margin = new System.Windows.Forms.Padding(2);
             this.cmbCuotas.Name = "cmbCuotas";
             this.cmbCuotas.Size = new System.Drawing.Size(260, 29);
             this.cmbCuotas.TabIndex = 5;
@@ -791,7 +791,7 @@ namespace UI
             // 
             this.txtComprobanteTransf.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtComprobanteTransf.Location = new System.Drawing.Point(180, 99);
-            this.txtComprobanteTransf.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtComprobanteTransf.Margin = new System.Windows.Forms.Padding(2);
             this.txtComprobanteTransf.Name = "txtComprobanteTransf";
             this.txtComprobanteTransf.Size = new System.Drawing.Size(260, 27);
             this.txtComprobanteTransf.TabIndex = 7;
@@ -800,7 +800,7 @@ namespace UI
             // 
             this.btnAdjuntarComp.AutoSize = true;
             this.btnAdjuntarComp.Location = new System.Drawing.Point(180, 130);
-            this.btnAdjuntarComp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdjuntarComp.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdjuntarComp.Name = "btnAdjuntarComp";
             this.btnAdjuntarComp.Size = new System.Drawing.Size(106, 31);
             this.btnAdjuntarComp.TabIndex = 8;
@@ -834,7 +834,7 @@ namespace UI
             this.nudDescuentoPorc.DecimalPlaces = 2;
             this.nudDescuentoPorc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudDescuentoPorc.Location = new System.Drawing.Point(180, 190);
-            this.nudDescuentoPorc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudDescuentoPorc.Margin = new System.Windows.Forms.Padding(2);
             this.nudDescuentoPorc.Name = "nudDescuentoPorc";
             this.nudDescuentoPorc.Size = new System.Drawing.Size(260, 27);
             this.nudDescuentoPorc.TabIndex = 11;
@@ -856,7 +856,7 @@ namespace UI
             this.nudDescuentoMonto.DecimalPlaces = 2;
             this.nudDescuentoMonto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudDescuentoMonto.Location = new System.Drawing.Point(180, 221);
-            this.nudDescuentoMonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudDescuentoMonto.Margin = new System.Windows.Forms.Padding(2);
             this.nudDescuentoMonto.Maximum = new decimal(new int[] {
             1000000,
             0,
@@ -883,7 +883,7 @@ namespace UI
             this.nudRecargoPorc.DecimalPlaces = 2;
             this.nudRecargoPorc.Dock = System.Windows.Forms.DockStyle.Fill;
             this.nudRecargoPorc.Location = new System.Drawing.Point(180, 252);
-            this.nudRecargoPorc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.nudRecargoPorc.Margin = new System.Windows.Forms.Padding(2);
             this.nudRecargoPorc.Name = "nudRecargoPorc";
             this.nudRecargoPorc.Size = new System.Drawing.Size(260, 27);
             this.nudRecargoPorc.TabIndex = 15;
@@ -894,9 +894,9 @@ namespace UI
             this.grpResumen.Controls.Add(this.tlpResumen);
             this.grpResumen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpResumen.Location = new System.Drawing.Point(2, 448);
-            this.grpResumen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpResumen.Margin = new System.Windows.Forms.Padding(2);
             this.grpResumen.Name = "grpResumen";
-            this.grpResumen.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.grpResumen.Padding = new System.Windows.Forms.Padding(7);
             this.grpResumen.Size = new System.Drawing.Size(456, 325);
             this.grpResumen.TabIndex = 2;
             this.grpResumen.TabStop = false;
@@ -910,7 +910,7 @@ namespace UI
             this.tlpResumen.Controls.Add(this.tlpTotals, 0, 1);
             this.tlpResumen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlpResumen.Location = new System.Drawing.Point(7, 27);
-            this.tlpResumen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpResumen.Margin = new System.Windows.Forms.Padding(2);
             this.tlpResumen.Name = "tlpResumen";
             this.tlpResumen.RowCount = 2;
             this.tlpResumen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -931,7 +931,7 @@ namespace UI
             this.colQuantity});
             this.dgvCartSummary.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCartSummary.Location = new System.Drawing.Point(2, 2);
-            this.dgvCartSummary.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCartSummary.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCartSummary.MultiSelect = false;
             this.dgvCartSummary.Name = "dgvCartSummary";
             this.dgvCartSummary.ReadOnly = true;
@@ -986,7 +986,7 @@ namespace UI
             this.tlpTotals.Controls.Add(this.lblTotalValue, 1, 4);
             this.tlpTotals.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tlpTotals.Location = new System.Drawing.Point(2, 190);
-            this.tlpTotals.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tlpTotals.Margin = new System.Windows.Forms.Padding(2);
             this.tlpTotals.Name = "tlpTotals";
             this.tlpTotals.RowCount = 5;
             this.tlpTotals.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1114,9 +1114,9 @@ namespace UI
             this.pnlActions.Controls.Add(this.flpActions);
             this.pnlActions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlActions.Location = new System.Drawing.Point(2, 848);
-            this.pnlActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlActions.Margin = new System.Windows.Forms.Padding(2);
             this.pnlActions.Name = "pnlActions";
-            this.pnlActions.Padding = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.pnlActions.Padding = new System.Windows.Forms.Padding(7);
             this.pnlActions.Size = new System.Drawing.Size(1158, 52);
             this.pnlActions.TabIndex = 2;
             // 
@@ -1129,7 +1129,7 @@ namespace UI
             this.flpActions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flpActions.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
             this.flpActions.Location = new System.Drawing.Point(7, 10);
-            this.flpActions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flpActions.Margin = new System.Windows.Forms.Padding(2);
             this.flpActions.Name = "flpActions";
             this.flpActions.Size = new System.Drawing.Size(1144, 35);
             this.flpActions.TabIndex = 0;
@@ -1139,7 +1139,7 @@ namespace UI
             this.btnCancel.AutoSize = true;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(1049, 2);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(93, 31);
             this.btnCancel.TabIndex = 0;
@@ -1150,7 +1150,7 @@ namespace UI
             // 
             this.btnDraft.AutoSize = true;
             this.btnDraft.Location = new System.Drawing.Point(886, 2);
-            this.btnDraft.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDraft.Margin = new System.Windows.Forms.Padding(2);
             this.btnDraft.Name = "btnDraft";
             this.btnDraft.Size = new System.Drawing.Size(159, 31);
             this.btnDraft.TabIndex = 1;
@@ -1161,7 +1161,7 @@ namespace UI
             this.btnConfirm.AutoSize = true;
             this.btnConfirm.BackColor = System.Drawing.SystemColors.Control;
             this.btnConfirm.Location = new System.Drawing.Point(785, 2);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(2);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(97, 31);
             this.btnConfirm.TabIndex = 2;
@@ -1182,7 +1182,7 @@ namespace UI
             this.ClientSize = new System.Drawing.Size(1162, 902);
             this.Controls.Add(this.tlpRoot);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(657, 460);
             this.Name = "FormFinalizeSale";
@@ -1244,7 +1244,6 @@ namespace UI
         private System.Windows.Forms.GroupBox grpCliente;
         private System.Windows.Forms.TableLayoutPanel tlpCliente;
         private System.Windows.Forms.Label lblDniCliente;
-        private System.Windows.Forms.TextBox txtDNIClient;
 
         private System.Windows.Forms.GroupBox grpEntrega;
         private System.Windows.Forms.TableLayoutPanel tlpEntrega;
@@ -1325,5 +1324,6 @@ namespace UI
         private Label lblNotify;
         private FlowLayoutPanel flpNotifyChks;
         private CheckBox chkNotifyEmail;
+        public TextBox txtDNIClient;
     }
 }

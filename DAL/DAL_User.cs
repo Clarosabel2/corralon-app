@@ -266,5 +266,63 @@ namespace DAL
             cmd.Connection = cnn.CloseConnection();
             return rowsAffected > 0;
         }
+
+        public static string GetRolUserById(int id)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"select
+                                    r.rol
+                                    from Usuarios u
+                                    left join Roles r on u.id_Rol=r.id_Rol
+                                    where u.id_Usuario=@p_id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_id", id);
+            object result = cmd.ExecuteScalar();
+            cnn.CloseConnection();
+            return result?.ToString();
+        }
+
+        public static void ResetPasswordUserById(int id, string passwordHashed)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"UPDATE Usuarios set [password]=@p_passHashed where id_Usuario=@p_id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_id", id);
+            cmd.Parameters.AddWithValue("@p_passHashed", passwordHashed);
+            cmd.ExecuteNonQuery();
+            cnn.CloseConnection();
+        }
+
+        public static DataRow GetUserById(int id)
+        {
+            var cnn = new DAL_Connection();
+            var cmd = new SqlCommand();
+
+            cmd.Connection = cnn.OpenConnection();
+            cmd.CommandText = @"select * from Usuarios u
+                                left join Roles r on r.id_Rol=u.id_Rol
+                                where u.id_Usuario= @p_id";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.AddWithValue("@p_id", id);
+
+            DataTable table = new DataTable();
+
+            using (var adapter = new SqlDataAdapter(cmd))
+            {
+                adapter.Fill(table);
+            }
+
+            cnn.CloseConnection();
+
+            if (table.Rows.Count > 0)
+                return table.Rows[0];  
+
+            return null;
+        }
+
     }
 }

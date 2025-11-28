@@ -11,9 +11,11 @@ namespace DAL
 {
     public class DAL_Connection
     {
-        private readonly SqlConnection _connection = 
-            new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=corralondb;Integrated Security=True;TrustServerCertificate=True");
-
+        //private readonly SqlConnection _connection = 
+        //    new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=corralondb;Integrated Security=True;TrustServerCertificate=True");
+        private readonly SqlConnection _connection =
+            new SqlConnection(ConfigurationManager.ConnectionStrings["currentInstanceSQL"].ConnectionString);
+    
         public SqlConnection Connection => _connection;
         public SqlConnection OpenConnection()
         {

@@ -14,6 +14,7 @@ namespace BDE
         private DateTime deliveryDate;
         private DateTime _departureDate;
         private DateTime _arrivalDate;
+        private string _addressDelivery;
         public BE_Order(DateTime deliveryDate, BE_Sale invoice)
         {
             this.deliveryDate = deliveryDate;
@@ -32,5 +33,6 @@ namespace BDE
         public BE_Sale Invoice { get => invoice; set => invoice = value; }
         public DateTime DepartureDate { get => _departureDate; set => _departureDate = value; }
         public DateTime ArrivalDate { get => _arrivalDate; set => _arrivalDate = value; }
+        public string AddressDelivery { get => _addressDelivery; set => _addressDelivery = value; }
     }
 }

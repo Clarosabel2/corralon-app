@@ -34,6 +34,16 @@ namespace UI
             LabelDateAdmission.Text = $"<b>Fecha de Ingreso:</b> 12/05/2024";
             if (BLL_User.ExistUserById(e.Id))
             {
+                var user = BLL_User.GetUserById(e.Id);
+
+                btnResetPassword.Visible = true;
+                lblRolTitle.Visible = true;
+                lblRol.Visible = true;
+                lblUsernameTitle.Visible = true;
+                lblUsername.Visible = true;
+
+                lblRol.Text = user.Rol.ToString();
+                lblUsername.Text = user.Username.ToString();
                 if (BLL_User.CheckStatusUser(e.Id))
                 {
                     LabelStatus.Visible = true;
@@ -118,6 +128,19 @@ namespace UI
         private void FormEmployeeDetails_FormClosed(object sender, FormClosedEventArgs e)
         {
             form.ShowEmployees(BLL_Employee.GetAllEmployees());
+        }
+
+        private void btnResetPassword_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BLL_User.ResetPasswordUserById(empCurrent.Id);
+                MessageBox.Show("La contraseña se ha reestablecido correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }

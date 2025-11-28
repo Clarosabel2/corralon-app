@@ -21,7 +21,6 @@ namespace UI
 {
     public partial class FormMain : Form, IObserver
     {
-        private BLL_DV_DB _dvService;
         public FormMain()
         {
             InitializeComponent();
@@ -29,20 +28,21 @@ namespace UI
             timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
             LanguageManager.Attach(this);
-            this._dvService = new BLL_DV_DB();
             CheckIntegrityDatabase();
         }
 
         private void CheckIntegrityDatabase()
         {
-            if (_dvService.IsDVInconsistent)
+            if (BLL_DV_DB.CheckDatabaseIntegrity())
             {
-                OpenForms<FormDatabaseMaintenance>(_dvService);
+                OpenForms<FormDatabaseMaintenance>();
             }
         }
 
         private void EnableControls()
         {
+            //temporario
+            btnVehicles.Visible = true;
             if (SessionManager.GetInstance.user.Rol != BDE.BE_TypeUser.ADMIN)
             {
                 btnEmployees.Visible = false;
@@ -50,14 +50,17 @@ namespace UI
                 btnReports.Visible = false;
                 btnManagerLanguages.Visible = false;
                 btnUsers.Visible = false;
-
             }
             switch (SessionManager.GetInstance.user.Rol)
             {
                 case BDE.BE_TypeUser.ADMIN:
-                    /*btnProducts.Visible = false;
-                    btnOrders.Visible = false;
-                    btnCreateSale.Visible = false;*/
+                    //btnProducts.Visible = false;
+                    //btnOrders.Visible = false;
+                    //btnCreateSale.Visible = false;
+
+                    btnManageDB.Visible = true;
+                    btnManagerLanguages.Visible = true;
+                    btnBitacora.Visible = true;
                     break;
                 case BDE.BE_TypeUser.SALESMAN:
                     btnProducts.Visible = false;
@@ -65,6 +68,9 @@ namespace UI
                     break;
                 case BDE.BE_TypeUser.LOGISTICMAN:
                     btnCreateSale.Visible = false;
+                    break;
+                case BDE.BE_TypeUser.MECHANICMAN:
+                    btnVehicles.Visible = true;
                     break;
             }
         }
@@ -282,7 +288,7 @@ namespace UI
         }
         private void btnManageDB_Click(object sender, EventArgs e)
         {
-            OpenForms<FormDatabaseMaintenance>((BLL_DV_DB)null);
+            OpenForms<FormDatabaseMaintenance>();
         }
         private void btnBitacora_Click(object sender, EventArgs e)
         {
@@ -296,6 +302,15 @@ namespace UI
         {
             OpenForms<FormAuditChanges>();
         }
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVehicles_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormVehicles>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -308,11 +323,6 @@ namespace UI
         public void Update(BE_Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
-        }
-
-        private void btnHelp_Click(object sender, EventArgs e)
-        {
-
         }
 
         

@@ -15,6 +15,7 @@ namespace BDE
         MANAGMENT,
         CLEANING,
         RRHH,
-        ACCOUNTING
+        ACCOUNTING,
+        MECHANICAL_WORKSHOP
     }
 }

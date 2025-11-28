@@ -129,7 +129,7 @@
             this.cbBrands.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.cbBrands.FormattingEnabled = true;
             this.cbBrands.Location = new System.Drawing.Point(187, 101);
-            this.cbBrands.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbBrands.Margin = new System.Windows.Forms.Padding(2);
             this.cbBrands.Name = "cbBrands";
             this.cbBrands.Size = new System.Drawing.Size(181, 27);
             this.cbBrands.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.cbCategoryProduct.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.cbCategoryProduct.FormattingEnabled = true;
             this.cbCategoryProduct.Location = new System.Drawing.Point(187, 67);
-            this.cbCategoryProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbCategoryProduct.Margin = new System.Windows.Forms.Padding(2);
             this.cbCategoryProduct.Name = "cbCategoryProduct";
             this.cbCategoryProduct.Size = new System.Drawing.Size(181, 27);
             this.cbCategoryProduct.TabIndex = 7;
@@ -151,7 +151,7 @@
             this.txtNameProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtNameProduct.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.txtNameProduct.Location = new System.Drawing.Point(187, 2);
-            this.txtNameProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNameProduct.Margin = new System.Windows.Forms.Padding(2);
             this.txtNameProduct.Name = "txtNameProduct";
             this.txtNameProduct.Size = new System.Drawing.Size(181, 24);
             this.txtNameProduct.TabIndex = 8;
@@ -161,7 +161,7 @@
             this.txtDescriptionProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtDescriptionProduct.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.txtDescriptionProduct.Location = new System.Drawing.Point(187, 202);
-            this.txtDescriptionProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescriptionProduct.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescriptionProduct.Multiline = true;
             this.txtDescriptionProduct.Name = "txtDescriptionProduct";
             this.txtDescriptionProduct.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -173,7 +173,7 @@
             this.txtPriceProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtPriceProduct.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.txtPriceProduct.Location = new System.Drawing.Point(187, 35);
-            this.txtPriceProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPriceProduct.Margin = new System.Windows.Forms.Padding(2);
             this.txtPriceProduct.Name = "txtPriceProduct";
             this.txtPriceProduct.Size = new System.Drawing.Size(181, 24);
             this.txtPriceProduct.TabIndex = 10;
@@ -183,7 +183,7 @@
             this.txtStockAvailibleProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtStockAvailibleProduct.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.txtStockAvailibleProduct.Location = new System.Drawing.Point(187, 135);
-            this.txtStockAvailibleProduct.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtStockAvailibleProduct.Margin = new System.Windows.Forms.Padding(2);
             this.txtStockAvailibleProduct.Name = "txtStockAvailibleProduct";
             this.txtStockAvailibleProduct.Size = new System.Drawing.Size(181, 24);
             this.txtStockAvailibleProduct.TabIndex = 11;
@@ -237,7 +237,7 @@
             this.txtMinStock.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtMinStock.Font = new System.Drawing.Font("Century Gothic", 10.25F);
             this.txtMinStock.Location = new System.Drawing.Point(187, 171);
-            this.txtMinStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMinStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtMinStock.Name = "txtMinStock";
             this.txtMinStock.Size = new System.Drawing.Size(181, 24);
             this.txtMinStock.TabIndex = 13;
@@ -335,7 +335,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(746, 343);
             this.Controls.Add(this.tableLayoutPanelForm);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormRegisterProduct";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registrar Producto";

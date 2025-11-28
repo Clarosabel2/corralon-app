@@ -17,9 +17,14 @@ namespace UI
 {
     public partial class FormRegisterClient : Form, IObserver
     {
-        public FormRegisterClient()
+        private FormFinalizeSale _FormFinalizeSale { get; set; }
+        public FormRegisterClient(FormFinalizeSale form = null)
         {
             InitializeComponent();
+            if (form != null)
+            {
+                this._FormFinalizeSale = form;
+            }
             LanguageManager.Attach(this);
         }
 
@@ -51,6 +56,10 @@ namespace UI
                     DialogResult r = MessageBox.Show($"El client: {client.Name}  {client.Lastname} se registro correctamente", "Aviso", MessageBoxButtons.OKCancel);
                     if (r == DialogResult.OK)
                     {
+                        if (this._FormFinalizeSale != null)
+                        {
+                            this._FormFinalizeSale.txtDNIClient.Text = txtDni.Text;
+                        }
                         this.Dispose();
                     }
                 }

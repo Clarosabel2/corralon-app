@@ -70,7 +70,6 @@ namespace UI
 
         private void txtDNIClient_TextChanged(object sender, EventArgs e)
         {
-            txtDireccionEntrega.ReadOnly = true;
             var dni = txtDNIClient.Text;
             txtDNIClient.BackColor = SystemColors.Window;
             if (txtDNIClient.Text.Length >= 8)
@@ -93,7 +92,7 @@ namespace UI
                     if (r == DialogResult.Yes)
                     {
                         txtDNIClient.Text = "";
-                        FormRegisterClient f = new FormRegisterClient();
+                        FormRegisterClient f = new FormRegisterClient(this);
                         f.TopLevel = false;
                         this.Controls.Add(f);
                         f.BringToFront();
@@ -124,6 +123,7 @@ namespace UI
             BLL_Sale.CurrentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
             BLL_Sale.CurrentSale.Status = true;
             BLL_Sale.CurrentOrder.DeliveryDate = dtpDeliveryDate.Value;
+            BLL_Sale.CurrentOrder.AddressDelivery = txtDireccionEntrega.Text;
             try
             {
                 try

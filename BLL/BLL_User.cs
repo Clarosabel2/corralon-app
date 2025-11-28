@@ -37,6 +37,20 @@ namespace BLL
             }
             return users;
         }
+        public static BE_User GetUserById(int id)
+        {
+            DataRow row = DAL_User.GetUserById(id);
+            BE_User user = new BE_User();
+            user.Status = Convert.ToBoolean(row[5]);
+            user.Username = row[3].ToString();
+            user.Rol = (BE_TypeUser)Enum.Parse(typeof(BE_TypeUser), row[7].ToString());
+            return user;
+        }
+
+        public static string GetRolUserById(int id)
+        {
+            return DAL_User.GetRolUserById(id);
+        }
 
         public static bool UpdateUserData(BE_User user)
         {
@@ -123,6 +137,12 @@ namespace BLL
         {
             BLL_EventLog.LogEvent("User logged out", BE_EventType.LOGOUT, BE_ActivityLevel.INFORMATION);
             SessionManager.Logout();
+        }
+
+        public static void ResetPasswordUserById(int id)
+        {
+            string passwordHashed = SHAHashHelper.HashValue(BLL_Employee.GetEmployeeById(id).Dni.ToString());
+            DAL_User.ResetPasswordUserById(id, passwordHashed);
         }
     }
 }

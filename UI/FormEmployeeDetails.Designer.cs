@@ -40,6 +40,11 @@
             this.btnCreateUser = new System.Windows.Forms.Button();
             this.btnDeleteEmployee = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnEditEmployee = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.lblRolTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblRol = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnResetPassword = new System.Windows.Forms.Button();
+            this.lblUsernameTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -184,10 +189,71 @@
             this.btnEditEmployee.TabIndex = 12;
             this.btnEditEmployee.Click += new System.EventHandler(this.btnEditEmployee_Click);
             // 
+            // lblRolTitle
+            // 
+            this.lblRolTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblRolTitle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRolTitle.Location = new System.Drawing.Point(332, 296);
+            this.lblRolTitle.Name = "lblRolTitle";
+            this.lblRolTitle.Size = new System.Drawing.Size(35, 24);
+            this.lblRolTitle.TabIndex = 13;
+            this.lblRolTitle.Text = "Rol:";
+            this.lblRolTitle.Visible = false;
+            // 
+            // lblRol
+            // 
+            this.lblRol.BackColor = System.Drawing.Color.Transparent;
+            this.lblRol.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRol.Location = new System.Drawing.Point(373, 296);
+            this.lblRol.Name = "lblRol";
+            this.lblRol.Size = new System.Drawing.Size(3, 2);
+            this.lblRol.TabIndex = 14;
+            this.lblRol.Visible = false;
+            // 
+            // btnResetPassword
+            // 
+            this.btnResetPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnResetPassword.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetPassword.Location = new System.Drawing.Point(8, 361);
+            this.btnResetPassword.Name = "btnResetPassword";
+            this.btnResetPassword.Size = new System.Drawing.Size(300, 23);
+            this.btnResetPassword.TabIndex = 15;
+            this.btnResetPassword.Tag = "CreateUser";
+            this.btnResetPassword.Text = "Reestablecer Contraseña";
+            this.btnResetPassword.UseVisualStyleBackColor = false;
+            this.btnResetPassword.Visible = false;
+            this.btnResetPassword.Click += new System.EventHandler(this.btnResetPassword_Click);
+            // 
+            // lblUsernameTitle
+            // 
+            this.lblUsernameTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsernameTitle.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsernameTitle.Location = new System.Drawing.Point(332, 326);
+            this.lblUsernameTitle.Name = "lblUsernameTitle";
+            this.lblUsernameTitle.Size = new System.Drawing.Size(73, 24);
+            this.lblUsernameTitle.TabIndex = 16;
+            this.lblUsernameTitle.Text = "Usuario:";
+            this.lblUsernameTitle.Visible = false;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.BackColor = System.Drawing.Color.Transparent;
+            this.lblUsername.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(411, 326);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(3, 2);
+            this.lblUsername.TabIndex = 17;
+            this.lblUsername.Visible = false;
+            // 
             // FormEmployeeDetails
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(857, 367);
+            this.ClientSize = new System.Drawing.Size(857, 392);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.lblUsernameTitle);
+            this.Controls.Add(this.btnResetPassword);
+            this.Controls.Add(this.lblRol);
+            this.Controls.Add(this.lblRolTitle);
             this.Controls.Add(this.btnEditEmployee);
             this.Controls.Add(this.btnDeleteEmployee);
             this.Controls.Add(this.btnCreateUser);
@@ -224,5 +290,10 @@
         private System.Windows.Forms.Button btnCreateUser;
         private Guna.UI2.WinForms.Guna2ImageButton btnDeleteEmployee;
         private Guna.UI2.WinForms.Guna2ImageButton btnEditEmployee;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblRolTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblRol;
+        private System.Windows.Forms.Button btnResetPassword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUsernameTitle;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblUsername;
     }
 }

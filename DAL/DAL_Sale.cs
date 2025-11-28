@@ -104,6 +104,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@estadoFactura", order.Invoice.Status);
                     cmd.Parameters.AddWithValue("@fechaEmision", order.Invoice.IssueDate);
                     cmd.Parameters.AddWithValue("@fechaEntrega", order.DeliveryDate);
+                    cmd.Parameters.AddWithValue("@domicilioEntrega", order.AddressDelivery);
 
                     SqlParameter outputIdParam = new SqlParameter("@@newInvoiceID", SqlDbType.Int)
                     {

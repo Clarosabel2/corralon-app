@@ -56,6 +56,7 @@
             this.btnManageDB = new System.Windows.Forms.Button();
             this.btnBitacora = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
+            this.btnAuditChanges = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -65,7 +66,7 @@
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAuditChanges = new System.Windows.Forms.Button();
+            this.btnVehicles = new System.Windows.Forms.Button();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -105,7 +106,7 @@
             // 
             this.guna2CirclePictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
             resources.ApplyResources(this.guna2CirclePictureBox1, "guna2CirclePictureBox1");
-            this.guna2CirclePictureBox1.Image = global::UI.Properties.Resources.logo_bss;
+            this.guna2CirclePictureBox1.Image = global::UI.Properties.Resources.logo_delcons_icon;
             this.guna2CirclePictureBox1.ImageRotate = 0F;
             this.guna2CirclePictureBox1.Name = "guna2CirclePictureBox1";
             this.guna2CirclePictureBox1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
@@ -208,6 +209,7 @@
             this.menuGeneral.Controls.Add(this.btnBitacora);
             this.menuGeneral.Controls.Add(this.btnSuppliers);
             this.menuGeneral.Controls.Add(this.btnAuditChanges);
+            this.menuGeneral.Controls.Add(this.btnVehicles);
             this.menuGeneral.Name = "menuGeneral";
             // 
             // btnProducts
@@ -379,6 +381,19 @@
             this.btnSuppliers.UseVisualStyleBackColor = false;
             this.btnSuppliers.Click += new System.EventHandler(this.btnSuppliers_Click);
             // 
+            // btnAuditChanges
+            // 
+            resources.ApplyResources(this.btnAuditChanges, "btnAuditChanges");
+            this.btnAuditChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnAuditChanges.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAuditChanges.FlatAppearance.BorderSize = 0;
+            this.btnAuditChanges.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnAuditChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnAuditChanges.ForeColor = System.Drawing.Color.Silver;
+            this.btnAuditChanges.Name = "btnAuditChanges";
+            this.btnAuditChanges.UseVisualStyleBackColor = false;
+            this.btnAuditChanges.Click += new System.EventHandler(this.btnAuditChanges_Click);
+            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(141)))));
@@ -452,18 +467,18 @@
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             resources.ApplyResources(this.reporte3ToolStripMenuItem, "reporte3ToolStripMenuItem");
             // 
-            // btnAuditChanges
+            // btnVehicles
             // 
-            resources.ApplyResources(this.btnAuditChanges, "btnAuditChanges");
-            this.btnAuditChanges.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.btnAuditChanges.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAuditChanges.FlatAppearance.BorderSize = 0;
-            this.btnAuditChanges.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnAuditChanges.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnAuditChanges.ForeColor = System.Drawing.Color.Silver;
-            this.btnAuditChanges.Name = "btnAuditChanges";
-            this.btnAuditChanges.UseVisualStyleBackColor = false;
-            this.btnAuditChanges.Click += new System.EventHandler(this.btnAuditChanges_Click);
+            resources.ApplyResources(this.btnVehicles, "btnVehicles");
+            this.btnVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVehicles.FlatAppearance.BorderSize = 0;
+            this.btnVehicles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnVehicles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnVehicles.ForeColor = System.Drawing.Color.Silver;
+            this.btnVehicles.Name = "btnVehicles";
+            this.btnVehicles.UseVisualStyleBackColor = false;
+            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
             // 
             // FormMain
             // 
@@ -532,5 +547,6 @@
         private System.Windows.Forms.Button btnBitacora;
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnAuditChanges;
+        private System.Windows.Forms.Button btnVehicles;
     }
 }

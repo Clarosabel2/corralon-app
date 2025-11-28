@@ -20,33 +20,90 @@ namespace DAL.DB
                 Directory.CreateDirectory(backupFolder);
             }
         }
-        public static void Backup()
+        public static void Backup(string userSelectedPathOrNull)
         {
             CheckDirectoryBackups();
-
             string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
             string backupFileName = $"corralondb_full_{timestamp}.bak";
-            string backupFilePath = Path.Combine(backupFolder, backupFileName);
+
+            
+            string internalBackupFullPath = Path.Combine(backupFolder, backupFileName);
+
             try
             {
-                string backupQuery = $@"BACKUP DATABASE [corralondb] TO  DISK = N'{backupFilePath}' WITH NOFORMAT, NOINIT,  NAME = N'corralondb-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+                string backupQuery = $@"
+                                        BACKUP DATABASE [corralondb]
+                                        TO DISK = N'{internalBackupFullPath.Replace("'", "''")}'
+                                        WITH NOFORMAT, NOINIT,
+                                             NAME = N'corralondb-Full Database Backup',
+                                             SKIP, NOREWIND, NOUNLOAD, STATS = 10";
 
-
-                Console.WriteLine("Backup path: " + backupFilePath);
                 var cnn = new DAL_Connection();
                 using (var connection = cnn.OpenConnection())
                 using (var cmd = new SqlCommand(backupQuery, connection))
                 {
                     cmd.ExecuteNonQuery();
                 }
-                System.Diagnostics.Process.Start("explorer.exe", backupFolder);
+                
+                if (!string.IsNullOrWhiteSpace(userSelectedPathOrNull))
+                {
+                    string finalDestPath;
 
+                    if (Directory.Exists(userSelectedPathOrNull))
+                    {
+                        finalDestPath = Path.Combine(userSelectedPathOrNull, backupFileName);
+                    }
+                    else
+                    {
+         
+                        finalDestPath = userSelectedPathOrNull;
+                    }
+
+                    File.Copy(internalBackupFullPath, finalDestPath, overwrite: true);
+                    string finalFolder = Path.GetDirectoryName(finalDestPath);
+                    if (!string.IsNullOrEmpty(finalFolder))
+                    {
+                        System.Diagnostics.Process.Start("explorer.exe", finalFolder);
+                    }
+                }
+                else
+                {
+                    System.Diagnostics.Process.Start("explorer.exe", backupFolder);
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception("Error creating backup: " + ex.Message);
+                throw new Exception("Error creating backup: " + ex.Message, ex);
             }
         }
+
+        //public static void Backup(string backupPath)
+        //{
+        //    CheckDirectoryBackups();
+
+        //    string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        //    string backupFileName = $"corralondb_full_{timestamp}.bak";
+        //    string backupFilePath = Path.Combine(backupFolder, backupFileName);
+        //    try
+        //    {
+        //        string backupQuery = $@"BACKUP DATABASE [corralondb] TO  DISK = N'{backupFilePath}' WITH NOFORMAT, NOINIT,  NAME = N'corralondb-Full Database Backup', SKIP, NOREWIND, NOUNLOAD,  STATS = 10";
+
+
+        //        Console.WriteLine("Backup path: " + backupFilePath);
+        //        var cnn = new DAL_Connection();
+        //        using (var connection = cnn.OpenConnection())
+        //        using (var cmd = new SqlCommand(backupQuery, connection))
+        //        {
+        //            cmd.ExecuteNonQuery();
+        //        }
+        //        System.Diagnostics.Process.Start("explorer.exe", backupFolder);
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Error creating backup: " + ex.Message);
+        //    }
+        //}
         public static void Restore(string backupFilePath)
         {
             try

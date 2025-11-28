@@ -31,6 +31,12 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.gbProducts = new System.Windows.Forms.GroupBox();
             this.dgvProductsOrder = new System.Windows.Forms.DataGridView();
+            this.colIdItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colImgProduct = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colNameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colQuantityItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colPriceProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSubtotalItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpDetailsOrder = new System.Windows.Forms.TableLayoutPanel();
             this.gbOrder = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -85,14 +91,8 @@
             this.label19 = new System.Windows.Forms.Label();
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.colIdItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colImgProduct = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colNameProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colQuantityItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colPriceProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSubtotalItem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnImprimir = new UI.Controls.ButtonDefault();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.gbProducts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductsOrder)).BeginInit();
@@ -166,6 +166,51 @@
             this.dgvProductsOrder.RowTemplate.Height = 31;
             this.dgvProductsOrder.Size = new System.Drawing.Size(1139, 439);
             this.dgvProductsOrder.TabIndex = 0;
+            // 
+            // colIdItem
+            // 
+            this.colIdItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.colIdItem.HeaderText = "ID";
+            this.colIdItem.MinimumWidth = 30;
+            this.colIdItem.Name = "colIdItem";
+            this.colIdItem.ReadOnly = true;
+            this.colIdItem.Width = 52;
+            // 
+            // colImgProduct
+            // 
+            this.colImgProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colImgProduct.HeaderText = "";
+            this.colImgProduct.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colImgProduct.Name = "colImgProduct";
+            this.colImgProduct.ReadOnly = true;
+            // 
+            // colNameProduct
+            // 
+            this.colNameProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colNameProduct.HeaderText = "Producto";
+            this.colNameProduct.Name = "colNameProduct";
+            this.colNameProduct.ReadOnly = true;
+            // 
+            // colQuantityItem
+            // 
+            this.colQuantityItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colQuantityItem.HeaderText = "Cantidad";
+            this.colQuantityItem.Name = "colQuantityItem";
+            this.colQuantityItem.ReadOnly = true;
+            // 
+            // colPriceProduct
+            // 
+            this.colPriceProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colPriceProduct.HeaderText = "Precio";
+            this.colPriceProduct.Name = "colPriceProduct";
+            this.colPriceProduct.ReadOnly = true;
+            // 
+            // colSubtotalItem
+            // 
+            this.colSubtotalItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colSubtotalItem.HeaderText = "Subtotal";
+            this.colSubtotalItem.Name = "colSubtotalItem";
+            this.colSubtotalItem.ReadOnly = true;
             // 
             // tlpDetailsOrder
             // 
@@ -775,61 +820,6 @@
             this.tableLayoutPanel10.Size = new System.Drawing.Size(690, 49);
             this.tableLayoutPanel10.TabIndex = 0;
             // 
-            // btnClose
-            // 
-            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnClose.Location = new System.Drawing.Point(363, 3);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(203, 43);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "Cerrar";
-            this.btnClose.UseVisualStyleBackColor = true;
-            // 
-            // colIdItem
-            // 
-            this.colIdItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.colIdItem.HeaderText = "ID";
-            this.colIdItem.MinimumWidth = 30;
-            this.colIdItem.Name = "colIdItem";
-            this.colIdItem.ReadOnly = true;
-            this.colIdItem.Width = 52;
-            // 
-            // colImgProduct
-            // 
-            this.colImgProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colImgProduct.HeaderText = "";
-            this.colImgProduct.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colImgProduct.Name = "colImgProduct";
-            this.colImgProduct.ReadOnly = true;
-            // 
-            // colNameProduct
-            // 
-            this.colNameProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colNameProduct.HeaderText = "Producto";
-            this.colNameProduct.Name = "colNameProduct";
-            this.colNameProduct.ReadOnly = true;
-            // 
-            // colQuantityItem
-            // 
-            this.colQuantityItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colQuantityItem.HeaderText = "Cantidad";
-            this.colQuantityItem.Name = "colQuantityItem";
-            this.colQuantityItem.ReadOnly = true;
-            // 
-            // colPriceProduct
-            // 
-            this.colPriceProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colPriceProduct.HeaderText = "Precio";
-            this.colPriceProduct.Name = "colPriceProduct";
-            this.colPriceProduct.ReadOnly = true;
-            // 
-            // colSubtotalItem
-            // 
-            this.colSubtotalItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colSubtotalItem.HeaderText = "Subtotal";
-            this.colSubtotalItem.Name = "colSubtotalItem";
-            this.colSubtotalItem.ReadOnly = true;
-            // 
             // btnImprimir
             // 
             this.btnImprimir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
@@ -845,6 +835,16 @@
             this.btnImprimir.TabIndex = 0;
             this.btnImprimir.Text = "Imprimir";
             this.btnImprimir.UseVisualStyleBackColor = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnClose.Location = new System.Drawing.Point(363, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(203, 43);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // FormOrderDetail
             // 

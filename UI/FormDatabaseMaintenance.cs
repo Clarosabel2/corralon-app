@@ -16,18 +16,13 @@ namespace UI
 {
     public partial class FormDatabaseMaintenance : Form
     {
-        private BLL_DV_DB _dbIntegrityService;
-        public FormDatabaseMaintenance(BLL_DV_DB dv = null)
+
+        public FormDatabaseMaintenance()
         {
             InitializeComponent();
-            if (dv != null)
+            if (BLL_DV_DB.IsDVInconsistent)
             {
-                this._dbIntegrityService = dv;
                 ConfigMsgIntegrity();
-            }
-            else
-            {
-                this._dbIntegrityService = new BLL_DV_DB();
             }
         }
 
@@ -43,7 +38,7 @@ namespace UI
 
             listBoxIntegrityResults.Items.Add("Tipo DV\tError\tTable\tRowKey");
 
-            foreach (var m in _dbIntegrityService.LastMismatches)
+            foreach (var m in BLL_DV_DB.LastMismatches)
             {
                 listBoxIntegrityResults.Items.Add(
                     $"{m.DvKind}\t{m.KindError}\t{m.TableName}\t{m.RowKey}"
@@ -61,6 +56,7 @@ namespace UI
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
                     txtBackupPath.Text = folderDialog.SelectedPath;
+                    userDestBackup = folderDialog.SelectedPath;
                 }
             }
         }
@@ -69,55 +65,82 @@ namespace UI
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                //openFileDialog.Filter = "Backup files (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
-                //openFileDialog.FilterIndex = 1;
-                //openFileDialog.RestoreDirectory = true;
+                openFileDialog.Filter = "Backup files (*.bak)|*.bak|Todos los archivos (*.*)|*.*";
+                openFileDialog.FilterIndex = 1;
+                openFileDialog.RestoreDirectory = true;
 
-                //if (openFileDialog.ShowDialog() == DialogResult.OK)
-                //{
-                //    txtRestoreFile.Text = openFileDialog.FileName;
-                //}
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    txtRestoreFile.Text = openFileDialog.FileName;
+                }
             }
         }
+        string userDestBackup = null;
 
         private void btnExecuteBackup_Click(object sender, EventArgs e)
         {
             DatabaseService ds = new DatabaseService();
-            ds.DoBackup();
+            try
+            {
+                ds.DoBackup(userDestBackup);
+                MessageBox.Show("Backup generado correctamente.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error creando backup:\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnCheckIntegrity_Click(object sender, EventArgs e)
         {
-            ConfigMsgIntegrity();
+            if (BLL_DV_DB.CheckDatabaseIntegrity())
+            {
+                ConfigMsgIntegrity();
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron incosistencias en la base de datos", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnRecalculateDV_Click(object sender, EventArgs e)
         {
-            _dbIntegrityService.RecalculateDV();
+            BLL_DV_DB.RecalculateDV();
+            ConfigDGV();
         }
 
         private void btnExecuteRestore_Click(object sender, EventArgs e)
         {
-            DataGridViewRow selectedRow = null;
-
-            // Buscar la fila donde el radiobutton/checkbox está marcado
-            foreach (DataGridViewRow row in dgvFileBackups.Rows)
+            DatabaseService ds = new DatabaseService();
+            string backupPath;
+            if (txtRestoreFile.Text != "")
             {
-                var cellValue = row.Cells["colRestore"].Value;
-                if (cellValue != null && cellValue is bool && (bool)cellValue)
+                backupPath = txtRestoreFile.Text;
+            }
+            else
+            {
+                DataGridViewRow selectedRow = null;
+
+                // Buscar la fila donde el radiobutton/checkbox está marcado
+                foreach (DataGridViewRow row in dgvFileBackups.Rows)
                 {
-                    selectedRow = row;
-                    break;
+                    var cellValue = row.Cells["colRestore"].Value;
+                    if (cellValue != null && cellValue is bool && (bool)cellValue)
+                    {
+                        selectedRow = row;
+                        break;
+                    }
                 }
-            }
 
-            if (selectedRow == null)
-            {
-                MessageBox.Show("Debe seleccionar un backup para restaurar.",
-                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (selectedRow == null)
+                {
+                    MessageBox.Show("Debe seleccionar un backup para restaurar.",
+                        "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                backupPath = selectedRow.Cells["FullPath"].Value.ToString();
+
             }
-            string backupPath = selectedRow.Cells["FullPath"].Value.ToString();
 
             DialogResult dr = MessageBox.Show(
                 $"¿Está seguro de restaurar este backup?\n\n{backupPath}",
@@ -129,7 +152,6 @@ namespace UI
             {
                 try
                 {
-                    DatabaseService ds = new DatabaseService();
                     ds.DoRestore(backupPath);
                     MessageBox.Show("Restauración realizada con éxito.",
                         "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -149,7 +171,6 @@ namespace UI
             colSelect.Name = "colRestore";
             colSelect.Width = 60;
             dgvFileBackups.Columns.Insert(0, colSelect);
-
 
             dgvFileBackups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvFileBackups.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
@@ -244,7 +265,7 @@ namespace UI
 
         private void btnRecalculateAllDV_Click(object sender, EventArgs e)
         {
-            _dbIntegrityService.CalculateDVHDatabase();
+            BLL_DV_DB.CalculateDVHDatabase();
         }
     }
 }
