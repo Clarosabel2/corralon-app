@@ -36,7 +36,6 @@ El proyecto sigue un patrón de **arquitectura de múltiples capas** con una cla
 - **DAL (Capa de Acceso a Datos)**: Responsable de la persistencia de datos y operaciones SQL contra la base de datos.
 - **SVC (Servicios)**: Servicios transversales y utilidades compartidas, como manejo de seguridad, criptografía y utilidades del sistema.
 - **BE (Entidades de Negocio)**: Definición de las estructuras de datos, interfaces y entidades de dominio puras.
-- **BDE (Entidades de Base de Datos)**: Modelos específicos para mapeo de base de datos.
 
 ## 💻 Tecnologías Utilizadas
 
