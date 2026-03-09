@@ -84,7 +84,6 @@ corralon-app/
 ├── DAL/          # Componentes de Acceso a Datos y mapeadores
 ├── SVC/          # Componentes de Servicios (ej. Encriptación, Sesión)
 ├── BE/           # Entidades del Dominio e Interfaces Abiertas
-├── BDE/          # Modelos de Datos para SQL
 └── corralon-app.sln # Solución de Visual Studio
 ```
 
