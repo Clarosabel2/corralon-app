@@ -21,16 +21,13 @@ namespace UI
         private DataGridView dgvMaintenance;
         private GroupBox grpNewCheck;
         private TableLayoutPanel tblNewCheck;
-        private Label lblDate, lblOdometer, lblType, lblNotes;
+        private Label lblDate, lblOdometer, lblType;
         private DateTimePicker dtpDate;
         private NumericUpDown numOdometer;
         private ComboBox cboType;
-        private TextBox txtNotes;
         private FlowLayoutPanel pnlButtons;
         private Button btnAdd;
         private Button btnClose;
-
-        private DataGridViewTextBoxColumn colDate, colOdometer, colType, colNotes;
 
         private void InitializeComponent()
         {
@@ -42,23 +39,27 @@ namespace UI
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubtitle = new System.Windows.Forms.Label();
             this.dgvMaintenance = new System.Windows.Forms.DataGridView();
+            this.colPatentVehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colVehicle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colOdometer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNotes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpNewCheck = new System.Windows.Forms.GroupBox();
             this.tblNewCheck = new System.Windows.Forms.TableLayoutPanel();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.lblOdometer = new System.Windows.Forms.Label();
-            this.numOdometer = new System.Windows.Forms.NumericUpDown();
-            this.lblType = new System.Windows.Forms.Label();
-            this.cboType = new System.Windows.Forms.ComboBox();
+            this.lblVehicleSlt = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.lblType = new System.Windows.Forms.Label();
+            this.cboType = new System.Windows.Forms.ComboBox();
+            this.lblOdometer = new System.Windows.Forms.Label();
+            this.numOdometer = new System.Windows.Forms.NumericUpDown();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.pnlButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.btnRegisterNewVehicle = new System.Windows.Forms.Button();
             this.tblRoot.SuspendLayout();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintenance)).BeginInit();
@@ -86,7 +87,7 @@ namespace UI
             this.tblRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.00544F));
             this.tblRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.73866F));
             this.tblRoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.090909F));
-            this.tblRoot.Size = new System.Drawing.Size(980, 693);
+            this.tblRoot.Size = new System.Drawing.Size(980, 731);
             this.tblRoot.TabIndex = 0;
             // 
             // pnlHeader
@@ -110,7 +111,7 @@ namespace UI
             this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(268, 22);
+            this.lblTitle.Size = new System.Drawing.Size(424, 36);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Mantenimiento del Vehículo";
             // 
@@ -122,7 +123,7 @@ namespace UI
             this.lblSubtitle.Location = new System.Drawing.Point(4, 36);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubtitle.Name = "lblSubtitle";
-            this.lblSubtitle.Size = new System.Drawing.Size(209, 17);
+            this.lblSubtitle.Size = new System.Drawing.Size(317, 23);
             this.lblSubtitle.TabIndex = 1;
             this.lblSubtitle.Text = "Registros de chequeo y servicio";
             // 
@@ -143,9 +144,11 @@ namespace UI
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvMaintenance.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvMaintenance.ColumnHeadersHeight = 40;
             this.dgvMaintenance.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colPatentVehicle,
+            this.colVehicle,
             this.colDate,
-            this.colOdometer,
             this.colType,
             this.colNotes});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -165,31 +168,44 @@ namespace UI
             this.dgvMaintenance.Name = "dgvMaintenance";
             this.dgvMaintenance.ReadOnly = true;
             this.dgvMaintenance.RowHeadersVisible = false;
+            this.dgvMaintenance.RowHeadersWidth = 72;
             this.dgvMaintenance.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMaintenance.Size = new System.Drawing.Size(948, 251);
+            this.dgvMaintenance.Size = new System.Drawing.Size(948, 269);
             this.dgvMaintenance.TabIndex = 1;
+            this.dgvMaintenance.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaintenance_CellClick);
+            // 
+            // colPatentVehicle
+            // 
+            this.colPatentVehicle.HeaderText = "Patente";
+            this.colPatentVehicle.MinimumWidth = 9;
+            this.colPatentVehicle.Name = "colPatentVehicle";
+            this.colPatentVehicle.ReadOnly = true;
+            // 
+            // colVehicle
+            // 
+            this.colVehicle.HeaderText = "Vehiculo";
+            this.colVehicle.MinimumWidth = 9;
+            this.colVehicle.Name = "colVehicle";
+            this.colVehicle.ReadOnly = true;
             // 
             // colDate
             // 
-            this.colDate.HeaderText = "Fecha";
+            this.colDate.HeaderText = "Ultima Revisión";
+            this.colDate.MinimumWidth = 9;
             this.colDate.Name = "colDate";
             this.colDate.ReadOnly = true;
-            // 
-            // colOdometer
-            // 
-            this.colOdometer.HeaderText = "Odómetro";
-            this.colOdometer.Name = "colOdometer";
-            this.colOdometer.ReadOnly = true;
             // 
             // colType
             // 
             this.colType.HeaderText = "Tipo de servicio";
+            this.colType.MinimumWidth = 9;
             this.colType.Name = "colType";
             this.colType.ReadOnly = true;
             // 
             // colNotes
             // 
             this.colNotes.HeaderText = "Notas";
+            this.colNotes.MinimumWidth = 9;
             this.colNotes.Name = "colNotes";
             this.colNotes.ReadOnly = true;
             // 
@@ -199,11 +215,11 @@ namespace UI
             this.grpNewCheck.Controls.Add(this.tblNewCheck);
             this.grpNewCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grpNewCheck.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grpNewCheck.Location = new System.Drawing.Point(16, 393);
+            this.grpNewCheck.Location = new System.Drawing.Point(16, 411);
             this.grpNewCheck.Margin = new System.Windows.Forms.Padding(4);
             this.grpNewCheck.Name = "grpNewCheck";
             this.grpNewCheck.Padding = new System.Windows.Forms.Padding(12);
-            this.grpNewCheck.Size = new System.Drawing.Size(948, 233);
+            this.grpNewCheck.Size = new System.Drawing.Size(948, 250);
             this.grpNewCheck.TabIndex = 2;
             this.grpNewCheck.TabStop = false;
             this.grpNewCheck.Text = "Nuevo chequeo / mantenimiento";
@@ -213,75 +229,75 @@ namespace UI
             this.tblNewCheck.ColumnCount = 2;
             this.tblNewCheck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tblNewCheck.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tblNewCheck.Controls.Add(this.lblDate, 0, 0);
-            this.tblNewCheck.Controls.Add(this.dtpDate, 1, 0);
-            this.tblNewCheck.Controls.Add(this.lblOdometer, 0, 1);
-            this.tblNewCheck.Controls.Add(this.numOdometer, 1, 1);
-            this.tblNewCheck.Controls.Add(this.lblType, 0, 2);
-            this.tblNewCheck.Controls.Add(this.cboType, 1, 2);
-            this.tblNewCheck.Controls.Add(this.lblNotes, 0, 3);
-            this.tblNewCheck.Controls.Add(this.txtNotes, 1, 3);
+            this.tblNewCheck.Controls.Add(this.lblVehicleSlt, 1, 0);
+            this.tblNewCheck.Controls.Add(this.label1, 0, 0);
+            this.tblNewCheck.Controls.Add(this.lblNotes, 0, 4);
+            this.tblNewCheck.Controls.Add(this.txtNotes, 1, 4);
+            this.tblNewCheck.Controls.Add(this.lblType, 0, 3);
+            this.tblNewCheck.Controls.Add(this.cboType, 1, 3);
+            this.tblNewCheck.Controls.Add(this.lblOdometer, 0, 2);
+            this.tblNewCheck.Controls.Add(this.numOdometer, 1, 2);
+            this.tblNewCheck.Controls.Add(this.lblDate, 0, 1);
+            this.tblNewCheck.Controls.Add(this.dtpDate, 1, 1);
             this.tblNewCheck.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblNewCheck.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tblNewCheck.Location = new System.Drawing.Point(12, 27);
+            this.tblNewCheck.Location = new System.Drawing.Point(12, 35);
             this.tblNewCheck.Margin = new System.Windows.Forms.Padding(4);
             this.tblNewCheck.Name = "tblNewCheck";
             this.tblNewCheck.Padding = new System.Windows.Forms.Padding(4);
-            this.tblNewCheck.RowCount = 4;
+            this.tblNewCheck.RowCount = 5;
             this.tblNewCheck.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblNewCheck.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblNewCheck.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblNewCheck.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblNewCheck.Size = new System.Drawing.Size(924, 194);
+            this.tblNewCheck.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tblNewCheck.Size = new System.Drawing.Size(924, 203);
             this.tblNewCheck.TabIndex = 0;
             // 
-            // lblDate
+            // lblVehicleSlt
             // 
-            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDate.Location = new System.Drawing.Point(8, 6);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(93, 25);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "Fecha:";
+            this.lblVehicleSlt.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblVehicleSlt.Location = new System.Drawing.Point(237, 4);
+            this.lblVehicleSlt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblVehicleSlt.Name = "lblVehicleSlt";
+            this.lblVehicleSlt.Size = new System.Drawing.Size(559, 20);
+            this.lblVehicleSlt.TabIndex = 9;
             // 
-            // dtpDate
+            // label1
             // 
-            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDate.Location = new System.Drawing.Point(237, 8);
-            this.dtpDate.Margin = new System.Windows.Forms.Padding(4);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(119, 22);
-            this.dtpDate.TabIndex = 1;
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label1.Location = new System.Drawing.Point(8, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Vehiculo:";
             // 
-            // lblOdometer
+            // lblNotes
             // 
-            this.lblOdometer.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblOdometer.Location = new System.Drawing.Point(8, 36);
-            this.lblOdometer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblOdometer.Name = "lblOdometer";
-            this.lblOdometer.Size = new System.Drawing.Size(107, 25);
-            this.lblOdometer.TabIndex = 2;
-            this.lblOdometer.Text = "Odómetro (km):";
+            this.lblNotes.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblNotes.Location = new System.Drawing.Point(8, 170);
+            this.lblNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNotes.Name = "lblNotes";
+            this.lblNotes.Size = new System.Drawing.Size(67, 25);
+            this.lblNotes.TabIndex = 6;
+            this.lblNotes.Text = "Notas:";
             // 
-            // numOdometer
+            // txtNotes
             // 
-            this.numOdometer.Location = new System.Drawing.Point(237, 38);
-            this.numOdometer.Margin = new System.Windows.Forms.Padding(4);
-            this.numOdometer.Maximum = new decimal(new int[] {
-            2000000,
-            0,
-            0,
-            0});
-            this.numOdometer.Name = "numOdometer";
-            this.numOdometer.Size = new System.Drawing.Size(120, 22);
-            this.numOdometer.TabIndex = 3;
-            this.numOdometer.ThousandsSeparator = true;
+            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtNotes.Location = new System.Drawing.Point(237, 140);
+            this.txtNotes.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNotes.Multiline = true;
+            this.txtNotes.Name = "txtNotes";
+            this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNotes.Size = new System.Drawing.Size(679, 86);
+            this.txtNotes.TabIndex = 7;
             // 
             // lblType
             // 
             this.lblType.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblType.Location = new System.Drawing.Point(8, 68);
+            this.lblType.Location = new System.Drawing.Point(8, 105);
             this.lblType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(107, 25);
@@ -298,43 +314,66 @@ namespace UI
             "Neumáticos",
             "Inspección técnica",
             "Otro"});
-            this.cboType.Location = new System.Drawing.Point(237, 68);
+            this.cboType.Location = new System.Drawing.Point(237, 104);
             this.cboType.Margin = new System.Windows.Forms.Padding(4);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(119, 25);
+            this.cboType.Size = new System.Drawing.Size(119, 29);
             this.cboType.TabIndex = 5;
             // 
-            // lblNotes
+            // lblOdometer
             // 
-            this.lblNotes.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblNotes.Location = new System.Drawing.Point(8, 131);
-            this.lblNotes.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNotes.Name = "lblNotes";
-            this.lblNotes.Size = new System.Drawing.Size(67, 25);
-            this.lblNotes.TabIndex = 6;
-            this.lblNotes.Text = "Notas:";
+            this.lblOdometer.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblOdometer.Location = new System.Drawing.Point(8, 68);
+            this.lblOdometer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblOdometer.Name = "lblOdometer";
+            this.lblOdometer.Size = new System.Drawing.Size(107, 25);
+            this.lblOdometer.TabIndex = 2;
+            this.lblOdometer.Text = "Odómetro (km):";
             // 
-            // txtNotes
+            // numOdometer
             // 
-            this.txtNotes.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtNotes.Location = new System.Drawing.Point(237, 101);
-            this.txtNotes.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNotes.Multiline = true;
-            this.txtNotes.Name = "txtNotes";
-            this.txtNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNotes.Size = new System.Drawing.Size(679, 85);
-            this.txtNotes.TabIndex = 7;
+            this.numOdometer.Location = new System.Drawing.Point(237, 66);
+            this.numOdometer.Margin = new System.Windows.Forms.Padding(4);
+            this.numOdometer.Maximum = new decimal(new int[] {
+            2000000,
+            0,
+            0,
+            0});
+            this.numOdometer.Name = "numOdometer";
+            this.numOdometer.Size = new System.Drawing.Size(120, 30);
+            this.numOdometer.TabIndex = 3;
+            this.numOdometer.ThousandsSeparator = true;
+            // 
+            // lblDate
+            // 
+            this.lblDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblDate.Location = new System.Drawing.Point(8, 30);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(93, 25);
+            this.lblDate.TabIndex = 0;
+            this.lblDate.Text = "Fecha:";
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(237, 28);
+            this.dtpDate.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(119, 30);
+            this.dtpDate.TabIndex = 1;
             // 
             // pnlButtons
             // 
             this.pnlButtons.Controls.Add(this.btnClose);
             this.pnlButtons.Controls.Add(this.btnAdd);
+            this.pnlButtons.Controls.Add(this.btnRegisterNewVehicle);
             this.pnlButtons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.pnlButtons.Location = new System.Drawing.Point(12, 641);
+            this.pnlButtons.Location = new System.Drawing.Point(12, 676);
             this.pnlButtons.Margin = new System.Windows.Forms.Padding(0, 11, 0, 0);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(956, 40);
+            this.pnlButtons.Size = new System.Drawing.Size(956, 43);
             this.pnlButtons.TabIndex = 3;
             // 
             // btnClose
@@ -345,11 +384,11 @@ namespace UI
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(874, 4);
+            this.btnClose.Location = new System.Drawing.Point(839, 4);
             this.btnClose.Margin = new System.Windows.Forms.Padding(8, 4, 0, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Padding = new System.Windows.Forms.Padding(12, 6, 12, 6);
-            this.btnClose.Size = new System.Drawing.Size(82, 41);
+            this.btnClose.Size = new System.Drawing.Size(117, 49);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "Cerrar";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -362,20 +401,38 @@ namespace UI
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(716, 4);
+            this.btnAdd.Location = new System.Drawing.Point(605, 4);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(8, 4, 0, 4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Padding = new System.Windows.Forms.Padding(12, 6, 12, 6);
-            this.btnAdd.Size = new System.Drawing.Size(150, 41);
+            this.btnAdd.Size = new System.Drawing.Size(226, 49);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Guardar registro";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
+            // btnRegisterNewVehicle
+            // 
+            this.btnRegisterNewVehicle.AutoSize = true;
+            this.btnRegisterNewVehicle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
+            this.btnRegisterNewVehicle.FlatAppearance.BorderSize = 0;
+            this.btnRegisterNewVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegisterNewVehicle.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegisterNewVehicle.ForeColor = System.Drawing.Color.White;
+            this.btnRegisterNewVehicle.Location = new System.Drawing.Point(349, 4);
+            this.btnRegisterNewVehicle.Margin = new System.Windows.Forms.Padding(8, 4, 0, 4);
+            this.btnRegisterNewVehicle.Name = "btnRegisterNewVehicle";
+            this.btnRegisterNewVehicle.Padding = new System.Windows.Forms.Padding(12, 6, 12, 6);
+            this.btnRegisterNewVehicle.Size = new System.Drawing.Size(248, 49);
+            this.btnRegisterNewVehicle.TabIndex = 2;
+            this.btnRegisterNewVehicle.Text = "Registrar Vehiculo";
+            this.btnRegisterNewVehicle.UseVisualStyleBackColor = false;
+            this.btnRegisterNewVehicle.Click += new System.EventHandler(this.btnRegisterNewVehicle_Click);
+            // 
             // FormVehicles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(980, 693);
+            this.ClientSize = new System.Drawing.Size(980, 731);
             this.Controls.Add(this.tblRoot);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -395,5 +452,16 @@ namespace UI
             this.ResumeLayout(false);
 
         }
+
+        private Button btnRegisterNewVehicle;
+        private DataGridViewTextBoxColumn colPatentVehicle;
+        private DataGridViewTextBoxColumn colVehicle;
+        private DataGridViewTextBoxColumn colDate;
+        private DataGridViewTextBoxColumn colType;
+        private DataGridViewTextBoxColumn colNotes;
+        private Label lblVehicleSlt;
+        private Label label1;
+        private Label lblNotes;
+        private TextBox txtNotes;
     }
 }

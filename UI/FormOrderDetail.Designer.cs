@@ -181,6 +181,7 @@
             this.colImgProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colImgProduct.HeaderText = "";
             this.colImgProduct.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colImgProduct.MinimumWidth = 8;
             this.colImgProduct.Name = "colImgProduct";
             this.colImgProduct.ReadOnly = true;
             // 
@@ -188,6 +189,7 @@
             // 
             this.colNameProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colNameProduct.HeaderText = "Producto";
+            this.colNameProduct.MinimumWidth = 8;
             this.colNameProduct.Name = "colNameProduct";
             this.colNameProduct.ReadOnly = true;
             // 
@@ -195,6 +197,7 @@
             // 
             this.colQuantityItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colQuantityItem.HeaderText = "Cantidad";
+            this.colQuantityItem.MinimumWidth = 8;
             this.colQuantityItem.Name = "colQuantityItem";
             this.colQuantityItem.ReadOnly = true;
             // 
@@ -202,6 +205,7 @@
             // 
             this.colPriceProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colPriceProduct.HeaderText = "Precio";
+            this.colPriceProduct.MinimumWidth = 8;
             this.colPriceProduct.Name = "colPriceProduct";
             this.colPriceProduct.ReadOnly = true;
             // 
@@ -209,6 +213,7 @@
             // 
             this.colSubtotalItem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colSubtotalItem.HeaderText = "Subtotal";
+            this.colSubtotalItem.MinimumWidth = 8;
             this.colSubtotalItem.Name = "colSubtotalItem";
             this.colSubtotalItem.ReadOnly = true;
             // 

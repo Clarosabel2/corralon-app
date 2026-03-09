@@ -1,4 +1,4 @@
-﻿namespace UI
+namespace UI
 {
     partial class FormMain
     {
@@ -57,6 +57,8 @@
             this.btnBitacora = new System.Windows.Forms.Button();
             this.btnSuppliers = new System.Windows.Forms.Button();
             this.btnAuditChanges = new System.Windows.Forms.Button();
+            this.btnVehicles = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
             this.panelBarraTitulo = new System.Windows.Forms.Panel();
             this.nightControlBox1 = new ReaLTaiizor.Controls.NightControlBox();
             this.lblDateTime = new System.Windows.Forms.Label();
@@ -66,7 +68,6 @@
             this.reporte1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporte3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnVehicles = new System.Windows.Forms.Button();
             this.panelForms.SuspendLayout();
             this.panelInterface.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2CirclePictureBox1)).BeginInit();
@@ -156,6 +157,7 @@
             this.panelDataUser.Controls.Add(this.lblName);
             this.panelDataUser.Controls.Add(this.lblEmail);
             resources.ApplyResources(this.panelDataUser, "panelDataUser");
+            this.panelDataUser.ForeColor = System.Drawing.SystemColors.Info;
             this.panelDataUser.Name = "panelDataUser";
             // 
             // photoUser
@@ -210,6 +212,7 @@
             this.menuGeneral.Controls.Add(this.btnSuppliers);
             this.menuGeneral.Controls.Add(this.btnAuditChanges);
             this.menuGeneral.Controls.Add(this.btnVehicles);
+            this.menuGeneral.Controls.Add(this.btnSettings);
             this.menuGeneral.Name = "menuGeneral";
             // 
             // btnProducts
@@ -394,6 +397,32 @@
             this.btnAuditChanges.UseVisualStyleBackColor = false;
             this.btnAuditChanges.Click += new System.EventHandler(this.btnAuditChanges_Click);
             // 
+            // btnVehicles
+            // 
+            resources.ApplyResources(this.btnVehicles, "btnVehicles");
+            this.btnVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnVehicles.FlatAppearance.BorderSize = 0;
+            this.btnVehicles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnVehicles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnVehicles.ForeColor = System.Drawing.Color.Silver;
+            this.btnVehicles.Name = "btnVehicles";
+            this.btnVehicles.UseVisualStyleBackColor = false;
+            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.FlatAppearance.BorderSize = 0;
+            this.btnSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
+            this.btnSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
+            this.btnSettings.ForeColor = System.Drawing.Color.Silver;
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.UseVisualStyleBackColor = false;
+            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            // 
             // panelBarraTitulo
             // 
             this.panelBarraTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(93)))), ((int)(((byte)(141)))));
@@ -427,7 +456,7 @@
             // lblDateTime
             // 
             resources.ApplyResources(this.lblDateTime, "lblDateTime");
-            this.lblDateTime.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblDateTime.ForeColor = System.Drawing.Color.White;
             this.lblDateTime.Name = "lblDateTime";
             // 
             // timerDateHour
@@ -466,19 +495,6 @@
             // 
             this.reporte3ToolStripMenuItem.Name = "reporte3ToolStripMenuItem";
             resources.ApplyResources(this.reporte3ToolStripMenuItem, "reporte3ToolStripMenuItem");
-            // 
-            // btnVehicles
-            // 
-            resources.ApplyResources(this.btnVehicles, "btnVehicles");
-            this.btnVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(41)))), ((int)(((byte)(60)))));
-            this.btnVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnVehicles.FlatAppearance.BorderSize = 0;
-            this.btnVehicles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(50)))), ((int)(((byte)(70)))));
-            this.btnVehicles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(12)))), ((int)(((byte)(61)))), ((int)(((byte)(92)))));
-            this.btnVehicles.ForeColor = System.Drawing.Color.Silver;
-            this.btnVehicles.Name = "btnVehicles";
-            this.btnVehicles.UseVisualStyleBackColor = false;
-            this.btnVehicles.Click += new System.EventHandler(this.btnVehicles_Click);
             // 
             // FormMain
             // 
@@ -548,5 +564,7 @@
         private System.Windows.Forms.Button btnSuppliers;
         private System.Windows.Forms.Button btnAuditChanges;
         private System.Windows.Forms.Button btnVehicles;
+        private System.Windows.Forms.Button btnSettings;
     }
 }
+

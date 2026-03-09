@@ -1,5 +1,8 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
+using BLL.Inventory;
+using BLL.Purchases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +19,20 @@ namespace UI.FormsViewData
 {
     public partial class FormSuppliers : Form
     {
-        private List<BE_Supplier> _suppliers = BLL_Supplier.GetAllSuppliers();
-        public FormSuppliers()
+        private readonly ISupplierService _supplierService;
+        private readonly IBrandService _brandService;
+        private List<Supplier> Suppliers { get; set; }
+        public FormSuppliers(ISupplierService supplierService, IBrandService brandService)
         {
             InitializeComponent();
+            _supplierService = supplierService;
+            _brandService = brandService;
+
+            Suppliers = _supplierService.GetAll();
+
             ApplyStyleCommon.DGVStyle(this.dgvSuppliers);
             ApplyStyleCommon.DGVStyle(this.dgvBrands);
-            ResxExporter.ExportControlsFormToResx(this);
+            //ResxExporter.ExportControlsFormToResx(this);
         }
 
         private void SetupSupplierColumns()
@@ -98,12 +108,12 @@ namespace UI.FormsViewData
         }
         private void LoadSuppliers()
         {
-            _suppliers.ForEach(s => dgvSuppliers.Rows.Add(s.Id, s.Name, s.ContactName, s.ContactEmail, s.ContactPhone, s.Address));
+            Suppliers.ForEach(s => dgvSuppliers.Rows.Add(s.Id, s.Name, s.ContactName, s.ContactEmail, s.ContactPhone, s.Address));
         }
 
         private void btnRegisterSupplier_Click(object sender, EventArgs e)
         {
-            FormRegisterSupplier fm = new FormRegisterSupplier();
+            FormRegisterSupplier fm = new FormRegisterSupplier(_brandService, _supplierService);
             fm.StartPosition = FormStartPosition.CenterParent;
             fm.FormBorderStyle = FormBorderStyle.FixedDialog;
             fm.ShowDialog();
@@ -121,7 +131,7 @@ namespace UI.FormsViewData
             if (dgvSuppliers.CurrentRow != null)
             {
                 int supplierId = Convert.ToInt32(dgvSuppliers.CurrentRow.Cells["IdSupplier"].Value);
-                List<BE_Brand> brandsAssociated = _suppliers.FirstOrDefault(s => s.Id == supplierId)?.BrandsAssociated;
+                List<Brand> brandsAssociated = Suppliers.FirstOrDefault(s => s.Id == supplierId)?.BrandsAssociated;
                 dgvBrands.Rows.Clear();
                 brandsAssociated?.ForEach(b => dgvBrands.Rows.Add(b.Id, b.NameBrand));
             }

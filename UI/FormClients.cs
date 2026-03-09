@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,12 @@ namespace UI
 {
     public partial class FormClients : Form
     {
-        public FormClients()
+        private readonly IClientService _clientService;
+        public FormClients(
+            IClientService clientService)
         {
             InitializeComponent();
+            _clientService = clientService;
             ApplyStyleCommon.DGVStyle(this.dgvClients);
             LoadClients();
         }
@@ -37,9 +41,9 @@ namespace UI
             dgvClients.Columns.Add("colEmail", "Email");
             dgvClients.Columns.Add("colPhone", "Telefono");
 
-            foreach (BE_Client e in BLL_Client.GetAllClients())
+            foreach (Client e in _clientService.GetAll())
             {
-                dgvClients.Rows.Add(e, e.Id, e.Dni, e.Name, e.Lastname, e.Address,e.Email, e.NumPhone);
+                dgvClients.Rows.Add(e, e.Id, e.Dni, e.Name, e.Lastname, e.Address, e.Email, e.NumPhone);
             }
         }
     }

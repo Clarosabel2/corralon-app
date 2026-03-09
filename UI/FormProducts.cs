@@ -1,5 +1,7 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
+using BLL.Inventory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,13 +19,17 @@ namespace UI
 {
     public partial class FormProducts : Form
     {
-        List<BE_Product> products = new List<BE_Product>();
+        private readonly IProductService _productService;
+        private readonly IBrandService _brandService;
+        List<Product> products = new List<Product>();
         bool isLowStock = false;
-        public FormProducts()
+        public FormProducts(IProductService productService, IBrandService brandService)
         {
             InitializeComponent();
+            _productService = productService;
+            _brandService = brandService;
             ApplyStyleCommon.DGVStyle(this.dgvProducts);
-            products = BLL_Product.GetProducts();
+            products = _productService.GetProducts();
             //VerifyLowStock();
         }
 
@@ -34,7 +40,7 @@ namespace UI
 
         private void VerifyLowStock()
         {
-            if (BLL_Product.isLowStock)
+            if (_productService.IsLowStock)
             {
                 DialogResult result = MessageBox.Show(
                     "Hay productos con stock insuficiente. ¿Desea solicitar compra?",
@@ -68,7 +74,7 @@ namespace UI
         }
 
 
-        public void LoadProductsIntoDGV(List<BE_Product> prdts = null)
+        public void LoadProductsIntoDGV(List<Product> prdts = null)
         {
             dgvProducts.DataSource = null;
             dgvProducts.Columns.Clear();
@@ -222,7 +228,7 @@ namespace UI
 
         private void btnRegisterProduct_Click(object sender, EventArgs e)
         {
-            FormRegisterProduct fm = new FormRegisterProduct(0, this);
+            FormRegisterProduct fm = new FormRegisterProduct(_productService, _brandService, 0, this);
             fm.StartPosition = FormStartPosition.CenterScreen;
             fm.FormBorderStyle = FormBorderStyle.FixedDialog;
             fm.ShowDialog();
@@ -244,7 +250,7 @@ namespace UI
                 if (result == DialogResult.Yes)
                 {
                     // Llamar a la capa de negocio para eliminar el producto
-                    BLL_Product.DeleteProductById(productId);
+                    _productService.DeleteProductById(productId);
 
                     // Verificar si la fila aún existe antes de eliminar
                     if (e.RowIndex < dgvProducts.Rows.Count)
@@ -256,7 +262,7 @@ namespace UI
             // Click en botón "Editar"
             else if (e.ColumnIndex == dgvProducts.Columns["btnEdit"].Index)
             {
-                FormRegisterProduct fm = new FormRegisterProduct(productId, this);
+                FormRegisterProduct fm = new FormRegisterProduct(_productService, _brandService, productId, this);
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.ShowDialog();
             }
@@ -265,7 +271,7 @@ namespace UI
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string word = txtSearch.Text.Trim().ToLower();
-            List<BE_Product> prdtsFiltered = products.Where(p =>
+            List<Product> prdtsFiltered = products.Where(p =>
                 p.Name.ToLower().Contains(word) ||
                 p.Brand.NameBrand.ToLower().Contains(word) ||
                 p.Category.ToLower().Contains(word)).ToList();

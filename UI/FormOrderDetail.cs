@@ -14,25 +14,25 @@ namespace UI
 {
     public partial class FormOrderDetail : Form
     {
-        public FormOrderDetail(BE_Order currentOrder)
+        public FormOrderDetail(Delivery currentOrder)
         {
             InitializeComponent();
             ConfigureForm(currentOrder);
         }
 
-        private void ConfigureForm(BE_Order order)
+        private void ConfigureForm(Delivery order)
         {
-            txtNumOrder.Text = order.Invoice.Id.ToString();
-            txtDateIssue.Text = order.Invoice.IssueDate.ToShortDateString();
+            txtNumOrder.Text = order.Sale.Id.ToString();
+            txtDateIssue.Text = order.Sale.IssueDate.ToShortDateString();
             txtStatusOrder.Text = order.Status ? "Completed" : "Pending";
 
-            txtDNIClient.Text = order.Invoice.Client.Dni.ToString();
-            txtFullnameClient.Text = order.Invoice.Client.Name;
-            txtAddressClient.Text = order.Invoice.Client.Address;
-            txtNumPhoneClient.Text = order.Invoice.Client.NumPhone.ToString();
-            txtEmailClient.Text = order.Invoice.Client.Email;
+            txtDNIClient.Text = order.Sale.Client.Dni.ToString();
+            txtFullnameClient.Text = order.Sale.Client.Name;
+            txtAddressClient.Text = order.Sale.Client.Address;
+            txtNumPhoneClient.Text = order.Sale.Client.NumPhone.ToString();
+            txtEmailClient.Text = order.Sale.Client.Email;
 
-            txtFullnameSeller.Text = order.Invoice.Saleman.Lastname + ", " + order.Invoice.Saleman.Name;
+            txtFullnameSeller.Text = order.Sale.Saleman.Lastname + ", " + order.Sale.Saleman.Name;
             txtFullnameDealer.Text = order.Dealer.Lastname + ", " + order.Dealer.Name;
 
             txtDateDelivery.Text = order.DeliveryDate.ToShortDateString();
@@ -40,7 +40,7 @@ namespace UI
             txtHourArrival.Text = order.ArrivalDate.ToShortTimeString();
 
             int i = 0;
-            order.Invoice.ItemsProducts.ForEach(item =>
+            order.Sale.ItemsProducts.ForEach(item =>
             {
                 i++;
                 dgvProductsOrder.Rows.Add(new object[]

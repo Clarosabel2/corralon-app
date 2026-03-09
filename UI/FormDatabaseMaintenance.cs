@@ -1,31 +1,32 @@
-﻿using BLL;
-using SVC;
+﻿using BLL.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class FormDatabaseMaintenance : Form
     {
+        private readonly IDbMaintenanceService _dbMaintenanceService;
+        private string DefaultBackupFolder = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            "Delcons",
+            "Backups");
 
-        public FormDatabaseMaintenance()
+        public FormDatabaseMaintenance(
+            IDbMaintenanceService dbMaintenanceService
+            )
         {
             InitializeComponent();
-            if (BLL_DV_DB.IsDVInconsistent)
+            _dbMaintenanceService = dbMaintenanceService;
+            _dbMaintenanceService.CheckIntegrity();
+            if (_dbMaintenanceService.IsDVInconsistent)
             {
                 ConfigMsgIntegrity();
             }
         }
-
 
         private void ConfigMsgIntegrity()
         {
@@ -38,7 +39,7 @@ namespace UI
 
             listBoxIntegrityResults.Items.Add("Tipo DV\tError\tTable\tRowKey");
 
-            foreach (var m in BLL_DV_DB.LastMismatches)
+            foreach (var m in _dbMaintenanceService.LastMismatches)
             {
                 listBoxIntegrityResults.Items.Add(
                     $"{m.DvKind}\t{m.KindError}\t{m.TableName}\t{m.RowKey}"
@@ -56,7 +57,6 @@ namespace UI
                 if (folderDialog.ShowDialog() == DialogResult.OK)
                 {
                     txtBackupPath.Text = folderDialog.SelectedPath;
-                    userDestBackup = folderDialog.SelectedPath;
                 }
             }
         }
@@ -75,14 +75,13 @@ namespace UI
                 }
             }
         }
-        string userDestBackup = null;
 
         private void btnExecuteBackup_Click(object sender, EventArgs e)
         {
-            DatabaseService ds = new DatabaseService();
+            string backupDestination = rbDefaultPath.Checked ? DefaultBackupFolder : txtBackupPath.Text;
             try
             {
-                ds.DoBackup(userDestBackup);
+                _dbMaintenanceService.BackupDatabase(backupDestination);
                 MessageBox.Show("Backup generado correctamente.", "Backup", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -93,7 +92,7 @@ namespace UI
 
         private void btnCheckIntegrity_Click(object sender, EventArgs e)
         {
-            if (BLL_DV_DB.CheckDatabaseIntegrity())
+            if (_dbMaintenanceService.CheckIntegrity())
             {
                 ConfigMsgIntegrity();
             }
@@ -105,13 +104,12 @@ namespace UI
 
         private void btnRecalculateDV_Click(object sender, EventArgs e)
         {
-            BLL_DV_DB.RecalculateDV();
+            _dbMaintenanceService.RecalculateDV();
             ConfigDGV();
         }
 
         private void btnExecuteRestore_Click(object sender, EventArgs e)
         {
-            DatabaseService ds = new DatabaseService();
             string backupPath;
             if (txtRestoreFile.Text != "")
             {
@@ -152,7 +150,7 @@ namespace UI
             {
                 try
                 {
-                    ds.DoRestore(backupPath);
+                    _dbMaintenanceService.BackupDatabase(backupPath);
                     MessageBox.Show("Restauración realizada con éxito.",
                         "Restore", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -188,11 +186,8 @@ namespace UI
             ConfigDGV();
             if (tabControlFormDM.SelectedIndex != 1) return;
 
-            string appRoot = AppDomain.CurrentDomain.BaseDirectory;
-            string backupFolder = Path.Combine(appRoot, "Backups");
-
-            if (!Directory.Exists(backupFolder))
-                Directory.CreateDirectory(backupFolder);
+            if (!Directory.Exists(DefaultBackupFolder))
+                Directory.CreateDirectory(DefaultBackupFolder);
 
             var dt = new DataTable();
             dt.Columns.Add("File", typeof(string));
@@ -201,7 +196,7 @@ namespace UI
             dt.Columns.Add("FullPath", typeof(string));
             dt.Columns.Add("SortDate", typeof(DateTime));
 
-            var files = Directory.GetFiles(backupFolder, "*.bak", SearchOption.TopDirectoryOnly);
+            var files = Directory.GetFiles(DefaultBackupFolder, "*.bak", SearchOption.TopDirectoryOnly);
 
             foreach (var path in files)
             {
@@ -265,7 +260,32 @@ namespace UI
 
         private void btnRecalculateAllDV_Click(object sender, EventArgs e)
         {
-            BLL_DV_DB.CalculateDVHDatabase();
+            _dbMaintenanceService.CalculateDVHDatabase();
+        }
+
+        private void FormDatabaseMaintenance_Load(object sender, EventArgs e)
+        {
+            lblDefaultPathValue.Text = "📁  " + DefaultBackupFolder;
+            txtBackupPath.Text = DefaultBackupFolder;
+            rbDefaultPath.Checked = true;
+            rbDefaultPath.CheckedChanged += rbBackupPath_CheckedChanged;
+            rbCustomPath.CheckedChanged += rbBackupPath_CheckedChanged;
+            UpdateBackupPathControls();
+        }
+
+        private void rbBackupPath_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateBackupPathControls();
+        }
+
+        private void UpdateBackupPathControls()
+        {
+            bool isCustom = rbCustomPath.Checked;
+            txtBackupPath.Enabled = isCustom;
+            btnBrowseBackupPath.Enabled = isCustom;
+            txtBackupPath.BackColor = isCustom
+                ? Color.White
+                : Color.FromArgb(248, 250, 252);
         }
     }
 }

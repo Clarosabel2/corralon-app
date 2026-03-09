@@ -1,13 +1,7 @@
 ﻿using BDE;
-using BLL;
+using BLL.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.common;
 using UI.common.Styles;
@@ -17,9 +11,18 @@ namespace UI
 {
     public partial class FormFinalizeSale : Form
     {
-        public FormFinalizeSale()
+        private ISaleService _saleService;
+        private IClientService _clientService;
+        private Sale _currentSale;
+        public FormFinalizeSale(
+            ISaleService saleService,
+            Sale currentSale = null
+            )
         {
             InitializeComponent();
+            _saleService = saleService;
+            _currentSale = currentSale;
+
             ApplyStyleForm();
             ConfigForm();
             LoadDataSale();
@@ -28,21 +31,21 @@ namespace UI
         private void ConfigForm()
         {
             dtpDeliveryDate.MinDate = DateTime.Now.Hour > 18 ? DateTime.Today.AddDays(1) : DateTime.Today;
-            cBTypesInvoice.DataSource = BLL_Invoice.GetTypesInvoice();
+            cBTypesInvoice.DataSource = _saleService.GetTypes();
             cBTypesInvoice.DisplayMember = "tipo";
             cBTypesInvoice.ValueMember = "id_Tipo";
         }
 
         private void LoadDataSale()
         {
-            foreach (BE_Item item in BLL_Sale.CurrentSale.ItemsProducts)
+            foreach (Item item in _currentSale.ItemsProducts)
             {
                 dgvCartSummary.Rows.Add(
                     ImageLoader.LoadSafe(item.Product.ImagePath) ?? Properties.Resources.img_icon,
                     item.Product.Name,
                     item.Amount);
             }
-            lblTotalValue.Text = BLL_Sale.CurrentSale.Total.ToString();
+            lblTotalValue.Text = _currentSale.Total.ToString();
         }
 
         private void ApplyStyleForm()
@@ -74,7 +77,8 @@ namespace UI
             txtDNIClient.BackColor = SystemColors.Window;
             if (txtDNIClient.Text.Length >= 8)
             {
-                var client = BLL_Sale.AddClient(dni);
+                var client = _clientService.GetByDNI(dni);
+                _currentSale.AddClient(client);
                 if (client != null)
                 {
                     btnConfirm.Enabled = true;
@@ -92,7 +96,7 @@ namespace UI
                     if (r == DialogResult.Yes)
                     {
                         txtDNIClient.Text = "";
-                        FormRegisterClient f = new FormRegisterClient(this);
+                        FormRegisterClient f = new FormRegisterClient(_clientService, this);
                         f.TopLevel = false;
                         this.Controls.Add(f);
                         f.BringToFront();
@@ -120,15 +124,18 @@ namespace UI
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            BLL_Sale.CurrentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
-            BLL_Sale.CurrentSale.Status = true;
-            BLL_Sale.CurrentOrder.DeliveryDate = dtpDeliveryDate.Value;
-            BLL_Sale.CurrentOrder.AddressDelivery = txtDireccionEntrega.Text;
+            _currentSale.TypeInvoice = cBTypesInvoice.GetItemText(cBTypesInvoice.SelectedItem)[0];
+            _currentSale.Status = true;
+
+            var newDelivery = new Delivery();
+            newDelivery.DeliveryDate = dtpDeliveryDate.Value;
+            newDelivery.AddressDelivery = txtDireccionEntrega.Text;
+            newDelivery.Sale = _currentSale;
             try
             {
                 try
                 {
-                    BLL_Sale.SaveInvoice();
+                    _saleService.SaveWithDelivery(newDelivery);
                     DialogResult r = MessageBox.Show("Factura guardada correctamente.", "Confirmación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK) this.Dispose();
 

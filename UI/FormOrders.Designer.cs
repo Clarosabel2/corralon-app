@@ -135,27 +135,30 @@ namespace UI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12.5F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(12, 16);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 8, 12, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
+            this.label1.Location = new System.Drawing.Point(16, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 8, 12, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 19);
+            this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar";
+            this.label1.Text = "Buscar:";
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(92, 14);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(51, 65, 85);
+            this.textBox1.Location = new System.Drawing.Point(96, 12);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(480, 24);
+            this.textBox1.Size = new System.Drawing.Size(480, 25);
             this.textBox1.TabIndex = 1;
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel3.SetColumnSpan(this.flowLayoutPanel1, 2);
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.textBox1);
@@ -170,11 +173,12 @@ namespace UI
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 13.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
             this.label2.Location = new System.Drawing.Point(3, 8);
             this.label2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(182, 22);
+            this.label2.Size = new System.Drawing.Size(200, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Pedidos Pendientes";
             // 
@@ -183,7 +187,7 @@ namespace UI
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(247)))));
             this.dgvOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrders.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dgvOrders.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrders.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
@@ -233,16 +237,19 @@ namespace UI
             // 
             // btnDispatchOrder
             // 
-            this.btnDispatchOrder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
+            this.btnDispatchOrder.BackColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.btnDispatchOrder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDispatchOrder.FlatAppearance.BorderSize = 0;
-            this.btnDispatchOrder.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDispatchOrder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(21, 128, 61);
+            this.btnDispatchOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDispatchOrder.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.btnDispatchOrder.ForeColor = System.Drawing.Color.White;
             this.btnDispatchOrder.Location = new System.Drawing.Point(8, 42);
             this.btnDispatchOrder.Margin = new System.Windows.Forms.Padding(8);
-            this.btnDispatchOrder.MaximumSize = new System.Drawing.Size(200, 40);
+            this.btnDispatchOrder.MaximumSize = new System.Drawing.Size(200, 44);
             this.btnDispatchOrder.Name = "btnDispatchOrder";
             this.btnDispatchOrder.Padding = new System.Windows.Forms.Padding(8, 4, 8, 4);
-            this.btnDispatchOrder.Size = new System.Drawing.Size(163, 40);
+            this.btnDispatchOrder.Size = new System.Drawing.Size(170, 44);
             this.btnDispatchOrder.TabIndex = 0;
             this.btnDispatchOrder.Text = "Despachar Pedido";
             this.btnDispatchOrder.UseVisualStyleBackColor = false;
@@ -264,7 +271,7 @@ namespace UI
             // 
             // tableLayoutPanel3
             // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.tableLayoutPanel3.ColumnCount = 2;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
@@ -294,17 +301,18 @@ namespace UI
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 13.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
             this.label3.Location = new System.Drawing.Point(12, 14);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 22);
+            this.label3.Size = new System.Drawing.Size(220, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Pedidos Despachados";
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.White;
             this.tableLayoutPanel5.SetColumnSpan(this.flowLayoutPanel2, 2);
             this.flowLayoutPanel2.Controls.Add(this.label3);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -312,7 +320,7 @@ namespace UI
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0, 0, 0, 8);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(8);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1156, 100);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1156, 55);
             this.flowLayoutPanel2.TabIndex = 0;
             // 
             // dgvOrdersShipped
@@ -320,7 +328,7 @@ namespace UI
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(247)))));
             this.dgvOrdersShipped.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvOrdersShipped.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrdersShipped.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dgvOrdersShipped.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrdersShipped.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
@@ -354,11 +362,13 @@ namespace UI
             // 
             // btnMarkDelivered
             // 
-            this.btnMarkDelivered.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
+            this.btnMarkDelivered.BackColor = System.Drawing.Color.FromArgb(22, 163, 74);
+            this.btnMarkDelivered.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMarkDelivered.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnMarkDelivered.FlatAppearance.BorderSize = 0;
+            this.btnMarkDelivered.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(21, 128, 61);
             this.btnMarkDelivered.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMarkDelivered.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnMarkDelivered.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnMarkDelivered.ForeColor = System.Drawing.Color.White;
             this.btnMarkDelivered.Location = new System.Drawing.Point(3, 11);
             this.btnMarkDelivered.Name = "btnMarkDelivered";
@@ -371,11 +381,13 @@ namespace UI
             // 
             // btnReportProblem
             // 
-            this.btnReportProblem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(92)))), ((int)(((byte)(153)))));
+            this.btnReportProblem.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            this.btnReportProblem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnReportProblem.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnReportProblem.FlatAppearance.BorderSize = 0;
+            this.btnReportProblem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(185, 28, 28);
             this.btnReportProblem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportProblem.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnReportProblem.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnReportProblem.ForeColor = System.Drawing.Color.White;
             this.btnReportProblem.Location = new System.Drawing.Point(0, 68);
             this.btnReportProblem.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -405,7 +417,7 @@ namespace UI
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel5.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
             this.tableLayoutPanel5.ColumnCount = 2;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 84F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16F));
@@ -465,11 +477,12 @@ namespace UI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 13.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
             this.label4.Location = new System.Drawing.Point(3, 8);
             this.label4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(181, 22);
+            this.label4.Size = new System.Drawing.Size(200, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Historial de Pedidos";
             // 
@@ -478,7 +491,7 @@ namespace UI
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(243)))), ((int)(((byte)(247)))));
             this.dgvOrdersHistory.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvOrdersHistory.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvOrdersHistory.BackgroundColor = System.Drawing.Color.DarkGray;
+            this.dgvOrdersHistory.BackgroundColor = System.Drawing.Color.White;
             this.dgvOrdersHistory.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(64)))), ((int)(((byte)(106)))));
@@ -635,7 +648,7 @@ namespace UI
             this.buttonDefault1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonDefault1.FlatAppearance.BorderSize = 0;
             this.buttonDefault1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDefault1.Font = new System.Drawing.Font("Century Gothic", 10.5F, System.Drawing.FontStyle.Bold);
+            this.buttonDefault1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.5F, System.Drawing.FontStyle.Bold);
             this.buttonDefault1.ForeColor = System.Drawing.Color.Transparent;
             this.buttonDefault1.Image = global::UI.Properties.Resources._1077991;
             this.buttonDefault1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -830,7 +843,7 @@ namespace UI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(3, 10);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 17);
@@ -910,11 +923,14 @@ namespace UI
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.tabControl1.ItemSize = new System.Drawing.Size(200, 36);
             this.tabControl1.Location = new System.Drawing.Point(15, 15);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(20, 6);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1188, 947);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
             // tableLayoutPanel7
@@ -934,10 +950,10 @@ namespace UI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
+            this.BackColor = System.Drawing.Color.FromArgb(241, 245, 249);
             this.ClientSize = new System.Drawing.Size(1218, 977);
             this.Controls.Add(this.tableLayoutPanel7);
-            this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "FormOrders";
             this.Text = "Pedidos";
             this.flowLayoutPanel1.ResumeLayout(false);

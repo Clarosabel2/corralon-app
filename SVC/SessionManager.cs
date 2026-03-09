@@ -10,8 +10,8 @@ namespace SVC
 {
     public class SessionManager
     {
-        public BE_User user { get; set; }
-        public static Dictionary<BE_Language, Dictionary<string, Dictionary<string, string>>> translations { get; set; }
+        public User user { get; set; }
+        public static Dictionary<Language, Dictionary<string, Dictionary<string, string>>> translations { get; set; }
         private static SessionManager _session = null;
         protected SessionManager() { }
         public static SessionManager GetInstance
@@ -22,7 +22,7 @@ namespace SVC
                 return _session;
             }
         }
-        public static void Login(BE_User user) {
+        public static void Login(User user) {
             if (_session == null)
             {
                 _session = new SessionManager();

@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DatabaseService.cs" />
     <Compile Include="DirectoryManager.cs" />
     <Compile Include="EmailService\EmailSender.cs" />
     <Compile Include="EmailService\EmailSendException.cs" />
@@ -63,6 +62,8 @@
       <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,7 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
+using BLL.Inventory;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,15 +17,23 @@ namespace UI
 {
     public partial class FormRegisterProduct : Form
     {
-        BE_Product product = new BE_Product();
+        private readonly IProductService _productService;
+        private readonly IBrandService _brandService;
+
+        Product product = new Product();
         FormProducts fm;
-        List<BE_Brand> brands = new List<BE_Brand>();
+        List<Brand> brands = new List<Brand>();
         bool isEdit = false;
-        public FormRegisterProduct(int idprdt = 0, FormProducts fmPrdts = null)
+        
+        public FormRegisterProduct(IProductService productService, IBrandService brandService, int idprdt = 0, FormProducts fmPrdts = null)
         {
             InitializeComponent();
+
+            _productService = productService;
+            _brandService = brandService;
             this.fm = fmPrdts;
-            brands = BLL_Brand.GetAllBrands();
+            brands = _brandService.GetAll();
+
             LoadData();
             if (idprdt != 0)
             {
@@ -35,7 +45,7 @@ namespace UI
 
         private void LoadProductToEdit(int id)
         {
-            product = BLL_Product.GetProductById(id);
+            product = _productService.GetProductById(id);
             txtNameProduct.Text = product.Name;
             txtDescriptionProduct.Text = product.Description;
             txtPriceProduct.Text = product.Price.ToString();
@@ -49,14 +59,14 @@ namespace UI
         }
         private void LoadData()
         {
-            DataTable dtCategorias = BLL_Product.GetCaterogyProducts();
+            DataTable dtCategorias = _productService.GetCaterogyProducts();
             DataRow rowTodos = dtCategorias.NewRow();
 
             cbCategoryProduct.DataSource = dtCategorias;
             cbCategoryProduct.DisplayMember = "nombreCategoria";
             cbCategoryProduct.ValueMember = "id_Categoria";
 
-            brands.ForEach(b => cbBrands.Items.Add(new KeyValuePair<BE_Brand, string>(b, $"{b.NameBrand}")));
+            brands.ForEach(b => cbBrands.Items.Add(new KeyValuePair<Brand, string>(b, $"{b.NameBrand}")));
             cbBrands.DisplayMember = "Value";
             cbBrands.ValueMember = "Key";
             cbBrands.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
@@ -66,26 +76,26 @@ namespace UI
         private void btnSaveProduct_Click_1(object sender, EventArgs e)
         {
             string inputBrand = cbBrands.Text.Trim();
-            BE_Product currentProduct = new BE_Product();
+            Product currentProduct = new Product();
 
             /*var existingBrand = (cbBrands.DataSource as List<BE_Brand>)
                 .FirstOrDefault(brand => brand.NameBrand.Equals(inputBrand, 
                     StringComparison.OrdinalIgnoreCase));*/
 
-            BE_Brand brandSelected = brands.FirstOrDefault(b =>
+            Brand brandSelected = brands.FirstOrDefault(b =>
                 b.NameBrand.Equals(inputBrand, StringComparison.OrdinalIgnoreCase));
 
 
             if (brandSelected == null)
             {
-                brandSelected = new BE_Brand();
+                brandSelected = new Brand();
                 brandSelected.NameBrand = inputBrand;
-                BLL_Brand.SaveBrand(brandSelected);
+                _brandService.Save(brandSelected);
             }
             try
             {
 
-                currentProduct = new BE_Product(
+                currentProduct = new Product(
                     (isEdit) ? product.Id : 0,
                     brandSelected,
                     txtNameProduct.Text,
@@ -99,13 +109,13 @@ namespace UI
 
                 if (!isEdit)
                 {
-                    BLL_Product.SaveProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
+                    _productService.SaveProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
                 }
                 else
                 {
-                    BLL_Product.UpdateProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
+                    _productService.UpdateProduct(currentProduct, (pictureBoxImgProduct.ImageLocation != product.ImagePath));
                 }
-                fm.LoadProductsIntoDGV(BLL_Product.GetProducts());
+                fm.LoadProductsIntoDGV(_productService.GetProducts());
                 this.Close();
             }
             catch (Exception ex)

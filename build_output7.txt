@@ -1,0 +1,134 @@
+Versión de MSBuild 17.14.23+b0019275e para .NET Framework
+Compilación iniciada a las 6/3/2026 16:30:25.
+
+Proyecto "c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" en nodo 1 (destinos predeterminados).
+ValidateSolutionConfiguration:
+  Compilando la configuración de soluciones "Debug|Any CPU".
+El proyecto "c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" (1) está compilando "c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (2) en el nodo 1 (destinos predeterminados).
+El proyecto "c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (2) está compilando "c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj" (3:2) en el nodo 1 (destinos predeterminados).
+GenerateTargetFrameworkMonikerAttribute:
+Se omitirá el destino "GenerateTargetFrameworkMonikerAttribute" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CoreCompile:
+Se omitirá el destino "CoreCompile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CopyFilesToOutputDirectory:
+  BE -> c:\Users\abel_\source\repos\corralon-app\BDE\bin\Debug\BDE.dll
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj" (destinos predeterminados).
+El proyecto "c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (2) está compilando "c:\Users\abel_\source\repos\corralon-app\BLL\BLL.csproj" (4:2) en el nodo 1 (destinos predeterminados).
+El proyecto "c:\Users\abel_\source\repos\corralon-app\BLL\BLL.csproj" (4:2) está compilando "c:\Users\abel_\source\repos\corralon-app\DAL\DAL.csproj" (6:2) en el nodo 1 (destinos predeterminados).
+GenerateTargetFrameworkMonikerAttribute:
+Se omitirá el destino "GenerateTargetFrameworkMonikerAttribute" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CoreCompile:
+Se omitirá el destino "CoreCompile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+_CopyAppConfigFile:
+Se omitirá el destino "_CopyAppConfigFile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CopyFilesToOutputDirectory:
+  DAL -> c:\Users\abel_\source\repos\corralon-app\DAL\bin\Debug\DAL.dll
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\DAL\DAL.csproj" (destinos predeterminados).
+El proyecto "c:\Users\abel_\source\repos\corralon-app\BLL\BLL.csproj" (4:2) está compilando "c:\Users\abel_\source\repos\corralon-app\SVC\SVC.csproj" (5:3) en el nodo 1 (destinos predeterminados).
+GenerateTargetFrameworkMonikerAttribute:
+Se omitirá el destino "GenerateTargetFrameworkMonikerAttribute" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CoreCompile:
+Se omitirá el destino "CoreCompile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+_CopyAppConfigFile:
+Se omitirá el destino "_CopyAppConfigFile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CopyFilesToOutputDirectory:
+  SVC -> c:\Users\abel_\source\repos\corralon-app\SVC\bin\Debug\SVC.dll
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\SVC\SVC.csproj" (destinos predeterminados).
+GenerateTargetFrameworkMonikerAttribute:
+Se omitirá el destino "GenerateTargetFrameworkMonikerAttribute" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CoreCompile:
+Se omitirá el destino "CoreCompile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+_CopyAppConfigFile:
+Se omitirá el destino "_CopyAppConfigFile" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CopyFilesToOutputDirectory:
+  BLL -> c:\Users\abel_\source\repos\corralon-app\BLL\bin\Debug\BLL.dll
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\BLL\BLL.csproj" (destinos predeterminados).
+ResolveAssemblyReferences:
+  Referencia principal "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL".
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: No se pudo resolver esta referencia. No se encuentra el ensamblado "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL". Compruebe si el ensamblado existe en el disco. Si el código necesita esta referencia, podrían producirse errores de compilación. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+          Para SearchPath "{TargetFrameworkDirectory}".
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Para SearchPath "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\SqlDb\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\SqlDb\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\SqlDb\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies\System.Runtime.CompilerServices.Unsafe.dll",
+  			pero su nombre "System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+  			no coincidía con el nombre esperado "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL".
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\PublicAssemblies\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.5\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.5\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.5\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.0\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.0\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v4.0\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v2.0\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v2.0\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\v2.0\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Para SearchPath "{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}".
+          Ubicaciones de AssemblyFoldersEx consideradas.
+          Para SearchPath "{AssemblyFolders}".
+          Se consideró "C:\Program Files (x86)\Microsoft.NET\ADOMD.NET\160\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files (x86)\Microsoft.NET\ADOMD.NET\160\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files (x86)\Microsoft.NET\ADOMD.NET\160\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.0\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\v3.5\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Se consideró "C:\Program Files\IIS\Microsoft Web Deploy V3\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "C:\Program Files\IIS\Microsoft Web Deploy V3\System.Runtime.CompilerServices.Unsafe.dll",
+  			pero su nombre "System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+  			no coincidía con el nombre esperado "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL".
+          Se consideró "C:\Program Files\IIS\Microsoft Web Deploy V3\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+          Para SearchPath "{GAC}".
+          Se consideró "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL", que no se encuentra en la GAC.
+          Para SearchPath "{RawFileName}".
+          Se consideró tratar "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" como nombre de archivo, pero no existía.
+          Para SearchPath "bin\Debug\".
+          Se consideró "bin\Debug\System.Runtime.CompilerServices.Unsafe.winmd", pero no existía.
+          Se consideró "bin\Debug\System.Runtime.CompilerServices.Unsafe.dll", pero no existía.
+          Se consideró "bin\Debug\System.Runtime.CompilerServices.Unsafe.exe", pero no existía.
+  Para resolver el conflicto y eliminar la advertencia, reasigne app.config del ensamblado "System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" de la versión "4.0.6.0" [] a la versión "6.0.0.0" [].
+C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(2555,5): warning MSB3836: La redirección de enlace explícita en "System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" entra en conflicto con una redirección de enlace generada automáticamente. Considere la posibilidad de quitarla del archivo de configuración de la aplicación o de deshabilitar las redirecciones de enlace generadas automáticamente. La compilación la reemplazará por: "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />". [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+CoreResGen:
+  No hay ningún recurso obsoleto con respecto a sus archivos de origen. Se omitirá la generación de recursos.
+GenerateTargetFrameworkMonikerAttribute:
+Se omitirá el destino "GenerateTargetFrameworkMonikerAttribute" porque todos los archivos de salida están actualizados respecto a los archivos de entrada.
+CoreCompile:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Roslyn\csc.exe /noconfig /nowarn:1701,1702 /fullpaths /nostdlib+ /platform:anycpu32bitpreferred /errorreport:prompt /warn:4 /define:DEBUG;TRACE /main:UI.Program /highentropyva+ /reference:c:\Users\abel_\source\repos\corralon-app\packages\AForge.2.2.5\lib\AForge.dll /reference:c:\Users\abel_\source\repos\corralon-app\BDE\bin\Debug\BDE.dll /reference:c:\Users\abel_\source\repos\corralon-app\BLL\bin\Debug\BLL.dll /reference:c:\Users\abel_\source\repos\corralon-app\packages\Guna.UI2.WinForms.2.0.4.6\lib\net48\Guna.UI2.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.VisualBasic.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll" /reference:c:\Users\abel_\source\repos\corralon-app\packages\ReaLTaiizor.3.8.1.1\lib\net48\ReaLTaiizor.dll /reference:c:\Users\abel_\source\repos\corralon-app\SVC\bin\Debug\SVC.dll /reference:c:\Users\abel_\source\repos\corralon-app\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Deployment.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Design.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.DirectoryServices.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Management.dll" /reference:c:\Users\abel_\source\repos\corralon-app\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Net.Http.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll" /reference:c:\Users\abel_\source\repos\corralon-app\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Security.dll" /reference:c:\Users\abel_\source\repos\corralon-app\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll" /reference:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll" /debug+ /debug:full /filealign:512 /nowin32manifest /optimize- /out:obj\Debug\UI.exe /subsystemversion:6.00 /resource:obj\Debug\UI.FormAuditChanges.resources /resource:obj\Debug\UI.FormBitacora.resources /resource:obj\Debug\UI.FormFinalizeSale.resources /resource:obj\Debug\UI.FormOrderDetail.resources /resource:obj\Debug\UI.FormsRegister.FormRegisterSupplier.resources /resource:obj\Debug\UI.FormClients.resources /resource:obj\Debug\UI.FormCreateEmployee.resources /resource:obj\Debug\UI.FormCreateSale.resources /resource:obj\Debug\UI.FormCreateUser.resources /resource:obj\Debug\UI.FormDatabaseMaintenance.resources /resource:obj\Debug\UI.FormEmployeeDetails.resources /resource:obj\Debug\UI.FormEmployeesPhoto.resources /resource:obj\Debug\UI.FormLanguageConfig.resources /resource:obj\Debug\UI.FormLogin.resources /resource:obj\Debug\UI.FormMain.resources /resource:obj\Debug\UI.FormManageProfile.resources /resource:obj\Debug\UI.FormOrders.resources /resource:obj\Debug\UI.FormPreShipOrder.resources /resource:obj\Debug\UI.FormProducts.resources /resource:obj\Debug\UI.FormProfiles.resources /resource:obj\Debug\UI.FormPurchaseRequest.resources /resource:obj\Debug\UI.FormRecoverPss.resources /resource:obj\Debug\UI.FormRegisterClient.resources /resource:obj\Debug\UI.FormRegisterProduct.resources /resource:obj\Debug\UI.FormRegisterVehicle.resources /resource:obj\Debug\UI.FormUserProfile.resources /resource:obj\Debug\UI.FormsViewData.FormSuppliers.resources /resource:obj\Debug\UI.FormUsers.resources /resource:obj\Debug\UI.FormVehicles.resources /resource:obj\Debug\UI.FormSettings.resources /resource:obj\Debug\UI.Properties.Resources.resources /resource:obj\Debug\UI.Resources.Resource1.resources /resource:obj\Debug\UI.Resources.ResourceForms.resources /target:winexe /utf8output /win32icon:logo-delcons-icon.ico /deterministic+ /langversion:7.3 common\Styles\ApplyStyleCommon.cs common\Styles\DefaultColors.cs common\Styles\ThemeManager.cs common\Utils\DGVHelper.cs common\Utils\ImageLoader.cs Controls\ButtonDefault.cs Controls\DropdownMenu.cs Controls\MenuColorTable.cs Controls\MenuRenderer.cs FormAuditChanges.cs FormAuditChanges.Designer.cs FormBitacora.cs FormBitacora.Designer.cs FormFinalizeSale.cs FormFinalizeSale.Designer.cs FormOrderDetail.cs FormOrderDetail.Designer.cs FormRegisterSupplier.cs FormRegisterSupplier.Designer.cs FormClients.cs FormClients.Designer.cs FormCreateEmployee.cs FormCreateEmployee.Designer.cs FormCreateSale.cs FormCreateSale.Designer.cs FormCreateUser.cs FormCreateUser.Designer.cs FormDatabaseMaintenance.cs FormDatabaseMaintenance.Designer.cs FormEmployeeDetails.cs FormEmployeeDetails.Designer.cs FormEmployeesPhoto.cs FormEmployeesPhoto.Designer.cs FormLanguageConfig.cs FormLanguageConfig.Designer.cs FormLogin.cs FormLogin.Designer.cs FormMain.cs FormMain.Designer.cs FormManageProfile.cs FormManageProfile.Designer.cs FormOrders.cs FormOrders.Designer.cs FormPreShipOrder.cs FormPreShipOrder.Designer.cs FormProducts.cs FormProducts.Designer.cs FormProfiles.cs FormProfiles.Designer.cs FormPurchaseRequest.cs FormPurchaseRequest.Designer.cs FormRecoverPss.cs FormRecoverPss.Designer.cs FormRegisterClient.cs FormRegisterClient.Designer.cs FormRegisterProduct.cs FormRegisterProduct.Designer.cs FormRegisterVehicle.cs FormRegisterVehicle.Designer.cs FormUserProfile.cs FormUserProfile.Designer.cs FormSuppliers.cs FormSuppliers.Designer.cs FormUsers.cs FormUsers.Designer.cs FormVehicles.cs FormVehicles.Designer.cs FormSettings.cs FormSettings.Designer.cs Program.cs Properties\AssemblyInfo.cs Resources\Resource1.Designer.cs Resources\ResourceForms.Designer.cs ResxExporter.cs UITranslator.cs Properties\Resources.Designer.cs Properties\Settings.Designer.cs "obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs"
+c:\Users\abel_\source\repos\corralon-app\UI\Program.cs(4,7): error CS0246: El nombre del tipo o del espacio de nombres 'DAL' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+  CompilerServer: server - server processed compilation - UI
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (destinos predeterminados) -- ERROR.
+Compilación del proyecto terminada "c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" (destinos predeterminados) -- ERROR.
+
+ERROR al compilar.
+
+"c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" (destino predeterminado) (1) ->
+"c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (destino predeterminado) (2) ->
+(ResolveAssemblyReferences destino) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(2433,5): warning MSB3245: No se pudo resolver esta referencia. No se encuentra el ensamblado "System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL". Compruebe si el ensamblado existe en el disco. Si el código necesita esta referencia, podrían producirse errores de compilación. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+
+
+"c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" (destino predeterminado) (1) ->
+"c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (destino predeterminado) (2) ->
+(GenerateBindingRedirects destino) -> 
+  C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(2555,5): warning MSB3836: La redirección de enlace explícita en "System.Runtime.CompilerServices.Unsafe, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" entra en conflicto con una redirección de enlace generada automáticamente. Considere la posibilidad de quitarla del archivo de configuración de la aplicación o de deshabilitar las redirecciones de enlace generadas automáticamente. La compilación la reemplazará por: "<bindingRedirect oldVersion="0.0.0.0-6.0.0.0" newVersion="6.0.0.0" xmlns="urn:schemas-microsoft-com:asm.v1" />". [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+
+
+"c:\Users\abel_\source\repos\corralon-app\corralon-app.sln" (destino predeterminado) (1) ->
+"c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj" (destino predeterminado) (2) ->
+(CoreCompile destino) -> 
+  c:\Users\abel_\source\repos\corralon-app\UI\Program.cs(4,7): error CS0246: El nombre del tipo o del espacio de nombres 'DAL' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+
+    2 Advertencia(s)
+    1 Errores
+
+Tiempo transcurrido 00:00:00.53

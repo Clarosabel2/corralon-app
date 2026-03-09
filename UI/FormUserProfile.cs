@@ -12,15 +12,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BLL.Interfaces;
 
 namespace UI
 {
     public partial class FormUserProfile : Form, IObserver
     {
+        private readonly ILanguageService _languageService;
+        private readonly IUserService _userService;
         public static FormMain frmmain;
-        public FormUserProfile()
+        public FormUserProfile(ILanguageService languageService, IUserService userService)
         {
             InitializeComponent();
+            _languageService = languageService;
+            _userService = userService;
             LoadDataUser();
             LoadLanguages();
             LanguageManager.Attach(this);
@@ -40,7 +45,7 @@ namespace UI
 
         private void LoadLanguages()
         {
-            BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(l.Name));
+            _languageService.GetLanguages().ForEach(l => cBLanguages.Items.Add(l.Name));
             cBLanguages.SelectedIndex = cBLanguages.FindString(SessionManager.GetInstance.user.Language.Name);
         }
 
@@ -70,8 +75,9 @@ namespace UI
         {
             if (checkBoxChangeData.Checked)
             {
-                var user = new BE_User(txtFirstName.Text, txtLastName.Text, txtEmail.Text);
-                if (BLL_User.UpdateUserData(user))
+                var user = new User(txtFirstName.Text, txtLastName.Text, txtEmail.Text);
+                user.Emp.Id = SessionManager.GetInstance.user.Emp.Id; // Ensure ID is passed for update if necessary, or check if 'user' is fully constructed.
+                if (_userService.Update(user))
                 {
                     DialogResult r = MessageBox.Show("Se cambio los datos correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (r == DialogResult.OK)
@@ -86,7 +92,7 @@ namespace UI
                 {
                     if (txtPassword.Text == txtConfirmPassword.Text)
                     {
-                        BLL_User.UpdateUserPassword(txtConfirmPassword.Text);
+                        _userService.UpdatePassword(txtConfirmPassword.Text);
                     }
                     else { MessageBox.Show("Las contraseñas no coinciden"); }
                 }
@@ -131,7 +137,7 @@ namespace UI
             if (LanguageManager.CurrentLanguage.Name != cBLanguages.SelectedItem.ToString()) btnChangeLanguage.Enabled = true; else { btnChangeLanguage.Enabled = false; }
         }
 
-        public void Update(BE_Language language)
+        public void Update(Language language)
         {
             try
             {
@@ -153,7 +159,7 @@ namespace UI
             DialogResult r = MessageBox.Show("Esta seguro que desea cambiar el idioma?", "Corfirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes) {
                 LanguageManager.CurrentLanguage = SessionManager.translations.First(l => l.Key.Name == cBLanguages.SelectedItem.ToString().ToLower()).Key;
-                BLL_User.ChangeLanguageUser(LanguageManager.CurrentLanguage);
+                _userService.ChangeLanguage(LanguageManager.CurrentLanguage);
                 btnChangeLanguage.Enabled = false;
             }
         }

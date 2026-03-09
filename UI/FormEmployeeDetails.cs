@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +15,19 @@ namespace UI
 {
     public partial class FormEmployeeDetails : Form
     {
-        public BE_Employee empCurrent { get; set; }
+        private readonly IUserService _userService;
+        private readonly IEmployeeService _employeeService;
+        public Employee empCurrent { get; set; }
         public FormEmployeesPhoto form { get; set; }
-        public FormEmployeeDetails(BE_Employee emp)
+        public FormEmployeeDetails(Employee emp, IUserService userService, IEmployeeService employeeService)
         {
             InitializeComponent();
+            _userService = userService;
+            _employeeService = employeeService;
             empCurrent = emp;
             LoadDataEmployee(empCurrent);
         }
-        public void LoadDataEmployee(BE_Employee e)
+        public void LoadDataEmployee(Employee e)
         {
             guna2CirclePictureBox1.Image = Properties.Resources.user_photo_profile;
             bigLabelFullname.Text = $"{e.Name} {e.Lastname}";
@@ -32,9 +37,9 @@ namespace UI
             LabelEmail.Text = $"<b>Email:</b> {e.Email} <a href=\"mailto:{e.Email}\">\r\n  Enviar correo\r\n</a>";
             LabelPhone.Text = $"<b>Teléfono:</b> {e.NumPhone} <a href=\"https://wa.me/{e.NumPhone}\" target=\"_blank\">\r\n  Contactar\r\n</a>";
             LabelDateAdmission.Text = $"<b>Fecha de Ingreso:</b> 12/05/2024";
-            if (BLL_User.ExistUserById(e.Id))
+            if (_userService.ExistsById(e.Id))
             {
-                var user = BLL_User.GetUserById(e.Id);
+                var user = _userService.GetById(e.Id);
 
                 btnResetPassword.Visible = true;
                 lblRolTitle.Visible = true;
@@ -44,17 +49,17 @@ namespace UI
 
                 lblRol.Text = user.Rol.ToString();
                 lblUsername.Text = user.Username.ToString();
-                if (BLL_User.CheckStatusUser(e.Id))
+                if (_userService.CheckStatus(e.Id))
                 {
                     LabelStatus.Visible = true;
-                    LabelStatus.Text = $"<b>Estado: </b> {(BLL_User.CheckStatusUser(e.Id) ? "Activo" : "Bloqueado")}";
+                    LabelStatus.Text = $"<b>Estado: </b> {(_userService.CheckStatus(e.Id) ? "Activo" : "Bloqueado")}";
                     btnCreateUser.Tag = "BlockAccess";
                     btnCreateUser.Text = "Bloquear usuario";
                 }
                 else
                 {
                     LabelStatus.Visible = true;
-                    LabelStatus.Text = $"<b>Estado: </b> {(BLL_User.CheckStatusUser(e.Id) ? "Activo" : "Bloqueado")}";
+                    LabelStatus.Text = $"<b>Estado: </b> {(_userService.CheckStatus(e.Id) ? "Activo" : "Bloqueado")}";
                     btnCreateUser.Tag = "UnlockAccess";
                     btnCreateUser.Text = "Desbloquear usuario";
                 }
@@ -71,7 +76,7 @@ namespace UI
 
                 if (r == DialogResult.Yes)
                 {
-                    bool result = BLL_User.BlockUserById(empCurrent.Id);
+                    bool result = _userService.BlockById(empCurrent.Id);
 
                     outputMsg = result
                         ? "Se bloqueó el usuario correctamente"
@@ -83,7 +88,7 @@ namespace UI
                 DialogResult r = MessageBox.Show("¿Está seguro de desbloquear el acceso al empleado?", "Quitar acceso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (r == DialogResult.Yes)
                 {
-                    bool result = BLL_User.UnlockUserById(empCurrent.Id);
+                    bool result = _userService.UnlockById(empCurrent.Id);
 
                     outputMsg = result
                         ? "Se desbloqueó el usuario correctamente"
@@ -92,7 +97,7 @@ namespace UI
             }
             else
             {
-                FormCreateUser f = new FormCreateUser(empCurrent);
+                FormCreateUser f = new FormCreateUser(_userService, empCurrent);
                 f.BringToFront();
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
@@ -111,14 +116,14 @@ namespace UI
         {
             if (MessageBox.Show("¿Está seguro de eliminar el empleado?", "Eliminar empleado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
-                form.ShowEmployees(BLL_Employee.GetAllEmployees());
+                form.ShowEmployees(_employeeService.GetAll());
                 this.Close();
             }
         }
 
         private void btnEditEmployee_Click(object sender, EventArgs e)
         {
-            FormCreateEmployee f = new FormCreateEmployee(empCurrent);
+            FormCreateEmployee f = new FormCreateEmployee(_employeeService, empCurrent);
             f.formEmpDatails = this;
             f.BringToFront();
             f.StartPosition = FormStartPosition.CenterParent;
@@ -127,14 +132,14 @@ namespace UI
 
         private void FormEmployeeDetails_FormClosed(object sender, FormClosedEventArgs e)
         {
-            form.ShowEmployees(BLL_Employee.GetAllEmployees());
+            form.ShowEmployees(_employeeService.GetAll());
         }
 
         private void btnResetPassword_Click(object sender, EventArgs e)
         {
             try
             {
-                BLL_User.ResetPasswordUserById(empCurrent.Id);
+                _userService.ResetPassword(empCurrent.Id);
                 MessageBox.Show("La contraseña se ha reestablecido correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception)

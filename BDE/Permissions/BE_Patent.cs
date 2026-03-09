@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BDE.Composite
+namespace BDE.Permissions
 {
     public class BE_Patent : BE_Permission
     {

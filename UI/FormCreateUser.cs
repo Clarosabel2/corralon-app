@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,11 +15,15 @@ namespace UI
 {
     public partial class FormCreateUser : Form
     {
-        BE_Employee currentEmp = new BE_Employee();
+        private readonly IUserService _userService;
+        Employee currentEmp = new Employee();
         public bool result { get; set; }
-        public FormCreateUser(BE_Employee emp = null)
+        public FormCreateUser(
+            IUserService userService,
+            Employee emp = null)
         {
             InitializeComponent();
+            _userService = userService;
             LoadRols();
             currentEmp = emp;
         }
@@ -34,13 +39,13 @@ namespace UI
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            BE_User newUser = new BE_User();
+            User newUser = new User();
             newUser.Emp = currentEmp;
             newUser.Username = currentEmp.Dni.ToString();
             newUser.Password = currentEmp.Dni.ToString();
             newUser.Rol = (BE_TypeUser)comboBoxRols.SelectedItem;
 
-            if (BLL_User.CreateUser(newUser))
+            if (_userService.Save(newUser))
             {
                 result = true;
             }

@@ -1,15 +1,10 @@
-﻿using BDE;
-using BDE.Composite;
+﻿using BDE.Permissions;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
@@ -19,9 +14,15 @@ namespace UI
         private BE_Family profile;
         private FormProfiles pForm;
         private bool isModifyProfile = false;
-        public FormManageProfile(BE_Family p = null, FormProfiles previousForm = null)
+        private IPermissionService _permissionService;
+        public FormManageProfile(
+            IPermissionService service,
+            BE_Family p = null, 
+            FormProfiles previousForm = null
+            )
         {
             InitializeComponent();
+            _permissionService = service;
             cBTypePermission.SelectedIndex = 0;
             if (p != null)
             {
@@ -145,7 +146,7 @@ namespace UI
             {
                 BE_Permission permissionToAdd = (BE_Permission)newNode.Tag;
 
-                if (BLL_Permission.IsAncestor(permissionToAdd, profile))
+                if (_permissionService.IsAncestor(permissionToAdd, profile))
                 {
                     MessageBox.Show("No se puede agregar un nodo padre como hijo, ya que esto generaría una relación circular.",
                         "Operación no permitida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -215,11 +216,11 @@ namespace UI
             if (isModifyProfile)
             {
                 MessageBox.Show(profile.Children.Count.ToString());
-                BLL_Permission.UpdateProfile(profile);
+                _permissionService.UpdateProfile(profile);
             }
             else
             {
-                BLL_Permission.SaveProfile(profile);
+                _permissionService.SaveProfile(profile);
             }
             pForm?.LoadAllPermissions();
             this.Close();
@@ -249,11 +250,11 @@ namespace UI
         {
             if ((sender as ComboBox).SelectedIndex == 0)
             {
-                LoadNodesInTreeView(treeViewPermissions, BLL_Permission.GetAllPermissionsSystem());
+                LoadNodesInTreeView(treeViewPermissions, _permissionService.GetAllPermissionsSystem());
             }
             else
             {
-                var profiles = BLL_Permission.GetAllProfiles();
+                var profiles = _permissionService.GetAllProfiles();
                 if (profile != null)
                 {
                     profiles.Remove(profiles.FirstOrDefault(p => p.Id == profile.Id));

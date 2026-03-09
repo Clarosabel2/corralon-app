@@ -16,14 +16,14 @@ namespace SVC
         {
             try
             {
-                var fromAddress = new MailAddress(DAL_Config.GetValue("EMAIL_SISTEMA"), DAL_Config.GetValue("NOMBRE_NEGOCIO"));
+                var fromAddress = new MailAddress(SystemConfigRepository.GetValue("EMAIL_SISTEMA"), SystemConfigRepository.GetValue("NOMBRE_NEGOCIO"));
                 var toAddress = new MailAddress(to);
-                string fromPassword = DAL_Config.GetValue("EMAIL_PASSWORD");
+                string fromPassword = SystemConfigRepository.GetValue("EMAIL_PASSWORD");
                 var smtp = new SmtpClient
                 {
-                    Host = DAL_Config.GetValue("EMAIL_HOST"),
-                    Port = int.Parse(DAL_Config.GetValue("EMAIL_PORT")),
-                    EnableSsl = Convert.ToBoolean(DAL_Config.GetValue("EMAIL_USESSL")),
+                    Host = SystemConfigRepository.GetValue("EMAIL_HOST"),
+                    Port = int.Parse(SystemConfigRepository.GetValue("EMAIL_PORT")),
+                    EnableSsl = Convert.ToBoolean(SystemConfigRepository.GetValue("EMAIL_USESSL")),
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
                     Credentials = new NetworkCredential(fromAddress.Address, fromPassword)

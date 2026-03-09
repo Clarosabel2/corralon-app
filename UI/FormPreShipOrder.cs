@@ -11,23 +11,30 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.common.Styles;
 using UI.common.Utils;
+using BLL.Interfaces;
 
 namespace UI
 {
     public partial class FormPreShipOrder : Form
     {
+        private readonly IEmployeeService _employeeService;
+        private readonly ISaleService _saleService;
+        private readonly IDeliveryService _deliveryService;
         private int _id_invoice;
         private FormOrders frmOrders;
-        public FormPreShipOrder(int idInvoice, FormOrders f)
+        public FormPreShipOrder(IEmployeeService employeeService, ISaleService saleService, IDeliveryService deliveryService, int idInvoice, FormOrders f)
         {
             InitializeComponent();
+            _employeeService = employeeService;
+            _saleService = saleService;
+            _deliveryService = deliveryService;
             frmOrders = f;
             ConfigForm(idInvoice);
         }
         private void LoadDealers()
         {
-            BLL_Employee.GetEmployeesByArea(BE_Area.DELIVERY.ToString())
-                .ForEach(e => lstDealers.Items.Add(new KeyValuePair<BE_Employee, string>(e, $"{e.Lastname}, {e.Name}")));
+            _employeeService.GetByArea(BE_Area.DELIVERY.ToString())
+                .ForEach(e => lstDealers.Items.Add(new KeyValuePair<Employee, string>(e, $"{e.Lastname}, {e.Name}")));
             lstDealers.DisplayMember = "Value";
             lstDealers.ValueMember = "Key";
         }
@@ -36,7 +43,7 @@ namespace UI
         {
             ApplyStyleCommon.DGVStyle(dgvItems);
             _id_invoice = idInvoice;
-            List<BE_Item> itemsSale = BLL_Sale.GetProductsByIdInvoice(idInvoice);
+            List<Item> itemsSale = _saleService.GetItemsBySaleId(idInvoice);
             foreach (var item in itemsSale)
             {
                 dgvItems.Rows.Add(new object[]
@@ -53,7 +60,8 @@ namespace UI
             dgvItems.RowTemplate.Height = 30;
             LoadDealers();
 
-            BE_Client client = BLL_Invoice.GetClientByIdInvoice(idInvoice);
+            Sale sale = _saleService.GetSaleById(idInvoice);
+            Client client = sale.Client;
 
             txtFullName.Text = $"{client.Lastname}, {client.Name}";
             txtAddress.Text = client.Address;
@@ -68,7 +76,7 @@ namespace UI
                 MessageBox.Show("Ya hay un repartidor asignado. Primero quite el asignado.", "Error al asignar repartidor", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (lstDealers.SelectedItem is KeyValuePair<BE_Employee, string> kv)
+            if (lstDealers.SelectedItem is KeyValuePair<Employee, string> kv)
             {
                 txtAssignedDealer.Text = kv.Value;
                 txtAssignedDealer.Tag = kv.Key;
@@ -83,7 +91,7 @@ namespace UI
 
         private void btnUnassign_Click(object sender, EventArgs e)
         {
-            if (txtAssignedDealer.Tag is BE_Employee emp)
+            if (txtAssignedDealer.Tag is Employee emp)
             {
                 lstDealers.Items.Clear();
                 LoadDealers();
@@ -98,10 +106,10 @@ namespace UI
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            var assignedDealer = txtAssignedDealer.Tag as BE_Employee;
+            var assignedDealer = txtAssignedDealer.Tag as Employee;
             try
             {
-                BLL_Order.DepatchOrder(_id_invoice, assignedDealer);
+                _deliveryService.Dispatch(_id_invoice, assignedDealer);
                 frmOrders.LoadDataInDG();
                 this.Dispose();
             }

@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Drawing;
 using System.Text.RegularExpressions;
@@ -9,15 +10,19 @@ namespace UI
 {
     public partial class FormCreateEmployee : Form
     {
+        private readonly IEmployeeService _employeeService;
         private bool flagValidation = false;
         bool isEdit = false;
         public FormEmployeesPhoto formPre { get; set; }
         public FormEmployeeDetails formEmpDatails { get; set; }
 
-        BE_Employee empEdit = new BE_Employee();
-        public FormCreateEmployee(BE_Employee emp = null)
+        Employee empEdit = new Employee();
+        public FormCreateEmployee(
+            IEmployeeService employeeService,
+            Employee emp = null)
         {
             InitializeComponent();
+            this._employeeService = employeeService;
             ApplyModernEmployeeStyle();
             LoadData(emp);
             if (emp != null)
@@ -141,7 +146,7 @@ namespace UI
             };
         }
 
-        private void LoadData(BE_Employee emp)
+        private void LoadData(Employee emp)
         {
             foreach (var item in Enum.GetValues(typeof(BE_Area)))
             {
@@ -194,6 +199,23 @@ namespace UI
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             ValidFields();
+            if (sender == txtDni && txtDni.Text.Length >= 8)
+            {
+                Client client;
+                if (_employeeService.ExistsByDNI(int.Parse(txtDni.Text), out client))
+                {
+                    MessageBox.Show("Ya existe un empleado con ese DNI");
+                    btnSaveEmployee.Enabled = false;
+                }
+                if (client != null)
+                {
+                    txtNombre.Text = client.Name;
+                    txtApellido.Text = client.Lastname;
+                    txtTelefono.Text = client.NumPhone.ToString();
+                    txtEmail.Text = client.Email;
+                    txtDomicilio.Text = client.Address;
+                }
+            }
         }
 
         private void ValidFields()
@@ -216,7 +238,7 @@ namespace UI
 
         private void btnSaveEmployee_Click(object sender, EventArgs e)
         {
-            BE_Employee emp = new BE_Employee(
+            Employee emp = new Employee(
                 isEdit ? empEdit.Id : 0,
                 int.Parse(txtDni.Text),
                 txtNombre.Text,
@@ -229,12 +251,12 @@ namespace UI
 
             if (!isEdit)
             {
-                if (BLL_Employee.SaveEmployee(emp))
+                if (_employeeService.Save(emp))
                 {
                     DialogResult r = MessageBox.Show("Se guardó el nuevo empleado exitosamente", "Aviso");
                     if (r == DialogResult.OK)
                     {
-                        formPre.ShowEmployees(BLL_Employee.GetAllEmployees());
+                        formPre.ShowEmployees(_employeeService.GetAll());
                         this.Close();
                     }
                 }
@@ -245,7 +267,7 @@ namespace UI
             }
             else
             {
-                if (BLL_Employee.UpdateEmployee(emp))
+                if (_employeeService.Update(emp))
                 {
                     DialogResult r = MessageBox.Show("Se modificaron los datos del empleado exitosamente", "Aviso");
                     if (r == DialogResult.OK)

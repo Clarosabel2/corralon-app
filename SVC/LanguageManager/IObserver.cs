@@ -9,6 +9,6 @@ namespace SVC.LanguageManager
 {
     public interface IObserver
     {
-        void Update(BE_Language language);
+        void Update(Language language);
     }
 }

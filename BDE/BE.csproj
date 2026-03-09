@@ -43,30 +43,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BE_Area.cs" />
-    <Compile Include="BE_AuditChange.cs" />
-    <Compile Include="BE_Client.cs" />
-    <Compile Include="BE_Brand.cs" />
-    <Compile Include="BE_DvMismatch.cs" />
-    <Compile Include="BE_Supplier.cs" />
+    <Compile Include="Enums\BE_Area.cs" />
+    <Compile Include="Models\System\Audit.cs" />
+    <Compile Include="Models\Users\Client.cs" />
+    <Compile Include="Models\Catalog\Brand.cs" />
+    <Compile Include="Models\System\DvMismatch.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Vehicle.cs" />
     <Compile Include="Enums\BE_ActivityLevel.cs" />
     <Compile Include="Enums\BE_EventType.cs" />
-    <Compile Include="BE_Order.cs" />
-    <Compile Include="BE_Profile.cs" />
-    <Compile Include="BE_Eventlog.cs" />
-    <Compile Include="Language\BE_Language.cs" />
+    <Compile Include="Models\Sales\Delivery.cs" />
+    <Compile Include="Models\Users\Profile.cs" />
+    <Compile Include="Models\System\Eventlog.cs" />
+    <Compile Include="Models\System\Language.cs" />
     <Compile Include="Permissions\BE_Permission.cs" />
-    <Compile Include="BE_Employee.cs" />
-    <Compile Include="BE_Item.cs" />
-    <Compile Include="BE_Sale.cs" />
-    <Compile Include="BE_Person.cs" />
-    <Compile Include="BE_Product.cs" />
-    <Compile Include="BE_User.cs" />
+    <Compile Include="Models\Users\Employee.cs" />
+    <Compile Include="Models\Catalog\Item.cs" />
+    <Compile Include="Models\Sales\Sale.cs" />
+    <Compile Include="Models\Users\Person.cs" />
+    <Compile Include="Models\Catalog\Product.cs" />
+    <Compile Include="Models\Users\User.cs" />
     <Compile Include="Permissions\BE_Family.cs" />
     <Compile Include="Permissions\BE_Patent.cs" />
     <Compile Include="Enums\BE_TypeUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="Models\Fleet\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

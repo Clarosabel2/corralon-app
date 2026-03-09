@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using Guna.UI2.WinForms;
 using SVC;
 using System;
@@ -17,17 +18,22 @@ namespace UI
 {
     public partial class FormEmployeesPhoto : Form
     {
-        List<BE_Employee> employees = BLL_Employee.GetAllEmployees();
-        public FormEmployeesPhoto()
+        private readonly IEmployeeService _employeeService;
+        private readonly IUserService _userService;
+        List<Employee> employees;
+        public FormEmployeesPhoto(IEmployeeService employeeService, IUserService userService)
         {
             InitializeComponent();
+            _employeeService = employeeService;
+            _userService = userService;
+            employees = _employeeService.GetAll();
             LoadDataInForm();
         }
-        public void ShowEmployees(List<BE_Employee> emps)
+        public void ShowEmployees(List<Employee> emps)
         {
             flowLayoutPanel1.Controls.Clear();
             
-            foreach (BE_Employee emp in emps)
+            foreach (Employee emp in emps)
             {
                 var card = new Guna2Panel
                 {
@@ -82,7 +88,7 @@ namespace UI
                     Location = new Point(85, 55),
                     AutoSize = true
                 };
-                bool isUser = BLL_User.ExistUserById(emp.Id);
+                bool isUser = _userService.ExistsById(emp.Id);
                 var lblUser = new Label
                 {
                     Text = isUser ? "Usuario del sistema" : "No es usuario",
@@ -93,7 +99,7 @@ namespace UI
                 bool isBlock = false;
                 if (isUser)
                 {
-                    isBlock = BLL_User.CheckStatusUser(emp.Id);
+                    isBlock = _userService.CheckStatus(emp.Id);
                     StringBuilder sb = new StringBuilder();
 
                     var lblStatus = new Label
@@ -112,7 +118,7 @@ namespace UI
                 {
                     if (e is MouseEventArgs me && card.GetChildAtPoint(me.Location) is Guna2Button) return;
 
-                    var fm = new FormEmployeeDetails(emp);
+                    var fm = new FormEmployeeDetails(emp, _userService, _employeeService);
                     fm.form = this;
                     fm.ShowDialog();
                 };
@@ -141,7 +147,7 @@ namespace UI
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
         {
             var word = txtSearch.Text.Trim().ToLower();
-            List<BE_Employee> empFiltered = employees.FindAll(x =>
+            List<Employee> empFiltered = employees.FindAll(x =>
                 x.Name.ToLower().Contains(word) ||
                 x.Lastname.ToLower().Contains(word) ||
                 x.Dni.ToString().Contains(word));
@@ -158,7 +164,7 @@ namespace UI
 
         private void btnCreateEmployee_Click(object sender, EventArgs e)
         {
-            FormCreateEmployee fm = new FormCreateEmployee();
+            FormCreateEmployee fm = new FormCreateEmployee(_employeeService);
             fm.formPre = this;
             fm.StartPosition = FormStartPosition.CenterParent;
             fm.FormBorderStyle = FormBorderStyle.FixedSingle;

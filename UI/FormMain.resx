@@ -354,6 +354,24 @@
   <data name="&gt;&gt;btnLogout.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="photoUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="photoUser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>26, 29</value>
+  </data>
+  <data name="photoUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 5, 4, 5</value>
+  </data>
+  <data name="photoUser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 111</value>
+  </data>
+  <data name="photoUser.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="photoUser.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
   <data name="&gt;&gt;photoUser.Name" xml:space="preserve">
     <value>photoUser</value>
   </data>
@@ -365,6 +383,30 @@
   </data>
   <data name="&gt;&gt;photoUser.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblPosition.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblPosition.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt</value>
+  </data>
+  <data name="lblPosition.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblPosition.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 29</value>
+  </data>
+  <data name="lblPosition.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblPosition.Size" type="System.Drawing.Size, System.Drawing">
+    <value>66, 21</value>
+  </data>
+  <data name="lblPosition.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="lblPosition.Text" xml:space="preserve">
+    <value>Puesto</value>
   </data>
   <data name="&gt;&gt;lblPosition.Name" xml:space="preserve">
     <value>lblPosition</value>
@@ -378,6 +420,27 @@
   <data name="&gt;&gt;lblPosition.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lnkMyProfile.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lnkMyProfile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lnkMyProfile.Location" type="System.Drawing.Point, System.Drawing">
+    <value>48, 145</value>
+  </data>
+  <data name="lnkMyProfile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lnkMyProfile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="lnkMyProfile.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lnkMyProfile.Text" xml:space="preserve">
+    <value>My Profile</value>
+  </data>
   <data name="&gt;&gt;lnkMyProfile.Name" xml:space="preserve">
     <value>lnkMyProfile</value>
   </data>
@@ -390,6 +453,30 @@
   <data name="&gt;&gt;lnkMyProfile.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt</value>
+  </data>
+  <data name="lblName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 71</value>
+  </data>
+  <data name="lblName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 21</value>
+  </data>
+  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="lblName.Text" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
   <data name="&gt;&gt;lblName.Name" xml:space="preserve">
     <value>lblName</value>
   </data>
@@ -401,6 +488,30 @@
   </data>
   <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 8.25pt</value>
+  </data>
+  <data name="lblEmail.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
+    <value>136, 115</value>
+  </data>
+  <data name="lblEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
+    <value>52, 21</value>
+  </data>
+  <data name="lblEmail.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="lblEmail.Text" xml:space="preserve">
+    <value>Email</value>
   </data>
   <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
     <value>lblEmail</value>
@@ -1050,6 +1161,51 @@
   <data name="&gt;&gt;btnVehicles.ZOrder" xml:space="preserve">
     <value>13</value>
   </data>
+  <data name="btnSettings.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnSettings.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btnSettings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt, style=Bold</value>
+  </data>
+  <data name="btnSettings.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSettings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>381, 137</value>
+  </data>
+  <data name="btnSettings.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>12, 0, 0, 0</value>
+  </data>
+  <data name="btnSettings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>372, 46</value>
+  </data>
+  <data name="btnSettings.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btnSettings.Text" xml:space="preserve">
+    <value>   Configuracion</value>
+  </data>
+  <data name="btnSettings.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSettings.TextImageRelation" type="System.Windows.Forms.TextImageRelation, System.Windows.Forms">
+    <value>ImageBeforeText</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Name" xml:space="preserve">
+    <value>btnSettings</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.Parent" xml:space="preserve">
+    <value>menuGeneral</value>
+  </data>
+  <data name="&gt;&gt;btnSettings.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
   <data name="menuGeneral.FlowDirection" type="System.Windows.Forms.FlowDirection, System.Windows.Forms">
     <value>TopDown</value>
   </data>
@@ -1104,6 +1260,18 @@
   <data name="&gt;&gt;panelMenu.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="nightControlBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="nightControlBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1785, 0</value>
+  </data>
+  <data name="nightControlBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 31</value>
+  </data>
+  <data name="nightControlBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
   <data name="&gt;&gt;nightControlBox1.Name" xml:space="preserve">
     <value>nightControlBox1</value>
   </data>
@@ -1115,6 +1283,30 @@
   </data>
   <data name="&gt;&gt;nightControlBox1.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="lblDateTime.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblDateTime.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Century Gothic, 10pt</value>
+  </data>
+  <data name="lblDateTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblDateTime.Location" type="System.Drawing.Point, System.Drawing">
+    <value>18, 9</value>
+  </data>
+  <data name="lblDateTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lblDateTime.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 21</value>
+  </data>
+  <data name="lblDateTime.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="lblDateTime.Text" xml:space="preserve">
+    <value>DateTime</value>
   </data>
   <data name="&gt;&gt;lblDateTime.Name" xml:space="preserve">
     <value>lblDateTime</value>
@@ -1182,237 +1374,6 @@
   <data name="&gt;&gt;panelForms.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="photoUser.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="photoUser.Location" type="System.Drawing.Point, System.Drawing">
-    <value>26, 29</value>
-  </data>
-  <data name="photoUser.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 5, 4, 5</value>
-  </data>
-  <data name="photoUser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>102, 111</value>
-  </data>
-  <data name="photoUser.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
-  </data>
-  <data name="photoUser.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Name" xml:space="preserve">
-    <value>photoUser</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;photoUser.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;photoUser.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblPosition.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblPosition.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt</value>
-  </data>
-  <data name="lblPosition.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblPosition.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 29</value>
-  </data>
-  <data name="lblPosition.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lblPosition.Size" type="System.Drawing.Size, System.Drawing">
-    <value>43, 16</value>
-  </data>
-  <data name="lblPosition.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="lblPosition.Text" xml:space="preserve">
-    <value>Puesto</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Name" xml:space="preserve">
-    <value>lblPosition</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblPosition.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="lnkMyProfile.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lnkMyProfile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lnkMyProfile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>48, 145</value>
-  </data>
-  <data name="lnkMyProfile.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lnkMyProfile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>77, 20</value>
-  </data>
-  <data name="lnkMyProfile.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="lnkMyProfile.Text" xml:space="preserve">
-    <value>My Profile</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Name" xml:space="preserve">
-    <value>lnkMyProfile</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lnkMyProfile.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="lblName.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblName.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt</value>
-  </data>
-  <data name="lblName.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblName.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 71</value>
-  </data>
-  <data name="lblName.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lblName.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 16</value>
-  </data>
-  <data name="lblName.TabIndex" type="System.Int32, mscorlib">
-    <value>10</value>
-  </data>
-  <data name="lblName.Text" xml:space="preserve">
-    <value>Nombre</value>
-  </data>
-  <data name="&gt;&gt;lblName.Name" xml:space="preserve">
-    <value>lblName</value>
-  </data>
-  <data name="&gt;&gt;lblName.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblName.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblName.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblEmail.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt</value>
-  </data>
-  <data name="lblEmail.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblEmail.Location" type="System.Drawing.Point, System.Drawing">
-    <value>136, 115</value>
-  </data>
-  <data name="lblEmail.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lblEmail.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 16</value>
-  </data>
-  <data name="lblEmail.TabIndex" type="System.Int32, mscorlib">
-    <value>11</value>
-  </data>
-  <data name="lblEmail.Text" xml:space="preserve">
-    <value>Email</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Name" xml:space="preserve">
-    <value>lblEmail</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.Parent" xml:space="preserve">
-    <value>panelDataUser</value>
-  </data>
-  <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="nightControlBox1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="nightControlBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1785, 0</value>
-  </data>
-  <data name="nightControlBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 31</value>
-  </data>
-  <data name="nightControlBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="&gt;&gt;nightControlBox1.Name" xml:space="preserve">
-    <value>nightControlBox1</value>
-  </data>
-  <data name="&gt;&gt;nightControlBox1.Type" xml:space="preserve">
-    <value>ReaLTaiizor.Controls.NightControlBox, ReaLTaiizor, Version=3.8.1.1, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;nightControlBox1.Parent" xml:space="preserve">
-    <value>panelBarraTitulo</value>
-  </data>
-  <data name="&gt;&gt;nightControlBox1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="lblDateTime.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="lblDateTime.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Century Gothic, 8.25pt</value>
-  </data>
-  <data name="lblDateTime.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="lblDateTime.Location" type="System.Drawing.Point, System.Drawing">
-    <value>18, 9</value>
-  </data>
-  <data name="lblDateTime.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lblDateTime.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 16</value>
-  </data>
-  <data name="lblDateTime.TabIndex" type="System.Int32, mscorlib">
-    <value>12</value>
-  </data>
-  <data name="lblDateTime.Text" xml:space="preserve">
-    <value>DateTime</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Name" xml:space="preserve">
-    <value>lblDateTime</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.Parent" xml:space="preserve">
-    <value>panelBarraTitulo</value>
-  </data>
-  <data name="&gt;&gt;lblDateTime.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <metadata name="timerDateHour.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -1422,31 +1383,31 @@
   <metadata name="dropdownMenuReports.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>242, 17</value>
   </metadata>
+  <data name="reporte1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 32</value>
+  </data>
+  <data name="reporte1ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte 1</value>
+  </data>
+  <data name="reporte2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 32</value>
+  </data>
+  <data name="reporte2ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte 2</value>
+  </data>
+  <data name="reporte3ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 32</value>
+  </data>
+  <data name="reporte3ToolStripMenuItem.Text" xml:space="preserve">
+    <value>Reporte 3</value>
+  </data>
   <data name="dropdownMenuReports.Size" type="System.Drawing.Size, System.Drawing">
-    <value>125, 70</value>
+    <value>162, 100</value>
   </data>
   <data name="&gt;&gt;dropdownMenuReports.Name" xml:space="preserve">
     <value>dropdownMenuReports</value>
   </data>
   <data name="&gt;&gt;dropdownMenuReports.Type" xml:space="preserve">
     <value>UI.Controls.DropdownMenu, UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="reporte1ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="reporte1ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte 1</value>
-  </data>
-  <data name="reporte2ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="reporte2ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte 2</value>
-  </data>
-  <data name="reporte3ToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>124, 22</value>
-  </data>
-  <data name="reporte3ToolStripMenuItem.Text" xml:space="preserve">
-    <value>Reporte 3</value>
   </data>
 </root>

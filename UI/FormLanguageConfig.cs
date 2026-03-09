@@ -18,14 +18,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.common.Styles;
+using BLL.Interfaces;
 
 namespace UI
 {
     public partial class FormLanguageConfig : Form
     {
-        public FormLanguageConfig()
+        private readonly ILanguageService _languageService;
+        public FormLanguageConfig(ILanguageService languageService)
         {
             InitializeComponent();
+            _languageService = languageService;
             ApplyStyleCommon.DGVStyle(dgvTranslation);
             LoadAllForms();
             dgvTranslation.DataSource = GetContolsWithTranslations();
@@ -33,12 +36,12 @@ namespace UI
         private void LoadLanguageInComboBox()
         {
             cBLanguages.Items.Clear();
-            BLL_Language.GetLanguages().ForEach(l => cBLanguages.Items.Add(new KeyValuePair<BE_Language, string>(l, l.Name)));
+            _languageService.GetLanguages().ForEach(l => cBLanguages.Items.Add(new KeyValuePair<Language, string>(l, l.Name)));
             cBLanguages.DisplayMember = "Value";
             cBLanguages.ValueMember = "Key";
 
             comboBoxLanguages.Items.Clear();
-            var len = BLL_Language.GetLanguages();
+            var len = _languageService.GetLanguages();
             len.ForEach(l => comboBoxLanguages.Items.Add(l.Name));
             comboBoxLanguages.SelectedIndex = comboBoxLanguages.FindString(len.FirstOrDefault(l => l.IsDefault).Name);
         }
@@ -67,7 +70,7 @@ namespace UI
 
             Dictionary<string, string> lens = null;
 
-            if (!len.Equals(default(KeyValuePair<BE_Language, Dictionary<string, Dictionary<string, string>>>)))
+            if (!len.Equals(default(KeyValuePair<Language, Dictionary<string, Dictionary<string, string>>>)))
             {
 
                 if (SessionManager.translations.ContainsKey(len.Key) &&
@@ -110,7 +113,7 @@ namespace UI
 
         private void btnSetDefaultLanguage_Click(object sender, EventArgs e)
         {
-            BLL_Language.SetDefaultLanguage(comboBoxLanguages.SelectedItem.ToString());
+            _languageService.SetDefaultLanguage(comboBoxLanguages.SelectedItem.ToString());
         }
 
         private void cBForms_SelectedIndexChanged(object sender, EventArgs e)
@@ -132,7 +135,7 @@ namespace UI
             // IDIOMA SELECCIONADO, FORMULARIO ACTUAL, DATATABLE CON TRADUCCIONES
             try
             {
-                if (BLL_Language.UpdateTranslations(translations))
+                if (_languageService.UpdateTranslations(translations))
                 {
                     MessageBox.Show("Se actualizo correctamente la traducción");
                 }
@@ -149,7 +152,7 @@ namespace UI
 
             if (!string.IsNullOrEmpty(userInput))
             {
-                if (BLL_Language.CreateLanguage(userInput))
+                if (_languageService.CreateLanguage(userInput))
                 {
                     LoadLanguageInComboBox();
                     cBLanguages.SelectedItem = cBLanguages.Items[cBLanguages.Items.Count - 1];

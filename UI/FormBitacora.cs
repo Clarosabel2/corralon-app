@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
@@ -20,13 +22,26 @@ namespace UI
 {
     public partial class FormBitacora : Form
     {
+        private readonly IEventlogService _eventlogService;
         DateTime from = new DateTime();
         DateTime until = new DateTime();
         DataTable _dtBitacora;
-        public FormBitacora()
+        public FormBitacora(IEventlogService eventlogService)
         {
             InitializeComponent();
+            _eventlogService = eventlogService;
             ApplyStyleCommon.DGVStyle(this.dgvBitacora);
+        }
+
+        private const int EM_SETCUEBANNER = 0x1501;
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wParam, [MarshalAs(UnmanagedType.LPWStr)] string lParam);
+
+        private void SetPlaceholder(TextBox tb, string text)
+        {
+            if (tb == null || tb.IsDisposed) return;
+            SendMessage(tb.Handle, EM_SETCUEBANNER, (IntPtr)1, text);
         }
         #region Configs
         private void ConfigDataPickers()
@@ -57,10 +72,19 @@ namespace UI
 
         private void FormBitacora_Load(object sender, EventArgs e)
         {   
-            this._dtBitacora = BLL_EventLog.LoadEventlogs();
+            this._dtBitacora = _eventlogService.GetLogs();
             this.dgvBitacora.DataSource = _dtBitacora;
             ConfigDataPickers();
             ConfigComboBoxes();
+
+            // UX enhancements: show placeholder in search box and leave events unselected to mean "All"
+            try
+            {
+                SetPlaceholder(txtSearchUsername, "Buscar usuario...");
+            }
+            catch { }
+
+            try { cbEvents.SelectedIndex = -1; } catch { }
         }
 
         private static string ToUSDate(DateTime d) => d.ToString("MM'/'dd'/'yyyy", CultureInfo.InvariantCulture);

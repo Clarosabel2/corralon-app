@@ -1,26 +1,21 @@
-﻿using BDE;
-using BDE.Composite;
-using BLL;
+﻿using BDE.Permissions;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UI
 {
     public partial class FormProfiles : Form
     {
+        private readonly IPermissionService _permissionService;
         private List<BE_Family> profiles = new List<BE_Family>();
         private string idProfile;
-        public FormProfiles()
+        public FormProfiles(IPermissionService permissionService)
         {
             InitializeComponent();
+            _permissionService = permissionService;
         }
         private void FormProfiles_Load(object sender, EventArgs e)
         {
@@ -29,7 +24,7 @@ namespace UI
 
         public void LoadAllPermissions()
         {
-            profiles = BLL_Permission.GetAllProfiles();
+            profiles = _permissionService.GetAllProfiles();
             cBProfiles.Items.Clear();
             cBProfiles.Items.Add(new KeyValuePair<string, string>("", "All"));
             profiles.ForEach(f => cBProfiles.Items.Add(new KeyValuePair<string, string>(f.Description, f.Id)));
@@ -77,7 +72,7 @@ namespace UI
         {
             BE_Family fm = new BE_Family();
             fm = profiles.FirstOrDefault(p => p.Id == idProfile);
-            FormManageProfile f = new FormManageProfile(fm, this);
+            FormManageProfile f = new FormManageProfile(_permissionService, fm, this);
             f.BringToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.ShowDialog();
@@ -85,7 +80,7 @@ namespace UI
 
         private void btnCreateProfile_Click(object sender, EventArgs e)
         {
-            FormManageProfile f = new FormManageProfile(null, this);
+            FormManageProfile f = new FormManageProfile(_permissionService, null, this);
             f.BringToFront();
             f.StartPosition = FormStartPosition.CenterScreen;
             f.ShowDialog();
@@ -95,7 +90,7 @@ namespace UI
         {
             BE_Family fm = new BE_Family();
             fm = profiles.FirstOrDefault(p => p.Id == idProfile);
-            BLL_Permission.DeleteProfile(fm);
+            _permissionService.DeleteProfile(fm);
             LoadAllPermissions();
         }
     }

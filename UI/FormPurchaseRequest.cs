@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Purchases;
 using SVC;
 using System;
 using System.Collections.Generic;
@@ -16,15 +17,18 @@ namespace UI
 {
     public partial class FormPurchaseRequest : Form
     {
-        private List<BE_Supplier> _suppliers = BLL_Supplier.GetAllSuppliers();
-        public FormPurchaseRequest(List<BE_Product> productsWithLowStock)
+        private readonly ISupplierService _service;
+        private List<Supplier> Suppliers { get; set; }
+        public FormPurchaseRequest(List<Product> productsWithLowStock)
         {
             InitializeComponent();
+
+            Suppliers = _service.GetAll();
             ApplyStyleCommon.DGVStyle(this.dgvLowStockProducts);
             LoadProductsIntoDGV(productsWithLowStock);
         }
 
-        private void LoadProductsIntoDGV(List<BE_Product> products)
+        private void LoadProductsIntoDGV(List<Product> products)
         {
             dgvLowStockProducts.AutoGenerateColumns = false;
             dgvLowStockProducts.Columns.Clear();
@@ -71,12 +75,12 @@ namespace UI
 
                 if (string.IsNullOrWhiteSpace(brandName)) return;
 
-                var suppliers = _suppliers
+                var suppliers = Suppliers
                     .Where(s => s.BrandsAssociated.Any(b => b.NameBrand == brandName))
                     .ToList();
 
                 foreach (var supplier in suppliers)
-                {   
+                {
                     cbSuppliers.Items.Add(supplier.Name);
                 }
 
@@ -86,11 +90,11 @@ namespace UI
         }
 
         private void cbSuppliers_SelectedIndexChanged(object sender, EventArgs e)
-        {   
+        {
             if (cbSuppliers.SelectedIndex >= 0)
             {
                 var selectedSupplierName = cbSuppliers.SelectedItem.ToString();
-                var selectedSupplier = _suppliers.FirstOrDefault(s => s.Name == selectedSupplierName);
+                var selectedSupplier = Suppliers.FirstOrDefault(s => s.Name == selectedSupplierName);
 
                 if (selectedSupplier != null)
                 {

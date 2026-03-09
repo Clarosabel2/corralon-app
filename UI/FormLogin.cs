@@ -10,22 +10,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BDE.Language;
-using BLL;
+using BLL.Interfaces;
 using SVC;
 using SVC.LanguageManager;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UI
 {
     public partial class FormLogin : Form, IObserver
     {
-        List<BE_Language> list = BLL_Language.GetLanguages();
+        private readonly ILanguageService _languageService;
+        private readonly IUserService _userService;
+        List<Language> list;
         private static Dictionary<string, int> _failedLogins = new Dictionary<string, int>();
-        public FormLogin()
+        public FormLogin(ILanguageService languageService, IUserService userService)
         {
             InitializeComponent();
+            _languageService = languageService;
+            _userService = userService;
+            list = _languageService.GetLanguages();
             btnChangeLenguage.Text = list[0].LanguageCode;
             lblErrorMessage.Visible = false;
-            BLL_Language.LoadTranslations();
+            _languageService.LoadTranslations();
             LanguageManager.Attach(this);
             //DatabaseService.CalculateAllDVH();
             //MessageBox.Show(BLL_DV_DB.GetConcatRow("Areas", "2"));
@@ -101,7 +107,7 @@ namespace UI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             lblErrorMessage.Visible = false;
-            if (BLL_User.ValidUser(txtUser.Text, txtPsswrd.Text))
+            if (_userService.Validate(txtUser.Text, txtPsswrd.Text))
             {
                 if (!SessionManager.GetInstance.user.Status)
                 {
@@ -115,7 +121,7 @@ namespace UI
                 }
                 else
                 {
-                    FormMain frmMain = new FormMain();
+                    FormMain frmMain = Program.ServiceProvider.GetRequiredService<FormMain>();
                     frmMain.WindowState = FormWindowState.Maximized;
                     frmMain.Show();
                     this.Hide();
@@ -133,7 +139,7 @@ namespace UI
                     {
                         //bloquear cuenta
                         flagBlock = true;
-                        BLL_User.BlockUserByUsername(txtUser.Text);
+                        _userService.BlockByUsername(txtUser.Text);
                         lblErrorMessage.Visible = true;
                         lblErrorMessage.Text = SessionManager.translations[LanguageManager.CurrentLanguage][this.Name]["MsgBlockAccount"];
                     }
@@ -164,7 +170,7 @@ namespace UI
             btnChangeLenguage.Text = list[iLen].LanguageCode;
         }
 
-        public void Update(BE_Language language)
+        public void Update(Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }

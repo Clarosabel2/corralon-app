@@ -1,0 +1,21 @@
+  Determinando los proyectos que se van a restaurar...
+  No hay nada que hacer. Ninguno de los proyectos especificados contiene paquetes para restaurar.
+  BE -> c:\Users\abel_\source\repos\corralon-app\BDE\bin\Debug\BDE.dll
+  DAL -> c:\Users\abel_\source\repos\corralon-app\DAL\bin\Debug\DAL.dll
+  SVC -> c:\Users\abel_\source\repos\corralon-app\SVC\bin\Debug\SVC.dll
+  BLL -> c:\Users\abel_\source\repos\corralon-app\BLL\bin\Debug\BLL.dll
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3823: Los recursos que no son de cadena requieren que la propiedad GenerateResourceUsePreserializedResources se establezca en true. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3822: Los recursos que no son de cadena requieren el ensamblado System.Resources.Extensions en tiempo de ejecución, pero no se encontró en las referencias del proyecto. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3823: Los recursos que no son de cadena requieren que la propiedad GenerateResourceUsePreserializedResources se establezca en true. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3822: Los recursos que no son de cadena requieren el ensamblado System.Resources.Extensions en tiempo de ejecución, pero no se encontró en las referencias del proyecto. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+
+ERROR al compilar.
+
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3823: Los recursos que no son de cadena requieren que la propiedad GenerateResourceUsePreserializedResources se establezca en true. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3822: Los recursos que no son de cadena requieren el ensamblado System.Resources.Extensions en tiempo de ejecución, pero no se encontró en las referencias del proyecto. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3823: Los recursos que no son de cadena requieren que la propiedad GenerateResourceUsePreserializedResources se establezca en true. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+C:\Program Files\dotnet\sdk\10.0.103\Microsoft.Common.CurrentVersion.targets(3442,5): error MSB3822: Los recursos que no son de cadena requieren el ensamblado System.Resources.Extensions en tiempo de ejecución, pero no se encontró en las referencias del proyecto. [c:\Users\abel_\source\repos\corralon-app\UI\UI.csproj]
+    0 Advertencia(s)
+    4 Errores
+
+Tiempo transcurrido 00:00:00.61

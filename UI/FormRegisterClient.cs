@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BDE.Language;
 using BLL;
+using BLL.Interfaces;
 using SVC;
 using SVC.LanguageManager;
 using System;
@@ -17,10 +18,12 @@ namespace UI
 {
     public partial class FormRegisterClient : Form, IObserver
     {
+        private readonly IClientService _clientService;
         private FormFinalizeSale _FormFinalizeSale { get; set; }
-        public FormRegisterClient(FormFinalizeSale form = null)
+        public FormRegisterClient(IClientService clientService, FormFinalizeSale form = null)
         {
             InitializeComponent();
+            _clientService = clientService;
             if (form != null)
             {
                 this._FormFinalizeSale = form;
@@ -40,7 +43,7 @@ namespace UI
 
         private void btnSaveClient_Click(object sender, EventArgs e)
         {
-            var client = new BE_Client
+            var client = new Client
             {
                 Dni = int.Parse(txtDni.Text),
                 Name = txtNombre.Text,
@@ -51,7 +54,7 @@ namespace UI
             };
             try
             {
-                if (BLL_Client.SaveClient(client))
+                if (_clientService.Save(client))
                 {
                     DialogResult r = MessageBox.Show($"El client: {client.Name}  {client.Lastname} se registro correctamente", "Aviso", MessageBoxButtons.OKCancel);
                     if (r == DialogResult.OK)
@@ -71,7 +74,7 @@ namespace UI
             }
         }
 
-        public void Update(BE_Language language)
+        public void Update(Language language)
         {
             //BE_Language lang = LanguageManager.translations.First(l => l.Key.Name == language).Key;
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);

@@ -1,6 +1,7 @@
 ﻿using BDE;
 using BDE.Language;
 using BLL;
+using BLL.Interfaces;
 using ReaLTaiizor.Controls;
 using SVC;
 using SVC.LanguageManager;
@@ -23,15 +24,25 @@ namespace UI
     public partial class FormCreateSale : Form, IObserver
     {
 
-        private List<BE_Product> _listProducts;
+        private readonly IProductService _productService;
+        private readonly ISaleService _saleService;
+        private Sale _currentSale;
+
+        private List<Product> _listProducts;
         private const string PRODUCT_FORMAT = "BE_Product";
-        public FormCreateSale()
+        public FormCreateSale(
+            IProductService productService,
+            ISaleService saleService)
         {
             InitializeComponent();
-            _listProducts = BLL_Product.GetProducts();
+            _productService = productService;
+            _saleService = saleService;
+            _currentSale = new Sale();
+
+            _listProducts = _productService.GetProducts();
             ConfigFilters();
             ConfigDGVs();
-            BLL_Sale.CreateSale();
+
             LoadProducts(_listProducts);
             LanguageManager.Attach(this);
         }
@@ -40,7 +51,7 @@ namespace UI
         #region "Funciones Carga de Datos a DGV"
         private void ConfigFilters()
         {
-            DataTable dtCategorias = BLL_Product.GetCaterogyProducts();
+            DataTable dtCategorias = _productService.GetCaterogyProducts();
 
             DataRow rowTodos = dtCategorias.NewRow();
             rowTodos["nombreCategoria"] = "Todos";
@@ -93,7 +104,7 @@ namespace UI
 
                 int? idxExist = int.TryParse(row.Cells["colId"].Value?.ToString(), out int idExist) ? idExist : (int?)null;
 
-                var item = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(i => i.Id == idxExist);
+                var item = _currentSale.ItemsProducts.FirstOrDefault(i => i.Id == idxExist);
 
                 int quantity = 0;
                 int.TryParse(row.Cells["colQuantity"].Value?.ToString(), out quantity);
@@ -107,7 +118,7 @@ namespace UI
                     row.Cells["colPrice"].Value = "$ " + item.Product.Price;
                     row.Cells["colQuantity"].Value = item.Amount;
                     row.Cells["colSubtotal"].Value = "$ " + item.Subtotal;
-                    BLL_Sale.CurrentSale.CalculateTotal();
+                    _currentSale.CalculateTotal();
                     UpdateDetailsCart();
                     RefreshDgvProductsStock(item.Product, item.Amount);
 
@@ -174,7 +185,7 @@ namespace UI
             int productId = 0;
             if (e.Data.GetDataPresent(typeof(int)))
                 productId = (int)e.Data.GetData(typeof(int));
-            BE_Item itemCart = BLL_Sale.CurrentSale.ItemsProducts.FirstOrDefault(item => item.Product.Id == productId);
+            Item itemCart = _currentSale.ItemsProducts.FirstOrDefault(item => item.Product.Id == productId);
             if (itemCart != null)
             {
                 try
@@ -199,17 +210,18 @@ namespace UI
 
             try
             {
-                BE_Product product = _listProducts.FirstOrDefault(p => p.Id == productId);
-                var added = BLL_Sale.AddItem(product, 1);
-                RefreshDgvProductsStock(product, added.Amount);
+                Product product = _listProducts.FirstOrDefault(p => p.Id == productId);
+                var item = new Item(_currentSale.ItemsProducts.Count, product, 1);
+                _currentSale.AddItem(item);
+                RefreshDgvProductsStock(product, item.Amount);
 
                 dgvProductsCart.Rows.Add(
-                    added.Id,
-                    ImageLoader.LoadSafe(added.Product.ImagePath) ?? Properties.Resources.img_icon,
-                    added.Product.Name,
-                    "$ " + added.Product.Price,
-                    "$ " + added.Subtotal,
-                    added.Amount
+                    item.Id,
+                    ImageLoader.LoadSafe(item.Product.ImagePath) ?? Properties.Resources.img_icon,
+                    item.Product.Name,
+                    "$ " + item.Product.Price,
+                    "$ " + item.Subtotal,
+                    item.Amount
                 );
             }
             catch (Exception ex)
@@ -217,10 +229,10 @@ namespace UI
                 MessageBox.Show(ex.Message, "No se pudo agregar el producto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            BLL_Sale.CurrentSale.CalculateTotal();
+            _currentSale.CalculateTotal();
             UpdateDetailsCart();
         }
-        private void RefreshDgvProductsStock(BE_Product product, int quantity)
+        private void RefreshDgvProductsStock(Product product, int quantity)
         {
             foreach (DataGridViewRow r in dgvProducts.Rows)
             {
@@ -230,13 +242,13 @@ namespace UI
                 }
             }
         }
-        private void LoadProducts(List<BE_Product> prdts)
+        private void LoadProducts(List<Product> prdts)
         {
             dgvProducts.Rows.Clear();
             if (prdts is null) MessageBox.Show("lista null");
 
-            BindingList<BE_Product> p = new BindingList<BE_Product>(prdts);
-            foreach (BE_Product item in p)
+            BindingList<Product> p = new BindingList<Product>(prdts);
+            foreach (Product item in p)
             {
                 dgvProducts.Rows.Add(
                     item.Id,
@@ -259,7 +271,7 @@ namespace UI
             }
             else
             {
-                FormFinalizeSale fm = new FormFinalizeSale();
+                FormFinalizeSale fm = new FormFinalizeSale(_saleService, _currentSale);
                 fm.StartPosition = FormStartPosition.CenterScreen;
                 fm.FormBorderStyle = FormBorderStyle.None;
                 fm.ShowDialog(this);
@@ -271,10 +283,10 @@ namespace UI
             e.ThrowException = false;
         }
         private DataGridViewRow previousSelectedRow;
-       
+
         private void UpdateDetailsCart()
         {
-            double totalCartValue = BLL_Sale.CurrentSale.Total;
+            double totalCartValue = _currentSale.Total;
             lblTotal.Text = "$ " + totalCartValue.ToString();
             lblItemsTotal.Text = (dgvProductsCart.RowCount).ToString();
             if (dgvProductsCart.RowCount == 0)
@@ -288,7 +300,7 @@ namespace UI
         {
             if (txtFilterName.Text != "")
             {
-                var prdtsFiltered = new List<BE_Product>();
+                var prdtsFiltered = new List<Product>();
 
                 string name = txtFilterName.Text;
                 prdtsFiltered = _listProducts.Where(p => p.Name.ToLower().Contains(name.ToLower()) ||
@@ -309,7 +321,7 @@ namespace UI
             }
             else
             {
-                var prdtsFiltered = new List<BE_Product>();
+                var prdtsFiltered = new List<Product>();
                 string selectedCategory = ((DataRowView)cBTipoProductos.SelectedItem)["nombreCategoria"].ToString();
                 prdtsFiltered = _listProducts.Where(p => p.Category == selectedCategory).ToList();
                 LoadProducts(prdtsFiltered);
@@ -317,7 +329,7 @@ namespace UI
 
         }
 
-        public void Update(BE_Language language)
+        public void Update(Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }

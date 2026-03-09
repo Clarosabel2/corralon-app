@@ -279,7 +279,7 @@ namespace UI
             this.lstDealers.Margin = new System.Windows.Forms.Padding(4);
             this.lstDealers.Name = "lstDealers";
             this.tblAssignee.SetRowSpan(this.lstDealers, 4);
-            this.lstDealers.Size = new System.Drawing.Size(154, 144);
+            this.lstDealers.Size = new System.Drawing.Size(154, 150);
             this.lstDealers.TabIndex = 1;
             // 
             // pnlAssignButtons

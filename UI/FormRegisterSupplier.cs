@@ -1,5 +1,8 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
+using BLL.Inventory;
+using BLL.Purchases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +17,17 @@ namespace UI.FormsRegister
 {
     public partial class FormRegisterSupplier : Form
     {
-        public FormRegisterSupplier()
+        private readonly IBrandService _brandService;
+        private readonly ISupplierService _supplierService;
+        public FormRegisterSupplier(IBrandService brandService, ISupplierService supplierService)
         {
             InitializeComponent();
+            _brandService = brandService;
+            _supplierService = supplierService;
         }
         private void FormRegisterSupplier_Load(object sender, EventArgs e)
         {
-            var brands = BLL_Brand.GetAllBrands();
+            var brands = _brandService.GetAll();
             foreach (var brand in brands)
             {
                 checkedListBoxBrands.Items.Add(brand, false); // Agregás el objeto completo
@@ -38,7 +45,7 @@ namespace UI.FormsRegister
                 return;
             }
 
-            BE_Supplier newSup = new BE_Supplier(
+            Supplier newSup = new Supplier(
                 txtCompanyName.Text.Trim(),
                 txtContactName.Text.Trim(),
                 txtEmail.Text.Trim(),
@@ -46,10 +53,10 @@ namespace UI.FormsRegister
                 txtAddress.Text.Trim()
                 );
 
-            var selectedBrands = new List<BE_Brand>();
+            var selectedBrands = new List<Brand>();
             foreach (var item in checkedListBoxBrands.CheckedItems)
             {
-                selectedBrands.Add((BE_Brand)item);
+                selectedBrands.Add((Brand)item);
             }
 
             newSup.BrandsAssociated = selectedBrands;
@@ -60,7 +67,7 @@ namespace UI.FormsRegister
                 return;
             }
 
-            if (BLL_Supplier.RegisterSupplier(newSup))
+            if (_supplierService.Save(newSup))
             {
                 MessageBox.Show("Supplier registered successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

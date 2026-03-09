@@ -10,8 +10,8 @@ namespace SVC.LanguageManager
     public static class LanguageManager
     {
         private static List<IObserver> observers = new List<IObserver>();
-        private static BE_Language currentLanguage;
-        public static BE_Language CurrentLanguage
+        private static Language currentLanguage;
+        public static Language CurrentLanguage
         {
             get => currentLanguage;
             set

@@ -67,7 +67,7 @@
             // 
             this.lblSubtitle.AutoSize = true;
             this.lblSubtitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubtitle.Location = new System.Drawing.Point(11, 46);
+            this.lblSubtitle.Location = new System.Drawing.Point(8, 46);
             this.lblSubtitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblSubtitle.Name = "lblSubtitle";
             this.lblSubtitle.Size = new System.Drawing.Size(78, 30);
@@ -115,6 +115,7 @@
             this.dtpFrom.Size = new System.Drawing.Size(136, 26);
             this.dtpFrom.TabIndex = 3;
             this.dtpFrom.ValueChanged += new System.EventHandler(this.dtpFrom_ValueChanged);
+            this.dtpFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             // 
             // lblHasta
             // 
@@ -136,6 +137,7 @@
             this.dtpUntil.Size = new System.Drawing.Size(136, 26);
             this.dtpUntil.TabIndex = 5;
             this.dtpUntil.ValueChanged += new System.EventHandler(this.dtpUntil_ValueChanged);
+            this.dtpUntil.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             // 
             // lblEvento
             // 
@@ -157,6 +159,7 @@
             this.cbEvents.Size = new System.Drawing.Size(136, 25);
             this.cbEvents.TabIndex = 7;
             this.cbEvents.SelectedIndexChanged += new System.EventHandler(this.cbEvents_SelectedIndexChanged);
+            this.cbEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             // 
             // txtSearchUsername
             // 
@@ -166,6 +169,7 @@
             this.txtSearchUsername.Size = new System.Drawing.Size(136, 26);
             this.txtSearchUsername.TabIndex = 11;
             this.txtSearchUsername.TextChanged += new System.EventHandler(this.txtSeachUsername_TextChanged);
+            this.txtSearchUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)));
             // 
             // dgvBitacora
             // 
@@ -181,6 +185,10 @@
             this.dgvBitacora.RowHeadersWidth = 62;
             this.dgvBitacora.Size = new System.Drawing.Size(722, 393);
             this.dgvBitacora.TabIndex = 0;
+            this.dgvBitacora.EnableHeadersVisualStyles = false;
+            this.dgvBitacora.RowTemplate.Height = 28;
+            this.dgvBitacora.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.AliceBlue;
+            this.dgvBitacora.ColumnHeadersDefaultCellStyle.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold);
             // 
             // btnFilterBitacora
             // 

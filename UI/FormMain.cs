@@ -1,19 +1,12 @@
 ﻿using BDE.Language;
 using BLL;
+using BLL.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using SVC;
 using SVC.LanguageManager;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Runtime.Serialization;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.FormsViewData;
 
@@ -21,19 +14,52 @@ namespace UI
 {
     public partial class FormMain : Form, IObserver
     {
-        public FormMain()
+        private readonly IDbMaintenanceService _dbMaintenaceService;
+        private readonly IUserService _userService;
+        public FormMain(
+            IDbMaintenanceService dbMaintenaceService,
+            IUserService userService
+            )
         {
             InitializeComponent();
             EnableControls();
+            _dbMaintenaceService = dbMaintenaceService;
+            _userService = userService;
+
             timerDateHour.Start();
             LanguageManager.CurrentLanguage = SessionManager.GetInstance.user.Language;
             LanguageManager.Attach(this);
             CheckIntegrityDatabase();
+
+            UI.common.Styles.ThemeManager.OnThemeChanged += ThemeManager_OnThemeChanged;
+            ApplyGlobalTheme();
+        }
+
+        private void ThemeManager_OnThemeChanged(object sender, EventArgs e)
+        {
+            ApplyGlobalTheme();
+        }
+
+        private void ApplyGlobalTheme()
+        {
+            UI.common.Styles.ThemeManager.ApplyTheme(this.Controls);
+            // Reapply form specifically
+            this.BackColor = UI.common.DefaultColors.BgPanel;
+
+            // Apply theme to currently opened form in panelInterface
+            foreach (Control control in panelInterface.Controls)
+            {
+                if (control is Form frm)
+                {
+                    frm.BackColor = UI.common.DefaultColors.BgPanel;
+                    UI.common.Styles.ThemeManager.ApplyTheme(frm.Controls);
+                }
+            }
         }
 
         private void CheckIntegrityDatabase()
         {
-            if (BLL_DV_DB.CheckDatabaseIntegrity())
+            if (_dbMaintenaceService.CheckIntegrity())
             {
                 OpenForms<FormDatabaseMaintenance>();
             }
@@ -91,90 +117,6 @@ namespace UI
             lblDateTime.Text = DateTime.Now.ToString();
 
         }
-        /*
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-        }
-        
-        private void menuTransition_Tick(object sender, EventArgs e)
-        {
-            if (menuExpand == false)
-            {
-                flp.Height += 10;
-                if (flp.Height >= flp.MaximumSize.Height)
-                {
-                    menuTransition.Stop();
-                    menuExpand = true;
-                }
-            }
-            else
-            {
-                flp.Height -= 10;
-                if (flp.Height <= flp.MinimumSize.Height)
-                {
-                    menuTransition.Stop();
-                    menuExpand = false;
-                }
-            }
-        }
-        bool menuExpand = false;
-        FlowLayoutPanel flp;
-        FlowLayoutPanel currentFlp;
-        private void btnMenu_Click(object sender, EventArgs e)
-        {
-            int btn = ((Button)sender).TabIndex;
-            switch (btn)
-            {
-                case 1:
-                    flp = menuVentas;
-                    break;
-                case 2:
-                    flp = menuOperador;
-                    break;
-                case 3:
-                    flp = menuReportes;
-                    break;
-                case 4:
-                    flp = menuUsuario;
-                    break;
-                case 5:
-                    flp = menuAdmin;
-                    break;
-                default:
-                    MessageBox.Show("opcion incorrecta");
-                    break;
-            }
-
-            if (flp == currentFlp && menuExpand)
-            {
-                // Close the menu if it's already open
-                menuTransition.Stop();
-                while (flp.Height > flp.MinimumSize.Height)
-                {
-                    flp.Height -= 10;
-                    Application.DoEvents();
-                }
-                menuExpand = false;
-            }
-            else
-            {
-                if (currentFlp != null)
-                {
-                    menuTransition.Stop();
-                    while (currentFlp.Height > currentFlp.MinimumSize.Height)
-                    {
-                        currentFlp.Height -= 10;
-                        Application.DoEvents();
-                    }
-                    currentFlp = null;
-                }
-
-                menuExpand = false;
-                flp.Height = flp.MinimumSize.Height;
-                menuTransition.Start();
-                currentFlp = flp;
-            }
-        }*/
         #endregion
         private void OpenForms<TForm>(params object[] args) where TForm : Form
         {
@@ -184,13 +126,37 @@ namespace UI
                 panelInterface.Controls.Remove(openForm);
             }
 
-            var frm = (Form)Activator.CreateInstance(typeof(TForm), args);
+            TForm frm;
+            
+            // Si el formulario requiere instanciarse con dependencias complejas, 
+            // intentamos usar nuestro contenedor IoC. Si trae argumentos quemados, 
+            // caemos en Activator.
+            if (args != null && args.Length > 0)
+            {
+                frm = (TForm)Activator.CreateInstance(typeof(TForm), args);
+            }
+            else
+            {
+                try
+                {
+                    frm = Program.ServiceProvider.GetRequiredService<TForm>();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error del IoC Container: " + ex.Message); // <-- Míralo aquí
+                    frm = (TForm)Activator.CreateInstance(typeof(TForm));
+                }
+            }
 
             frm.TopLevel = false;
             frm.MinimizeBox = false;
             frm.MaximizeBox = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Dock = DockStyle.Fill;
+            
+            // Appy theme globally to newly opened form
+            frm.BackColor = UI.common.DefaultColors.BgPanel;
+            UI.common.Styles.ThemeManager.ApplyTheme(frm.Controls);
 
             panelInterface.Controls.Add(frm);
             panelInterface.Tag = frm;
@@ -236,9 +202,9 @@ namespace UI
 
             if (r == DialogResult.Yes)
             {
-                BLL_User.Logout();
+                _userService.Logout();
                 this.Close();
-                FormLogin frmLogin = new FormLogin();
+                FormLogin frmLogin = Program.ServiceProvider.GetRequiredService<FormLogin>();
                 frmLogin.ShowDialog();
             }
         }
@@ -311,6 +277,10 @@ namespace UI
         {
             OpenForms<FormVehicles>();
         }
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            OpenForms<FormSettings>();
+        }
         #endregion
         private void FormMain_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -320,7 +290,7 @@ namespace UI
         {
             
         }
-        public void Update(BE_Language language)
+        public void Update(Language language)
         {
             UITranslator.ApplyTranslations(this, SessionManager.translations[language][this.Name]);
         }

@@ -4,18 +4,30 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UI.common.Styles;
 
 namespace UI.common
 {
     public static class DefaultColors
     {
-        public static readonly Color Primary = ColorTranslator.FromHtml("#06406A");
-        public static readonly Color PrimaryMid = ColorTranslator.FromHtml("#0A5C99");
-        public static readonly Color RowAlt = ColorTranslator.FromHtml("#EEF3F7");
-        public static readonly Color GridLines = ColorTranslator.FromHtml("#D9E2EC");
+        // Brand Primary colors remain largely same, maybe slightly tweaked for contrast in dark mode
+        public static Color Primary => ThemeManager.IsDarkMode ? ColorTranslator.FromHtml("#1D4ED8") : ColorTranslator.FromHtml("#06406A");
+        public static Color PrimaryMid => ThemeManager.IsDarkMode ? ColorTranslator.FromHtml("#2563EB") : ColorTranslator.FromHtml("#0A5C99");
 
-        public static readonly Color BgPanel = Color.WhiteSmoke;
-        public static readonly Color TextPrimary = Color.FromArgb(31, 41, 55);   // gris oscuro
-        public static readonly Color LineColor = Color.FromArgb(217, 226, 236); // línea sutil
+        // Backgrounds
+        public static Color BgPanel => ThemeManager.IsDarkMode ? Color.FromArgb(30, 41, 59) : Color.WhiteSmoke;
+        public static Color InputBg => ThemeManager.IsDarkMode ? Color.FromArgb(51, 65, 85) : Color.FromArgb(248, 250, 252);
+        public static Color ButtonSecondaryBg => ThemeManager.IsDarkMode ? Color.FromArgb(71, 85, 105) : Color.FromArgb(241, 245, 249);
+        
+        // Text
+        public static Color TextPrimary => ThemeManager.IsDarkMode ? Color.FromArgb(241, 245, 249) : Color.FromArgb(31, 41, 55);
+        public static Color TextSecondary => ThemeManager.IsDarkMode ? Color.FromArgb(148, 163, 184) : Color.FromArgb(100, 116, 139);
+
+        // Borders & Lines
+        public static Color LineColor => ThemeManager.IsDarkMode ? Color.FromArgb(71, 85, 105) : Color.FromArgb(217, 226, 236);
+        public static Color GridLines => ThemeManager.IsDarkMode ? Color.FromArgb(51, 65, 85) : Color.FromArgb(217, 226, 236);
+
+        // DataGrid Specific
+        public static Color RowAlt => ThemeManager.IsDarkMode ? Color.FromArgb(15, 23, 42) : Color.FromArgb(238, 243, 247);
     }
 }

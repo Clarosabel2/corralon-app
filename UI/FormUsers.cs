@@ -1,4 +1,5 @@
 ﻿using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,12 @@ namespace UI
 {
     public partial class FormUsers : Form
     {
-        public FormUsers()
+        private readonly IUserService _userService;
+        
+        public FormUsers(IUserService userService)
         {
             InitializeComponent();
+            _userService = userService;
             ApplyStyleCommon.DGVStyle(this.dgvUsers);
             LoadUsers();
         }
@@ -95,17 +99,16 @@ namespace UI
             dgvUsers.Columns.Add(btnDeleteCol);
             dgvUsers.Columns.Add(btnEditCol);
 
-            BLL_User.GetAllUser().ForEach(u => dgvUsers.Rows.Add(u.Emp.Id, u.Emp.Dni, u.Emp.Email, u.Username, u.Emp.Name, u.Emp.Lastname, u.Rol.ToString()));
+            _userService.GetAll().ForEach(u => dgvUsers.Rows.Add(u.Emp.Id, u.Emp.Dni, u.Emp.Email, u.Username, u.Emp.Name, u.Emp.Lastname, u.Rol.ToString()));
             /*
-            BLL_Product.GetProducts().ForEach(p => dgvProducts.Rows.Add(p.Id, p.Category, p.Brand.NameBrand, p.Name, p.Price, p.Stock));
+            _productService.GetAll().ForEach(p => dgvProducts.Rows.Add(p.Id, p.Category, p.Brand.NameBrand, p.Name, p.Price, p.Stock));
              */
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            FormCreateUser f = new FormCreateUser();
-            f.BringToFront();
-            f.StartPosition = FormStartPosition.CenterScreen;
+            FormCreateUser f = new FormCreateUser(_userService);
+            f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
     }

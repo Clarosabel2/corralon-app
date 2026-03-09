@@ -1,0 +1,15 @@
+  Determinando los proyectos que se van a restaurar...
+  No hay nada que hacer. Ninguno de los proyectos especificados contiene paquetes para restaurar.
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(42,16): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(22,17): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(30,54): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+
+ERROR al compilar.
+
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(42,16): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(22,17): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+c:\Users\abel_\source\repos\corralon-app\BDE\BE_User.cs(30,54): error CS0246: El nombre del tipo o del espacio de nombres 'BE_TypeUser' no se encontró (¿falta una directiva using o una referencia de ensamblado?) [c:\Users\abel_\source\repos\corralon-app\BDE\BE.csproj]
+    0 Advertencia(s)
+    3 Errores
+
+Tiempo transcurrido 00:00:01.00

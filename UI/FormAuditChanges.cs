@@ -1,5 +1,6 @@
 ﻿using BDE;
 using BLL;
+using BLL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,11 @@ namespace UI
 {
     public partial class FormAuditChanges : Form
     {
-        public FormAuditChanges()
+        private readonly IAuditService _auditService;
+        public FormAuditChanges(IAuditService audtitService)
         {
             InitializeComponent();
+            _auditService = audtitService;
             ApplyStyleCommon.DGVStyle(this.dataGridView1);
         }
 
@@ -121,19 +124,19 @@ namespace UI
         }
         private void LoadDataAuditChanges()
         {
-            var data = BLL_AuditChange.GetAuditChanges();
+            var data = _auditService.GetChanges();
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = data;
         }
 
-        private BE_AuditChange GetCheckedObject()
+        private Audit GetCheckedObject()
         {
             foreach (DataGridViewRow r in dataGridView1.Rows)
             {
                 var cell = r.Cells["colSel"];
                 if (cell?.Value is bool checkedVal && checkedVal)
                 {
-                    return r.DataBoundItem as BE_AuditChange;
+                    return r.DataBoundItem as Audit;
                 }
             }
             return null;
@@ -157,7 +160,7 @@ namespace UI
                 MessageBox.Show("Selecciona un registro.");
                 return;
             }
-            if (!BLL_AuditChange.RestoreAuditValue(audit)) {
+            if (!_auditService.RestoreValue(audit)) {
                 MessageBox.Show("No se pudo restaurar el valor.");
             }
             else

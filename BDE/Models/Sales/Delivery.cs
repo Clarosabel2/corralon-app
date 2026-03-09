@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BDE
+{
+    public class Delivery
+    {
+        private Sale invoice;
+        private Employee dealer;
+        private bool status;
+        private DateTime deliveryDate;
+        private DateTime _departureDate;
+        private DateTime _arrivalDate;
+        private string _addressDelivery;
+        public Delivery(DateTime deliveryDate, Sale invoice)
+        {
+            this.deliveryDate = deliveryDate;
+            this.status = false;
+            this.invoice = invoice;
+        }
+        public Delivery(Sale invoice, DateTime deliveryDate, bool status)
+        {
+            this.DeliveryDate = deliveryDate;
+            this.Status = status;
+        }
+        public Delivery() { }
+        public Employee Dealer { get => dealer; set => dealer = value; }
+        public DateTime DeliveryDate { get => deliveryDate; set => deliveryDate = value; }
+        public bool Status { get => status; set => status = value; }
+        public Sale Sale { get => invoice; set => invoice = value; }
+        public DateTime DepartureDate { get => _departureDate; set => _departureDate = value; }
+        public DateTime ArrivalDate { get => _arrivalDate; set => _arrivalDate = value; }
+        public string AddressDelivery { get => _addressDelivery; set => _addressDelivery = value; }
+    }
+}
